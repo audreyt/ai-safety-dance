@@ -1,215 +1,222 @@
-**The AI debate is actually 100 debates in a trenchcoat.**
+**關於 AI 的爭論，其實是「一百場爭論疊在同一件風衣裡」。**
 
-Will artificial intelligence (AI) help us cure all disease, and build a post-scarcity world full of flourishing lives? Or will AI help tyrants surveil and manipulate us further? Are the main risks of AI from accidents, abuse by bad actors, or a rogue AI _itself_ becoming a bad actor? Is this all just hype? Why can AI imitate any artist's style in a minute, yet gets confused drawing more than 3 objects? Why is it hard to make AI robustly serve humane values, or robustly serve _any_ goal? What if an AI learns to be _more_ humane than us? What if an AI learns humanity's _inhumanity_, our prejudices and cruelty? Are we headed for utopia, dystopia, extinction, a fate _worse_ than extinction, or — the most shocking outcome of all — _nothing changes?_ Also: will an AI take my job?
+人工智慧（AI）會幫助我們治癒一切疾病，打造一個後匱乏、人人得以繁榮的世界嗎？還是 AI 會幫助暴君進一步監控與操縱我們？AI 的主要風險，來自意外、壞人濫用，還是失控的 AI 本身就成了壞人？這一切只是炒作嗎？為什麼 AI 能在一分鐘內模仿任何藝術家的風格，卻在畫超過三個物件時就困惑？為什麼很難讓 AI 穩健地服務於「人道」（humane）的價值，甚至是穩健地服務於「任何」目標？如果 AI 變得比我們更有人道精神怎麼辦？如果 AI 學到的是人類的「不人道」，也就是偏見與殘酷，又會如何？我們要走向烏托邦、反烏托邦、滅絕、比滅絕更糟的結局，還是——最令人震驚的——什麼都不變？另外：AI 會搶走我的工作嗎？
 
-...and many more questions.
+……還有更多更多問題。
 
-Alas, to understand AI with nuance, we must understand lots of technical detail... but that detail is scattered across hundreds of articles, buried six-feet-deep in jargon.
+可惜的是，要細膩地理解 AI，就得理解大量技術細節……然而這些細節散落在上百篇文章中，被滿坑滿谷的術語深埋。
 
-So, I present to you:
+因此，我向你呈上：
 
-![RCM (Robot Catboy Maid) throwing confetti under a banner that reads: A Whirlwood Tour Guide to AI Safety for Us Warm, Normal Fleshy Humans.](media/intro/confetti.png)
+  ![RCM (Robot Catboy Maid) throwing confetti under a banner that reads: A Whirlwood Tour Guide to AI Safety for Us Warm, Normal Fleshy Humans.](media/intro/confetti.png)
 
-**This 3-part series is your one-stop-shop to understand the core ideas of AI & AI Safety\* — explained in a friendly, accessible, and slightly opinionated way!**
-
-(\* Related phrases: AI Risk, AI X-Risk, AI Alignment, AI Ethics, AI Not-Kill-Everyone-ism. There is *no* consensus on what these phrases do & don't mean, so I'm just using "AI Safety" as a catch-all.)
-
-This series will also have comics starring a Robot Catboy Maid. Like so:
-
-![Comic. Ham the Human tells RCM (Robot Catboy Maid) to "keep this hosue clean". RCM reasons: What causes the mess? The humans cause the mess! Therefore: GET RID OF THE HUMANS. RCM then *yeets* Ham out of the house.](media/intro/Outer_Alignment.png)
-
-`[tour guide voice]` And to your right 👉, you'll see buttons for <img src="media/intro/icon1.png" class="inline-icon"/> the Table of Contents, <img src="media/intro/icon2.png" class="inline-icon"/> changing this webpage's style, and <img src="media/intro/icon3.png" class="inline-icon"/> a reading-time-remaining clock.
-
-For this series, the Intro & Part 1 were published on **May 2024**, Part 2 is out now on **Aug 2024**, and Part Three will be out on **Dec 2024**. OPTIONAL: If you'd like to be notified on their release, signup below!👇 You *will not* be spammed with other stuff, just the two notification emails. (Buuuuut, `[podcast sponsor voice]` if you're in high school or earlier, and interested in AI/code/engineering, consider checking the box to learn more about [Hack Club!](https://hackclub.com/) P.S: There's free *stickers~~~* ✨)
-
-{% include 'templates/signup.html' %}
-
-Anyway, `[tour guide voice again]` before we hike through the rocky terrain of AI & AI Safety, let's take a 10,000-foot look of the land:
-
----
-
-## 💡 The Core Ideas of AI & AI Safety
-
-In my opinion, the main problems in AI and AI Safety come down to **two core conflicts:**
-
-![Logic "vs" Intuition, and Problems in the AI "vs" in Humans](media/intro/Core%20Problems.png)
-
-Note: What "Logic" and "Intuition" are will be explained more rigorously in Part One. For now: Logic is step-by-step cognition, like solving math problems. Intuition is all-at-once *re*cognition, like seeing if a picture is of a cat. "Intuition and Logic" roughly map onto "System 1 and 2" from cognitive science.[^footnotes-explained][^fast-slow] *(👈 hover over these footnotes! they expand!)*
-
-[^fast-slow]: **System 1** thinking is fast & automatic (e.g. riding a bike). **System 2** thinking is slow & deliberate (e.g. doing crosswords). This idea was popularized in [Thinking Fast & Slow (2011)](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow) by Daniel Kahneman, which summarized his research with Amos Tversky. And by "summarized" I mean the book's ~500 pages long.
-
-As you can tell by the "scare" "quotes" on *"versus"*, these divisions ain't really so divided after all...
-
-Here's how these conflicts repeat over this 3-part series:
-
-### Part 1: The past, present, and possible futures
-
-Skipping over a *lot* of detail, the history of AI is a tale of *Logic vs Intuition:*
-
-**Before 2000: AI was all logic, no intuition.**    
-
-This was why, in 1997, AI could beat the world champion at chess... yet no AIs could reliably recognize cats in pictures.[^chess-vs-cats]
-
-(Safety concern: Without intuition, AI can't understand common sense or humane values. Thus, AI might achieve goals in logically-correct but undesirable ways.)
-
-**After 2000: AI could do "intuition", but had very poor logic.**    
-
-This is why generative AIs (*as of current writing, May 2024*) can dream up whole landscapes in any artist's style... [:yet gets confused drawing more than 3 objects](#FourObjects). *(👈 click this text! it also expands!)*
-
-(Safety concern: Without logic, we can't verify what's happening in an AI's "intuition". That intuition could be biased, subtly-but-dangerously wrong, or fail bizarrely in new scenarios.)
-
-**Current Day: We _still_ don't know how to unify logic & intuition in AI.**
-
-But if/when we do, *that* would give us the biggest risks & rewards of AI: something that can logically out-plan us, *and* learn general intuition. That'd be an "AI Einstein"... or an "AI Oppenheimer".
-
-Summed in a picture:
-
-![Timeline of AI. Before the year 2000, mostly "logic". From 2000 to now, mostly "intuition". In the future, maybe both?](media/intro/Timeline.png)
-
-So that's "Logic vs Intuition". As for the other core conflict, "Problems in the AI vs The Humans", that's one of the big controversies in the field of AI Safety: are our main risks from advanced AI *itself*, or from *humans* misusing advanced AI?
-
-(Why not both?)
-
-[^footnotes-explained]: Hi! I'm not like those *other* footnotes. 😤 Instead of annoyingly teleporting you down the page, I popover in a bubble that maintains your reading flow! Anyway, check the *next* footnote for this paragraph's citation.
-
-[^chess-vs-cats]: In 1997, IBM's [Deep Blue](https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)) beat Garry Kasparov, the then-world chess champion. Yet, over a decade later in 2013, the *best* machine vision AI was only 57.5% accurate at classifying images. It was only until *2021*, three years ago, that AI hit 95%+ accuracy. (Source: [PapersWithCode](https://paperswithcode.com/sota/image-classification-on-cifar-100))
-
-### Part 2: The problems
-
-*The* problem of AI Safety is this:[^russell-coined]
-
-> <u>**The Value Alignment Problem**</u>:    
-> “How can we make AI robustly serve humane values?”
-
-NOTE: I wrote *humane*, with an "e", not just "human". A *human* may or may not be *humane*. I'm going to harp on this because *both* advocates & critics of AI Safety keep mixing up the two.[^mixup][^humane]
-
-[^mixup]: A sentiment I see a lot: "Aligning AI to human values would be bad actually, because current human values are bad." To be honest, [glances at a history textbook] I 80% agree. It's not enough to make an AI act *human*, it's got to act *humane.*
-
-[^humane]: Maybe 50 years from now, in the genetically-modified cyborg future, calling compassion "humane" might sound quaintly species-ist.
-
-We can break this problem down by "Problems in Humans vs AI":
-
-> <u>**Humane Values:**</u>    
-> “What *are* humane values, anyway?”    
-> (a problem for philosophy & ethics)
-
-> <u>**The *Technical* Alignment Problem:**</u>    
-> “How can we make AI robustly serve *any intended goal* at all?”    
-> (a problem for computer scientists - surprisingly, still unsolved!)
-
-The *technical* alignment problem, in turn, can be broken down by "Logic vs Intuition":
-
-> <u>Problems with AI Logic</u>:[^fancy-1] ("game theory" problems)    
-> * AIs may accomplish goals in logical but undesirable ways.
-> * Most goals logically lead to the same unsafe sub-goals: "don't let anyone stop me from accomplishing my goal", "maximize my ability & resources to optimize for that goal", etc.
-
-> <u>Problems with AI Intuition</u>:[^fancy-2] ("deep learning" problems)    
-> * An AI trained on human data could learn our prejudices.
-> * AI "intuition" isn't understandable or verifiable.
-> * AI "intuition" is fragile, and fails in new scenarios.
-> * AI "intuition" could *partly* fail, which may be worse: an AI with intact *skills*, but broken *goals*, would be an AI that *skillfully* acts towards corrupted goals.
-
-(Again, what "logic" and "intuition" are will be more precisely explained later!)
-
-Summed in a picture:
-
-![A diagram breaking down the AI Alignment Problem. "How can we align AI with humane values?" splits into "Technical Alignment" and "Humane Values". Technical Alignment splits into "AI Logic (game theory)" and "AI Intuition (deep learning)"](media/intro/Breakdown.png)
-
-As intuition for how hard these problems are, note that we haven't even solved them *for us humans* — People follow the letter of the law, not the spirit. People's intuition can be biased, and fail in new circumstances. And none of us are 100% the humane humans we wished we were.
-
-So, if I may be a bit sappy, maybe understanding AI will help us understand ourselves. And just maybe, we can solve the *human* alignment problem: How do we get *humans* to robustly serve humane values?
-
-[^russell-coined]: "Value alignment problem" was *first* coined by Stuart Russell (co-author of *the* most-used AI textbook) in [Russell, 2014 for *Edge*](https://www.edge.org/conversation/the-myth-of-ai#26015).
-
-[^fancy-1]: The fancy jargon for these problems are, respectively: a) "Specification gaming", b) "Instrumental convergence". These will be explained in Part 2!
-
-[^fancy-2]: The fancy jargon for these problems are, respectively: a) "AI Bias", b) "Interpretability", c) "Out-of-Distribution Errors" or "Robustness failure", d) "Inner misalignment" or "Goal misgeneralization" or "Objective robustness failure". Again, all will be explained in Part 2!
-
-### Part 3: The proposed solutions
-
-Finally, we can understand some (possible) ways to solve the problems in logic, intuition, AIs, *and* humans! These include:
-
-* Technical solutions
-* Policy/governance solutions
-* "How 'bout you just shut it down & don't build the torture nexus"
-
-— and more! Experts disagree on which proposals will work, if any... but it's a good start.
-
-(Unfortunately, I can't give a layperson-friendly summary in this Intro, because these solutions won't make sense *until* you understand the problems, which is what Part 1 & 2 are for. That said, if you want spoilers, [:click here to see what Part 3 will cover!](#Part3Details))
+  **這套三部曲將一次帶你掌握 AI 與 AI 安全\* 的核心觀念 —— 以親切、易懂、略帶個人觀點的方式呈現！**
+  
+  （\* 相關用語：AI 風險、AI 存在風險（X-Risk）、AI 對齊（Alignment）、AI 倫理、AI-不要-把-大家-都-幹掉-主義。這些詞的確切涵義並*沒有*共識，所以本文統稱為「AI 安全」。）
+  
+  本系列還有由機器人貓耳男僕（Robot Catboy Maid）主演的漫畫。像這樣：
+  
+  ![漫畫。人類 Ham 對 RCM（機器人貓耳男僕）說：「保持這棟房子乾淨。」RCM 推理：是什麼造成髒亂？人類造成髒亂！因此：把人類趕出去。RCM 接著把 Ham *整個丟* 出房子。](media/intro/Outer_Alignment.png)
+  
+  `[導遊語氣]` 請看您的右手邊 👉，有 <img src="media/intro/icon1.png" class="inline-icon"/> 目錄按鈕、<img src="media/intro/icon2.png" class="inline-icon"/> 網頁樣式切換，以及 <img src="media/intro/icon3.png" class="inline-icon"/> 剩餘閱讀時間時鐘。
+  
+  關於本系列：導言與第一部分發表於 **2024 年 5 月**，第二部分已於 **2024 年 8 月** 上線，第三部分預計 **2024 年 12 月** 推出。可選：如果想在發佈時收到通知，請於下方登記！👇 我*不會*寄送其他內容騷擾你，只有兩封通知信。（不過呢，`[Podcast 贊助商語氣]` 如果你是高中生或更小、且對 AI／程式／工程有興趣，可以勾選選項以了解更多 [Hack Club](https://hackclub.com/)。附註：有免費的*貼紙～～～* ✨）
+  
+  {% include 'templates/signup.html' %}
+  
+  總之，`[導遊語氣回歸]` 在踏上 AI 與 AI 安全這段岩石嶙峋的徒步旅程前，讓我們先用「一萬英尺視角」俯瞰全景：
 
 ---
 
-## 🤔 (_Optional_ flashcard review!)
+## 💡 AI 與 AI 安全的核心觀念
 
-Hey, d'ya ever get this feeling?
+在我看來，AI 與 AI 安全的主要問題可歸結為**兩大核心衝突：**
 
-1. "Wow that was a wonderful, insightful thing I just read"
-2. [forgets everything 2 weeks later]
-3. "Oh no"
+![邏輯「對上」直覺，以及問題出在 AI「對上」出在人類](media/intro/Core%20Problems.png)
 
-To avoid that for *this* guide, I've included some *OPTIONAL* interactive flashcards! They use "Spaced Repetition", an easy-ish, evidence-backed way to "make long-term memory a choice". ([:click here to learn more about Spaced Repetition!](#SpacedRepetition))
 
-Here: **try the below flashcards, to retain what you just learnt!**
+[^fast-slow]: **系統一（System 1）** 的思考快速且自動（如騎腳踏車）。**系統二（System 2）** 的思考緩慢且深思熟慮（如下字謎）。這個概念由丹尼爾・康納曼在《[快思慢想（2011）](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow)》普及，書中總結了他與阿莫斯・特沃斯基的研究。所謂「總結」，其實這本書有將近 500 頁之多。
 
-(There's an optional sign-up at the end, *if* you want to save these cards for long-term study. Note: *I do not own or control this app*, it's third-party. If you'd rather use the open source flashcard app [Anki](https://apps.ankiweb.net/index.html), **here's [a downloadable Anki deck](https://ankiweb.net/shared/info/341999410)**!)
+從我在「對上」周圍加上這些引號就能看出，這些分界其實沒有那麼分明……
 
-(Also, you don't need to memorize the answers *exactly*, just the gist. You be the judge if you got it "close enough".)
+以下是這兩大衝突如何在三部曲中反覆出現：
+  
+  ### 第 1 部分：過去、現在，以及可能的未來
+  
+  省略*大量*細節不談，AI 的歷史其實就是一則「*邏輯對上直覺*」的故事：
+  
+  **2000 年之前：AI 幾乎全是邏輯，幾乎沒有直覺。**    
+  
+  這就是為什麼 1997 年時，AI 能在西洋棋上打敗世界冠軍……卻沒有任何 AI 能可靠地在圖片中辨識出貓。[^chess-vs-cats]
+  
+  （安全顧慮：沒有直覺，AI 無法理解常識或人道價值。因此，AI 可能以邏輯上正確但不理想的方式達成目標。）
+  
+  **2000 年之後：AI 能做出「直覺」了，但邏輯很差。**    
+  
+  這就是為什麼生成式 AI（*以本文撰寫時的 2024 年 5 月為準*）能用任何藝術家的風格夢製整片景致……[:但在畫超過 3 個物件時就會困惑](#FourObjects)。*（👈 點這段文字！它也會展開！）*
+  
+  （安全顧慮：沒有邏輯，我們無法驗證 AI 的「直覺」裡發生了什麼。那份直覺可能有偏誤、可能在細微之處產生危險的錯誤，或在新情境下以怪異方式失靈。）
+  
+  **直到今日：我們*仍然*不知道如何在 AI 中統合邏輯與直覺。**
+  
+  但若我們做得到，那*將*帶來 AI 最大的風險與最大的新契機：一個既能在邏輯上勝過我們的規劃，*又*能學到普遍化直覺的系統。那會是「愛因斯坦級 AI」……或是「歐本海默級 AI」。
+  
+  一圖總結：
+  
+  ![AI 時間線。2000 年之前，多為「邏輯」。2000 年至今，多為「直覺」。未來，也許兩者兼具？](media/intro/Timeline.png)
+  
+  以上是「邏輯對上直覺」。至於另一個核心衝突——「問題出在 AI 還是出在人類」——這正是 AI 安全領域的一大爭議：我們的主要風險，是來自先進 AI *本身*，還是來自*人類*對先進 AI 的濫用？
+  
+  （為什麼不能兩者皆是？）
+  
+  [^footnotes-explained]: 嗨！我和*其他*註腳不一樣。😤 我不會惱人地把你傳送到頁面底部，而是以彈出泡泡的方式顯示，讓你的閱讀不中斷！總之，請看*下一個*註腳以取得本段落的出處。
+  
+  [^chess-vs-cats]: In 1997, IBM's [Deep Blue](https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)) beat Garry Kasparov, the then-world chess champion. Yet, over a decade later in 2013, the *best* machine vision AI was only 57.5% accurate at classifying images. It was only until *2021*, three years ago, that AI hit 95%+ accuracy. (Source: [PapersWithCode](https://paperswithcode.com/sota/image-classification-on-cifar-100))
+  
+  ### 第 2 部分：問題本質
+  
+  AI 安全*最核心*的問題是這個：[^russell-coined]
+  
+  > <u>**價值對齊問題（Value Alignment Problem）**</u>：    
+  > 「我們如何讓 AI 穩健地服務於人道（humane）的價值？」
+  
+  注意：我用的是 *humane*（「人道」），而不單是 *human*（「人類」）。一個*人*未必*人道*。我要反覆強調這點，因為支持與批評 AI 安全的人*都*常把兩者混為一談。[^mixup][^humane]
+  
+  [^mixup]: 我常見到的說法是：「把 AI 對齊到人類價值其實很糟，因為當前的人類價值很糟。」老實說，[瞄一眼歷史課本] 我有 80% 同意。讓 AI 行為*像人*還不夠，它得*有人道精神*。
+  
+  [^humane]: 也許 50 年後，在基因改造與賽博格遍地的未來，把慈悲稱為「人道」可能會顯得老派、甚至帶點物種中心主義。
+  
+  我們可以依照「問題出在人類 vs 出在 AI」來拆解這個問題：
+  
+  > <u>**人道的價值**：</u>    
+  > 「究竟什麼是『人道的價值』？」    
+  > （留給哲學與倫理學的問題）
+  
+  > <u>**「技術性」對齊問題**：</u>    
+  > 「我們究竟要如何讓 AI 穩健地服務於*任何預期的目標*？」    
+  > （計算機科學家的問題——出乎意料地，仍未解決！）
+  
+  而「技術性」對齊問題，又可依「邏輯 vs 直覺」進一步拆解：
+  
+  > <u>AI 邏輯面的問題</u>：[^fancy-1]（「賽局理論」類問題）    
+  > * AI 可能以邏輯正確、但不理想的方式達成目標。
+  > * 大多數目標在邏輯上都會導向相同且不安全的子目標：「不要讓任何人阻止我達成目標」、「最大化我的能力與資源以最佳化該目標」等。
+  
+  > <u>AI 直覺面的問題</u>：[^fancy-2]（「深度學習」類問題）    
+  > * 以人類資料訓練的 AI 可能學到我們的偏見。
+  > * AI 的「直覺」不可理解、不可驗證。
+  > * AI 的「直覺」脆弱，會在新情境下失靈。
+  > * AI 的「直覺」可能*部分*失靈，這也許更糟：當 *技能* 完好但 *目標* 損壞時，AI 會以高超技能朝著扭曲的目標前進。
+  
+  （再說一次，何謂「邏輯」與「直覺」稍後會更精確地說明！）
+  
+  一圖總結：
+  
+  ![拆解 AI 對齊問題的圖：從「如何讓 AI 對齊人道價值？」分為「技術性對齊」與「人道價值」。技術性對齊再分為「AI 邏輯（賽局理論）」與「AI 直覺（深度學習）」。](media/intro/Breakdown.png)
+  
+  要直覺感受這些問題有多難，先注意：我們連在*人類自身*都還沒解決——人們常遵循法律的字面而非精神。人們的直覺會有偏誤，會在新情境下失效。我們任何人都不是 100% 達到自己期許的那種「人道的人」。
+  
+  所以，容我小小感性一下，也許理解 AI 會幫助我們理解自己。也許我們能解決*人類*的對齊問題：我們如何讓*人類*穩健地服務於人道的價值？
+  
+  [^russell-coined]: 「價值對齊問題」一詞最早由史都華・羅素（最常用 AI 教科書的共同作者）在 [Russell, 2014，刊於 *Edge*](https://www.edge.org/conversation/the-myth-of-ai#26015) 提出。
+  
+  [^fancy-1]: 專業術語分別是：a）「規格規避（Specification gaming）」、b）「工具性收斂（Instrumental convergence）」。將在第二部分說明！
+  
+  [^fancy-2]: 專業術語分別是：a）「AI 偏見（AI Bias）」、b）「可解釋性（Interpretability）」、c）「分佈外錯誤（Out-of-Distribution Errors）」或「穩健性失敗（Robustness failure）」、d）「內在失對齊（Inner misalignment）」或「目標誤泛化（Goal misgeneralization）」或「目標穩健性失敗（Objective robustness failure）」。同樣會在第二部分說明！
+
+### 第 3 部分：提議的解方
+
+最後，我們可以來理解一些（可能）解決「邏輯、直覺、AI、以及人類」問題的方法！其中包括：
+
+* 技術面解方
+* 政策／治理面解方
+* 「不然你就先關掉、別去打造那個酷刑樞紐吧」
+
+（可惜的是，我無法在本導言中給出面向大眾的易懂總結，因為在你理解問題之前——也就是第一與第二部分要做的事——這些解方並不會有太大意義。話雖如此，如果你想先看重點劇透，[:點此查看第三部分將涵蓋的內容！](#Part3Details)）
+
+---
+
+  ## 🤔 （_選填_）抽認卡複習！
+### 第 3 部分：提議的解方
+
+最後，我們可以來理解一些（可能）解決「邏輯、直覺、AI、以及人類」問題的方法！其中包括：
+
+* 技術面解方
+* 政策／治理面解方
+* 「不然你就先關掉、別去打造那個酷刑樞紐吧」
+
+——還有更多！專家對哪些提案可行（如果有的話）並無共識……不過這是個很好的起點。
+
+（可惜的是，我無法在本導言中給出面向大眾的易懂總結，因為在你理解問題之前——也就是第一與第二部分要做的事——這些解方並不會有太大意義。話雖如此，如果你想先看重點劇透，[:點此查看第三部分將涵蓋的內容！](#Part3Details)）
+你是否也有過這種感覺？
+
+1. 「哇，我剛讀到的內容真是精彩又有洞見」
+2. （兩週後全忘光）
+3. 「糟了」
+
+為了避免在讀完*本*指南後也發生這種事，我放入了幾張「*選填*」互動抽認卡！它們採用「間隔重複（Spaced Repetition）」——一種相對簡單、且有實證支持的方法，讓「長期記憶」成為一種可選擇的結果。（[:點此了解更多關於間隔重複！](#SpacedRepetition)）
+
+來試試看吧：**用下面的抽認卡，幫助你保留剛學到的重點！**
+
+（最後有個選填的註冊選項，*如果*你想把這些卡片存起來做長期複習。注意：*我並不擁有也不控制這個服務*，它是第三方的。如果你偏好使用開源的抽認卡軟體 [Anki](https://apps.ankiweb.net/index.html)，**這裡有[可下載的 Anki 卡包](https://ankiweb.net/shared/info/341999410)**！）
+
+（另外，你不需要把答案*逐字*背起來，掌握大意即可。是否「夠接近」交由你自己判斷。）
 
 <orbit-reviewarea color="violet">
     <orbit-prompt
-        question="The two core divides in AI & AI Safety:"
+        question="AI 與 AI 安全的兩大核心分歧："
         answer=""
         answer-attachments="https://cloud-ifq5g4slt-hack-club-bot.vercel.app/0core_problems.png">
         <!-- aisffs-two-conflicts.png -->
     </orbit-prompt>
     <orbit-prompt
-        question="The two main eras in AI (very rough year approximation):"
-        answer="Before 2000: AI that's all Logic, no Intuition. After 2000: AI with Intuition, but poor Logic.">
+        question="AI 的兩個主要時代（年份僅粗略）："
+        answer="2000 年之前：幾乎全是邏輯、沒有直覺。2000 年之後：有了直覺，但邏輯薄弱。">
     </orbit-prompt>
     <orbit-prompt
-        question="The Value Alignment Problem:"
-        answer="“How can we make AI robustly serve humane values?”">
+        question="價值對齊問題："
+        answer="「我們如何讓 AI 穩健地服務於人道（humane）的價值？」">
     </orbit-prompt>
     <orbit-prompt
-        question="The Value Alignment Problem can be broken up into two sub-problems:"
-        answer="What are humane values? / The Technical Alignment Problem">
+        question="價值對齊問題可拆成兩個子問題："
+        answer="何謂人道的價值？／技術性對齊問題">
     </orbit-prompt>
     <orbit-prompt
-        question="The Technical Alignment Problem:"
-        answer="“How can we make AI robustly serve *any intended goal* at all?”">
+        question="技術性對齊問題："
+        answer="「我們要如何讓 AI 穩健地服務於『任何預期的目標』？」">
     </orbit-prompt>
     <orbit-prompt
-        question="Why a *technically* aligned AI isn't necessarily good:"
-        answer="Because an AI could be ‘aligned’ to a cruel human's values – *human* is not necessary *humane*.">
+        question="為何『技術上』對齊的 AI 不一定是好的："
+        answer="因為 AI 可能對齊於某個殘酷人類的價值——『human（人類）』不等於『humane（人道）』。">
     </orbit-prompt>
     <orbit-prompt
-        question="The Technical Alignment Problem can be broken up into two sub-problems:"
-        answer='Problems with AI Logic ("game theory" problems) / Problems with AI "Intuition" ("deep learning" problems)'>
+        question="技術性對齊問題可再拆為兩項："
+        answer='AI 的邏輯面問題（「賽局理論」類）／AI 的「直覺」面問題（「深度學習」類）'>
     </orbit-prompt>
 </orbit-reviewarea>
 
 ---
 
-## 🤷🏻‍♀️ Five common misconceptions about AI Safety
+## 🤷🏻‍♀️ 關於 AI 安全的五個常見誤解
 
-> “*It ain’t what you don’t know that gets you into trouble.
-> It’s what you know for sure that just ain’t so.*”
+> 「讓你惹上麻煩的，*不是*你不知道的事；
+> 而是那些你*深信不疑*、其實不對的事。」
 >
-> ~ often attributed to Mark Twain, but it just ain't so[^not-twain]
+> ～ 常被歸於馬克・吐溫，但事實並非如此[^not-twain]
 
-For better and worse, you've already heard too much about AI. So before we connect *new* puzzle pieces in your mind, we gotta take out the *old* pieces that just ain't so.
+不論好壞，你大概已經聽過*太多*關於 AI 的說法了。因此，在我們把*新的*拼圖放進你腦中之前，得先把那些其實不對的*舊*拼圖拿掉。
 
-Thus, if you'll indulge me in a "Top 5" listicle...
+所以，容我來一篇「前五名」清單文……
 
-[^not-twain]: Quote Investigator (2018) could find [no hard evidence on the true creator of this quote](https://quoteinvestigator.com/2018/11/18/know-trouble/).
+[^not-twain]: 引言調查（Quote Investigator，2018）找不到[此語錄真正作者的確鑿證據](https://quoteinvestigator.com/2018/11/18/know-trouble/)。
 
-### 1) No, AI Safety isn't a fringe concern by sci-fi weebs.
+### 1) 不，AI 安全不是一群科幻迷的邊緣關切。
 
-![RCM in front of a "crazy board" with red thread, thumbtacks, and papers with AI jargon.](media/intro/crazy.png)
+![RCM 站在一塊用紅線與圖釘串起、貼滿 AI 術語的「陰謀板」前。](media/intro/crazy.png)
 
-AI Safety / AI Risk used to be less mainstream, but now in 2024, the US & UK governments now have AI Safety-specific departments![^departments] This resulted from many of *the* top AI researchers raising alarm bells about it. These folks include:
+AI 安全／AI 風險曾經較不主流，但到了 2024 年，美國與英國政府都已設立了 AI 安全專責單位！[^departments] 這是因為許多*頂尖* AI 研究者發出了警訊。他們包括：
 
-[^departments]: The UK introduced the world's first state-backed AI Safety Institute [in Nov 2023](https://www.gov.uk/government/publications/ai-safety-institute-overview/introducing-the-ai-safety-institute). The US followed suit with an AI Safety Institute [in Feb 2024](https://www.commerce.gov/news/press-releases/2024/02/biden-harris-administration-announces-first-ever-consortium-dedicated). I just noticed *both* articles claim to be the "first". Okay.
+[^departments]: 英國於 [2023 年 11 月](https://www.gov.uk/government/publications/ai-safety-institute-overview/introducing-the-ai-safety-institute) 成立全球首個由國家支持的 AI 安全研究院；美國則在 [2024 年 2 月](https://www.commerce.gov/news/press-releases/2024/02/biden-harris-administration-announces-first-ever-consortium-dedicated) 跟進成立 AI 安全研究院。我剛注意到兩篇文章*都*說自己是「第一個」。好吧。
 
 * Geoffrey Hinton[^hinton] and Yoshua Bengio[^bengio], co-winners of the 2018 Turing Prize (the "Nobel Prize of Computing") for their work on deep neural networks, the thing that *all* the new famous AIs use.[^all-famous-ai]
 * Stuart Russell and Peter Norvig, the authors of *the* most-used textbook on Artificial Intelligence.[^russell-norvig]
@@ -235,46 +242,46 @@ But speaking of sci-fi weebs...
 
 [^mitchell]: Melanie Mitchell & Yann LeCun took the "skeptic" side of [a 2023 public debate on "Is AI an Existential Threat?"](https://thehub.ca/2023-07-04/is-ai-an-existential-threat-yann-lecun-max-tegmark-melanie-mitchell-and-yoshua-bengio-make-their-case/) The "concerned" side was taken up by Yoshua Bengio and physicist-philosopher Max Tegmark.
 
-### 2) No, AI Risk is *NOT* about AI becoming "sentient" or "conscious" or gaining a "will to power".
+### 2) 不，AI 風險*不是*關於 AI 變得「有感知／有意識」或獲得「權力意志」。
 
-Sci-fi authors write sentient AIs because they're writing *stories*, not technical papers. The philosophical debate on artificial consciousness is fascinating, *and irrelevant to AI Safety.* Analogy: a nuclear bomb isn't conscious, but it can still be unsafe, no?
+科幻作家會寫有感知的 AI，是因為他們在寫*故事*，不是技術論文。關於人工意識的哲學爭論很迷人，*但與 AI 安全無關。* 類比一下：核彈沒有意識，但它仍然很不安全，對吧？
 
 ![Left: drawing of a nuke, captioned "not conscious". Right: drawing of Professor Nuke giving a lecture titled, "Why Murder is Good, Actually." Captioned, "conscious".](media/intro/conscious.png)
 
-As mentioned earlier, the real problems in AI Safety are "boring": an AI learns the wrong things from its biased training data, it breaks in slightly-new scenarios, it logically accomplishes goals in undesired ways, etc.
+如前所述，AI 安全的真正問題其實很「無聊」：AI 可能從帶偏見的訓練資料中學到錯誤的東西、在稍微新一點的情境下失靈、用邏輯上正確但不理想的方式達成目標，等等。
 
-But, "boring" doesn't mean *not important*. The technical details of how to design a safe elevator/airplane/bridge are boring to most laypeople... *and also* a matter of life-and-death.
+但「無聊」不代表*不重要*。如何設計安全的電梯／飛機／橋梁的技術細節，對大多數人來說或許無聊……但*同時也是*攸關生死的大事。
 
-(Catastrophic AI Risk doesn't even require "super-human general intelligence"! For example, an AI that's "only" good at designing viruses could help a bio-terrorist organization (like Aum Shinrikyo[^aum]) kill millions of people.)
+（災難性的 AI 風險甚至不需要「超人類的一般智慧」！例如，一個「只」擅長設計病毒的 AI，就可能幫助生化恐怖組織（如奧姆真理教[^aum]）害死數百萬人。）
 
 But speaking of killing people...
 
 [^aum]: A Japanese cult that attacked people with chemical & biological weapons. Most infamously, in 1995, they released nerve gas on the Tokyo Metro, injuring 1,050 people & killing 14 people. ([Wikipedia](https://en.wikipedia.org/wiki/Tokyo_subway_sarin_attack))
 
-### 3) No, AI Risk isn't _necessarily_ extinction, SkyNet, or nanobots
+### 3) 不，AI 風險並*不一定*是滅絕、天網（SkyNet），或奈米機器人大軍
 
 ![A drawing of Microsoft Clippy saying: "It looks like you're trying to commit omnicide. Would you like some help?"](media/intro/omnicide.png)
 
-While most AI researchers *do* believe advanced AI poses a 5+% risk of "literally everybody dies"[^ai-xrisk], it's *very* hard to convince folks (especially policymakers) of stuff that's never happened before.
+雖然多數 AI 研究者*確實*認為先進 AI 存在超過 5% 的「全人類字面意義上的完蛋」風險[^ai-xrisk]，但要說服人們（尤其是決策者）相信從未發生過的事，實在*非常*困難。
 
-So instead, I'd like to highlight the ways that advanced AI – (especially when it's available to anyone with a high-end computer) – could lead to catastrophes, "merely" by scaling up *already-existing* bad stuff.
+因此，我想改以強調：先進 AI（尤其是當任何擁有高階電腦的人都能取得時）如何僅僅透過把*既存*的壞事「放大」，就可能導致災難。
 
-For example:
+例如：
 
-* <u>Bio-engineered pandemics</u>: A bio-terrorist cult (like Aum Shinrikyo[^aum]) uses AI (like AlphaFold[^alphafold]) and DNA-printing (which is getting cheaper *fast*[^dna-printing]) to design multiple new super-viruses, and release them simultaneously in major airports around the globe.
-    * (Proof of concept: Scientists have *already* re-built polio from mail-order DNA... two decades ago.[^polio])
-* <u>Digital authoritarianism</u>: A tyrant uses AI-enhanced surveillance to hunt down protestors ([already happening](https://www.reuters.com/article/us-russia-politics-navalny-tech-idUSKBN2AB1U2/)), generate individually-targeted propaganda ([kind of happening](https://www.technologyreview.com/2023/10/04/1080801/generative-ai-boosting-disinformation-and-propaganda-freedom-house/)), and autonomous military robots ([soon-to-be happening](https://theconversation.com/us-military-plans-to-unleash-thousands-of-autonomous-war-robots-over-next-two-years-212444))... all to rule with a silicon fist.
-* <u>Cybersecurity Ransom Hell</u>: Cyber-criminals make a computer virus that *does its own hacking & re-programming*, so it's always one step ahead of human defenses. The result: an unstoppable worldwide bot-net, which holds critical infrastructure ransom, and manipulates top CEOs and politicians to do its bidding.
-  * (For context: *without* AI, hackers have already damaged nuclear power plants,[^stuxnet] held hospitals ransom[^ransom-hospitals] which maybe killed someone,[^hospital-death] and almost poisoned a town's water supply *twice*.[^water-supply] *With* AI, deepfakes have been used to swing an election,[^deepfake-election] steal $25 million in a single heist,[^hong-kong] and target parents for ransom, using the faked voices of their children being kidnapped & crying for help.[^deepfake-ransom])
-  * (This is why it's not easy to "just shut down an AI when we notice it going haywire"; as the history of computer security shows, we just *suck* at noticing problems in general. [:I cannot over-emphasize how much the modern world is built on an upside-down house of cards.](#xz))
+* <u>生物工程式大流行</u>：一個生化恐怖邪教（如奧姆真理教[^aum]）利用 AI（如 AlphaFold[^alphafold]）與 DNA 列印（成本正*快速*下降[^dna-printing]）設計出多種新型超級病毒，並在全球主要機場同時釋放。
+    *（概念驗證：科學家早在*二十年前*就已經用郵購 DNA 重建出小兒麻痺病毒了。[^polio]）
+* <u>數位極權主義</u>：暴君利用 AI 強化的監控來追捕抗議者（[已在發生](https://www.reuters.com/article/us-russia-politics-navalny-tech-idUSKBN2AB1U2/)）、生成針對個人的宣傳（[某種程度上在發生](https://www.technologyreview.com/2023/10/04/1080801/generative-ai-boosting-disinformation-and-propaganda-freedom-house/)），以及自律軍事機器人（[即將發生](https://theconversation.com/us-military-plans-to-unleash-thousands-of-autonomous-war-robots-over-next-two-years-212444)）……以矽鐵之拳統治。
+* <u>資安贖金地獄</u>：網路犯罪者製作會「自行入侵與重寫」的電腦病毒，永遠領先人類防禦一步。結果是：一個無可阻擋的全球殭屍網路，挾持關鍵基礎設施索取贖金，並操縱頂級企業 CEO 與政治人物替其行事。
+  *（作為背景：*不靠* AI，駭客就已經破壞過核電廠[^stuxnet]、勒索醫院[^ransom-hospitals]（也許造成有人喪命[^hospital-death]），甚至*兩度*差點毒害城市供水[^water-supply]。*有了* AI，深偽影像已被用來左右選舉[^deepfake-election]、在單次詐騙中竊走 2500 萬美元[^hong-kong]，並以綁架孩子、偽造其哭喊求救的聲音勒索父母[^deepfake-ransom]。）
+  *（這也說明了為何「發現 AI 失控時就把它關掉」並不容易；如同電腦安全史所示，我們在發現問題這件事上就*很不在行*。[:我怎麼強調都不為過：現代世界建立在一棟顛倒的紙牌屋上。](#xz)）
 
-The above examples are all "humans *misuse* AI to cause havoc", but remember advanced AI could do the above *by itself*, due to "boring" reasons: it's accomplishing a goal in a logical-but-undesirable way, its goals glitch out but its skills remain intact, etc.
+以上例子都是「人類*濫用* AI 造成禍害」，但別忘了，先進 AI 也可能*自己*做到上述一切，原因依然是那些「無聊」的機制：以邏輯正確但不理想的方式完成目標、目標出錯但技能仍然完好，等等。
 
-(Bonus, [:Some concrete, plausible ways a rogue AI could "escape containment", or affect the physical world.](#ConcreteRogueAI))
+（加碼：[:一些具體且可信的方式，說明流氓 AI 如何「逃出限制」或影響物理世界。](#ConcreteRogueAI)）
 
-Point is: even if one doesn't think AI is a *literal 100% human extinction* risk... I'd say "homebrew bio-terrorism" & "1984 with robots" are still worth taking seriously.
+重點是：即便你不認為 AI 會造成「*字面意義上的 100% 人類滅絕*」……「自製生化恐怖主義」與「機器人版《一九八四》」仍然值得嚴肅以對。
 
-On the flipside...
+另一方面……
 
 [^ai-xrisk]: Layperson-friendly summary of a recent survey of 2,778 AI researchers: [Kelsey Piper (2024) for *Vox*](https://www.vox.com/future-perfect/2024/1/10/24032987/ai-impacts-survey-artificial-intelligence-chatgpt-openai-existential-risk-superintelligence) See original report here: [Grace et al 2024](https://aiimpacts.org/wp-content/uploads/2023/04/Thousands_of_AI_authors_on_the_future_of_AI.pdf). Keep in mind, as the paper notes itself, of this big caveat: *“Forecasting is difficult in general, and subject-matter experts have been observed to perform poorly. Our participants’ expertise is in AI, and they do not, to our knowledge, have any unusual skill at forecasting in general.”*
 
@@ -297,36 +304,36 @@ On the flipside...
 [^deepfake-ransom]: “It was completely her voice. It was her inflection. It was the way [my daughter] would have cried.” [...] “Now there are ways in which you can [deepfake voices] with just three seconds of your voice.” ([Campbell, 2023 for local news outlet *Arizona's Family*](https://www.azfamily.com/2023/04/10/ive-got-your-daughter-scottsdale-mom-warns-close-encounter-with-ai-voice-cloning-scam/). CONTENT NOTE: threats of sexual assault.)
 
 
-### 4) *Yes*, folks worried about AI's downsides *do* recognize its upsides.
+### 4) *是的*，擔心 AI 負面影響的人們*確實*也看見它的正面價值。
 
 ![Comic. Sheriff Meowdy holds up a blueprint for a parachute design. Ham the Human retorts, annoyed: *“Why are you so anti-aviation?”*](media/intro/parachute.png)
 
-AI Risk folks aren't Luddites. In fact, they warn about AI's downsides *precisely because* they care about AI's upsides.[^russell-vs-luddites] As humorist Gil Stern once said:[^qi-stern]
+關注 AI 風險的人不是盧德派。事實上，他們之所以警告 AI 的負面影響，*正是因為*他們在乎 AI 的正面價值。[^russell-vs-luddites] 正如幽默作家 Gil Stern 曾說過：[^qi-stern]
 
-> “Both the optimist and the pessimist contribute to society: the optimist invents the airplane, and the pessimist invents the parachute.”
+> 「樂觀者與悲觀者都對社會有貢獻：樂觀者發明飛機，悲觀者發明降落傘。」
 
-So: even as this series goes into detail on how AI *is already* going wrong, it's worth remembering the few ways AI *is already* going right:
+所以：即便本系列會詳細說明 AI *已經*如何走偏，我們仍該記得 AI *已經*如何帶來好處：
 
-* AI can analyze medical scans *as well or better than human specialists!* [^medical-ai] That's concretely life-saving!
-* AlphaFold basically *solved* a 50-year-old, major problem in biology: how to predict the shape of proteins.[^alphafold] (AlphaFold can predict a protein's shape to within *the width of an atom*!) This has huge applications to medicine & understanding disease.
+* AI 能以*媲美、甚至優於人類專家*的水準分析醫學影像！[^medical-ai] 這是切切實實能拯救生命的！
+* AlphaFold 基本上*解決*了生物學一個 50 年來的大難題：如何預測蛋白質的形狀。[^alphafold]（AlphaFold 的預測精度可達*原子寬度*等級！）這對醫療與疾病理解有巨大應用。
 
-Too often, we take technology — even life-saving technology — for granted. So, let me zoom out for context. Here's the last 2000+ years of child mortality, the percentage of kids who die before puberty:
+我們太常把科技——甚至是拯救生命的科技——視為理所當然。因此，讓我把視角拉遠：以下是過去 2000 多年來的兒童死亡率，也就是在青春期之前死亡的比例：
 
 ![Chart of child mortality over the last 2000+ years. Worldwide, it was constant at around 48%, from hunter-gatherer times to 1800. Then suddenly, starting 1800, it plummets to 4.3% today.](media/intro/owid.jpg)*(from [Dattani, Spooner, Ritchie and Roser (2023)](https://ourworldindata.org/child-mortality))*
 
-For *thousands* of years, in nations both rich and poor, a full *half* of kids just died. This was a constant. Then, starting in the 1800s — thanks to science/tech like germ theory, sanitation, medicine, clean water, vaccines, etc — child mortality fell off like a cliff. We still have far more to go — I refuse to accept[^roser] a worldwide 4.3% (1 in 23) child death rate — but let's just appreciate how humanity *so swiftly cut down* an *eons-old* scourge.
+在*數千*年裡，不論富國或窮國，都有整整*一半*的孩子夭折。這曾是常態。直到 1800 年代起——拜細菌學說、衛生、醫療、潔淨用水、疫苗等科學技術之賜——兒童死亡率才如懸崖般驟降。我們仍有很長一段路要走——我無法接受[^roser]今日全球仍有 4.3%（每 23 人就 1 人）的兒童死亡率——但也請讓我們讚嘆人類如何*迅速削減*這個*延續千年的*夢魘。
 
 [^roser]: One of my all-time favorite quotes: [“The world is awful. The world is much better. The world *can be* much better. *All three statements are true at the same time.*”](https://ourworldindata.org/much-better-awful-can-be-better)
 
-How did we achieve this? Policy's a big part of the story, but policy is "the art of the possible"[^otto], and the above wouldn't have been possible without *good* science & tech. If safe, humane AI can help us progress further by even just a few percent — towards slaying the remaining dragons of cancer, Alzheimer's, HIV/AIDS, etc — that'd be tens of millions more of our loved ones, who get to beat the Reaper for another day.
+我們是如何做到的？政策固然是很大的一部分，但政策是「可能性的藝術」[^otto]；若沒有*良好的*科學與技術，上述成就不可能實現。若安全、具人道精神的 AI 能再幫我們推進幾個百分點——朝著斬除癌症、阿茲海默症、愛滋病等殘存巨龍邁進——那將是數以千萬計的摯愛親友，能再多一次戰勝死神的機會。
 
 [^otto]: Quote from Otto von Bismarck, the first German chancellor: *“Die Politik ist die Lehre vom Möglichen.”* (“Politics is the art of the possible.”)
 
-F#@☆ going to Mars, *that's* why advanced AI matters.
+去火星什麼的先放一邊，*這*才是先進 AI 之所以重要的理由。
 
 . . .
 
-Wait, *really?* Toys like ChatGPT and DALL-E are *life-and-death* stakes? That leads us to the final misconception I'd like to address:
+等等，*真的嗎？* 像 ChatGPT 與 DALL-E 這樣的玩意兒，竟然攸關*生死*？這就引出我想澄清的最後一個誤解：
 
 [^russell-vs-luddites]: “[T]he dubious argument that “doom-and-gloom predictions often fail to consider the potential benefits of AI in preventing medical errors, reducing car accidents, and more.” [... is] like arguing that nuclear engineers who analyze the possibility of meltdowns in nuclear power stations are “failing to consider the potential benefits” of cheap electricity, and that because nuclear power stations might one day generate really cheap electricity, we should neither mention, nor work on preventing, the possibility of a meltdown.” Source: [Dafoe & Russell (2016) for *MIT Technology Review*](https://www.technologyreview.com/2016/11/02/156285/yes-we-are-worried-about-the-existential-risk-of-artificial-intelligence/).
 
@@ -336,27 +343,27 @@ Wait, *really?* Toys like ChatGPT and DALL-E are *life-and-death* stakes? That l
 
 [^alphafold]: Layperson explanation of AlphaFold: [Heaven, 2020 for *MIT Technology Review*](https://web.archive.org/web/20231204110638/https://www.technologyreview.com/2020/11/30/1012712/deepmind-protein-folding-ai-solved-biology-science-drugs-disease/). Or, [its Wikipedia article](https://en.wikipedia.org/wiki/AlphaFold).
 
-### 5) No, experts don't think _current_ AIs are high-risk/reward.
+### 5) 不，專家並不認為*當前*的 AI 就是高風險／高回報。
 
-*Oh come on,* one might reasonably retort, *AI can't consistently draw more than 3 objects. How's it going to take over the world? Heck, how's it even going to take my job?*
+*拜託，* 有人可能會合理地反駁：*AI 連畫超過 3 個物件都不穩定，怎麼可能接管世界？更別說搶走我的工作了吧？*
 
-I present to you, a [relevant xkcd](https://xkcd.com/2278/):
+給你看一則[相關的 xkcd](https://xkcd.com/2278/)：
 
 ![Comic. Megan & Cueball show White Hat a graph of a line going up, not yet at, but heading towards, a threshold labelled "BAD". White Hat: "So things will be bad?" Megan: "Unless someone stops it." White Hat: "Will someone do that?" Megan: "We don't know, that's why we're showing you." White Hat: "Well, let me know if that happens!" Megan: "Based on this conversation, it already has."](media/intro/xkcd.png)
 
-This is how I feel about "don't worry about AI, it can't even do [X]".
+這正是我對「別擔心 AI，它連 [某某] 都做不到」的看法。
 
-Is our postmodern memory-span *that* bad? *One* decade ago, just *one*, the world's state-of-the-art AIs couldn't reliably *recognize pictures of cats.* Now, not *only* can AI do that at human-performance level, AIs can pump out [:a picture of a cat-ninja slicing a watermelon in the style of Vincent Van Gogh](#CatNinja) in *under a minute*.
+我們後現代的記憶力就*那麼*差嗎？就在*十*年前，沒錯就*十*年前，全球最先進的 AI 還無法可靠地*辨識貓的照片*。如今，AI 不僅能以人類水準完成此事，還能在*不到一分鐘*內生成[:梵谷風格的「貓忍者切西瓜」圖](#CatNinja)。
 
-Is *current* AI a huge threat to our jobs, or safety? No. (Well, besides the aforementioned deepfake scams.)
+*當前*的 AI 是否對我們的工作或安全造成巨大威脅？不是。（嗯，除了前述的深偽詐騙。）
 
-But: if AI keeps improving at a similar rate as it has for the last decade... it seems plausible to me we could get "Einstein/Oppenheimer-level" AI in 30 years.[^numerical-extraction] That's well within many folks' lifetimes!
+但：如果 AI 繼續以過去十年的速度進步……在 30 年內出現「愛因斯坦／歐本海默級」的 AI，對我來說是有可能的。[^numerical-extraction] 這完全在許多人的有生之年！
 
-As "they" say:[^quote-trees]
+就如「他們」所說：[^quote-trees]
 
-> The best time to plant a tree was 30 years ago. The second best time is today.
+> 種樹最好的時機是 30 年前。第二好的時機，就是今天。
 
-Let's plant that tree today!
+那就讓我們今天就種下那棵樹吧！
 
 [^numerical-extraction]: Estimate derived via "numerical posterior extraction". In other words, I pulled a number out my--
 
@@ -364,70 +371,70 @@ Let's plant that tree today!
 
 ---
 
-## 🤔 (_Optional_ flashcard review #2!)
+## 🤔 （_選填_）抽認卡複習 #2！
 
 <orbit-reviewarea color="violet">
     <orbit-prompt
-        question="Response to: “AI Risk is a fringe concern”."
-        answer="No, top AI researchers worry about it. (For example: two pioneers of deep learning & the authors of the #1 AI textbook.)">
+        question="回應：「AI 風險只是邊緣關切。」"
+        answer="不是。頂尖 AI 研究者都在擔憂。（例如：兩位深度學習先驅與最暢銷 AI 教科書的作者。）">
     </orbit-prompt>
     <orbit-prompt
-        question="Response to: “AI Risk is about sentient/conscious AI”."
-        answer="No, the safety problems are more 'boring', but still important.">
+        question="回應：「AI 風險跟『有感知／有意識的 AI』有關。」"
+        answer="不是。安全問題更多是那些「無聊但重要」的技術細節。">
     </orbit-prompt>
     <orbit-prompt
-        question="Name (at least) one 'boring' way AI can be unsafe:"
-        answer="(Any of the following:) AI accomplishes its goal in a logical but unwanted way / AI learns the wrong things / AI breaks in new circumstances">
+        question="說出至少一種『無聊但危險』的 AI 風險："
+        answer="（以下任一皆可）以邏輯正確但不理想方式達成目標／學到錯誤的東西／在新情境下失靈">
     </orbit-prompt>
     <orbit-prompt
-        question="Name (at least) one concrete example of catastrophic risk from advanced AI:"
-        answer="(Any example works, but here's what I listed:) Bio-terrorism, Digital authoritariansm, Cyber-security Ransom Hell.">
+        question="說出至少一個先進 AI 可能造成的災難性風險例子："
+        answer="（皆可，但本文列舉為）生化恐怖、數位極權、資安贖金地獄。">
     </orbit-prompt>
     <orbit-prompt
-        question="Why it's not easy to 'just shut down an AI when we notice it going haywire'."
-        answer="As the history of computer security shows, we just suck at noticing & fixing huge security flaws.">
+        question="為什麼『發現 AI 失控就關掉』並不容易？"
+        answer="如電腦安全史所示：我們普遍不擅長發現並修補巨大的安全缺陷。">
     </orbit-prompt>
     <orbit-prompt
-        question="Response to: “AI Risk people are anti-tech Luddites”"
-        answer="No, most of them know about the huge upsides, which is exactly why they want to prevent the huge downsides.">
+        question="回應：「擔心 AI 風險的人就是反科技的盧德派」"
+        answer="不是。他們正因了解巨大的好處，才想預防巨大的壞處。">
     </orbit-prompt>
     <orbit-prompt
-        question="“Both the optimist and the pessimist contribute to society..."
-        answer="...The optimist invents the airplane, and the pessimist invents the parachute.”">
+        question="「樂觀者與悲觀者都對社會有貢獻……」"
+        answer="……樂觀者發明飛機，悲觀者發明降落傘。」">
     </orbit-prompt>
     <orbit-prompt
-        question="Response to: ‘But AI right now is dumb, how can it be high-risk’?"
-        answer="It's not about AI *right now*, it's about *how fast* AI is advancing.">
+        question="回應：「現在的 AI 很笨，怎會高風險？」"
+        answer="重點不在『現在』，而在 AI 前進的『速度』。">
     </orbit-prompt>
 </orbit-reviewarea>
 
----
-
-## 🤘 Introduction, in Summary:
-
-* **The 2 core conflicts in AI & AI Safety are:**
-  * Logic "versus" Intuition
-  * Problems in the AI "versus" in the Humans
-* **Correcting misconceptions about AI Risk:**
-  * It's not a fringe concern by sci-fi weebs.
-  * It doesn't require AI consciousness or super-intelligence.
-  * There's many risks besides "literal 100% human extinction".
-  * We *are* aware of AI's upsides.
-  * It's not about *current* AI, but about how fast AI *is advancing*.
-
-(To review the flashcards, click the <img src="media/intro/icon1.png" class="inline-icon"/> Table of Contents icon in the right sidebar, then click the "🤔 Review" links. Alternatively, download the [Anki deck for the Intro](https://ankiweb.net/shared/info/341999410).)
-
-Finally! Now that we've taken the 10,000-foot view, let's get hiking on our whirlwind tour of AI Safety... for us warm, normal, fleshy humans!
-
-**Click to continue ⤵**
-
-{% include 'templates/next_page_button.html' %}
-
-
+  ---
+  
+  ## 🤘 簡介重點摘要：
+  
+  * **AI 與 AI 安全的兩大核心分歧是：**
+  *   * 邏輯「對上」直覺
+  *   * 問題出在 AI「對上」出在人類
+  * **釐清關於 AI 風險的常見誤解：**
+  *   * 這不是一群科幻迷的邊緣議題。
+  *   * 並不需要 AI 具有「意識」或「超級智慧」。
+  *   * 除了「百分之百人類滅絕」之外，還有許多其他風險。
+  *   * 我們確實知道 AI 的好處。
+  *   * 重點不是「當前」的 AI，而是 AI 正在「多快」進步。
+  
+  （若要重溫抽認卡，請點擊右側欄中的 <img src="media/intro/icon1.png" class="inline-icon"/> 目錄圖示，然後點選「🤔 Review」連結。或者，下載［導言的 Anki 卡包］(https://ankiweb.net/shared/info/341999410)。）
+  
+  太好了！既然我們已經從一萬英尺的視角俯瞰全局，現在就讓我們啟程，展開這趟關於 AI 安全的旋風之旅——為我們這些溫暖、普通、血肉之軀的人類而寫！
+  
+  **點擊以繼續 ⤵**
+  
+  {% include 'templates/next_page_button.html' %}
 
 
 
 
+
+ 
 
 
 

@@ -2,7 +2,10 @@
 
 // Import shtuff
 import * as fs from 'fs'; // for fs's sake
-const __dirname = import.meta.dirname;
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 import markdownit from 'markdown-it';
 import md_footnote from 'markdown-it-footnote';
 const md = markdownit({
