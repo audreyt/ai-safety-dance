@@ -437,6 +437,37 @@ Bubble: the box that expands below an expandable, containing a Nutshell Section
             endPunctuation: /[。.?!]\s/g // added chinese period
 
         },
+
+	'zh-TW': {
+
+	    // 按鈕文字
+	    closeAllNutshells: `關閉所有概覽`,
+	    learnMore: `了解更多`,
+
+	    // Nutshell 錯誤訊息...
+	    notFoundError: `啊噢，找不到該網頁！請再次確認連結：`,
+	    wikiError: `啊噢，無法載入維基百科，或是連結失效了。請再次確認：`,
+	    corsError: `啊噢，網頁找到了，但未提供內容！請檢查該網站是否已安裝 Nutshell 或已開啟跨來源資源共享 (CORS)：`,
+	    sectionIDError: `啊噢，沒有與 ID #[ID] 相符的段落！請注意拼字錯誤或地區用字差異。`,
+	    startTextError: `啊噢，找不到包含「[start]」文字的段落！請檢查是否有拼字錯誤。`,
+
+	    // 嵌入說明視窗
+	    embedStep0: `你可以將這個「可展開的說明」嵌入到自己的部落格或網站！
+			 點擊右側連結預覽 → [EXAMPLE]`,
+	    embedStep1: `步驟一）把以下程式碼複製到網站的 [HEAD]： [CODE]`,
+	    embedStep2: `步驟二）在文章中建立一個連結到 [LINK]
+			 並確保連結文字以冒號開頭，
+			 <a href="#">:像這樣</a>，
+			 這樣 Nutshell 才知道要把它做成可展開內容。`,
+	    embedStep3: `步驟三）就這樣，完成啦！🎉`,
+
+	    // 在展開後需要保留的標點符號
+	    keepPunctuation: `。.,?!)_~'"’”`, // 包含中文句號
+	    // 哪些符號算是句尾標點（正則式）
+	    endPunctuation: /[。.?!]\s/g // 包含中文句號
+
+	},
+
         he: {
             // Button text
             closeAllNutshells: `סגור את כל האגוזים`,

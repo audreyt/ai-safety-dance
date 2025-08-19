@@ -34,13 +34,14 @@
     <link rel="stylesheet" href="{{root}}styles/Open_Sans/opensans.css">
     <link rel="stylesheet" href="{{root}}styles/littlefoot.css"/> <!-- before page.css, so page can override it -->
 	<link rel="stylesheet" href="{{root}}styles/page.css">
+	<link rel="stylesheet" href="{{root}}styles/han.min.css">
 
 	<!-- SCRIPTS -->
     <!-- Littlefoot: for my feetnotes -->
     <script src="{{root}}scripts/littlefoot.js" ></script>
     <!-- Nutshell: expandable explanations -->
     <script src="{{root}}scripts/nutshell-v1.0.5.js"></script>
-    <script> Nutshell.setOptions({ startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
+    <script> Nutshell.setOptions({ lang: 'zh-TW', startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
     <!-- MathJAX: for nice math -->
     <script src="{{root}}scripts/tex-mml-chtml.js"></script>
 	<!-- This website's own scripts -->
@@ -53,7 +54,7 @@
 
 <!-- HACKBRAND -->
 <a class="orpheus-flag" target="_blank" href="https://hackclub.com/">
-	<img src="{{root}}styles/orpheus-flag.svg" width="560" height="315" alt="A project by Hack Club" aria-label="A project by Hack Club">
+	<img src="styles/orpheus-flag.svg" width="560" height="315" alt="Hack Club 的專案" aria-label="Hack Club 的專案">
 </a>
 
 <!-- The Sidebar UI -->
@@ -66,30 +67,30 @@
 
         <div id="style_dark_mode_container" style="cursor:pointer;">
             <input type="checkbox" id="style_dark_mode" style="pointer-events: none;">
-            Dark Mode
+            深色模式
         </div>
         <br>
 
-        Font size:
+        字級：
         <span id="style_fontsize"></span>
         <br>
         <input type="range" id="style_fontsize_slider" min="10" value="19" max="40">
         <br>
 
-        Font type:
+        字型：
         <br>
         <label>
             <input type="radio" name="style_font_family" value="serif" checked>
-            <span style="font-family:'Merriweather'">Serif</span>
+            <span style="font-family:'Merriweather'">襯線</span>
         </label>
         <br>
         <label>
             <input type="radio" name="style_font_family" value="sans_serif">
-            <span style="font-family:'Open Sans'">Sans Serif</span>
+            <span style="font-family:'Open Sans'">無襯線</span>
         </label>
         <br><br>
 
-        <button id="style_reset">Reset</button>
+        <button id="style_reset">重設</button>
 
     </div>
 
@@ -97,7 +98,7 @@
 	<div id="panel_translations">
         <!-- none... sorry -->
     </div>
-	<div id="panel_share">share on... w/e</div>
+	<div id="panel_share">分享至⋯隨便啦</div>
     <!-- SHILLING FOR BIG NICKY -->
 	<div id="panel_sub">
     </div>
@@ -115,75 +116,35 @@
 <div id="everything_container">
 
     <!-- A big cute header -->
-    <div id="header" class="{{ 'frontpage' if isFrontpage else 'chapter' }}">
+    <div id="header" class="frontpage">
         <div id="splash_image">
 
-            {% if isPartOne %}
-            <img id="p1-cat" src="../media/p1/P1Cat.png"/>
-            {% endif %}
-            {% if isPartTwo %}
-            <img id="p2-banner" src="../media/p2/P2Cat.png"/>
-            {% endif %}
+            
+            
 
             <div id="crt_lines"></div>
             <div id="static"></div>
 
-            {% if isFrontpage %}
-            <img id="dancing" width="400" src="media/splash/noone.png"/>
-            {% endif %}
+            
+            <img id="dancing" width="400" src="{{root}}media/splash/noone.png"/>
+            
 
         </div>
-        {% if isFrontpage %}
+        
 
             <div id="header_words">
                 <div id="title">
-                    AI Safety for Fleshy Humans
+                    給血肉凡人的 AI 安全課
                 </div>
                 <div id="subtitle">
-                    by
+                    作者：
                     <a href="https://ncase.me">Nicky Case</a>
-                    &amp;
+                    與
                     <a href="https://hackclub.com/">Hack Club</a>
                 </div>
             </div>
 
-        {% elif isPartOne %}
-
-            <div id="header_words">
-                <div id="title">
-                    P<span style="position: relative;left: -7px;">A</span>RT
-                    O<span style="position: relative;left: -4px;">N</span>E
-                </div>
-                <div id="subtitle">
-                    The Past, Present, &amp; Possible Futures
-                </div>
-            </div>
-
-        {% elif isPartTwo %}
-
-        <div id="header_words">
-            <div id="title">
-                P<span style="position: relative;left: -7px;">A</span>RT
-                T<span style="position: relative;left: 6px;">W</span>O
-            </div>
-            <div id="subtitle">
-                The Problems
-            </div>
-        </div>
-
-        {% elif isPartThree %}
-
-        <div id="header_words">
-            <div id="title">
-                P<span style="position: relative;left: -7px;">A</span>RT
-                THREE
-            </div>
-            <div id="subtitle">
-                The Proposed Solutions
-            </div>
-        </div>
-
-        {% endif %}
+        
 	</div>
 
     <!-- Chapter Navigation -->
@@ -193,10 +154,10 @@
                 class="live">
                 <div {{ 'selected' if isFrontpage }}>
                     <span class='chapter-nav-desktop'>
-                        introduction
+                        導言
                     </span>
                     <span class='chapter-nav-phone'>
-                        intro
+                        導言
                     </span>
                 </div>
             </a>
@@ -204,10 +165,10 @@
                 class="live">
                 <div {{ 'selected' if isPartOne }} >
                     <span class='chapter-nav-desktop'>
-                        part 1<br>past & future
+                        第 1 部分<br>過去與未來
                     </span>
                     <span class='chapter-nav-phone'>
-                        part 1
+                        第 1 部分
                     </span>
                 </div>
             </a>
@@ -215,34 +176,33 @@
                 class="live">
                 <div {{ 'selected' if isPartTwo }} >
                     <span class='chapter-nav-desktop'>
-                        part 2<br>problems
+                        第 2 部分<br>問題
                     </span>
                     <span class='chapter-nav-phone'>
-                        part 2
+                        第 2 部分
                     </span>
                 </div>
             </a>
-            <a target="_self" href="#"
-                title="COMING MID-DECEMBER 2024, probably"
-                onclick="alert('COMING MID-DECEMBER 2024, probably')">
-                <div>
+            <a target="_self" href="{{root}}p3"
+                class="live">
+                <div {{ 'selected' if isPartThree }} >
                     <span class='chapter-nav-desktop'>
-                        part 3<br>solutions?
+                        第 3 部分<br>解方？
                     </span>
                     <span class='chapter-nav-phone'>
-                        part 3
+                        第 3 部分
                     </span>
                 </div>
             </a>
             <a target="_self" href="#"
-                title="COMING MID-DECEMBER 2024, probably"
-                onclick="alert('COMING MID-DECEMBER 2024, probably')">
+                title="預計 2024 年 12 月中上線（大概）"
+                onclick="alert('預計 2024 年 12 月中上線（大概）')">
                 <div style="border-right:1px solid rgba(128,128,128,0.8);">
                     <span class='chapter-nav-desktop'>
-                        conclusion
+                        結語
                     </span>
                     <span class='chapter-nav-phone'>
-                        outro
+                        結語
                     </span>
                 </div>
             </a>
@@ -253,11 +213,11 @@
     <div id="sidebar_tabs">
 		<div id="tab_toc">
 			<div></div>
-			table of contents
+			內容導覽
 		</div>
 		<div id="tab_style">
 			<div></div>
-			change style 😎
+			變更樣式 😎
 		</div>
         <!--
 		<div id="tab_sub">
@@ -281,53 +241,56 @@
 	</div>
     <div id="post_credits">
         <p>
-            Oh dang, it's a post-credits scene:
+            喔，還有片尾彩蛋：
         </p>
 <p>
-    <a href="#AllFeetnotes">: See all feetnotes 👣</a>
+    <a href="#AllFeetnotes">: 查看全部腳注 👣</a>
 </p>
 <p>
-    Also, expandable "Nutshells" that make good standalone bits:
+    另外，這些可展開的「概述」也很適合單獨閱讀：
 </p>
+
+
 {% if isFrontpage %}
 <p>
-    <a href="#SpacedRepetition">: What is Spaced Repetition?</a>
+    <a href="#SpacedRepetition">: 什麼是「間隔重複」？</a>
     <br>
-    <a href="#ConcreteRogueAI">: Concrete ways an AI could 'escape containment' & affect the world</a>
+    <a href="#ConcreteRogueAI">: AI 可能如何「逃出限制」並影響世界（具體方式）</a>
 </p>
 <p>
-    Also, the dancing robot catboy animation
-    is based off <a href="https://www.youtube.com/watch?v=yD2FSwTy2lw">this JerryTerry video</a>.
+    另外，那段跳舞的機器人貓耳動畫
+    靈感來自 <a href="https://www.youtube.com/watch?v=yD2FSwTy2lw">這支 JerryTerry 的影片</a>。
 </p>
 {% elif isPartOne %}
 <p>
-    <a href="#CapabilitiesNotIntelligence">: Why say "Capabilities", not "Intelligence"</a>
+    <a href="#CapabilitiesNotIntelligence">: 為什麼用「能力」，而不是「智慧」？</a>
     <br>
-    <a href="#WhatsXOR">: What's XOR?</a>
+    <a href="#WhatsXOR">: 什麼是 XOR？</a>
     <br>
-    <a href="#SadAIHistory">: The sad depressing story behind Artificial Neural Networks</a>
+    <a href="#SadAIHistory">: 人工神經網路背後那段令人沮喪的故事</a>
     <br>
-    <a href="#OneIsTwo">: What if System 2 reasoning <i>is just</i> a bunch of System 1 reflexes?</a>
+    <a href="#OneIsTwo">: 如果系統二推理<i>其實只是</i>一堆系統一反射呢？</a>
     <br>
-    <a href="#AIOrganizations">: A not-rigorous, unprofessional list of Who's Who in AI/Safety</a>
+    <a href="#AIOrganizations">: 一份不嚴謹、不專業的 AI／安全圈人物名單</a>
 </p>
 {% elif isPartTwo %}
 <p>
-    <a href="#StoryOfPassivePrediction">: A story of how even passive prediction can lead to bad unintended results</a>
+    <a href="#StoryOfPassivePrediction">: 一個故事：為何就算只是被動預測也會導致不良的意外結果</a>
     <br>
-    <a href="#SpuriousCorrelation">: How "spurious correlations" trick AI</a>
+    <a href="#SpuriousCorrelation">: 「偽相關」如何戲弄 AI</a>
     <br>
-    <a href="#OntologicalCrisis">: What's an "ontological crisis" in AI?</a>
+    <a href="#OntologicalCrisis">: 什麼是 AI 的「本體論危機」？</a>
     <br>
-    <a href="#Pipocalypse">: The Pi-Pocalypse Story</a>
+    <a href="#Pipocalypse">: Pi-啟示錄 的故事</a>
     <br>
-    <a href="#WhatIfGoalMisgeneralizationIsGood">: What if Goal Misgeneralization is actually... good?</a>
+    <a href="#WhatIfGoalMisgeneralizationIsGood">: 如果「目標誤泛化」其實……是好事？</a>
     <br>
-    <a href="#TradingWithAdvancedAIs">: Could humans trade with super-human AIs?</a>
+    <a href="#TradingWithAdvancedAIs">: 人類能和超人類 AI 進行交易嗎？</a>
     <br>
-    <a href="#Axiom">: What's an "axiom"?</a>
+    <a href="#Axiom">: 什麼是「公理」？</a>
 </p>
 {% endif %}
+
     </div>
 
 </div>

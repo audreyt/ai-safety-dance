@@ -3,7 +3,7 @@
 <head>
 
     <!-- Title -->
-    <title>給血肉凡人的 AI 安全：旋風式導覽</title>
+    <title>給血肉凡人的 AI 安全課</title>
 
     <!-- UTF-8 & Mobile -->
     <meta charset="UTF-8">
@@ -17,16 +17,16 @@
 	<link rel="icon" type="image/png" href="favicon.png">
 
     <!-- Social Share Nonsense -->
-	<meta itemprop="name" content="給血肉凡人的 AI 安全：旋風式導覽">
-	<meta itemprop="description" content="一站式掌握 AI 與 AI 安全的核心觀念！">
+	<meta itemprop="name" content="給血肉凡人的 AI 安全課">
+	<meta itemprop="description" content="一站式了解 AI 和 AI 安全的所有核心思想！">
 	<meta itemprop="image" content="https://aisafety.dance/thumbs/thumb.png">
-	<meta property="og:title" content="給血肉凡人的 AI 安全：旋風式導覽">
+	<meta property="og:title" content="給血肉凡人的 AI 安全課">
 	<meta property="og:type" content="website">
 	<meta property="og:image" content="https://aisafety.dance/thumbs/thumb.png">
-	<meta property="og:description" content="一站式掌握 AI 與 AI 安全的核心觀念！">
+	<meta property="og:description" content="一站式了解 AI 和 AI 安全的所有核心思想！">
     <meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="給血肉凡人的 AI 安全：旋風式導覽">
-	<meta name="twitter:description" content="一站式掌握 AI 與 AI 安全的核心觀念！">
+	<meta name="twitter:title" content="給血肉凡人的 AI 安全課">
+	<meta name="twitter:description" content="一站式了解 AI 和 AI 安全的所有核心思想！">
 	<meta name="twitter:image" content="https://aisafety.dance/thumbs/thumb.png">
 
 	<!-- STYLES -->
@@ -34,13 +34,14 @@
     <link rel="stylesheet" href="styles/Open_Sans/opensans.css">
     <link rel="stylesheet" href="styles/littlefoot.css"/> <!-- before page.css, so page can override it -->
 	<link rel="stylesheet" href="styles/page.css">
+	<link rel="stylesheet" href="styles/han.min.css">
 
 	<!-- SCRIPTS -->
     <!-- Littlefoot: for my feetnotes -->
     <script src="scripts/littlefoot.js" ></script>
     <!-- Nutshell: expandable explanations -->
     <script src="scripts/nutshell-v1.0.5.js"></script>
-    <script> Nutshell.setOptions({ startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
+    <script> Nutshell.setOptions({ lang: 'zh-TW', startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
     <!-- MathJAX: for nice math -->
     <script src="scripts/tex-mml-chtml.js"></script>
 	<!-- This website's own scripts -->
@@ -133,7 +134,7 @@
 
             <div id="header_words">
                 <div id="title">
-                    給血肉凡人的 AI 安全
+                    給血肉凡人的 AI 安全課
                 </div>
                 <div id="subtitle">
                     作者：
@@ -184,7 +185,7 @@
             </a>
             <a target="_self" href="p3"
                 class="live">
-                <div>
+                <div  >
                     <span class='chapter-nav-desktop'>
                         第 3 部分<br>解方？
                     </span>
@@ -241,7 +242,6 @@
 <p><img src="media/intro/Outer_Alignment.png" alt="漫畫。人類 Ham 對 RCM（機器人貓耳男僕）說：「保持這棟房子乾淨。」RCM 推理：是什麼造成髒亂？人類造成髒亂！因此：把人類趕出去。RCM 接著把 Ham 整個丟 出房子。"></p>
 <p><code>[導遊語氣]</code> 請看您的右手邊 👉，有 <img src="media/intro/icon1.png" class="inline-icon"/> 目錄按鈕、<img src="media/intro/icon2.png" class="inline-icon"/> 網頁樣式切換，以及 <img src="media/intro/icon3.png" class="inline-icon"/> 剩餘閱讀時間時鐘。</p>
 <p>關於本系列：導言與第一部分發表於 <strong>2024 年 5 月</strong>，第二部分已於 <strong>2024 年 8 月</strong> 上線，第三部分預計 <strong>2024 年 12 月</strong> 推出。可選：如果想在發佈時收到通知，請於下方登記！👇 我<em>不會</em>寄送其他內容騷擾你，只有兩封通知信。（不過呢，<code>[Podcast 贊助商語氣]</code> 如果你是高中生或更小、且對 AI／程式／工程有興趣，可以勾選選項以了解更多 <a href="https://hackclub.com/">Hack Club</a>。附註：有免費的<em>貼紙～～～</em> ✨）</p>
-<script defer src="https://server.fillout.com/embed/v1/"></script></p>
 <p>總之，<code>[導遊語氣回歸]</code> 在踏上 AI 與 AI 安全這段岩石嶙峋的徒步旅程前，讓我們先用「一萬英尺視角」俯瞰全景：</p>
 <hr>
 <h2>💡 AI 與 AI 安全的核心觀念</h2>
@@ -269,7 +269,7 @@
 <p><u><strong>價值對齊問題（Value Alignment Problem）</strong></u>：<br>
 「我們如何讓 AI 穩健地服務於人道（humane）的價值？」</p>
 </blockquote>
-<p>注意：我用的是 <em>humane</em>（「人道」），而不單是 <em>human</em>（「人類」）。一個<em>人</em>未必<em>人道</em>。我要反覆強調這點，因為支持與批評 AI 安全的人<em>都</em>常把兩者混為一談。<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup><sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<p>注意：我用的是 <em>humane</em>（「人道」），而不單是 <em>human</em>（「人類」）。一個<em>人類</em>未必<em>人道</em>。我要反覆強調這點，因為支持與批評 AI 安全的人<em>都</em>常把兩者混為一談。<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup><sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
 <p>我們可以依照「問題出在人類 vs 出在 AI」來拆解這個問題：</p>
 <blockquote>
 <p><u><strong>人道的價值</strong>：</u><br>
@@ -313,16 +313,7 @@
 <p>（可惜的是，我無法在本導言中給出面向大眾的易懂總結，因為在你理解問題之前——也就是第一與第二部分要做的事——這些解方並不會有太大意義。話雖如此，如果你想先看重點劇透，<a href="#Part3Details">:點此查看第三部分將涵蓋的內容！</a>）</p>
 <hr>
 <h2>🤔 （<em>選填</em>）抽認卡複習！</h2>
-<h3>第 3 部分：提議的解方</h3>
-<p>最後，我們可以來理解一些（可能）解決「邏輯、直覺、AI、以及人類」問題的方法！其中包括：</p>
-<ul>
-<li>技術面解方</li>
-<li>政策／治理面解方</li>
-<li>「不然你就先關掉、別去打造那個酷刑樞紐吧」</li>
-</ul>
-<p>——還有更多！專家對哪些提案可行（如果有的話）並無共識……不過這是個很好的起點。</p>
-<p>（可惜的是，我無法在本導言中給出面向大眾的易懂總結，因為在你理解問題之前——也就是第一與第二部分要做的事——這些解方並不會有太大意義。話雖如此，如果你想先看重點劇透，<a href="#Part3Details">:點此查看第三部分將涵蓋的內容！</a>）
-你是否也有過這種感覺？</p>
+<p>你是否也有過這種感覺？</p>
 <ol>
 <li>「哇，我剛讀到的內容真是精彩又有洞見」</li>
 <li>（兩週後全忘光）</li>
@@ -409,7 +400,7 @@
 <p>重點是：即便你不認為 AI 會造成「<em>字面意義上的 100% 人類滅絕</em>」……「自製生化恐怖主義」與「機器人版《一九八四》」仍然值得嚴肅以對。</p>
 <p>另一方面……</p>
 <h3>4) <em>是的</em>，擔心 AI 負面影響的人們<em>確實</em>也看見它的正面價值。</h3>
-<p><img src="media/intro/parachute.png" alt="漫畫。牛仔警長 Meowdy 舉著降落傘設計圖。人類 Ham 不耐地回嗆：『為什麼你那麼反航空？』"></p>
+<p><img src="media/intro/parachute.png" alt="Comic. Sheriff Meowdy holds up a blueprint for a parachute design. Ham the Human retorts, annoyed: “Why are you so anti-aviation?”"></p>
 <p>關注 AI 風險的人不是盧德派。事實上，他們之所以警告 AI 的負面影響，<em>正是因為</em>他們在乎 AI 的正面價值。<sup class="footnote-ref"><a href="#fn28" id="fnref28">[28]</a></sup> 正如幽默作家 Gil Stern 曾說過：<sup class="footnote-ref"><a href="#fn29" id="fnref29">[29]</a></sup></p>
 <blockquote>
 <p>「樂觀者與悲觀者都對社會有貢獻：樂觀者發明飛機，悲觀者發明降落傘。」</p>
@@ -494,14 +485,14 @@
 </ul>
 </li>
 </ul>
-<p>（若要重溫抽認卡，請點擊右側欄中的 <img src="media/intro/icon1.png" class="inline-icon"/> 目錄圖示，然後點選「🤔 複習」連結。或者，下載［導言的 Anki 卡包］(https://ankiweb.net/shared/info/341999410)。）</p>
+<p>（若要重溫抽認卡，請點擊右側欄中的 <img src="media/intro/icon1.png" class="inline-icon"/> 目錄圖示，然後點選「🤔 Review」連結。或者，下載<a href="https://ankiweb.net/shared/info/341999410">導言的 Anki 卡包</a>。）</p>
 <p>太好了！既然我們已經從一萬英尺的視角俯瞰全局，現在就讓我們啟程，展開這趟關於 AI 安全的旋風之旅——為我們這些溫暖、普通、血肉之軀的人類而寫！</p>
 <p><strong>點擊以繼續 ⤵</strong></p>
 <p><a
      href="p1" 
     
     target="_self">
-<div id="next_button" >
+<div id="next_button">
     <div id="nb--crt_lines"></div>
     <div id="nb--static"></div>
     <div id="nb--words">
@@ -511,12 +502,13 @@
     </div>
 </div>
 </a>
+
 </p>
-<h4>:x 四個物體</h4>
+<h4>:x Four Objects</h4>
 <p>嗨！當我有一些與主線無關的內容時，我會把它們塞進像這樣的「可展開」區塊！（這些連結會有<em>虛線</em>底線，而不是實線。）</p>
 <p>總之，這是一個繪製四個物體的提示詞：</p>
 <blockquote>
-<p>"一個黃色金字塔在紅色球體和綠色圓柱體之間，全部放在一個大藍色立方體上。"</p>
+<p>&quot;一個黃色金字塔在紅色球體和綠色圓柱體之間，全部放在一個大藍色立方體上。&quot;</p>
 </blockquote>
 <p>以下是頂尖生成式 AI 的首次嘗試（<em>未經</em>挑選）：</p>
 <p><strong>Midjourney:</strong></p>
@@ -530,13 +522,60 @@
 <p>~ ~ ~</p>
 <p>總之，這就是本 Nutshell 的結尾！要關閉它，請點擊下方的「x」按鈕 ⬇️ 或右上角的「Close All」標籤 ↗️。或者直接繼續滾動。</p>
 <p><a href="#Nutshells">: (嘿... 想把這些 Nutshell 放到<em>你的</em>網站上嗎？)</a></p>
-<h4>:x Nutshells 說明</h4>
+<h4>:x Nutshells</h4>
 <p>將滑鼠懸停在這些 Nutshell 的右上角，或本文中的任何<strong>主標題</strong>上，會顯示這個圖示：</p>
 <p><img src="media/intro/Nutshell_Tutorial_1.gif" alt="Nutshell 懸停示範 GIF"></p>
 <p><img src="media/intro/Nutshell_Tutorial_2.gif" alt="標題懸停示範 GIF"></p>
 <p>然後，點擊該圖示會彈出說明，解釋如何將這些 Nutshell 嵌入到你自己的部落格/網站中！</p>
 <p><a href="https://ncase.me/nutshell/">點此了解更多關於 Nutshell 的資訊。💖</a></p>
-<h4>:x 間隔重複法</h4>
+<h4>:x Part 3 details</h4>
+<p><b>注意：</b>這段擴充內容<em>現在</em>看起來可能還不太有意義，因為它是建立在第 1、2 部分的鋪陳之上。不過我先放在這裡，目的有二：</p>
+<p>a) 給一般讀者：讓大家放心——沒錯，現在<em>確實</em>已經有很多看起來有希望的提案。
+b) 給專家讀者：讓大家放心——沒錯，你八成會在這裡看到你關注的那個冷門小題目。</p>
+<p>總之，以下是 <strong>AI 安全的「十大解方類型」</strong>（括號內為術語）：</p>
+<ol>
+<li>
+<p>「逐級對齊」：等級 0 的人類對齊等級 1 的機器人，再由它對齊等級 2 的機器人，如此一路到等級 N。
+（可擴展的獎勵／監督 <em>Scalable reward/oversight</em>、迭代蒸餾與擴增 <em>Iterated Distillation &amp; Amplification, IDA</em>）</p>
+</li>
+<li>
+<p>「同級互審」：讓<em>大致同等級</em>的機器人彼此檢查彼此。
+（憲法式 AI <em>Constitutional AI</em>、透過辯論達成安全 <em>AI safety via debate</em>）</p>
+</li>
+<li>
+<p>「間接學意圖」：與其<em>直接</em>告訴機器人你想要什麼，不如讓它<em>間接</em>學會你想要什麼。
+（從人類回饋中強化學習 <em>RLHF</em>、協作式反向強化學習 <em>CIRL</em>、核准導向代理 <em>Approval-directed Agents</em>）</p>
+</li>
+<li>
+<p>「間接求價值」：與其<em>直接</em>把「人道價值」安裝進機器人，不如讓它<em>間接</em>推論「更有知識、也更慈悲的我們」會同意什麼。
+（間接規範性 <em>Indirect Normativity</em>、一致外推意志 <em>Coherent Extrapolated Volition, CEV</em>）</p>
+</li>
+<li>
+<p>「解決穩健性」：處理模型在新情境下也能穩健表現的問題。
+（簡潔性 <em>Simplicity</em>、稀疏性 <em>Sparsity</em>、正則化 <em>Regularization</em>、集成模型 <em>Ensembles</em>、對抗式訓練 <em>Adversarial training</em>）</p>
+</li>
+<li>
+<p>「讀 AI 的心智」：看懂模型內部在「想」什麼。
+（可解釋性 <em>Interpretability</em>、電路 <em>Circuits</em>、引出潛在知識 <em>Eliciting Latent Knowledge, ELK</em>）</p>
+</li>
+<li>
+<p>「回到原點」：也許我們現在的點子都不行，得重頭來過。
+（代理基礎 <em>Agent foundations</em>、因果式 AI <em>Causal AI</em>、碎片理論 <em>Shard theory</em>、生物可似性學習 <em>Bio-plausible learning</em>、具身認知 <em>Embodied cognition</em>）</p>
+</li>
+<li>
+<p>「就別打造酷刑樞紐」」：換句話說，我們能否在<em>不</em>打造強大、通用、具代理性的 AI 之下，仍拿到 AI 的好處？
+（綜合式 AI 服務 <em>Comprehensive AI Services, CAIS</em>、狹域／工具／顯微鏡式 AI <em>Narrow/Tool/Microscope AI</em>、<em>Quantilizers</em>）</p>
+</li>
+<li>
+<p>「人類對齊問題」：如何協調<em>人類</em>，以讓 AI 的發展走向良善？
+（AI 治理 <em>AI Governance</em>、以評測為本的治理 <em>Evals-based governance</em>、差異化技術發展 <em>Differential technological development</em>、資料／隱私權 <em>Data/Privacy rights</em>、<em>Windfall</em> 條款）</p>
+</li>
+<li>
+<p>「打不贏就合作」：人機共生、彼此增幅。
+（賽博格主義 <em>Cyborgism</em>、半人馬式協作 <em>Centaurs</em>、智慧增強 <em>Intelligence Amplification</em>）</p>
+</li>
+</ol>
+<h4>:x Spaced Repetition</h4>
 <p><em>“用進，廢退。”</em></p>
 <p>這就是肌肉和大腦運作的核心原則。（因為押韻，所以一定是對的！）正如數十年教育研究明確顯示的（<a href="https://wcer.wisc.edu/docs/resources/cesa2017/Dunlosky_SciAmMind.pdf">Dunlosky 等人，2013 年 [pdf]</a>），如果你想長期記住某些東西，僅僅重讀或劃重點是不夠的：你必須實際<em>測試自己</em>。</p>
 <p>這就是為什麼抽認卡如此有效！但有兩個問題：1) 當你有<em>數百張</em>卡片要記住時，會讓人不知所措。2) 複習你<em>已經</em>很熟悉的卡片是沒有效率的。</p>
@@ -557,7 +596,7 @@
 <p>想了解更多關於間隔重複法的資訊，可以觀看 <a href="https://www.youtube.com/watch?v=Z-zNHHpXoMM">Ali Abdaal（26 分鐘）</a> 和 <a href="https://www.youtube.com/watch?v=eVajQPuRmk8">Thomas Frank（8 分鐘）</a> 的影片。</p>
 <p><em>這就是</em>如何讓長期記憶成為一種選擇！</p>
 <p>學習愉快！👍</p>
-<h4>:x 具體的失控 AI 案例</h4>
+<h4>:x Concrete Rogue AI</h4>
 <p>AI 可能「突破控制」的方式：</p>
 <ul>
 <li>AI 駭入其運行的電腦，逃逸到網際網路上，然後「生存」在去中心化的殭屍網路中。舉例來說：已知最大的殭屍網路感染了約 3000 萬台電腦！（<a href="https://www.wired.com/2012/05/bredolab-botmaster-sentenced/">Zetter，2012 年為 <em>Wired</em> 撰文</a>）</li>
@@ -571,14 +610,14 @@
 <li>駭入自主無人機/四軸飛行器。說實話，我很驚訝還沒有人用休閒用四軸飛行器犯下謀殺案，比如讓它飛進高速公路車流中，或在飛機起降時飛入噴射引擎。</li>
 <li>AI 可以說服/賄賂/勒索執行長或政治人物製造<em>大量</em>實體機器人——（表面上是為了體力勞動、軍事作戰、搜救任務、送貨無人機、實驗室工作、機器貓男僕等）——然後 AI 駭入<em>那些</em>機器人，用它們來影響物理世界。</li>
 </ul>
-<h4>:x XZ 後門事件</h4>
+<h4>:x XZ</h4>
 <p>兩個月前 [2024 年 3 月]，一位<em>志願的、業餘時間的</em>開發者在一段重要代碼中發現了一個惡意後門... 這個後門已經<em>醞釀了三年</em>，<em>距離上線只有幾週</em>，而且會攻擊絕大多數的網際網路伺服器... 而這位志願者<em>純屬偶然</em>地發現了它，只是因為他注意到他的代碼運行<em>慢了半秒</em>。</p>
 <p>這就是 XZ Utils 後門事件。以下是幾篇對這起骯髒事件的通俗解釋：<a href="https://www.theverge.com/2024/4/2/24119342/xz-utils-linux-backdoor-attempt">The Verge 的 Amrita Khalid</a>、<a href="https://arstechnica.com/security/2024/04/what-we-know-about-the-xz-utils-backdoor-that-almost-infected-the-world/">Ars Technica 的 Dan Goodin</a>、<a href="https://www.runtime.news/how-a-500ms-delay-exposed-a-nightmare-scenario-for-the-software-supply-chain/">Runtime 的 Tom Krazit</a></p>
 <p>電腦安全就是一場噩夢，充滿了睡眠癱瘓的惡魔。</p>
-<h4>:x 貓忍者</h4>
+<h4>:x Cat Ninja</h4>
 <p>提示詞：</p>
 <blockquote>
-<p>"文森·梵谷的油畫（1889 年），厚塗法，有質感。一隻貓忍者將西瓜切成兩半。"</p>
+<p>&quot;文森·梵谷的油畫（1889 年），厚塗法，有質感。一隻貓忍者將西瓜切成兩半。&quot;</p>
 </blockquote>
 <p>DALL-E 3 生成的結果：（精選）</p>
 <p><img src="media/intro/ninja-cat-1.png" alt="DALL-E 3 對上述提示詞的嘗試"></p>
@@ -665,146 +704,161 @@
 	<div id="footer">
         <div id="footer_content">
 <p style="font-size: 1.3em; line-height: 1.35em;">
-<i>AI Safety for Fleshy Humans</i> 製作：
+<i>給血肉凡人的 AI 安全課</i> 由
 <a href="https://ncase.me/">Nicky Case</a>
 與
-<a href="https://hackclub.com/">Hack Club</a> 合作完成。
+<a href="https://hackclub.com/">Hack Club</a>
+合作製作。
 </p>
+
 <p>
 🦕 <a href="https://ncase.me"><b>Hack Club</b></a>
-是一個非營利組織，讓青少年一起動手做很酷的專案——
+是一個讓青少年一起動手做酷炫專案的非營利組織——
 像是 <a href="https://cpu.land">cpu.land</a>、
-<a href="https://sinerider.com">SineRider</a>、
-還有這個網站！
-一起參加
-<a href="https://hackathons.hackclub.com">實體黑客松</a>、
-在學校
+<a href="https://sinerider.com">SineRider</a>，
+以及這個！
+歡迎參加
+<a href="https://hackathons.hackclub.com">實體駭客松</a>，
+在你的學校
 <a href="https://hackclub.com/clubs/">成立社團</a>，
-以及
-<a href="https://hackclub.com/slack/">和其他友善的青少年交流</a>。
+並
+<a href="https://hackclub.com/slack/">和其他友善的青少年連結</a>。
 </p>
+
 <p>
 😻 <a href="https://ncase.me"><b>Nicky Case</b></a>
-是一條風衣裡疊了十五隻貓。
-她做網路小玩具，例如
-<a href="https://ncase.me/trust/">The Evolution of Trust</a>、
-<a href="https://ncase.me/anxiety/">Adventures with Anxiety</a>、
-<a href="https://explorabl.es/">Explorable Explanations</a>，以及更多。
+其實是一件風衣裡的十五隻貓。
+她做網路上的互動玩物，例如
+<a href="https://audreyt.github.io/trust-zh-TW/">《信任的演化》</a>、
+<a href="https://audreyt.github.io/anxiety/">《和焦慮一起冒險》</a>、
+<a href="https://explorabl.es/">可探索解說</a>，以及更多。
 </p>
+
 <p>
-💸 如果你< i >不是< /i >青少年，而且是 AI 金主，
+💸 如果你<i>不是</i>青少年，而且是個在 AI 領域口袋很深的人，
 <a href="https://hackclub.com/philanthropy/">看看如何支持 Hack Club！</a>
 另外，Nicky 也有
 <a href="https://www.patreon.com/ncase">Patreon</a>
 與
 <a href="https://ko-fi.com/nickycase">Ko‑Fi</a>。
 （p.s：
-<a href="signup/supporters-p2.html">贊助者感謝頁在這裡！</a>）
+<a href="signup/supporters-p2.html">這是我的贊助者感謝頁！</a>）
 </p>
+
 <p style="text-align:center">
 . . .
 </p>
+
 <p>
-特別感謝下列 Hack Club 的青少年們
-<s>當免費童工</s>
-試讀並對本文提供回饋：
+特別感謝 Hack Club 的這些青少年，<s>擔任免費童工</s>
+協助試讀並對本作品提供回饋：
 </p>
+
 <blockquote>
 
 <p>
 <b>導言與第 1 部分：</b>
-Arthur Beck,
-Atharv Gupta,
-Brendan Lee,
-Celeste,
-Charalampos Fanoulis,
-Charlie,
-Cheru Berhanu,
-Claire Wang,
-Elijah,
-Fred Han,
-Gia Bách Nguyễn,
-Hajrah Siddiqui,
-Jakob,
-Joseph Ross,
-Kieran Klukas,
-Lexi Mattick,
-Mason Meirs,
-Michael Panait,
-Nick Zandbergen,
-Nila Palmo Ram,
-Pixelglide,
-py660,
-rivques,
-Samuel Cottrell,
-Samuel Fernandez,
-Saran Wagner,
-Skyler Grey,
-S&nbsp;P&nbsp;U&nbsp;N&nbsp;G&nbsp;E,
+Arthur Beck、
+Atharv Gupta、
+Brendan Lee、
+Celeste、
+Charalampos Fanoulis、
+Charlie、
+Cheru Berhanu、
+Claire Wang、
+Elijah、
+Fred Han、
+Gia Bách Nguyễn、
+Hajrah Siddiqui、
+Jakob、
+Joseph Ross、
+Kieran Klukas、
+Lexi Mattick、
+Mason Meirs、
+Michael Panait、
+Nick Zandbergen、
+Nila Palmo Ram、
+Pixelglide、
+py660、
+rivques、
+Samuel Cottrell、
+Samuel Fernandez、
+Saran Wagner、
+Skyler Grey、
+S&nbsp;P&nbsp;U&nbsp;N&nbsp;G&nbsp;E、
 Vihaan Sondhi
 </p>
 
 <p>
 <b>第 2 部分：</b>
-Nanda White,
-Nila Palmo Ram,
-rivques,
-Rohan K,
+Nanda White、
+Nila Palmo Ram、
+rivques、
+Rohan K、
 Samuel Fernandez
 </p>
 
 </blockquote>
+
 <p>
-也感謝以下非青少年朋友們的回饋：
-（雖然我猜他們< i >某個時候< /i >應該也都當過青少年）
+也感謝以下非青少年提供回饋：
+（雖然我猜他們在人生的<i>某個</i>時期也當過青少年）
 </p>
 
 <blockquote>
 <p>
 <b>導言與第 1 部分：</b>
-Alex Kreitzberg,
-B Cavello,
-Paul Dancstep,
+Alex Kreitzberg、
+B Cavello、
+Paul Dancstep、
 Tobias Rose-Stockwell
 </p>
 
 <p>
 <b>第 2 部分：</b>
-Egg Syntax,
-Max Wofford,
-Mithuna Yoganathan,
+Egg Syntax、
+Max Wofford、
+Mithuna Yoganathan、
 Tobias Rose-Stockwell
 </p>
 
 </blockquote>
 
 <p>
-若還有任何錯誤，全部都是
-<a href="suzie.png">替罪羊 Suzie</a> 的錯。
+若還有任何錯誤，一律算在
+<a href="suzie.png">替罪羊 Suzie</a>
+頭上。
 </p>
+
 <p style="text-align:center">
 . . .
 </p>
+
 <p>
-<i>AI Safety For Fleshy Humans</i> 授權任何人分享與重混，
-只要是非商業用途（如教育）即可：
-<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY-NC 4.0</a>
+<i>給肉身人類的 AI 安全</i> 開放任何人分享與重混，
+但僅限非商業使用（例如教育）：
+<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY‑NC 4.0</a>
 </p>
+
 <p>
-若你想引用本作品、而且你是個嚴肅人士™，以下是引用格式：
+如果你想引用這份作品，而且你自認是個嚴肅人士™，引用格式如下：
 </p>
+
 <blockquote>
-Nicky Case，<i>「AI Safety for Fleshy Humans」</i>，<br>
+Nicky Case，<i>《AI Safety for Fleshy Humans》</i>，<br>
 https://AIsafety.dance，Hack Club（2024）。
 </blockquote>
+
 <p>
 最後，這個網站的
-<a href="https://github.com/hackclub/ai-safety-dance">開源原始碼</a>
+<a href="https://github.com/hackclub/ai-safety-dance">開源程式碼</a>
 在這裡！
 </p>
+
 <p>
-謝謝你是那種會把感謝名單讀完的人～ 🙏
+謝謝你是會把致謝讀完的那種人～ 🙏
 </p>
+
         </div>
 	</div>
     <div id="post_credits">
@@ -815,18 +869,21 @@ https://AIsafety.dance，Hack Club（2024）。
     <a href="#AllFeetnotes">: 查看全部腳注 👣</a>
 </p>
 <p>
-    另外，這些可展開的「Nutshells」也很適合單獨閱讀：
+    另外，這些可展開的「概述」也很適合單獨閱讀：
 </p>
+
+
 
 <p>
     <a href="#SpacedRepetition">: 什麼是「間隔重複」？</a>
     <br>
-    <a href="#ConcreteRogueAI">: 失控 AI 如何「逃出限制」並影響世界的具體方式</a>
+    <a href="#ConcreteRogueAI">: AI 可能如何「逃出限制」並影響世界（具體方式）</a>
 </p>
 <p>
-    另外，跳舞的機器人貓男僕動畫
-    取材自 <a href="https://www.youtube.com/watch?v=yD2FSwTy2lw">這支 JerryTerry 影片</a>。
+    另外，那段跳舞的機器人貓耳動畫
+    靈感來自 <a href="https://www.youtube.com/watch?v=yD2FSwTy2lw">這支 JerryTerry 的影片</a>。
 </p>
+
 
     </div>
 

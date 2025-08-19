@@ -28,8 +28,8 @@ let convertConfigs = [
     {
         markdown:'intro.md', template:'templates/page_template.html', exportTo:'index.html',
         extras:{
-            title: 'AI Safety for Fleshy Humans: a whirlwind tour', // '[DRAFT, DO NOT PUBLICLY SHARE]'
-            share_desc: 'Your one-stop-shop to understand all the core ideas of AI & AI Safety!',
+            title: '給血肉凡人的 AI 安全課', // '[DRAFT, DO NOT PUBLICLY SHARE]'
+            share_desc: '一站式了解 AI 和 AI 安全的所有核心思想！',
             share_image: 'https://aisafety.dance/thumbs/thumb.png',
             root:'',
 
@@ -39,8 +39,8 @@ let convertConfigs = [
     {
         markdown:'p1/p1.md', template:'templates/page_template.html', exportTo:'p1/index.html',
         extras:{
-            title: 'Part 1: The Past, Present, and Possible Futures',
-            share_desc: 'Chapter One of “AI Safety for Fleshy Humans: a whirlwind tour”',
+            title: '第一部分：過去、現在與可能的未來',
+            share_desc: '第一部分 — 給血肉凡人的 AI 安全課',
             share_image: 'https://aisafety.dance/thumbs/thumb-p1.png',
             root:'../',
 
@@ -50,8 +50,8 @@ let convertConfigs = [
     {
         markdown:'p2/p2.md', template:'templates/page_template.html', exportTo:'p2/index.html',
         extras:{
-            title: 'Part 2: The Problems',
-            share_desc: 'Chapter Two of “AI Safety for Fleshy Humans: a whirlwind tour”',
+            title: '第二部分：問題',
+            share_desc: '第二部分 — 給血肉凡人的 AI 安全課',
             share_image: 'https://aisafety.dance/thumbs/thumb-p2.png',
             root:'../',
 
@@ -61,8 +61,8 @@ let convertConfigs = [
     {
         markdown:'p3/p3.md', template:'templates/page_template.html', exportTo:'p3/index.html',
         extras:{
-            title: 'Part 3: The Proposed Solutions',
-            share_desc: 'Chapter Three of “AI Safety for Fleshy Humans: a whirlwind tour”',
+            title: '第三部分：解決方案',
+            share_desc: '第三部分 — 給血肉凡人的 AI 安全課',
             share_image: 'https://aisafety.dance/thumbs/thumb-p3.png',
             root:'../',
 

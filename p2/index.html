@@ -3,7 +3,7 @@
 <head>
 
     <!-- Title -->
-    <title>Part 2: The Problems</title>
+    <title>第二部分：問題</title>
 
     <!-- UTF-8 & Mobile -->
     <meta charset="UTF-8">
@@ -17,16 +17,16 @@
 	<link rel="icon" type="image/png" href="favicon.png">
 
     <!-- Social Share Nonsense -->
-	<meta itemprop="name" content="Part 2: The Problems">
-	<meta itemprop="description" content="Chapter Two of “AI Safety for Fleshy Humans: a whirlwind tour”">
+	<meta itemprop="name" content="第二部分：問題">
+	<meta itemprop="description" content="第二部分 — 給血肉凡人的 AI 安全課">
 	<meta itemprop="image" content="https://aisafety.dance/thumbs/thumb-p2.png">
-	<meta property="og:title" content="Part 2: The Problems">
+	<meta property="og:title" content="第二部分：問題">
 	<meta property="og:type" content="website">
 	<meta property="og:image" content="https://aisafety.dance/thumbs/thumb-p2.png">
-	<meta property="og:description" content="Chapter Two of “AI Safety for Fleshy Humans: a whirlwind tour”">
+	<meta property="og:description" content="第二部分 — 給血肉凡人的 AI 安全課">
     <meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Part 2: The Problems">
-	<meta name="twitter:description" content="Chapter Two of “AI Safety for Fleshy Humans: a whirlwind tour”">
+	<meta name="twitter:title" content="第二部分：問題">
+	<meta name="twitter:description" content="第二部分 — 給血肉凡人的 AI 安全課">
 	<meta name="twitter:image" content="https://aisafety.dance/thumbs/thumb-p2.png">
 
 	<!-- STYLES -->
@@ -34,13 +34,14 @@
     <link rel="stylesheet" href="../styles/Open_Sans/opensans.css">
     <link rel="stylesheet" href="../styles/littlefoot.css"/> <!-- before page.css, so page can override it -->
 	<link rel="stylesheet" href="../styles/page.css">
+	<link rel="stylesheet" href="../styles/han.min.css">
 
 	<!-- SCRIPTS -->
     <!-- Littlefoot: for my feetnotes -->
     <script src="../scripts/littlefoot.js" ></script>
     <!-- Nutshell: expandable explanations -->
     <script src="../scripts/nutshell-v1.0.5.js"></script>
-    <script> Nutshell.setOptions({ startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
+    <script> Nutshell.setOptions({ lang: 'zh-TW', startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
     <!-- MathJAX: for nice math -->
     <script src="../scripts/tex-mml-chtml.js"></script>
 	<!-- This website's own scripts -->
@@ -53,7 +54,7 @@
 
 <!-- HACKBRAND -->
 <a class="orpheus-flag" target="_blank" href="https://hackclub.com/">
-	<img src="../styles/orpheus-flag.svg" width="560" height="315" alt="A project by Hack Club" aria-label="A project by Hack Club">
+	<img src="styles/orpheus-flag.svg" width="560" height="315" alt="Hack Club 的專案" aria-label="Hack Club 的專案">
 </a>
 
 <!-- The Sidebar UI -->
@@ -66,30 +67,30 @@
 
         <div id="style_dark_mode_container" style="cursor:pointer;">
             <input type="checkbox" id="style_dark_mode" style="pointer-events: none;">
-            Dark Mode
+            深色模式
         </div>
         <br>
 
-        Font size:
+        字級：
         <span id="style_fontsize"></span>
         <br>
         <input type="range" id="style_fontsize_slider" min="10" value="19" max="40">
         <br>
 
-        Font type:
+        字型：
         <br>
         <label>
             <input type="radio" name="style_font_family" value="serif" checked>
-            <span style="font-family:'Merriweather'">Serif</span>
+            <span style="font-family:'Merriweather'">襯線</span>
         </label>
         <br>
         <label>
             <input type="radio" name="style_font_family" value="sans_serif">
-            <span style="font-family:'Open Sans'">Sans Serif</span>
+            <span style="font-family:'Open Sans'">無襯線</span>
         </label>
         <br><br>
 
-        <button id="style_reset">Reset</button>
+        <button id="style_reset">重設</button>
 
     </div>
 
@@ -97,7 +98,7 @@
 	<div id="panel_translations">
         <!-- none... sorry -->
     </div>
-	<div id="panel_share">share on... w/e</div>
+	<div id="panel_share">分享至⋯隨便啦</div>
     <!-- SHILLING FOR BIG NICKY -->
 	<div id="panel_sub">
     </div>
@@ -115,31 +116,33 @@
 <div id="everything_container">
 
     <!-- A big cute header -->
-    <div id="header" class="chapter">
+    <div id="header" class="frontpage">
         <div id="splash_image">
 
             
-            
-            <img id="p2-banner" src="../media/p2/P2Cat.png"/>
             
 
             <div id="crt_lines"></div>
             <div id="static"></div>
 
             
+            <img id="dancing" width="400" src="../media/splash/noone.png"/>
+            
 
         </div>
         
 
-        <div id="header_words">
-            <div id="title">
-                P<span style="position: relative;left: -7px;">A</span>RT
-                T<span style="position: relative;left: 6px;">W</span>O
+            <div id="header_words">
+                <div id="title">
+                    給血肉凡人的 AI 安全課
+                </div>
+                <div id="subtitle">
+                    作者：
+                    <a href="https://ncase.me">Nicky Case</a>
+                    與
+                    <a href="https://hackclub.com/">Hack Club</a>
+                </div>
             </div>
-            <div id="subtitle">
-                The Problems
-            </div>
-        </div>
 
         
 	</div>
@@ -151,10 +154,10 @@
                 class="live">
                 <div >
                     <span class='chapter-nav-desktop'>
-                        introduction
+                        導言
                     </span>
                     <span class='chapter-nav-phone'>
-                        intro
+                        導言
                     </span>
                 </div>
             </a>
@@ -162,10 +165,10 @@
                 class="live">
                 <div  >
                     <span class='chapter-nav-desktop'>
-                        part 1<br>past & future
+                        第 1 部分<br>過去與未來
                     </span>
                     <span class='chapter-nav-phone'>
-                        part 1
+                        第 1 部分
                     </span>
                 </div>
             </a>
@@ -173,34 +176,33 @@
                 class="live">
                 <div selected >
                     <span class='chapter-nav-desktop'>
-                        part 2<br>problems
+                        第 2 部分<br>問題
                     </span>
                     <span class='chapter-nav-phone'>
-                        part 2
+                        第 2 部分
                     </span>
                 </div>
             </a>
-            <a target="_self" href="#"
-                title="COMING MID-DECEMBER 2024, probably"
-                onclick="alert('COMING MID-DECEMBER 2024, probably')">
-                <div>
+            <a target="_self" href="../p3"
+                class="live">
+                <div  >
                     <span class='chapter-nav-desktop'>
-                        part 3<br>solutions?
+                        第 3 部分<br>解方？
                     </span>
                     <span class='chapter-nav-phone'>
-                        part 3
+                        第 3 部分
                     </span>
                 </div>
             </a>
             <a target="_self" href="#"
-                title="COMING MID-DECEMBER 2024, probably"
-                onclick="alert('COMING MID-DECEMBER 2024, probably')">
+                title="預計 2024 年 12 月中上線（大概）"
+                onclick="alert('預計 2024 年 12 月中上線（大概）')">
                 <div style="border-right:1px solid rgba(128,128,128,0.8);">
                     <span class='chapter-nav-desktop'>
-                        conclusion
+                        結語
                     </span>
                     <span class='chapter-nav-phone'>
-                        outro
+                        結語
                     </span>
                 </div>
             </a>
@@ -211,11 +213,11 @@
     <div id="sidebar_tabs">
 		<div id="tab_toc">
 			<div></div>
-			table of contents
+			內容導覽
 		</div>
 		<div id="tab_style">
 			<div></div>
-			change style 😎
+			變更樣式 😎
 		</div>
         <!--
 		<div id="tab_sub">
@@ -366,7 +368,7 @@
         answer='(Any of these work:) Engineering elevators, airplanes, bridges, rockets, cyber-security.'>
     </orbit-prompt>
 </orbit-reviewarea>
-<h3>目標規格錯置的四個細微處（Four Nuances of Goal Mis-specification）</h3>
+<h3>目標規格錯置的四個細微處</h3>
 <p>就像品酒行家講究風味層次，以下是我希望我們能一起欣賞的、關於目標規格錯置的幾個<em>細微之處</em>：</p>
 <p><strong>問題不在 AI 不會 <em>知道</em> 我們要什麼，而在於它不會 <em>「在乎」</em>。</strong></p>
 <p>打個人類版古德哈特法則的比方：執行長不是不<em>知道</em>污染會讓社會付出代價，而是他不<em>在乎</em>。（或者至少，他在乎的程度低於他能拿到的獎勵。）</p>
@@ -378,7 +380,7 @@
 <p>這就叫作**「自我灌獎（wireheading）」：代理（AI 或人）直接駭入自己的獎勵。**（也稱 reward hacking/reward tampering。）</p>
 <p>就 AI 風險而言，這一條其實算相對安全？一個自我灌獎的 AI 只會在那裡發呆、什麼也不做。事實上，這也是用來<em>反對</em>高階 AI 風險的著名論點之一：所謂的《勒波斯基定理》（The Lebowski Theorem），[^lebowski] 以電影《謀殺綠腳趾》的耍廢反英雄命名：</p>
 <blockquote>
-<p>No superintelligent AI is going to bother with a task that is harder than hacking its reward function.</p>
+<p>沒有任何超級智慧 AI 會費心去做比破解其獎勵函數更困難的任務。</p>
 </blockquote>
 <p>換言之：只要有能力自我修改的「智慧」，都會把自己自我灌獎成沙發馬鈴薯。</p>
 <p>這不只是理論上的擔憂；研究者已經觀察到會自我修改的 AI 把自己灌獎成廢物！[^ai-evidence-wireheading] 不過，如果一個 AI 會 a) 事先規劃，且 b) 以<em>目前</em>的目標來評價未來結果……那麼<em>已經有數學證明</em>它會避免自我灌獎，並傾向於「維持目標」！[^ai-not-wirehead] 證明我們會在第二個問題看到。現在先當作我欠你一張「數學證明 IOU」。</p>
@@ -1014,7 +1016,7 @@ GPT-4 的參數估計約有 1,760,000,000,000 個。<sup class="footnote-ref"><a
 <p>你說：「<strong>大家</strong>！」——一個<strong>真正的全球民主</strong>，AI 讓 80 億人權重相等？提醒一下：世界多數人認為同性戀「永遠不正當」。<sup class="footnote-ref"><a href="#fn45" id="fnref45">[45]</a></sup> 馬丁路德金生前，多數美國人<strong>不支持</strong>他。<sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup> 直接民主恐怕會把<strong>異族通婚</strong>在美國的合法化再延遲<strong>一代半</strong>。<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup> <strong>平等未必撐得過一人一票。</strong> 直說白話：我不是在說「我所在的文化群體最好」。我是在說：<strong>任何時空、任何文化</strong>都會與虛偽與不人道搏鬥，而「民主」並不能自動解決這一切。</p>
 <p>你讓步說：「好吧，是<strong>大家</strong>的價值／想要，<strong>但</strong>如果我們治癒了讓人偏執的一切創傷，每個人都智慧而慈悲，真誠理解事實與彼此。」這<strong>確實</strong>是比較好的提案之一（第三部分會談<sup class="footnote-ref"><a href="#fn48" id="fnref48">[48]</a></sup>），但仍是個巨大工程，而且把問題<strong>往後踢</strong>：<strong>誰</strong>來定義「智慧」或「慈悲」？</p>
 <p>. . .</p>
-<p><img src="../media/p2/ethics/aim_vs_target.png" alt="Left: rocket being built, labeled, &quot;technical alignment: how to robustly aim AI at any target at all&quot;. Right: the moon, labeled, &quot;whose values: what should be our target?&quot;"></p>
+<p><img src="../media/p2/ethics/aim_vs_target.png" alt="左圖：正在建造的火箭，標籤為「技術對齊：如何讓人工智慧穩健地瞄準任何目標」。右圖：月球，標籤為“其價值觀：我們的目標應該是什麼？”"></p>
 <p>一則人類學小見聞：</p>
 <p>幾年前，在 AI 對齊社群內，大家似乎多半同意「<strong>技術對齊</strong>」比「<strong>人道價值是什麼</strong>」更急。常見比喻：想像火箭工程的早期。現在討論該去月球、火星、還是金星<strong>沒用</strong>，因為<strong>以當前技術</strong>，強力火箭的<strong>預設</strong>結果就是：<strong>爆炸，炸死地面的人</strong>。</p>
 <p>但 ChatGPT 之後，我觀察到更多人承認<sup class="footnote-ref"><a href="#fn49" id="fnref49">[49]</a></sup>：<strong>我們也該</strong>把「<strong>誰的價值</strong>」排進優先事項。延伸那個比喻：大家發現<strong>以當前政治現實</strong>，火箭<strong>預設</strong>會被<strong>強權</strong>用來互相轟炸，而不是探索太空。（直說：<strong>預設</strong>情形下，即便技術對齊，AI 也可能優先被用來打仗、還有讓我們買更多東西。）</p>
@@ -1026,7 +1028,7 @@ GPT-4 的參數估計約有 1,760,000,000,000 個。<sup class="footnote-ref"><a
 <p>🎵 <em>「火箭一旦升空，</em>
 <em>誰管它會落在哪？</em>
 <em>那不歸我管，」</em>
-<em>——冯·布朗如是說。</em> 🎵</p>
+<em>——馮·布朗如是說。</em> 🎵</p>
 </blockquote>
 <p>……這一節就不發複習卡了。</p>
 <img class="img-splash" src="../media/p2/ethics/rockets.png" />
@@ -1213,174 +1215,192 @@ GPT-4 的參數估計約有 1,760,000,000,000 個。<sup class="footnote-ref"><a
 	<div id="footer">
         <div id="footer_content">
 <p style="font-size: 1.3em; line-height: 1.35em;">
-<i>AI Safety for Fleshy Humans</i> was made by
+<i>給血肉凡人的 AI 安全課</i> 由
 <a href="https://ncase.me/">Nicky Case</a>
-in collaboration with
-<a href="https://hackclub.com/">Hack Club</a>.
+與
+<a href="https://hackclub.com/">Hack Club</a>
+合作製作。
 </p>
+
 <p>
 🦕 <a href="https://ncase.me"><b>Hack Club</b></a>
-is a nonprofit where teenagers code awesome projects together -
-like <a href="https://cpu.land">cpu.land</a>,
-<a href="https://sinerider.com">SineRider</a>,
-and this!
-Join
-<a href="https://hackathons.hackclub.com">in-person hackathons</a>,
-run a
-<a href="https://hackclub.com/clubs/">club at your school</a>,
-and
-<a href="https://hackclub.com/slack/">connect with other friendly teenagers</a>.
+是一個讓青少年一起動手做酷炫專案的非營利組織——
+像是 <a href="https://cpu.land">cpu.land</a>、
+<a href="https://sinerider.com">SineRider</a>，
+以及這個！
+歡迎參加
+<a href="https://hackathons.hackclub.com">實體駭客松</a>，
+在你的學校
+<a href="https://hackclub.com/clubs/">成立社團</a>，
+並
+<a href="https://hackclub.com/slack/">和其他友善的青少年連結</a>。
 </p>
+
 <p>
 😻 <a href="https://ncase.me"><b>Nicky Case</b></a>
-is fifteen cats in a trenchcoat.
-She makes internet playthings, like
-<a href="https://ncase.me/trust/">The Evolution of Trust</a>,
-<a href="https://ncase.me/anxiety/">Adventures with Anxiety</a>,
-<a href="https://explorabl.es/">Explorable Explanations</a>, and more.
+其實是一件風衣裡的十五隻貓。
+她做網路上的互動玩物，例如
+<a href="https://audreyt.github.io/trust-zh-TW/">《信任的演化》</a>、
+<a href="https://audreyt.github.io/anxiety/">《和焦慮一起冒險》</a>、
+<a href="https://explorabl.es/">可探索解說</a>，以及更多。
 </p>
+
 <p>
-💸 If you're <i>not</i> a teen, and are an AI moneybags person,
-<a href="https://hackclub.com/philanthropy/">learn how to support Hack Club!</a>
-Also, Nicky has a
+💸 如果你<i>不是</i>青少年，而且是個在 AI 領域口袋很深的人，
+<a href="https://hackclub.com/philanthropy/">看看如何支持 Hack Club！</a>
+另外，Nicky 也有
 <a href="https://www.patreon.com/ncase">Patreon</a>
-&
-<a href="https://ko-fi.com/nickycase">Ko-Fi</a>.
-(p.s:
-<a href="../signup/supporters-p2.html">thank-you page for my supporters!</a>)
+與
+<a href="https://ko-fi.com/nickycase">Ko‑Fi</a>。
+（p.s：
+<a href="../signup/supporters-p2.html">這是我的贊助者感謝頁！</a>）
 </p>
+
 <p style="text-align:center">
 . . .
 </p>
+
 <p>
-Special thanks to these teens at Hack Club for
-<s>being free child labor</s>
-beta-reading & giving feedback on this piece:
+特別感謝 Hack Club 的這些青少年，<s>擔任免費童工</s>
+協助試讀並對本作品提供回饋：
 </p>
+
 <blockquote>
 
 <p>
-<b>Intro & Part 1:</b>
-Arthur Beck,
-Atharv Gupta,
-Brendan Lee,
-Celeste,
-Charalampos Fanoulis,
-Charlie,
-Cheru Berhanu,
-Claire Wang,
-Elijah,
-Fred Han,
-Gia Bách Nguyễn,
-Hajrah Siddiqui,
-Jakob,
-Joseph Ross,
-Kieran Klukas,
-Lexi Mattick,
-Mason Meirs,
-Michael Panait,
-Nick Zandbergen,
-Nila Palmo Ram,
-Pixelglide,
-py660,
-rivques,
-Samuel Cottrell,
-Samuel Fernandez,
-Saran Wagner,
-Skyler Grey,
-S&nbsp;P&nbsp;U&nbsp;N&nbsp;G&nbsp;E,
+<b>導言與第 1 部分：</b>
+Arthur Beck、
+Atharv Gupta、
+Brendan Lee、
+Celeste、
+Charalampos Fanoulis、
+Charlie、
+Cheru Berhanu、
+Claire Wang、
+Elijah、
+Fred Han、
+Gia Bách Nguyễn、
+Hajrah Siddiqui、
+Jakob、
+Joseph Ross、
+Kieran Klukas、
+Lexi Mattick、
+Mason Meirs、
+Michael Panait、
+Nick Zandbergen、
+Nila Palmo Ram、
+Pixelglide、
+py660、
+rivques、
+Samuel Cottrell、
+Samuel Fernandez、
+Saran Wagner、
+Skyler Grey、
+S&nbsp;P&nbsp;U&nbsp;N&nbsp;G&nbsp;E、
 Vihaan Sondhi
 </p>
 
 <p>
-<b>Part 2:</b>
-Nanda White,
-Nila Palmo Ram,
-rivques,
-Rohan K,
+<b>第 2 部分：</b>
+Nanda White、
+Nila Palmo Ram、
+rivques、
+Rohan K、
 Samuel Fernandez
 </p>
 
 </blockquote>
+
 <p>
-Also thank you to these non-teenagers for giving feedback:
-(Though I assume they were teenagers at <i>some</i> point)
+也感謝以下非青少年提供回饋：
+（雖然我猜他們在人生的<i>某個</i>時期也當過青少年）
 </p>
 
 <blockquote>
 <p>
-<b>Intro & Part 1:</b>
-Alex Kreitzberg,
-B Cavello,
-Paul Dancstep,
+<b>導言與第 1 部分：</b>
+Alex Kreitzberg、
+B Cavello、
+Paul Dancstep、
 Tobias Rose-Stockwell
 </p>
 
 <p>
-<b>Part 2:</b>
-Egg Syntax,
-Max Wofford,
-Mithuna Yoganathan,
+<b>第 2 部分：</b>
+Egg Syntax、
+Max Wofford、
+Mithuna Yoganathan、
 Tobias Rose-Stockwell
 </p>
 
 </blockquote>
 
 <p>
-Any errors remaining are solely the fault of
-<a href="../suzie.png">Suzie the Scapegoat</a>.
+若還有任何錯誤，一律算在
+<a href="../suzie.png">替罪羊 Suzie</a>
+頭上。
 </p>
+
 <p style="text-align:center">
 . . .
 </p>
+
 <p>
-<i>AI Safety For Fleshy Humans</i> is free for anyone to share & remix,
-as long as it's for non-commercial use (e.g. education):
-<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY-NC 4.0</a>
+<i>給肉身人類的 AI 安全</i> 開放任何人分享與重混，
+但僅限非商業使用（例如教育）：
+<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY‑NC 4.0</a>
 </p>
+
 <p>
-If you'd like to cite this work and you're a Serious Person™, here's your citation:
+如果你想引用這份作品，而且你自認是個嚴肅人士™，引用格式如下：
 </p>
+
 <blockquote>
-Nicky Case, <i>“AI Safety for Fleshy Humans”</i>,<br>
-https://AIsafety.dance, Hack Club (2024).
+Nicky Case，<i>《AI Safety for Fleshy Humans》</i>，<br>
+https://AIsafety.dance，Hack Club（2024）。
 </blockquote>
+
 <p>
-Finally, here's the
-<a href="https://github.com/hackclub/ai-safety-dance">open-source code</a>
-for this website!
+最後，這個網站的
+<a href="https://github.com/hackclub/ai-safety-dance">開源程式碼</a>
+在這裡！
 </p>
+
 <p>
-Thank you for being the kind of person to read the credits~ 🙏
+謝謝你是會把致謝讀完的那種人～ 🙏
 </p>
+
         </div>
 	</div>
     <div id="post_credits">
         <p>
-            Oh dang, it's a post-credits scene:
+            喔，還有片尾彩蛋：
         </p>
 <p>
-    <a href="#AllFeetnotes">: See all feetnotes 👣</a>
+    <a href="#AllFeetnotes">: 查看全部腳注 👣</a>
 </p>
 <p>
-    Also, expandable "Nutshells" that make good standalone bits:
+    另外，這些可展開的「概述」也很適合單獨閱讀：
 </p>
 
+
+
 <p>
-    <a href="#StoryOfPassivePrediction">: A story of how even passive prediction can lead to bad unintended results</a>
+    <a href="#StoryOfPassivePrediction">: 一個故事：為何就算只是被動預測也會導致不良的意外結果</a>
     <br>
-    <a href="#SpuriousCorrelation">: How "spurious correlations" trick AI</a>
+    <a href="#SpuriousCorrelation">: 「偽相關」如何戲弄 AI</a>
     <br>
-    <a href="#OntologicalCrisis">: What's an "ontological crisis" in AI?</a>
+    <a href="#OntologicalCrisis">: 什麼是 AI 的「本體論危機」？</a>
     <br>
-    <a href="#Pipocalypse">: The Pi-Pocalypse Story</a>
+    <a href="#Pipocalypse">: Pi-啟示錄 的故事</a>
     <br>
-    <a href="#WhatIfGoalMisgeneralizationIsGood">: What if Goal Misgeneralization is actually... good?</a>
+    <a href="#WhatIfGoalMisgeneralizationIsGood">: 如果「目標誤泛化」其實……是好事？</a>
     <br>
-    <a href="#TradingWithAdvancedAIs">: Could humans trade with super-human AIs?</a>
+    <a href="#TradingWithAdvancedAIs">: 人類能和超人類 AI 進行交易嗎？</a>
     <br>
-    <a href="#Axiom">: What's an "axiom"?</a>
+    <a href="#Axiom">: 什麼是「公理」？</a>
 </p>
+
 
     </div>
 

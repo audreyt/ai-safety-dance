@@ -2,16 +2,16 @@
     {% if isFrontpage %} href="p1" {% endif %}
     {% if isPartOne %} href="../p2" {% endif %}
     target="_self">
-<div id="next_button" {{ 'class="unfinished"' if isPartTwo }}>
+<div id="next_button">
     <div id="nb--crt_lines"></div>
     <div id="nb--static"></div>
     <div id="nb--words">
         {% if isFrontpage %}
-            <b>PART ONE →</b>
+            <b>第一部分 →</b>
         {% elif isPartOne %}
-            <b>PART TWO →</b>
+            <b>第二部分 →</b>
         {% elif isPartTwo %}
-            <b>PART THREE →</b>
+            <b>第三部分 →</b>
         {% endif %}
     </div>
 </div>
