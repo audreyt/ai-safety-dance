@@ -431,7 +431,7 @@
 <p>不過，還有<em>另一個</em>關於 AI「邏輯」的安全問題是近年才被發現的，我覺得值得更主流的注意：</p>
 <p><strong>3. 幾乎所有目標在邏輯上都會導向掠奪資源與抗拒關機。</strong></p>
 <p>依照博弈論（研究「有目標的代理人」如何行為的數學），幾乎所有目標在邏輯上都會導向<em>一組共同的</em>不安全子目標，例如抗拒關機、掠奪資源。</p>
-<p>這個問題叫做**「工具性收斂（Instrumental Convergence）」**，因為子目標又稱「工具性目標」，而大多數目標在邏輯上會「收斂」到這些相同子目標。<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup>（拜託，千萬別讓學者幫你小孩取名。）</p>
+<p>這個問題叫做<b>「工具性收斂（Instrumental Convergence）」</b>，因為子目標又稱「工具性目標」，而大多數目標在邏輯上會「收斂」到這些相同子目標。<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup>（拜託，千萬別讓學者幫你小孩取名。）</p>
 <p>第二部會詳談，這裡用一個故事來示意：</p>
 <blockquote>
 <p>從前有個進階（但還沒超人）的 AI，被賦予一個看似無害的目標：計算圓周率的位數。</p>
@@ -483,7 +483,7 @@
 <h3>2000 年以後：只有直覺，沒有邏輯（After 2000: Intuition, Without Logic）</h3>
 <p>好吧，「2000 年以後」是騙你的。我們回到 1943。</p>
 <p>你知道大多數新技術至少會<em>建立在</em>舊技術之上吧？深度學習完全不是這樣。深度學習幾乎沒有建立在符號式 AI 半世紀的辛勞上。事實上，深度學習早在符號式 AI<em>之前</em>就出現，然後當了<em>超過半世紀</em>被冷落的小老弟。</p>
-<p>1943 年，甚至在「人工智慧」這詞被發明之前，Warren McCulloch 與 Walter Pitts 發明了**「人工神經網路（ANN）」**。<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup> 概念很簡單——讓電腦像人腦那樣思考：呃，就近似人腦吧：</p>
+<p>1943 年，甚至在「人工智慧」這詞被發明之前，Warren McCulloch 與 Walter Pitts 發明了<b>「人工神經網路（ANN）」</b>。<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup> 概念很簡單——讓電腦像人腦那樣思考：呃，就近似人腦吧：</p>
 <p><img src="../media/p1/ANN_vs_BNN_1.png" alt="生物神經網路示意圖。輸入：感官。處理：神經元之間的訊號。輸出：肌肉。"></p>
 <p><img src="../media/p1/ANN_vs_BNN_2.png" alt="人工神經網路示意圖。輸入：一串數字。處理：把前一串數字反覆轉成下一串數字。輸出：最後一串數字。"></p>
 <p>（註：因為每一串數字都被轉成下一串，這讓 ANN 可以做「一次到位」的辨識，就像我們的直覺！嗒啦～🎉）</p>
@@ -604,7 +604,7 @@
 <p>這是 2021 年 OpenAI 的機器視覺出過的 bug：<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup></p>
 <p><img src="../media/p1/openai-lol.jpg" alt="左：一顆蘋果，AI 正確辨識為青蘋果。右：同顆蘋果貼上寫有「iPod」的紙條。AI 現在有 99.7% 的信心它是 Apple iPod。"></p>
 <p>另一個有趣例子：<a href="https://www.youtube.com/watch?v=piYnd_wYlT8">:Google 的 AI 把玩具烏龜誤認為槍</a>，幾乎任何角度都會。更悲傷的例子：2016 年第一次 Tesla 自動駕駛致死事故，Autopilot 把一台拖車——高度比平常稍高——誤認成路標，或甚至是天空。<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup><sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup></p>
-<p>當 AI 在和其訓練資料<em>稍有不同</em>的情境中失效，這叫做**「分佈外錯誤（Out-of-Distribution, OOD）」<strong>，或</strong>「魯棒性失效（Robustness failure）」**。</p>
+<p>當 AI 在和其訓練資料<em>稍有不同</em>的情境中失效，這叫做<b>「分佈外錯誤（Out-of-Distribution, OOD）」</b>，或<b>「穩健性失效（Robustness failure）」</b>。</p>
 <p>AI 以怪方式失效的一個重要子問題是：<strong>「內部失對齊（inner misalignment）」</strong>，或我偏好的說法，<strong>「目標誤泛化（goal misgeneralization）」</strong>。假設你意識到自己沒辦法把真正的偏好全部寫成規則，所以改成讓 AI 去<em>學</em>你的目標。好主意，但此時可能發生：AI 學到的<em>目標</em>壞了，而它學到的<em>技能</em>還完好無缺。這比 AI 直接壞掉<em>更糟</em>，因為它現在可以用<em>高超的技巧</em>執行已經扭曲的目標！（例如：一個被訓練來強化資安的 AI，看到一張手寫紙條「今天是反著來日 XDD」之後，變成惡意駭客機器人。）</p>
 <p>不能就「打開引擎蓋」看看 AI 裡面，找到偏見／缺陷然後修嗎？唉，不行，因為：</p>
 <p><strong>3）我們<em>完全不知道</em>人工神經網路裡面在幹嘛。</strong></p>
@@ -658,7 +658,7 @@
     </orbit-prompt>
 </orbit-reviewarea>
 <hr>
-<h2>🎁 現在（The Present）</h2>
+<h2>🎁 現在</h2>
 <p>既然你（可能）已經知道超出所需的 AI 與 AI 安全史……來看看這兩個領域<em>今天</em>的現況吧！</p>
 <p><strong>AI，現在：</strong></p>
 <ul>
