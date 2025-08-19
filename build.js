@@ -80,7 +80,7 @@ convertConfigs.forEach((config)=>{
                 if(err){ console.log(err); }else{
 
                     // Convert MD => HTML
-                    let renderedHTML = md.render(markdown);
+                    let renderedHTML = md.render(markdown).replace(/\bem>/g, 'i>');
 
                     // Render any Nunjucks *inside* the markdown...
                     let data = config.extras || {};
