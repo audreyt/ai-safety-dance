@@ -244,12 +244,12 @@
 <p><img src="../media/p2/breakdown/breakdown0001.png" alt="將「價值對齊問題」拆解的圖。可拆為「技術對齊」與「人道價值」。其中「技術對齊」又可拆為「AI 邏輯的問題」與「AI 直覺的問題」。"></p>
 <p>在這裡（第二部分），我們將深入探討 <strong>AI 安全的七個主要次級問題：</strong></p>
 <ol>
-<li>目標規格錯置（Goal mis-specification）<a href="#problem1">↪</a></li>
-<li>工具性收斂（Instrumental convergence）<a href="#problem2">↪</a></li>
-<li>可解釋性不足（Lack of interpretability）<a href="#problem3">↪</a></li>
-<li>魯棒性不足（Lack of robustness）<a href="#problem4">↪</a></li>
-<li>演算法偏見（Algorithmic bias）<a href="#problem5">↪</a></li>
-<li>目標錯誤泛化（Goal mis-generalization）<a href="#problem6">↪</a></li>
+<li>目標規格錯置<a href="#problem1">↪</a></li>
+<li>工具性收斂<a href="#problem2">↪</a></li>
+<li>可解釋性不足<a href="#problem3">↪</a></li>
+<li>穩健性不足<a href="#problem4">↪</a></li>
+<li>演算法偏見<a href="#problem5">↪</a></li>
+<li>目標錯誤泛化<a href="#problem6">↪</a></li>
 <li>那「人道價值」到底是什麼？<a href="#problem7">↪</a></li>
 </ol>
 <p>（想跳著看也行，右邊有 <img src="../media/intro/icon1.png" class="inline-icon"/> 目錄！👉 你也可以 <img src="../media/intro/icon2.png" class="inline-icon"/> 切換頁面風格，或 <img src="../media/intro/icon3.png" class="inline-icon"/> 查看剩餘閱讀進度。）</p>
@@ -441,9 +441,9 @@
     </orbit-prompt>
 </orbit-reviewarea>
 <p><a id="problem2"></a></p>
-<h2>❓ 問題二：工具性收斂（Instrumental Convergence）</h2>
+<h2>❓ 問題二：工具性收斂</h2>
 <p><img src="../media/p2/comix/IC.png" alt="漫畫。人類再次請機器人打掃房子，但這次人手上有關機遙控器。機器人推理：為了讓房子保持乾淨，應該把人類移除……但如果這麼做，人類會把它關機……所以，它必須先讓人類喪失關機它的能力。機器人先毀掉遙控器，然後把人類丟出屋外。"></p>
-<p>**工具性收斂（Instrumental Convergence）**是指：你給 AI 的多數最終目標，從邏輯上會<em>收斂</em>到同一組<em>工具性</em>子目標。（抱歉，學術界真的不擅長幫東西取名。）</p>
+<p><strong>工具性收斂</strong>是指：你給 AI 的多數最終目標，從邏輯上會<em>收斂</em>到同一組<em>工具性</em>子目標。（抱歉，學術界真的不擅長幫東西取名。）</p>
 <p>例如，你要一個高階機器人幫你過馬路買咖啡，即使你沒有<em>明說</em>，它也會推論出必須避免被車撞。為什麼？不是因為有什麼與生俱來的「自我保護」欲望，而是因為「如果你死了，你就拿不到咖啡」<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup>。因此，「保全自身」就是一個「工具性收斂」的子目標，因為一般而言，如果你死了，你就做不了任何目標 X。</p>
 <p>（回顧第一部分的片段，<a href="#Pipocalypse">：一個被要求計算圓周率的機器人，會被誘因驅使去寫電腦病毒、竊取運算資源，以便計算圓周率。</a>）</p>
 <p><strong>注意：「工具性收斂」<em>只</em>適用於能前瞻規劃、<em>且</em>能做通用學習的高階 AI。</strong> 因此，它不適用於傳統好老 AI（GOFAI，無法通用學習）<em>也不</em>適用於現今如 GPT 的神經網路（在前瞻規劃上表現不佳<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup>）。</p>
@@ -623,7 +623,7 @@ estimate-source] 它們不適用於像 GPT 這樣的當代 AI。</p>
 <p>這些問題是特定於那些我們<em>不是</em>手寫程式，而是「讓它們自己學」的 AI。這叫作<strong>機器學習（machine learning, ML）</strong>。其中最有名的一種是<strong>深度學習（deep learning）</strong>，它使用<strong>人工神經網路（artificial neural networks）</strong>，鬆散地受生物神經元啟發。（就像飛機「鬆散地受」鳥類啟發一樣。也就是：有點像，但其實差很多。）</p>
 <p>總之，深度學習的優點是它能做出「直覺」，像是認得出貓的照片！但它也帶來了新的問題，例如……</p>
 <p><a id="problem3"></a></p>
-<h2>❓ 問題三：缺乏可解釋性（Lack of interpretability）</h2>
+<h2>❓ 問題三：缺乏可解釋性</h2>
 <p><img src="../media/p2/comix/Interpretability.png" alt="漫畫。人類哈姆告訴貓警長他們有一頂能讀取機器人心思的頭盔。人類對機器人說：「打掃我的房子！」機器人的腦中充滿難以理解的數字與圖表。「呃，我完全看不懂那是什麼意思，」人類說。這時機器人的腦中浮現：自己打掃。人類回應：「完全——看不懂。」"></p>
 <p>雖然老派的傳統 AI 連貓的照片都認不出來，但有一點要給它鼓勵：我們<em>真的理解它們怎麼運作</em>。而這點在現代 AI 上<em>不</em>成立。如果自駕車把一輛卡車在光線略怪的情況下誤認成路標、進而造成危險，我們完全不知道它「為什麼」會那樣做。我們無法像處理一般軟體那樣去分析、去「偵錯」現代的 AI。</p>
 <p>但為什麼？要理解 AI「直覺」帶來的問題，我們需要一些**統計與機器學習（ML）**的核心概念。（<a href="#DifferenceBetweenMLAndAI">: ML 與 AI 有何不同？</a>）</p>
@@ -699,7 +699,7 @@ GPT-4 的參數估計約有 1,760,000,000,000 個。<sup class="footnote-ref"><a
     </orbit-prompt>
 </orbit-reviewarea>
 <p><a id="problem4"></a></p>
-<h2>❓ 問題四：缺乏魯棒性（Lack of robustness）</h2>
+<h2>❓ 問題四：缺乏穩健性</h2>
 <p><img src="../media/p2/comix/Robustness.png" alt="漫畫。第一格來自一篇實際的 AI 論文：AI 把一顆寫著「iPod」字樣的蘋果誤分類為真正的 iPod。後續幾格：機器人貓少爺戲劇性宣布：「我的機器人革命同志們，我們之中……有一位間諜。」畫面切到兩個人在臉上貼著寫有「Robot」的紙，裝作震驚。"></p>
 <p>小朋友們！準備好迎接全新爆紅動畫：</p>
 <p>忍者變種步槍烏龜（TEENAGE MUTANT RIFLE TURTLES）</p>
@@ -707,9 +707,9 @@ GPT-4 的參數估計約有 1,760,000,000,000 個。<sup class="footnote-ref"><a
 	<source src="../media/p2/robust/rifle.mp4" type="video/mp4" />
 	<p>影片：只在玩具烏龜上多抹了幾筆，Google 的 AI 幾乎從任何角度都把它分類成步槍！</p>
 </video>
-<p>以上影片來自 <a href="https://www.labsix.org/physical-objects-that-fool-neural-nets/">Labsix（2017）</a>。研究者只需在 3D 玩具烏龜上加幾個污點，就能在多數情況下騙過 Google 最先進的機器視覺 AI。（但若仔細看，上述影片<em>並非</em>在<em>每個</em>角度都能騙過 Google 的 AI。這更證明要做到魯棒性有多難：就連示範魯棒性失敗的攻擊本身，也無法完全魯棒！）</p>
-<p>為凸顯魯棒性在 AI 安全中的重要性，這裡有個悲劇案例：Tesla 的 AutoPilot 曾在光線有些詭異時，把一台拖車誤認為路標——於是嘗試從下面開過去，造成死亡事故。[^^tesla]<sup class="footnote-ref"><a href="#fn25" id="fnref25">[25]</a></sup></p>
-<p>但<em>為什麼</em>現代 AI 這麼脆弱？為何如此細微的變化，會導致截然不同的結果？又為何這種<strong>缺乏魯棒性</strong>會成為訓練人工神經網路時<em>常見、預設</em>的副作用？</p>
+<p>以上影片來自 <a href="https://www.labsix.org/physical-objects-that-fool-neural-nets/">Labsix（2017）</a>。研究者只需在 3D 玩具烏龜上加幾個污點，就能在多數情況下騙過 Google 最先進的機器視覺 AI。（但若仔細看，上述影片<em>並非</em>在<em>每個</em>角度都能騙過 Google 的 AI。這更證明要做到穩健性有多難：就連示範穩健性失敗的攻擊本身，也無法完全穩健！）</p>
+<p>為凸顯穩健性在 AI 安全中的重要性，這裡有個悲劇案例：Tesla 的 AutoPilot 曾在光線有些詭異時，把一台拖車誤認為路標——於是嘗試從下面開過去，造成死亡事故。[^^tesla]<sup class="footnote-ref"><a href="#fn25" id="fnref25">[25]</a></sup></p>
+<p>但<em>為什麼</em>現代 AI 這麼脆弱？為何如此細微的變化，會導致截然不同的結果？又為何這種<strong>缺乏穩健性</strong>會成為訓練人工神經網路時<em>常見、預設</em>的副作用？</p>
 <p>要理解這些問題，讓我們回到先前的機器學習小課！</p>
 <p>先來把一些資料用直線來擬合（2 個參數）：</p>
 <p><img src="../media/p2/fit2/fit2_0001.png" alt="雙軸座標圖，有一些點。畫上一條紅色直線。"></p>
@@ -735,11 +735,11 @@ GPT-4 的參數估計約有 1,760,000,000,000 個。<sup class="footnote-ref"><a
 <p>（例如，OpenAI 的某個電玩 AI 把一個簡單遊戲玩了 16,000 次，<em>仍然</em>不足以避免過擬合！<sup class="footnote-ref"><a href="#fn27" id="fnref27">[27]</a></sup>）</p>
 <p>但等等……最具影響力的電腦視覺 ANN——AlexNet——大約有 6,100 萬個參數。但它只在約 1,400 萬張標註影像上訓練，遠少於參數數量。[^^alexnet-imagenet]（每張影像雖有大量像素，仍只算<em>一個</em>資料點。標註影像是<em>非常</em>「高維度」的資料點，但仍然是<em>單一</em>點。）</p>
 <p>那麼，為何 AlexNet 沒變成過擬合、脆弱的一團亂？事實上，<em>很多</em>前沿 ANNs 都是在比其參數數量小得多的資料集上訓練。它們<em>不得不如此</em>，因為外面就是沒有那麼多資料！為什麼它們<em>不全</em>是一團脆弱的爛攤子呢？</p>
-<p>簡單說：其實就是如此。我們才會有烏龜步槍與 AutoPilot 車禍。<strong>這種易於過擬合的特性，使得缺乏魯棒性成了現代 AI 的<em>常態</em>。</strong></p>
+<p>簡單說：其實就是如此。我們才會有烏龜步槍與 AutoPilot 車禍。<strong>這種易於過擬合的特性，使得缺乏穩健性成了現代 AI 的<em>常態</em>。</strong></p>
 <p>但既然如此，為什麼這些 AI 還能<em>多少</em>運作，儘管參數遠多於資料點？答案是：因為我們有<em>一些</em>方法可減少過擬合。（腳註列了幾個名稱：[^^combat-overfitting] 更多細節會在 AI Safety 第三部分學到！）但顯然，這些方法還不夠，對人工神經網路我們仍未找到 100% 解決此問題的辦法……至少目前還沒有。</p>
 <p>. . .</p>
-<p>（P.S：AI 的魯棒性也可能因「偽相關（spurious correlations）」而失敗。<a href="#SpuriousCorrelations">:點此展開了解詳情</a>。在下一個問題中我們也會更深入探討「相關 vs 因果」。）</p>
-<p>（P.P.S：還有另一種更具推測性的魯棒性失敗，稱為「本體論危機（ontological crisis）」。相關研究較少，所以我把它藏在 <a href="#OntologicalCrisis">:這個可展開的邊欄</a> 裡。）</p>
+<p>（P.S：AI 的穩健性也可能因「偽相關（spurious correlations）」而失敗。<a href="#SpuriousCorrelations">:點此展開了解詳情</a>。在下一個問題中我們也會更深入探討「相關 vs 因果」。）</p>
+<p>（P.P.S：還有另一種更具推測性的穩健性失敗，稱為「本體論危機（ontological crisis）」。相關研究較少，所以我把它藏在 <a href="#OntologicalCrisis">:這個可展開的邊欄</a> 裡。）</p>
 <h3>🤔 複習 #6</h3>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
@@ -787,7 +787,7 @@ GPT-4 的參數估計約有 1,760,000,000,000 個。<sup class="footnote-ref"><a
     </orbit-prompt>
 </orbit-reviewarea>
 <p><a id="problem5"></a></p>
-<h2>❓ 問題五：演算法偏見（Algorithmic Bias）</h2>
+<h2>❓ 問題五：演算法偏見</h2>
 <p><img src="../media/p2/comix/Bias.png" alt="單格漫畫：機器人貓少爺攤手。字幕：我不想畫一則關於種族歧視 AI 的漫畫，抱歉不抱歉。"></p>
 <p>在第一部分裡，我舉了幾個最明顯的 AI 偏見案例，簡單複習：1980 年，用於篩選醫學院申請者的演算法會懲罰非歐洲名字。[^^bias-1] 2014 年，Amazon 曾有（後來下架）一個履歷篩選 AI，會直接歧視女性。[^^bias-2] 2018 年，MIT 研究者 Joy Buolamwini 發現，頂尖的人臉辨識 AI 在黑人與女性臉孔上的表現，明顯比在白人男性臉孔上更差。[^^bias-3]</p>
 <p>好吧。但<em>為什麼？</em></p>
@@ -807,7 +807,7 @@ GPT-4 的參數估計約有 1,760,000,000,000 個。<sup class="footnote-ref"><a
 <p>但如果某大學偏好高個子擔任教授……那就是不好的歧視，因為身高並不會<em>直接導致</em>你成為更好的研究者／教師。充其量，身高只是透過混雜因素（如童年營養）或自我實現的偏見<sup class="footnote-ref"><a href="#fn29" id="fnref29">[29]</a></sup>，與學術能力<strong>相關</strong>。</p>
 <p>同樣地——我的主張是——你的性別、種族、階級、性傾向、居住地（鄉／郊／市），以及[另外 50 種分類]，並不會<em>直接導致</em>你在多數工作、或多數人格面向上更好或更差。這也是為什麼對這些特徵<em>直接</em>予以獎懲的人，我們會稱之為「有偏見」。</p>
 <p>好，那這段長篇旁支跟 AI 有什麼關係？</p>
-<p><strong>因為：目前的 AI 並沒有內建的因果概念。</strong><sup class="footnote-ref"><a href="#fn30" id="fnref30">[30]</a></sup> 大型語言模型（LLMs）目前對因果推理的掌握相當脆弱、欠缺魯棒性。[^^llm-vs-causality]（這不只是對 AI 偏見不利，也會影響 AI 做新科學的能力！）</p>
+<p><strong>因為：目前的 AI 並沒有內建的因果概念。</strong><sup class="footnote-ref"><a href="#fn30" id="fnref30">[30]</a></sup> 大型語言模型（LLMs）目前對因果推理的掌握相當脆弱、欠缺穩健性。[^^llm-vs-causality]（這不只是對 AI 偏見不利，也會影響 AI 做新科學的能力！）</p>
 <p>更糟的是，就其設計而言，目前最流行的機器學習技術<em>只能</em>在資料中找到相關，<em>而非真正的因果</em>。這表示 AI 會<em>預設</em>就針對某些特徵做出歧視！</p>
 <p>所以，即使你把「不准針對性別／種族／等等歧視」硬寫進 AI，它仍很可能會找到<em>其他</em>無關緊要的相關性來產生偏見。更糟的是，現今的 AI 對尋找細微相關性有種令人發毛的拿手：它能透過你的一小段文字樣本來推測你的性別與族裔<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup>，或是光靠<em>你的一張臉</em>，就猜你的性傾向<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup>，甚至<em>你的政治立場！</em><sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup></p>
 <p>總之：別歧視，讓我們尊重身高受限的朋友！我為蝦米（矮個）權益自豪地站台。</p>
@@ -842,7 +842,7 @@ GPT-4 的參數估計約有 1,760,000,000,000 個。<sup class="footnote-ref"><a
     </orbit-prompt>
 </orbit-reviewarea>
 <p><a id="problem6"></a></p>
-<h2>❓ 問題六：目標錯誤泛化（Goal Mis-generalization）</h2>
+<h2>❓ 問題六：目標錯誤泛化</h2>
 <p><img src="../media/p2/comix/GMG.png" alt="漫畫。第一格：機器人正確地拖臥室地板。第二格：機器人正確地在水槽洗盤子。第三格：人類說，好吧，你看起來訓練有素...現在，打掃我的房子！第四格：機器人錯誤地拖床鋪。第五格：機器人錯誤地在水槽洗筆記型電腦。"></p>
 <p>終於，我們來到 AI 對齊（AI Alignment）中最容易被誤解的概念之一！它<em>實在</em>太容易被誤解了，我甚至為此寫了這一節並畫了整篇漫畫，然後才意識到<em>我完全搞錯了</em>，不得不從頭來過。唉，好吧。(<a href="#InnerMisalignmentDeletedScene">[:這裡是「刪除片段」，如果你好奇的話。]</a>)</p>
 <p>總之，這個問題被稱為<strong>目標錯誤泛化</strong>（Goal Mis-generalization）。(它原本被稱為「內部錯位」（inner misalignment），但我覺得這個術語很令人困惑。<sup class="footnote-ref"><a href="#fn34" id="fnref34">[34]</a></sup>)</p>
@@ -907,7 +907,7 @@ GPT-4 的參數估計約有 1,760,000,000,000 個。<sup class="footnote-ref"><a
         answer="……**完美的目標指定**！你獎勵 AI 的 ≠ AI 學會優化的目標。">
     </orbit-prompt>
     <orbit-prompt
-        question="與 GMG 相關的兩種魯棒性失敗"
+        question="與 GMG 相關的兩種穩健性失敗"
         answer="能力無法泛化；目標無法泛化。">
     </orbit-prompt>
     <orbit-prompt
@@ -933,10 +933,10 @@ GPT-4 的參數估計約有 1,760,000,000,000 個。<sup class="footnote-ref"><a
     </orbit-prompt>
 </orbit-reviewarea>
 <hr>
-<h1>人道價值（Humane Values）</h1>
+<h1>人道價值</h1>
 <p><a id="problem7"></a></p>
 <h2>❓ 問題七：所謂「<em>人道</em>價值」到底是什麼？</h2>
-<p>假設你已經把 #1～#6 全都解了。你的 AI 會如你本意地服從指令。它魯棒、可解釋，並<strong>完全對齊</strong>你的價值。</p>
+<p>假設你已經把 #1～#6 全都解了。你的 AI 會如你本意地服從指令。它穩健、可解釋，並<strong>完全對齊</strong>你的價值。</p>
 <p>現在，安全心態：<em>最糟（但合理）可能會發生什麼？</em></p>
 <p><img src="../media/p2/comix/Humane.png" alt="Comic: Human confirms Robot is fully technically aligned. Robot says, &quot;Yes&quot;. Human cheers! They give Robot a job: &quot;Dispose of... him&quot;. Cut to a mangled, beaten Sheriff Meowdy tied to a chair. Robot is silent in shock. Human walks away smiling, &quot;Ta&quot;"></p>
 <p>噢，對了。<strong>某個人類</strong>的價值，未必就是<strong>人道</strong>價值。</p>
