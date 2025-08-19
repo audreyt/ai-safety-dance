@@ -235,7 +235,7 @@
 <p>「問題陳述得好，等於解決了一半。」<br>
 —— 某人<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>（👈 將游標移過引註以展開）</p>
 </blockquote>
-<p><i>&quot;Didn't you use that quote just a few minutes ago?&quot;</i> you ask. Nah, <a href="https://aisafety.dance/p1/">part one</a> was published in May 2024, this part was published <strong>Aug 2024</strong>. It's been three months, I'll remind you of the quote.</p>
+<p>你問道：「你幾分鐘前不是還用過那句話嗎？」不，<a href="../p1/">第一部分</a> 是2024年5月發布的，這部分是<strong>2024年8月</strong>發布的。已經三個月了，我得提醒你那句話。</p>
 <p>也提醒一下我們要表述並解決的問題！那就是「價值對齊問題」：</p>
 <blockquote>
 <p><strong><i>我們如何打造能夠穩健服務「人道價值」的 AI？</i></strong></p>
@@ -246,8 +246,8 @@
 <ol>
 <li>目標規格錯置<a href="#problem1">↪</a></li>
 <li>工具性收斂<a href="#problem2">↪</a></li>
-<li>可解釋性不足<a href="#problem3">↪</a></li>
-<li>穩健性不足<a href="#problem4">↪</a></li>
+<li>缺乏可解釋性<a href="#problem3">↪</a></li>
+<li>缺乏穩健性<a href="#problem4">↪</a></li>
 <li>演算法偏見<a href="#problem5">↪</a></li>
 <li>目標錯誤泛化<a href="#problem6">↪</a></li>
 <li>那「人道價值」到底是什麼？<a href="#problem7">↪</a></li>
@@ -267,9 +267,6 @@
 <p><i>「小心你許的願，因為它可能真的實現。」</i> 這是個古老到被神話化的問題：彌達斯國王、反諷的精靈、猴爪。</p>
 <p>這就叫作 <strong>目標規格錯置</strong>（也稱獎勵規格錯置，Reward Mis-specification）：當 AI 做的是你<i>字面上要求它做的</i>，而不一定是你<i>真正想要的</i>。</p>
 <p>（如果你不記得第一部分，這裡有一些 <a href="#WaysToMakeHumaneAIGoingWrong">:看似顯而易見、卻會翻車的「做人道 AI」方法</a>。加碼：<a href="#StoryOfPassivePredictionLeadingToHarm">:連「做預測」這種<i>被動</i>目標都可能導致傷害！</a> 👈 <i>可選：點此展開</i>）</p>
-<p><i>（另外——如果你想在 12 月中「第三部分：提出的解法」發布時收到通知，請在下方訂閱！高中生還可以免費拿貼紙 👇）</i></p>
-<p><div style="width:100%;height:500px;" data-fillout-id="hX3xJuTcdVus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize data-fillout-domain="forms.hackclub.com"></div>
-<script defer src="https://server.fillout.com/embed/v1/"></script></p>
 <p>. . .</p>
 <p>好了，基礎複習就到這。接下來介紹：</p>
 <p><strong>這與其他領域的核心觀念有何關聯：</strong></p>
@@ -330,13 +327,13 @@
 <p>悲觀一點——畢竟是悲觀者發明了降落傘！<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> 這種作法正是電梯、飛機、橋樑、火箭、資安<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>等高風險技術所採用的。</p>
 <p>而且，如同我在第一部分所希望呈現的，AI 很可能是本世紀風險最高的技術之一。</p>
 <h3>🤔 Review #1 (OPTIONAL!)</h3>
-<p>Remember that time you spent hours reading a thing, then a week later you forgot everything?</p>
-<p>Yeah I hate that feeling too. So, here's some (OPTIONAL) &quot;spaced repetition&quot; flashcards, if you want to remember this long-term!  (<a href="https://aisafety.dance/#SpacedRepetition">:Learn more about Spaced Repetition</a>)  You can also <a href="https://ankiweb.net/shared/info/808506727">download these as an Anki deck</a>, if you want.</p>
+<p>還記得你花了好幾個小時讀一篇文章，然後一週後就全忘了嗎？</p>
+<p>是的，我也不喜歡那種感覺。所以，這裡有一些（可選的）「間隔重複」抽認卡，如果你想長期記住的話！ (<a href="..//#SpacedRepetition">:了解更多關於間隔重複的資訊</a>）如果你願意，也可以<a href="https://ankiweb.net/shared/info/808506727">下載這些卡片作為 Anki 卡片群組</a>。</p>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
-        question="Goal Mis-specification is:"
-        answer="When an AI does *exactly what you asked for*, not necessarily *what you actually wanted.*">
+        question="目標規格錯置是："
+        answer="當 AI 做的是*完全照你字面上的要求去做*，但不一定是*你真正想要的*。">
     </orbit-prompt>
     <orbit-prompt
         question="Goodhart's Law, paraphrased:"
