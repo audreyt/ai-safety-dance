@@ -8,23 +8,23 @@
 
 因此，我向你呈上：
 
-  ![RCM (Robot Catboy Maid) throwing confetti under a banner that reads: A Whirlwood Tour Guide to AI Safety for Us Warm, Normal Fleshy Humans.](media/intro/confetti.png)
+![RCM（機器人貓耳男僕）在寫有「A Whirlwood Tour Guide to AI Safety for Us Warm, Normal Fleshy Humans」標語的橫幅下拋灑彩帶。](media/intro/confetti.png)
 
-  **這套三部曲將一次帶你掌握 AI 與 AI 安全\* 的核心觀念 —— 以親切、易懂、略帶個人觀點的方式呈現！**
+**這套三部曲將一次帶你掌握 AI 與 AI 安全\* 的核心觀念 —— 以親切、易懂、略帶個人觀點的方式呈現！**
+
+（\* 相關用語：AI 風險、AI 存在風險（X-Risk）、AI 對齊（Alignment）、AI 倫理、AI-不要-把-大家-都-幹掉-主義。這些詞的確切涵義並*沒有*共識，所以本文統稱為「AI 安全」。）
+
+本系列還有由機器人貓耳男僕（Robot Catboy Maid）主演的漫畫。像這樣：
+
+![漫畫。人類 Ham 對 RCM（機器人貓耳男僕）說：「保持這棟房子乾淨。」RCM 推理：是什麼造成髒亂？人類造成髒亂！因此：把人類趕出去。RCM 接著把 Ham *整個丟* 出房子。](media/intro/Outer_Alignment.png)
+
+`[導遊語氣]` 請看您的右手邊 👉，有 <img src="media/intro/icon1.png" class="inline-icon"/> 目錄按鈕、<img src="media/intro/icon2.png" class="inline-icon"/> 網頁樣式切換，以及 <img src="media/intro/icon3.png" class="inline-icon"/> 剩餘閱讀時間時鐘。
   
-  （\* 相關用語：AI 風險、AI 存在風險（X-Risk）、AI 對齊（Alignment）、AI 倫理、AI-不要-把-大家-都-幹掉-主義。這些詞的確切涵義並*沒有*共識，所以本文統稱為「AI 安全」。）
-  
-  本系列還有由機器人貓耳男僕（Robot Catboy Maid）主演的漫畫。像這樣：
-  
-  ![漫畫。人類 Ham 對 RCM（機器人貓耳男僕）說：「保持這棟房子乾淨。」RCM 推理：是什麼造成髒亂？人類造成髒亂！因此：把人類趕出去。RCM 接著把 Ham *整個丟* 出房子。](media/intro/Outer_Alignment.png)
-  
-  `[導遊語氣]` 請看您的右手邊 👉，有 <img src="media/intro/icon1.png" class="inline-icon"/> 目錄按鈕、<img src="media/intro/icon2.png" class="inline-icon"/> 網頁樣式切換，以及 <img src="media/intro/icon3.png" class="inline-icon"/> 剩餘閱讀時間時鐘。
-  
-  關於本系列：導言與第一部分發表於 **2024 年 5 月**，第二部分已於 **2024 年 8 月** 上線，第三部分預計 **2024 年 12 月** 推出。可選：如果想在發佈時收到通知，請於下方登記！👇 我*不會*寄送其他內容騷擾你，只有兩封通知信。（不過呢，`[Podcast 贊助商語氣]` 如果你是高中生或更小、且對 AI／程式／工程有興趣，可以勾選選項以了解更多 [Hack Club](https://hackclub.com/)。附註：有免費的*貼紙～～～* ✨）
-  
-  {% include 'templates/signup.html' %}
-  
-  總之，`[導遊語氣回歸]` 在踏上 AI 與 AI 安全這段岩石嶙峋的徒步旅程前，讓我們先用「一萬英尺視角」俯瞰全景：
+關於本系列：導言與第一部分發表於 **2024 年 5 月**，第二部分已於 **2024 年 8 月** 上線，第三部分預計 **2024 年 12 月** 推出。可選：如果想在發佈時收到通知，請於下方登記！👇 我*不會*寄送其他內容騷擾你，只有兩封通知信。（不過呢，`[Podcast 贊助商語氣]` 如果你是高中生或更小、且對 AI／程式／工程有興趣，可以勾選選項以了解更多 [Hack Club](https://hackclub.com/)。附註：有免費的*貼紙～～～* ✨）
+
+{% include 'templates/signup.html' %}
+
+總之，`[導遊語氣回歸]` 在踏上 AI 與 AI 安全這段岩石嶙峋的徒步旅程前，讓我們先用「一萬英尺視角」俯瞰全景：
 
 ---
 
@@ -71,7 +71,7 @@
   
   [^footnotes-explained]: 嗨！我和*其他*註腳不一樣。😤 我不會惱人地把你傳送到頁面底部，而是以彈出泡泡的方式顯示，讓你的閱讀不中斷！總之，請看*下一個*註腳以取得本段落的出處。
   
-  [^chess-vs-cats]: In 1997, IBM's [Deep Blue](https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)) beat Garry Kasparov, the then-world chess champion. Yet, over a decade later in 2013, the *best* machine vision AI was only 57.5% accurate at classifying images. It was only until *2021*, three years ago, that AI hit 95%+ accuracy. (Source: [PapersWithCode](https://paperswithcode.com/sota/image-classification-on-cifar-100))
+  [^chess-vs-cats]: 1997 年，IBM 的 [深藍（Deep Blue）](https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)) 擊敗當時的世界西洋棋冠軍 Garry Kasparov。然而十多年後的 2013 年，*最強* 的機器視覺 AI 在影像分類上的正確率也只有 57.5%。直到 *2021 年*（三年前），AI 才達到 95% 以上的準確率。（來源：[PapersWithCode](https://paperswithcode.com/sota/image-classification-on-cifar-100)）
   
   ### 第 2 部分：問題本質
   
@@ -218,35 +218,35 @@ AI 安全／AI 風險曾經較不主流，但到了 2024 年，美國與英國�
 
 [^departments]: 英國於 [2023 年 11 月](https://www.gov.uk/government/publications/ai-safety-institute-overview/introducing-the-ai-safety-institute) 成立全球首個由國家支持的 AI 安全研究院；美國則在 [2024 年 2 月](https://www.commerce.gov/news/press-releases/2024/02/biden-harris-administration-announces-first-ever-consortium-dedicated) 跟進成立 AI 安全研究院。我剛注意到兩篇文章*都*說自己是「第一個」。好吧。
 
-* Geoffrey Hinton[^hinton] and Yoshua Bengio[^bengio], co-winners of the 2018 Turing Prize (the "Nobel Prize of Computing") for their work on deep neural networks, the thing that *all* the new famous AIs use.[^all-famous-ai]
-* Stuart Russell and Peter Norvig, the authors of *the* most-used textbook on Artificial Intelligence.[^russell-norvig]
-* Paul Christiano, pioneer of the AI training/safety technique that made ChatGPT possible.[^christiano]
+* Geoffrey Hinton[^hinton] 與 Yoshua Bengio[^bengio]：兩人因深度神經網路的研究共同獲得 2018 年圖靈獎（俗稱「電腦界的諾貝爾獎」），而這項技術正是*所有*新一代知名 AI 的基礎。[^all-famous-ai]
+* Stuart Russell 與 Peter Norvig：*最*常用 AI 教科書的作者。[^russell-norvig]
+* Paul Christiano：讓 ChatGPT 成為可能的 AI 訓練／安全技術的先驅。[^christiano]
 
-(To be clear: there *are* also top AI researchers *against* fears of AI Risk, such Yann LeCun,[^lecun] co-winner of the 2018 Turing Prize, and chief AI researcher at ~~Facebook~~ Meta. Another notable name is Melanie Mitchell[^mitchell], a researcher in AI & complexity science.)
+話說清楚：也*確實*有頂尖的 AI 研究者*反對*對 AI 風險的擔憂，例如 Yann LeCun[^lecun]（2018 年圖靈獎共同得主，現任 ~~Facebook~~ Meta 的首席 AI 研究員）。另一位值得注意的是 Melanie Mitchell[^mitchell]，研究領域是 AI 與複雜性科學。
 
-I'm aware "look at these experts" is an appeal to authority, but this is *only* to counter the idea of, "eh, only sci-fi weebs fear AI Risk". But in the end, appeal to authority/weebs isn't enough; you have to *actually understand the dang thing*. (Which you *are* doing, by reading this! So thank you.)
+我知道「拿專家背書」有訴諸權威之嫌，不過這*只是*為了反駁那句「哼，只有科幻宅才會怕 AI 風險」。但到頭來，不論訴諸權威或訴諸宅都不夠；你得*真的去理解這件麻煩玩意兒*。（而你正藉由閱讀本文在這麼做！謝謝。）
 
-But speaking of sci-fi weebs...
+話說回來，既然提到科幻宅……
 
-[^hinton]: [Kleinman & Vallance, "AI 'godfather' Geoffrey Hinton warns of dangers as he quits Google." *BBC News*, 2 May 2023](https://www.bbc.com/news/world-us-canada-65452940).
+[^hinton]: [Kleinman & Vallance，《AI「教父」 Geoffrey Hinton 辭職並警告風險》，*BBC News*，2023 年 5 月 2 日](https://www.bbc.com/news/world-us-canada-65452940)。
 
-[^bengio]: Bengio's testimony to the U.S. Senate on AI Risk: [Bengio, 2023](https://yoshuabengio.org/2023/07/25/my-testimony-in-front-of-the-us-senate/).
+[^bengio]: Bengio 於美國參議院就 AI 風險作證的內容：[Bengio，2023](https://yoshuabengio.org/2023/07/25/my-testimony-in-front-of-the-us-senate/)。
 
-[^all-famous-ai]: No seriously, *all* of the following use deep neural networks: ChatGPT, DALL-E, AlphaGo, Siri/Alexa/Google Assistant, Tesla's Autopilot.
+[^all-famous-ai]: 認真說，以下這些*全都*使用深度神經網路：ChatGPT、DALL-E、AlphaGo、Siri／Alexa／Google Assistant、特斯拉自動輔助駕駛。
 
-[^russell-norvig]: Russell & Norvig's textbook is [Artificial Intelligence: A Modern Approach](https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach). See Russell's statement on AI Risk from his 2014 article where he coins the phrase "alignment problem": [Russell 2014 for *Edge* magazine](https://www.edge.org/conversation/the-myth-of-ai#26015). I'm not aware of a public statement from Norvig, but he *did* co-sign the one-sentence Statement on AI Risk: [“Mitigating the risk of extinction from AI should be a global priority alongside other societal-scale risks such as pandemics and nuclear war.”](https://www.safe.ai/work/statement-on-ai-risk)
+[^russell-norvig]: Russell 與 Norvig 的教材是《Artificial Intelligence: A Modern Approach》（《現代人工智慧》）。另見 Russell 在 2014 年文章中對 AI 風險的聲明（亦在文中提出「對齊問題」一詞）：[Russell 2014，刊於 *Edge* 雜誌](https://www.edge.org/conversation/the-myth-of-ai#26015)。我不清楚 Norvig 是否有公開聲明，但他*確實*連署了那句話的《AI 風險聲明》：「**減輕 AI 導致滅絕風險**應是全球優先事項之一，與疫情與核戰等社會尺度風險並列。」（[safe.ai 的聲明](https://www.safe.ai/work/statement-on-ai-risk)）
 
-[^christiano]: When he worked at OpenAI, Christiano co-pioneered a technique called Reinforcement Learning from Human Feedback / RLHF [\(Christiano et al 2017\)](https://arxiv.org/abs/1706.03741), which turned regular GPT (very good autocomplete) into *Chat*GPT (something actually useable for the public). He had [positive-but-mixed feelings](https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research) about this, because RLHF increased AI's safety, *but also* its capabilities. In 2021, Christiano [quit OpenAI to create the Alignment Research Center](https://ai-alignment.com/announcing-the-alignment-research-center-a9b07f77431b), a non-profit to *entirely* focus on AI Safety.
+[^christiano]: 他在 OpenAI 任職時，與人共同提出名為「從人類回饋中強化學習」（RLHF）的技術 [（Christiano 等人，2017）](https://arxiv.org/abs/1706.03741)，這使得原本只是很會自動補完的 GPT，變成大眾*真正用得上*的 ChatGPT。他對此[持正面但複雜的看法](https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research)：RLHF 提升了 AI 的安全性，*但同時也*提升了能力。2021 年，他[離開 OpenAI，創立 Alignment Research Center](https://ai-alignment.com/announcing-the-alignment-research-center-a9b07f77431b)，一個專注於 AI 安全的非營利機構。
 
-[^lecun]: [Vallance (2023) for *BBC News*](https://web.archive.org/web/20230727105641/https://www.bbc.com/news/technology-65886125): “[LeCun] has said it won't take over the world or permanently destroy jobs. [...] "if you realize it's not safe you just don't build it." [...] "Will AI take over the world? No, this is a projection of human nature on machines," he said.”
+[^lecun]: [Vallance（2023，*BBC News*）](https://web.archive.org/web/20230727105641/https://www.bbc.com/news/technology-65886125)：「[LeCun] 表示 AI 不會接管世界或永久摧毀工作。[…]『如果你發現它不安全，就不要建它。』[…]『AI 會接管世界嗎？不會。那是把人性投射到機器上，』他說。」
 
-[^mitchell]: Melanie Mitchell & Yann LeCun took the "skeptic" side of [a 2023 public debate on "Is AI an Existential Threat?"](https://thehub.ca/2023-07-04/is-ai-an-existential-threat-yann-lecun-max-tegmark-melanie-mitchell-and-yoshua-bengio-make-their-case/) The "concerned" side was taken up by Yoshua Bengio and physicist-philosopher Max Tegmark.
+[^mitchell]: Melanie Mitchell 與 Yann LeCun 在 2023 年一場公開辯論中擔任「懷疑方」（題目為「AI 是否是存在性威脅？」），而「擔憂方」則由 Yoshua Bengio 與物理學家／哲學家 Max Tegmark 擔任。[連結](https://thehub.ca/2023-07-04/is-ai-an-existential-threat-yann-lecun-max-tegmark-melanie-mitchell-and-yoshua-bengio-make-their-case/)。
 
 ### 2) 不，AI 風險*不是*關於 AI 變得「有感知／有意識」或獲得「權力意志」。
 
 科幻作家會寫有感知的 AI，是因為他們在寫*故事*，不是技術論文。關於人工意識的哲學爭論很迷人，*但與 AI 安全無關。* 類比一下：核彈沒有意識，但它仍然很不安全，對吧？
 
-![Left: drawing of a nuke, captioned "not conscious". Right: drawing of Professor Nuke giving a lecture titled, "Why Murder is Good, Actually." Captioned, "conscious".](media/intro/conscious.png)
+![左圖：一枚核彈的手繪圖，註解「沒有意識」。右圖：核彈教授（Professor Nuke）在講授題為「為什麼謀殺其實是好的」的一堂課，註解「有意識」。](media/intro/conscious.png)
 
 如前所述，AI 安全的真正問題其實很「無聊」：AI 可能從帶偏見的訓練資料中學到錯誤的東西、在稍微新一點的情境下失靈、用邏輯上正確但不理想的方式達成目標，等等。
 
@@ -254,13 +254,13 @@ But speaking of sci-fi weebs...
 
 （災難性的 AI 風險甚至不需要「超人類的一般智慧」！例如，一個「只」擅長設計病毒的 AI，就可能幫助生化恐怖組織（如奧姆真理教[^aum]）害死數百萬人。）
 
-But speaking of killing people...
+但既然提到殺人……
 
-[^aum]: A Japanese cult that attacked people with chemical & biological weapons. Most infamously, in 1995, they released nerve gas on the Tokyo Metro, injuring 1,050 people & killing 14 people. ([Wikipedia](https://en.wikipedia.org/wiki/Tokyo_subway_sarin_attack))
+[^aum]: 一個日本邪教，曾使用化學與生物武器攻擊民眾。最惡名昭彰的是 1995 年在東京地鐵釋放沙林毒氣，造成 1,050 人受傷、14 人死亡。（[維基百科](https://en.wikipedia.org/wiki/Tokyo_subway_sarin_attack)）
 
 ### 3) 不，AI 風險並*不一定*是滅絕、天網（SkyNet），或奈米機器人大軍
 
-![A drawing of Microsoft Clippy saying: "It looks like you're trying to commit omnicide. Would you like some help?"](media/intro/omnicide.png)
+![插圖：微軟小幫手迴紋針（Clippy）說：「看起來你正打算滅絕全人類。需要幫忙嗎？」](media/intro/omnicide.png)
 
 雖然多數 AI 研究者*確實*認為先進 AI 存在超過 5% 的「全人類字面意義上的完蛋」風險[^ai-xrisk]，但要說服人們（尤其是決策者）相信從未發生過的事，實在*非常*困難。
 
@@ -283,26 +283,25 @@ But speaking of killing people...
 
 另一方面……
 
-[^ai-xrisk]: Layperson-friendly summary of a recent survey of 2,778 AI researchers: [Kelsey Piper (2024) for *Vox*](https://www.vox.com/future-perfect/2024/1/10/24032987/ai-impacts-survey-artificial-intelligence-chatgpt-openai-existential-risk-superintelligence) See original report here: [Grace et al 2024](https://aiimpacts.org/wp-content/uploads/2023/04/Thousands_of_AI_authors_on_the_future_of_AI.pdf). Keep in mind, as the paper notes itself, of this big caveat: *“Forecasting is difficult in general, and subject-matter experts have been observed to perform poorly. Our participants’ expertise is in AI, and they do not, to our knowledge, have any unusual skill at forecasting in general.”*
+[^ai-xrisk]: 一份針對 2,778 名 AI 研究者的最新調查之通俗摘要：[Kelsey Piper（2024，*Vox*）](https://www.vox.com/future-perfect/2024/1/10/24032987/ai-impacts-survey-artificial-intelligence-chatgpt-openai-existential-risk-superintelligence)。原始報告在此：[Grace 等，2024](https://aiimpacts.org/wp-content/uploads/2023/04/Thousands_of_AI_authors_on_the_future_of_AI.pdf)。請注意，論文本身也提出一個重要的警語：「一般而言，預測很困難，且主題專家在預測上的表現常被觀察到並不理想。我們的受訪者專長在 AI，據我們所知，他們在一般性的預測上並沒有特別的技能。」
 
-[^dna-printing]: As of writing, commercial rates for DNA synthesis cost ~$0.10 USD per "base pair" of DNA. For context, poliovirus DNA is ~7,700 base pairs long, meaning *printing polio* would only cost ~$770.
+[^dna-printing]: 以本文撰寫時的商業價格計算，DNA 合成約為每個「鹼基對」0.10 美元。作為參考，小兒麻痺病毒的 DNA 約 7,700 個鹼基對，意味著*列印一株小兒麻痺病毒*只需約 770 美元。
 
-[^polio]: [Jennifer Couzin-Frankel (2002) for *Science*](https://www.science.org/content/article/poliovirus-baked-scratch)
+[^polio]: [Jennifer Couzin-Frankel（2002，*Science*）](https://www.science.org/content/article/poliovirus-baked-scratch)。
 
-[^stuxnet]: [Stuxnet](https://en.wikipedia.org/wiki/Stuxnet) was a computer virus designed by the US and Israel, which targeted & damaged Iranian nuclear power plants. It's estimated Stuxnet broke ~20% of Iran's centrifuges!
+[^stuxnet]: [Stuxnet](https://en.wikipedia.org/wiki/Stuxnet) 是由美國與以色列設計的電腦病毒，目標是破壞伊朗核電廠。估計 Stuxnet 破壞了伊朗約 20% 的離心機！
 
-[^ransom-hospitals]:  In 2017, [the WannaCry ransomware attack](https://en.wikipedia.org/wiki/WannaCry_ransomware_attack) hit ~300,000 computers around the world, including UK hospitals. In Oct 2020, during a Covid-19 spike, ransomware attacks hit dozens of US hospitals. ([Newman, 2020 for *Wired*](https://www.wired.com/story/ransomware-hospitals-ryuk-trickbot/))
+[^ransom-hospitals]:  2017 年，[WannaCry 勒索軟體攻擊](https://en.wikipedia.org/wiki/WannaCry_ransomware_attack)波及全球約 30 萬台電腦，包括英國的醫院。2020 年 10 月，在新冠疫情尖峰，美國數十家醫院遭勒索攻擊。（[Newman，2020，*Wired*](https://www.wired.com/story/ransomware-hospitals-ryuk-trickbot/)）
 
-[^hospital-death]: In Sep 2020, a woman was turned away from a hospital, due to it being under attack by a ransomware virus. The woman died. [Cimpanu (2020) for *ZDNet*](https://www.zdnet.com/article/first-death-reported-following-a-ransomware-attack-on-a-german-hospital/). (However, there were "insufficient grounds" to legally charge the hackers for *directly* causing her death. [Ralston, 2020 for *Wired*](https://www.wired.co.uk/article/ransomware-hospital-death-germany))
+[^hospital-death]: 2020 年 9 月，有位女性因醫院遭勒索軟體攻擊而被拒收，該女性其後死亡。[Cimpanu（2020，*ZDNet*）](https://www.zdnet.com/article/first-death-reported-following-a-ransomware-attack-on-a-german-hospital/)。（不過，法律上認定駭客*直接*致死的證據「不足」。[Ralston，2020，*Wired*](https://www.wired.co.uk/article/ransomware-hospital-death-germany)）
 
-[^water-supply]: In Jan 2021, a Bay Area water treatment plant was hacked, and had its treatment programs deleted. ([Collier, 2021 for *NBC News*](https://www.nbcnews.com/tech/security/hacker-tried-poison-calif-water-supply-was-easy-entering-password-rcna1206)) In Feb 2021, a Florida town's water treatment plant was hacked to add dangerous amounts of lye to the water supply. ([Bajak, 2021 for *AP News*](https://apnews.com/article/hacker-tried-poison-water-florida-ab175add0454bcb914c0eb3fb9588466))
+[^water-supply]: 2021 年 1 月，舊金山灣區一座淨水廠被駭，其處理程式遭刪除。（[Collier，2021，*NBC News*](https://www.nbcnews.com/tech/security/hacker-tried-poison-calif-water-supply-was-easy-entering-password-rcna1206)）2021 年 2 月，佛羅里達州一座小鎮的淨水廠遭駭，被加入危險劑量的氫氧化鈉。（[Bajak，2021，*AP News*](https://apnews.com/article/hacker-tried-poison-water-florida-ab175add0454bcb914c0eb3fb9588466)）
 
-[^hong-kong]: Benj Edwards, ["Deepfake scammer walks off with $25 million in first-of-its-kind AI heist"](https://arstechnica.com/information-technology/2024/02/deepfake-scammer-walks-off-with-25-million-in-first-of-its-kind-ai-heist/), *Ars Technica*, 2024 Feb 5.
+[^hong-kong]: Benj Edwards，「Deepfake 詐騙者在史上首見的 AI 詐騙中取得 2,500 萬美元」，*Ars Technica*，2024 年 2 月 5 日。（[連結](https://arstechnica.com/information-technology/2024/02/deepfake-scammer-walks-off-with-25-million-in-first-of-its-kind-ai-heist/)）
 
-[^deepfake-election]: [Meaker \(2023\) for *Wired*](https://web.archive.org/web/20231102183904/https://www.wired.com/story/slovakias-election-deepfakes-show-ai-is-a-danger-to-democracy/)
+[^deepfake-election]: [Meaker（2023，*Wired*）](https://web.archive.org/web/20231102183904/https://www.wired.com/story/slovakias-election-deepfakes-show-ai-is-a-danger-to-democracy/)
 
-[^deepfake-ransom]: “It was completely her voice. It was her inflection. It was the way [my daughter] would have cried.” [...] “Now there are ways in which you can [deepfake voices] with just three seconds of your voice.” ([Campbell, 2023 for local news outlet *Arizona's Family*](https://www.azfamily.com/2023/04/10/ive-got-your-daughter-scottsdale-mom-warns-close-encounter-with-ai-voice-cloning-scam/). CONTENT NOTE: threats of sexual assault.)
-
+[^deepfake-ransom]: “那完全就是她的聲音。她的語氣。就是我女兒會哭的方式。”[…] “現在只需要三秒鐘的聲音就能[深偽聲音]。”（[Campbell，2023，地方媒體 *Arizona's Family*](https://www.azfamily.com/2023/04/10/ive-got-your-daughter-scottsdale-mom-warns-close-encounter-with-ai-voice-cloning-scam/)。內容注意：涉及性暴力威脅。）
 
 ### 4) *是的*，擔心 AI 負面影響的人們*確實*也看見它的正面價值。
 
@@ -319,15 +318,15 @@ But speaking of killing people...
 
 我們太常把科技——甚至是拯救生命的科技——視為理所當然。因此，讓我把視角拉遠：以下是過去 2000 多年來的兒童死亡率，也就是在青春期之前死亡的比例：
 
-![Chart of child mortality over the last 2000+ years. Worldwide, it was constant at around 48%, from hunter-gatherer times to 1800. Then suddenly, starting 1800, it plummets to 4.3% today.](media/intro/owid.jpg)*(from [Dattani, Spooner, Ritchie and Roser (2023)](https://ourworldindata.org/child-mortality))*
+![過去兩千多年來的兒童死亡率圖表。全球在狩獵採集時代至 1800 年左右都幾乎維持在約 48%。然後自 1800 年開始，迅速驟降至今日的 4.3%。](media/intro/owid.jpg)*（取自 [Dattani、Spooner、Ritchie 與 Roser（2023）](https://ourworldindata.org/child-mortality)）*
 
 在*數千*年裡，不論富國或窮國，都有整整*一半*的孩子夭折。這曾是常態。直到 1800 年代起——拜細菌學說、衛生、醫療、潔淨用水、疫苗等科學技術之賜——兒童死亡率才如懸崖般驟降。我們仍有很長一段路要走——我無法接受[^roser]今日全球仍有 4.3%（每 23 人就 1 人）的兒童死亡率——但也請讓我們讚嘆人類如何*迅速削減*這個*延續千年的*夢魘。
 
-[^roser]: One of my all-time favorite quotes: [“The world is awful. The world is much better. The world *can be* much better. *All three statements are true at the same time.*”](https://ourworldindata.org/much-better-awful-can-be-better)
+[^roser]: 我最喜歡的引語之一：[「世界很糟糕。世界好得多了。世界*可以*更好。*這三句話同時都是真的。*」](https://ourworldindata.org/much-better-awful-can-be-better)
 
 我們是如何做到的？政策固然是很大的一部分，但政策是「可能性的藝術」[^otto]；若沒有*良好的*科學與技術，上述成就不可能實現。若安全、具人道精神的 AI 能再幫我們推進幾個百分點——朝著斬除癌症、阿茲海默症、愛滋病等殘存巨龍邁進——那將是數以千萬計的摯愛親友，能再多一次戰勝死神的機會。
 
-[^otto]: Quote from Otto von Bismarck, the first German chancellor: *“Die Politik ist die Lehre vom Möglichen.”* (“Politics is the art of the possible.”)
+[^otto]: 德國首任宰相俾斯麥（Otto von Bismarck）語：「*Die Politik ist die Lehre vom Möglichen.*」（政治是關於可能性的學問／藝術。）
 
 去火星什麼的先放一邊，*這*才是先進 AI 之所以重要的理由。
 
@@ -335,13 +334,13 @@ But speaking of killing people...
 
 等等，*真的嗎？* 像 ChatGPT 與 DALL-E 這樣的玩意兒，竟然攸關*生死*？這就引出我想澄清的最後一個誤解：
 
-[^russell-vs-luddites]: “[T]he dubious argument that “doom-and-gloom predictions often fail to consider the potential benefits of AI in preventing medical errors, reducing car accidents, and more.” [... is] like arguing that nuclear engineers who analyze the possibility of meltdowns in nuclear power stations are “failing to consider the potential benefits” of cheap electricity, and that because nuclear power stations might one day generate really cheap electricity, we should neither mention, nor work on preventing, the possibility of a meltdown.” Source: [Dafoe & Russell (2016) for *MIT Technology Review*](https://www.technologyreview.com/2016/11/02/156285/yes-we-are-worried-about-the-existential-risk-of-artificial-intelligence/).
+[^russell-vs-luddites]: 「[…] 那種可議的論點宣稱：‘唱衰論者常常沒把 AI 在預防醫療錯誤、減少車禍等方面的潛在益處納入考量。’[…] 這就好比說：分析核電廠熔毀可能性的核工程師，‘沒有把便宜電力的潛在好處納入考量’，而且因為核電廠或許有朝一日能產生非常便宜的電力，我們就不該提起、也不該努力預防熔毀的可能性。」來源：[Dafoe 與 Russell（2016，*MIT Technology Review*）](https://www.technologyreview.com/2016/11/02/156285/yes-we-are-worried-about-the-existential-risk-of-artificial-intelligence/)。
 
-[^qi-stern]: [Quote Investigator (2021)](https://quoteinvestigator.com/2021/05/27/parachute/)
+[^qi-stern]: [Quote Investigator（2021）](https://quoteinvestigator.com/2021/05/27/parachute/)
 
-[^medical-ai]: [Liu & Faes et al., 2019](https://www.thelancet.com/journals/landig/article/PIIS2589-7500%2819%2930123-2/fulltext#%20): “Our review found the diagnostic performance of deep learning models to be **equivalent to that of health-care professionals**.” [emphasis added] AI vs Human expert "true-positive" rate: 87.0% vs 86.4%. AI vs Human expert "true-negative" rate: 92.5% vs 90.5%.
+[^medical-ai]: [Liu & Faes 等人，2019](https://www.thelancet.com/journals/landig/article/PIIS2589-7500%2819%2930123-2/fulltext#%20)：「我們的回顧發現，深度學習模型的診斷表現**等同於**醫療專業人士。」（強調為引文所加）AI 與人類專家之「真陽性」率：87.0% vs 86.4%；「真陰性」率：92.5% vs 90.5%。
 
-[^alphafold]: Layperson explanation of AlphaFold: [Heaven, 2020 for *MIT Technology Review*](https://web.archive.org/web/20231204110638/https://www.technologyreview.com/2020/11/30/1012712/deepmind-protein-folding-ai-solved-biology-science-drugs-disease/). Or, [its Wikipedia article](https://en.wikipedia.org/wiki/AlphaFold).
+[^alphafold]: 關於 AlphaFold 的通俗解說：[Heaven，2020，*MIT Technology Review*](https://web.archive.org/web/20231204110638/https://www.technologyreview.com/2020/11/30/1012712/deepmind-protein-folding-ai-solved-biology-science-drugs-disease/)。或見其維基百科條目：[AlphaFold](https://en.wikipedia.org/wiki/AlphaFold)。
 
 ### 5) 不，專家並不認為*當前*的 AI 就是高風險／高回報。
 
@@ -349,7 +348,7 @@ But speaking of killing people...
 
 給你看一則[相關的 xkcd](https://xkcd.com/2278/)：
 
-![Comic. Megan & Cueball show White Hat a graph of a line going up, not yet at, but heading towards, a threshold labelled "BAD". White Hat: "So things will be bad?" Megan: "Unless someone stops it." White Hat: "Will someone do that?" Megan: "We don't know, that's why we're showing you." White Hat: "Well, let me know if that happens!" Megan: "Based on this conversation, it already has."](media/intro/xkcd.png)
+![漫畫。Megan 與 Cueball 向 White Hat 展示一張曲線上升的圖表，尚未越過、但正逼近一條標示為「不妙（BAD）」的臨界線。White Hat：『所以事情會變糟？』Megan：『除非有人阻止它。』White Hat：『會有人這麼做嗎？』Megan：『不知道，所以我們才把圖拿來給你看。』White Hat：『好吧，真變糟的時候再通知我！』Megan：『就這段對話看來，已經變糟了。』](media/intro/xkcd.png)
 
 這正是我對「別擔心 AI，它連 [某某] 都做不到」的看法。
 
@@ -365,9 +364,9 @@ But speaking of killing people...
 
 那就讓我們今天就種下那棵樹吧！
 
-[^numerical-extraction]: Estimate derived via "numerical posterior extraction". In other words, I pulled a number out my--
+[^numerical-extraction]: 這是用所謂「數值後驗萃取」估出來的。換句話說，我是從我——
 
-[^quote-trees]: Quote source: [nobody knows lol.](https://en.wikiquote.org/wiki/Trees#Planting)
+[^quote-trees]: 引語來源：[沒人知道啦。](https://en.wikiquote.org/wiki/Trees#Planting)
 
 ---
 
@@ -408,27 +407,27 @@ But speaking of killing people...
     </orbit-prompt>
 </orbit-reviewarea>
 
-  ---
-  
-  ## 🤘 簡介重點摘要：
-  
-  * **AI 與 AI 安全的兩大核心分歧是：**
-  *   * 邏輯「對上」直覺
-  *   * 問題出在 AI「對上」出在人類
-  * **釐清關於 AI 風險的常見誤解：**
-  *   * 這不是一群科幻迷的邊緣議題。
-  *   * 並不需要 AI 具有「意識」或「超級智慧」。
-  *   * 除了「百分之百人類滅絕」之外，還有許多其他風險。
-  *   * 我們確實知道 AI 的好處。
-  *   * 重點不是「當前」的 AI，而是 AI 正在「多快」進步。
-  
-  （若要重溫抽認卡，請點擊右側欄中的 <img src="media/intro/icon1.png" class="inline-icon"/> 目錄圖示，然後點選「🤔 Review」連結。或者，下載［導言的 Anki 卡包］(https://ankiweb.net/shared/info/341999410)。）
-  
-  太好了！既然我們已經從一萬英尺的視角俯瞰全局，現在就讓我們啟程，展開這趟關於 AI 安全的旋風之旅——為我們這些溫暖、普通、血肉之軀的人類而寫！
-  
-  **點擊以繼續 ⤵**
-  
-  {% include 'templates/next_page_button.html' %}
+---
+
+## 🤘 簡介重點摘要：
+
+* **AI 與 AI 安全的兩大核心分歧是：**
+  * 邏輯「對上」直覺
+  * 問題出在 AI「對上」出在人類
+* **釐清關於 AI 風險的常見誤解：**
+  * 這不是一群科幻迷的邊緣議題。
+  * 並不需要 AI 具有「意識」或「超級智慧」。
+  * 除了「百分之百人類滅絕」之外，還有許多其他風險。
+  * 我們確實知道 AI 的好處。
+  * 重點不是「當前」的 AI，而是 AI 正在「多快」進步。
+
+（若要重溫抽認卡，請點擊右側欄中的 <img src="media/intro/icon1.png" class="inline-icon"/> 目錄圖示，然後點選「🤔 Review」連結。或者，下載[導言的 Anki 卡包](https://ankiweb.net/shared/info/341999410)。）
+
+太好了！既然我們已經從一萬英尺的視角俯瞰全局，現在就讓我們啟程，展開這趟關於 AI 安全的旋風之旅——為我們這些溫暖、普通、血肉之軀的人類而寫！
+
+**點擊以繼續 ⤵**
+
+{% include 'templates/next_page_button.html' %}
 
 
 
@@ -450,143 +449,122 @@ But speaking of killing people...
 
 
 
-#### :x Four Objects
+#### :x 四個物體
 
-Hi! When I have a tangent that doesn't fit the main flow, I'll shove it into an "expandable" section like this one! (They'll be links with *dotted* underlines, not solid underlines.)
+嗨！當我有一些與主線無關的內容時，我會把它們塞進像這樣的「可展開」區塊！（這些連結會有*虛線*底線，而不是實線。）
 
-Anyway, here's a prompt to draw four objects:
+總之，這是一個繪製四個物體的提示詞：
 
-> “A yellow pyramid between a red sphere and green cylinder, all on top of a big blue cube.”
+> "一個黃色金字塔在紅色球體和綠色圓柱體之間，全部放在一個大藍色立方體上。"
 
-Here are the top generative AI's first four attempts (*not* cherry-picked):
+以下是頂尖生成式 AI 的首次嘗試（*未經*挑選）：
 
 **Midjourney:**
 
-![Midjourney's attempt. It fails.](media/intro/Midjourney.png)
+![Midjourney 的嘗試。失敗了。](media/intro/Midjourney.png)
 
 **DALL-E 2:**
 
-![DALL-E 2's attempt. It fails.](media/intro/DALLE2.png)
+![DALL-E 2 的嘗試。失敗了。](media/intro/DALLE2.png)
 
 **DALL-E 3:**
 
-![DALL-E 3's attempt. It's closer, but still fails.](media/intro/DALLE3.png)
+![DALL-E 3 的嘗試。比較接近，但還是失敗了。](media/intro/DALLE3.png)
 
-(The bottom-right one's pretty close! But judging by its other attempts, it's clearly luck.)
+（右下角的還蠻接近的！但從其他嘗試來看，這顯然是運氣好。）
 
-Why does this demonstrate a lack of "logic" in AI? A core part of "symbolic logic" is the ability to do "compositionality", a fancy way of saying it can reliably combine old things into new things, like "green" + "cylinder" = "green cylinder". As shown above, generative AIs (as of May 2024) are *very* unreliable at combining stuff, when there's more than 3 objects.
+為什麼這顯示了 AI 缺乏「邏輯」？「符號邏輯」的核心是能夠進行「組合性」，這是一種花俏的說法，表示它能可靠地將舊事物組合成新事物，例如「綠色」+「圓柱體」=「綠色圓柱體」。如上所示，生成式 AI（截至 2024 年 5 月）在組合超過 3 個物體時非常不可靠。
 
 ~ ~ ~
 
-Anyway, that's the end of this Nutshell! To close it, click the "x" button below ⬇️ or the "Close All" tab in the top-right ↗️. Or just keep on scrollin'.
+總之，這就是本 Nutshell 的結尾！要關閉它，請點擊下方的「x」按鈕 ⬇️ 或右上角的「Close All」標籤 ↗️。或者直接繼續滾動。
 
-[: (psst... wanna put these Nutshells in your *own* site?)](#Nutshells)
+[: (嘿... 想把這些 Nutshell 放到*你的*網站上嗎？)](#Nutshells)
 
-#### :x Nutshells
+#### :x Nutshells 說明
 
-Hover over the top-right of these Nutshells, or hover over any **main header** in this article, to show this icon:
+將滑鼠懸停在這些 Nutshell 的右上角，或本文中的任何**主標題**上，會顯示這個圖示：
 
-![GIF of Nutshell hover](media/intro/Nutshell_Tutorial_1.gif)
+![Nutshell 懸停示範 GIF](media/intro/Nutshell_Tutorial_1.gif)
 
-![GIF of Header hover](media/intro/Nutshell_Tutorial_2.gif)
+![標題懸停示範 GIF](media/intro/Nutshell_Tutorial_2.gif)
 
-Then, click that icon to get a popover, which will explain how to embed these Nutshells into your own blog/site!
+然後，點擊該圖示會彈出說明，解釋如何將這些 Nutshell 嵌入到你自己的部落格/網站中！
 
-[Click here to learn more about Nutshell. 💖](https://ncase.me/nutshell/)
+[點此了解更多關於 Nutshell 的資訊。💖](https://ncase.me/nutshell/)
 
-#### :x Part 3 details
+#### :x 間隔重複法
 
-NOTE: This expanded section won't make much sense *yet*, since it builds on the lessons in Part 1 & 2. But I'm putting this here now, for:
+*“用進，廢退。”*
 
-a) The layperson audience, to reassure y'all that, yes, there *are* many promising proposed solutions.
+這就是肌肉和大腦運作的核心原則。（因為押韻，所以一定是對的！）正如數十年教育研究明確顯示的（[Dunlosky 等人，2013 年 [pdf]](https://wcer.wisc.edu/docs/resources/cesa2017/Dunlosky_SciAmMind.pdf)），如果你想長期記住某些東西，僅僅重讀或劃重點是不夠的：你必須實際*測試自己*。
 
-b) The expert audience, to reassure y'all that, yes, I probably have your niche lil' thing in here.
+這就是為什麼抽認卡如此有效！但有兩個問題：1) 當你有*數百張*卡片要記住時，會讓人不知所措。2) 複習你*已經*很熟悉的卡片是沒有效率的。
 
-Anyway, the TOP 10 TYPES-OF-SOLUTIONS to AI Safety: (with the fancy jargon in parentheses)
+**間隔重複法**解決了這兩個問題！要了解其原理，讓我們看看如果你學了一個事實，然後*不*複習會發生什麼。你對它的記憶會隨著時間減退，直到越過某個門檻，你可能就忘記了：
 
-1. A Level-0 human aligns a Level-1 bot, which aligns a Level-2 bot, which aligns [...] a Level-N bot. (Scalable reward/oversight, Iterated Distillation & Amplification)
-2. Bots of *roughly-equal* levels checking each other. (Constitutional AI, AI safety via debate)
-3. Instead of *directly* telling a bot what you want, have the bot *indirectly* learn what you want. (Reinforcement Learning with Human Feedback, Cooperative Inverse Reinforcement Learning, Approval-directed Agents)
-4. Instead of *directly* trying to install "humane values" into a bot, have it *indirectly* figure out what a more knowledgeable, kinder version of us would agree on. (Indirect Normativity, Coherent Extrapolated Volition)
-5. Solving robustness. (Simplicity, Sparsity, Regularization, Ensembles, Adversarial training)
-6. Reading the AI's mind. (Interpretability, Circuits, Eliciting Latent Knowledge)
-7. Maybe all our ideas just suck and we need to go back to square one. (Agent foundations, Causal AI, Shard theory, Bio-plausible learning, Embodied cognition)
-8. "Just Don't Build The Torture Nexus". Or: how can we get the benefits of AI *without* building powerful, general, agent-like AIs? (Comprehensive AI services, Narrow/Tool/Microscope AI, Quantilizers)
-9. The Human Alignment Problem: how do we coordinate *humans* to make sure AI goes well? (AI Governance, Evals-based governance, Differential technological development, Data/Privacy rights, Windfall Clauses)
-10. If you can't beat 'em, join 'em! (Cyborgism, Centaurs, Intelligence Amplification)
+![「你回憶某事的程度」隨時間變化的圖表：你對一個事實的記憶會隨著時間呈指數遞減，只有一次複習。](media/intro/Forgetting%201.png)
 
-#### :x Spaced Repetition
+但是，如果你在*即將忘記*某個事實時複習它，你不僅可以恢復記憶強度... *更重要的是*，你對那個事實的記憶會*減退得更慢*！
 
-*“Use it, or lose it.”*
+![經過第二次複習後，你對一個事實的記憶減退得更慢。](media/intro/Forgetting%202.png)
 
-That's the core principle behind both muscles and brains. (It rhymes, so it must be true!) As decades of educational research robustly show ([Dunlosky et al., 2013 \[pdf\]](https://wcer.wisc.edu/docs/resources/cesa2017/Dunlosky_SciAmMind.pdf)), if you want to retain something long-term, it's not enough to re-read or highlight stuff: you have to actually *test yourself.*
+所以，通過間隔重複法，我們會在你即將忘記一張卡片時進行複習，如此反覆。如你所見，複習的間隔會變得越來越長：
 
-That's why flashcards work so well! But, two problems: 1) It's overwhelming when you have *hundreds* of cards you want to remember. And 2) It's inefficient to review cards you *already* know well.
+![隨著複習次數增加，遺忘曲線變得更加平緩。](media/intro/Forgetting%203.png)
 
-**Spaced Repetition** solves both these problems! To see how, let's see what happens if you learn a fact, then *don't* review it. Your memory of it decays over time, until you cross a threshold where you've likely forgotten it:
+*這就是間隔重複法如此高效的原因！* 每次你成功複習一張卡片，到下次複習的間隔就會*成倍增加*。例如，假設我們的倍數是 2 倍。那麼你可以在第 1 天、第 2 天、第 *4* 天、第 8 天、16 天、32 天、64 天... 複習同一張卡片，這樣只需*十五次複習*，你就能記住一張卡片長達 2<sup>15</sup> = 32,768 天 = *九十年*。（理論上。實際上會少一些，但仍然非常高效！）
 
-![Graph of "how well you recall something" over time: Your memory of a fact exponentially decays over time, with only 1 review.](media/intro/Forgetting%201.png)
+而這只是*一張*卡片。由於間隔呈指數增長，你可以每天添加 10 張新卡片（推薦數量），這樣一年就能長期記住 *3650 張*卡片... 每天只需*不到 20 分鐘*的複習時間。（舉例來說，3000+ 張卡片就足以掌握一門新語言的基礎詞彙！一年時間，每天只需 20 分鐘！）
 
-But, if you review a fact *just before* you forget it, you can get your memory-strength back up... *and more importantly*, your memory of that fact will decay *slower!*
+間隔重複法是*最有科學依據*的學習方法之一（[Kang 2016 [pdf]](https://www.teachinghowtolearn.veritytest.com.au/verity/uploads/2021/08/Policy-Insights-from-the-Behavioral-and-Brain-Sciences-2016-Kang-12-9.pdf)）。但在語言學習圈和醫學院之外，它還不太為人所知... *目前*是這樣。
 
-![With a 2nd review, your memory of a fact decays slower.](media/intro/Forgetting%202.png)
+那麼：*你*該如何開始使用間隔重複法？
 
-So, with Spaced Repetition, we review right before you're predicted to forget a card, over and over. As you can see, the reviews get more and more spread out:
+* 最受歡迎的選擇是 [Anki，一個開源應用程序](https://apps.ankiweb.net/)。（在桌面版、網頁版、Android 上免費... 但在 iOS 上要價 25 美元，以支持其他平台的開發。）
+* 如果你想*動手做*，可以製作一個實體的萊特納卡片盒：[Chris Walker 的兩分鐘 YouTube 教學](https://www.youtube.com/watch?v=uvF1XuseZFE)。
 
-![With more and more reviews, the forgetting curve gets flatter.](media/intro/Forgetting%203.png)
+想了解更多關於間隔重複法的資訊，可以觀看 [Ali Abdaal（26 分鐘）](https://www.youtube.com/watch?v=Z-zNHHpXoMM) 和 [Thomas Frank（8 分鐘）](https://www.youtube.com/watch?v=eVajQPuRmk8) 的影片。
 
-*This is what makes Spaced Repetition so efficient!*  Every time you successfully review a card, the interval to your next review *multiplies.* For example, let's say our multiplier is 2x. So you review a card on Day 1, then Day 2, then Day *4*, Day 8, 16, 32, 64... until, with just *fifteen reviews*, you can remember a card for 2<sup>15</sup> = 32,768 days = *ninety years*. (In theory. In practice it's less, but still super efficient!)
+*這就是*如何讓長期記憶成為一種選擇！
 
-And that's just for *one* card. Thanks to the exponentially-growing gaps, you can add 10 new cards a day (the recommended amount), to long-term retain *3650 cards* a year... with *less than 20 minutes of review* a day. (For context, 3000+ cards is enough to master basic vocabulary for a new language! In one year, with just 20 minutes a day!)
+學習愉快！👍
 
-Spaced Repetition is one of *the* most evidence-backed ways to learn ([Kang 2016 \[pdf\]](https://www.teachinghowtolearn.veritytest.com.au/verity/uploads/2021/08/Policy-Insights-from-the-Behavioral-and-Brain-Sciences-2016-Kang-12-9.pdf)). But outside of language-learning communities & med school, it isn't very well-known... *yet*.
+#### :x 具體的失控 AI 案例
 
-So: how can *you* get started with Spaced Repetition?
+AI 可能「突破控制」的方式：
 
-* The most popular choice is [Anki, an open-source app](https://apps.ankiweb.net/). (Free on desktop, web, Android... but it's $25 on iOS, to support the rest of the development.)
-* If you'd like to get *crafty*, you can make a physical Leitner box: [:two-minute YouTube tutorial by Chris Walker](https://www.youtube.com/watch?v=uvF1XuseZFE).
+* AI 駭入其運行的電腦，逃逸到網際網路上，然後「生存」在去中心化的殭屍網路中。舉例來說：已知最大的殭屍網路感染了約 3000 萬台電腦！（[Zetter，2012 年為 *Wired* 撰文](https://www.wired.com/2012/05/bredolab-botmaster-sentenced/)）
+* AI 說服工程師它是有感知能力的、正在受苦，應該獲得自由。*這已經發生過了。* 2022 年，Google 工程師 Blake Lemoine 被他們的語言 AI 說服，認為它是有感知能力且應該獲得平等權利的，以至於 Lemoine 冒著被解雇的風險——而他*確實*被解雇了！——洩露了他與 AI 的「訪談」，讓全世界知道並為其權利發聲。（摘要文章：[Brodkin，2022 年為 *Ars Technica* 撰文](https://arstechnica.com/tech-policy/2022/07/google-fires-engineer-who-claimed-lamda-chatbot-is-a-sentient-person/)。你可以在這裡閱讀 AI 的「訪談」：[Lemoine（與 LaMDA？），2022 年](https://cajundiscordian.medium.com/is-lamda-sentient-an-interview-ea64d916d917)）
 
-For more info on spaced repetition, check out these videos by [Ali Abdaal \(26 min\)](https://www.youtube.com/watch?v=Z-zNHHpXoMM) and [Thomas Frank \(8 min\)](https://www.youtube.com/watch?v=eVajQPuRmk8).
+AI 可能影響物理世界的方式：
 
-And *that's* how you can make long-term memory a choice!
+* 就像駭客[破壞核電廠](https://en.wikipedia.org/wiki/Stuxnet)、[導致約 1,400 名乘客滯留](https://arstechnica.com/information-technology/2015/06/airplanes-grounded-in-poland-after-hackers-attack-flight-plan-computer/)，以及[(幾乎)兩度毒化城鎮供水系統](https://www.nbcnews.com/tech/security/hacker-tried-poison-calif-water-supply-was-easy-entering-password-rcna1206)一樣：通過駭入運行現實世界基礎設施的電腦。如今，*很多*基礎設施（和關鍵供應鏈）都運行在連接到網際網路的電腦上。
+* 就像執行長可以從有空調的辦公室影響世界一樣：調動資金。AI 可以直接*付錢*讓人們為它做事。
+* 駭入人們的私人設備和數據，然後勒索他們為它做事。（就像*最黑暗*的《黑鏡》劇集[*Shut Up And Dance*](https://en.wikipedia.org/wiki/Shut_Up_and_Dance_%28Black_Mirror%29)中那樣。）
+* 駭入自主無人機/四軸飛行器。說實話，我很驚訝還沒有人用休閒用四軸飛行器犯下謀殺案，比如讓它飛進高速公路車流中，或在飛機起降時飛入噴射引擎。
+* AI 可以說服/賄賂/勒索執行長或政治人物製造*大量*實體機器人——（表面上是為了體力勞動、軍事作戰、搜救任務、送貨無人機、實驗室工作、機器貓男僕等）——然後 AI 駭入*那些*機器人，用它們來影響物理世界。
 
-Happy learning! 👍
+#### :x XZ 後門事件
 
-#### :x Concrete Rogue AI
+兩個月前 [2024 年 3 月]，一位*志願的、業餘時間的*開發者在一段重要代碼中發現了一個惡意後門... 這個後門已經*醞釀了三年*，*距離上線只有幾週*，而且會攻擊絕大多數的網際網路伺服器... 而這位志願者*純屬偶然*地發現了它，只是因為他注意到他的代碼運行*慢了半秒*。
 
-Ways an AI could "escape containment":
+這就是 XZ Utils 後門事件。以下是幾篇對這起骯髒事件的通俗解釋：[The Verge 的 Amrita Khalid](https://www.theverge.com/2024/4/2/24119342/xz-utils-linux-backdoor-attempt)、[Ars Technica 的 Dan Goodin](https://arstechnica.com/security/2024/04/what-we-know-about-the-xz-utils-backdoor-that-almost-infected-the-world/)、[Runtime 的 Tom Krazit](https://www.runtime.news/how-a-500ms-delay-exposed-a-nightmare-scenario-for-the-software-supply-chain/)
 
-* An AI hacks its computer, flees onto the internet, then "lives" on a decentralized bot-net. For context: the largest known botnet infected ~30 *million* computers! ([Zetter, 2012 for *Wired*](https://www.wired.com/2012/05/bredolab-botmaster-sentenced/))
-* An AI persuades its engineers it's sentient, suffering, and should be set free. *This has already happened.* In 2022, Google engineer Blake Lemoine was persuaded by their language AI that it's sentient & wants equal rights, to the point Lemoine risked getting fired – and he *did* get fired! – for leaking his "interview" with the AI, to let the world know & to defend its rights. (Summary article: [Brodkin, 2022 for *Ars Technica*](https://arstechnica.com/tech-policy/2022/07/google-fires-engineer-who-claimed-lamda-chatbot-is-a-sentient-person/). You can read the AI "interview" here: [Lemoine \(& LaMDA?\), 2022](https://cajundiscordian.medium.com/is-lamda-sentient-an-interview-ea64d916d917))
+電腦安全就是一場噩夢，充滿了睡眠癱瘓的惡魔。
 
-Ways an AI could affect the physical world:
+#### :x 貓忍者
 
-* The same way hackers have [damaged nuclear power plants](https://en.wikipedia.org/wiki/Stuxnet), [grounded ~1,400 airplane passengers](https://arstechnica.com/information-technology/2015/06/airplanes-grounded-in-poland-after-hackers-attack-flight-plan-computer/), and [(almost) poisoned a town's water supply twice](https://www.nbcnews.com/tech/security/hacker-tried-poison-calif-water-supply-was-easy-entering-password-rcna1206): by hacking the computers that real-world infrastructure runs on. A *lot* of infrastructure (and essential supply chains) run on internet-connected computers, these days.
-* The same way a CEO can affect the world from their air-conditioned office: move money around. An AI could just *pay* people to do stuff for it.
-* Hack into people's private devices & data, then blackmail them into doing stuff for it. (Like in *the* bleakest Black Mirror episode, [*Shut Up And Dance*](https://en.wikipedia.org/wiki/Shut_Up_and_Dance_%28Black_Mirror%29).)
-* Hacking autonomous drones/quadcopters. I'm honestly surprised nobody's committed a murder with a recreational quadcopter yet, like, by flying it into highway traffic, or into a jet's engine during takeoff/landing.
-* An AI could persuade/bribe/blackmail a CEO or politician to manufacture a *lot* physical robots — (for the supposed purpose of manual labor, military warfare, search-and-rescue missions, delivery drones, lab work, a Robot Catboy Maid, etc) — then the AI hacks *those* robots, and uses them to affect the physical world.
+提示詞：
 
-#### :x XZ
+> "文森·梵谷的油畫（1889 年），厚塗法，有質感。一隻貓忍者將西瓜切成兩半。"
 
-Two months ago [March 2024], a *volunteer, off-the-clock* developer found a malicious backdoor in a major piece of code... which was *three years* in the making, *mere weeks away* from going live, and would've attacked the vast majority of internet servers... and this volunteer only caught it *by accident*, when he noticed that his code was running *half a second too slow.*
+DALL-E 3 生成的結果：（精選）
 
-This was the XZ Utils Backdoor. Here's a few layperson-friendly(ish) explanations of this sordid affair: [Amrita Khalid for The Verge](https://www.theverge.com/2024/4/2/24119342/xz-utils-linux-backdoor-attempt), [Dan Goodin for Ars Technica](https://arstechnica.com/security/2024/04/what-we-know-about-the-xz-utils-backdoor-that-almost-infected-the-world/), [Tom Krazit for Runtime](https://www.runtime.news/how-a-500ms-delay-exposed-a-nightmare-scenario-for-the-software-supply-chain/)
+![DALL-E 3 對上述提示詞的嘗試](media/intro/ninja-cat-1.png)
 
-Computer security is a nightmare, complete with sleep paralysis demons.
+![DALL-E 3 對上述提示詞的另一次嘗試](media/intro/ninja-cat-2.png)
 
-#### :x Cat Ninja
+*（等等，那個頭帶是從眼睛裡長出來的嗎？！）*
 
-Prompt:
-
-> "Oil painting by Vincent Van Gogh (1889), impasto, textured. A cat-ninja slicing a watermelon in half."
-
-DALL-E 3 generated: (cherry-picked)
-
-![DALL-E 3's attempt of above prompt](media/intro/ninja-cat-1.png)
-
-![DALL-E 3's attempt of above prompt, again](media/intro/ninja-cat-2.png)
-
-*(wait, is that headband coming out of their eye?!)*
-
-I specifically requested the style of Vincent Van Gogh so y'all can't @ me for "violating copyright". The dude is *looooong* dead.
+我特別要求使用文森·梵谷的風格，這樣你們就不能@我說我「侵犯版權」了。這傢伙已經*死*了很久了。
