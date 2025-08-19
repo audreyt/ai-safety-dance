@@ -236,7 +236,7 @@
 —— 某人<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>（👈 將游標移過引註以展開）</p>
 </blockquote>
 <p><em>&quot;Didn't you use that quote just a few minutes ago?&quot;</em> you ask. Nah, <a href="https://aisafety.dance/p1/">part one</a> was published in May 2024, this part was published <strong>Aug 2024</strong>. It's been three months, I'll remind you of the quote.</p>
-<p>也提醒一下我們要表述並解決的問題！那就是「價值對齊問題」（Value Alignment Problem）：</p>
+<p>也提醒一下我們要表述並解決的問題！那就是「價值對齊問題」：</p>
 <blockquote>
 <p><strong><em>我們如何打造能夠穩健服務「人道價值」的 AI？</em></strong></p>
 </blockquote>
@@ -259,9 +259,9 @@
 </blockquote>
 <p>少說點雞湯，開始吧：</p>
 <hr>
-<h1>AI 邏輯的問題（Problems with AI Logic）</h1>
+<h1>AI 邏輯的問題</h1>
 <p><a id="problem1"></a></p>
-<h2>❓ 問題一：目標規格錯置（Goal Mis-specification）</h2>
+<h2>❓ 問題一：目標規格錯置</h2>
 <p>算了，都過三個月了，我也重用一下下面這則機器人貓少漫畫吧。（七個問題每個都有一幅貓少漫畫！）</p>
 <p><img src="../media/p2/comix/GMS.png" alt="漫畫。人類哈姆對機器人貓少女僕（RCM）說：「保持房子乾淨。」RCM 推理：誰造成髒亂？人類造成髒亂！因此——把人類趕走。RCM 把哈姆扔出家門。"></p>
 <p><em>「小心你許的願，因為它可能真的實現。」</em> 這是個古老到被神話化的問題：彌達斯國王、反諷的精靈、猴爪。</p>
@@ -286,8 +286,8 @@
 <li>做我所意（Do What I Mean）</li>
 <li>我們其實<em>希望</em>機器人有時能違命？？</li>
 </ul>
-<h3>與其他領域核心觀念的關聯（Relations to core ideas from other fields）</h3>
-<p><strong>經濟學（Economics）：</strong></p>
+<h3>與其他領域核心觀念的關聯</h3>
+<p><strong>經濟學：</strong></p>
 <p>要讓他人做你<em>真正意圖</em>的事，而不只是你獎勵機制所鼓勵他們做的事，這個問題在經濟學中臭名昭著。它有很多名稱：「委託－代理問題」（Principal–Agent Problem）、「獎勵 A、卻希望得到 B 的謬誤」<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>……不過最常被提到的是<u>古德哈特法則（Goodhart's Law）</u>，意譯如下<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>：</p>
 <blockquote>
 <p><em>當你獎勵某個指標時，這個指標通常會被「玩弄」取巧。</em></p>
@@ -296,7 +296,7 @@
 <p><img src="../media/p2/gms/goodhart.png" alt="「一直都是」雙太空人迷因。地球標註：「我們個人與制度問題的 95%」。太空人 1：「等等，原來一切都是古德哈特法則？」太空人 2：「一直都是。」"></p>
 <p>而正如程式設計師所發現的，AI 也一樣。如果你用某個指標去「獎勵」AI，它很可能會給你不想要的東西。</p>
 <p>. . .</p>
-<p><strong>因果圖（Causal Diagrams）：</strong></p>
+<p><strong>因果圖：</strong></p>
 <p>如果你偏好用<em>視覺化</em>來理解事物，那你有福了！這裡用圖像來理解「目標規格錯置／古德哈特法則」<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>。 （在第 5 與第 6 個問題我們還會再看到這些圖。）</p>
 <p><u>因果圖</u>讓我們得以看見因果如何流動。想像新聞寫作中的一個古德哈特問題：文章的品質會<em>導致</em>更多瀏覽，因此我們可以從「Quality（品質）」畫一條箭頭到「Views（瀏覽數）」：</p>
 <p><img src="../media/p2/gms/causal1.png" alt="因果圖：Quality（品質）導致 Views（瀏覽數）"></p>
@@ -307,8 +307,9 @@
 <p><img src="../media/p2/gms/causal3.png" alt="因果圖：「你真正想要的東西」與「意想不到的、用來拉高指標的其他方式」都會導致「你獎勵的指標」"></p>
 <p>剝馬鈴薯不只一種方法，要把指標衝高通常也不只一條路。</p>
 <p>. . .</p>
-<p><strong>最適化理論（Optimization Theory）</strong></p>
+<p><strong>最佳化理論</strong></p>
 <p>如果你偏好用<em>數學化</em>的方式看待上述問題，這裡用通俗轉述來說明 AI 教科書作者之一 Stuart Russell 的說法<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>：</p>
+<p>嚴謹，但不太朗朗上口。</p>
 <blockquote>
 <p>如果某件事有 <strong>100 個變數</strong>，<br>
 而你只在 <strong>10 個變數</strong>上設定目標，<br>
@@ -319,7 +320,7 @@
 <p>更一般地說：如果你沒有<em>明確</em>告訴 AI（或逐利的人）你重視 [X]，預設它們就會把 [X] 推到某種極端且不想要的狀態。（即使目標<em>不是</em>在做最大化也一樣<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>）</p>
 <p><em>但我們不能把我們重視的所有東西都列出來嗎？</em> 你或許會合理地問。不過還記得第一部分嗎：我們連*如何辨識「貓的圖片」*都無法形式化地指定<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup>，更別說形式化地指定「人類重視什麼」。</p>
 <p>. . .</p>
-<p><strong>安全心態（Security Mindset）</strong></p>
+<p><strong>安全心態</strong></p>
 <img class="mini" src="../media/p2/misc/mini_elevator.png" />
 <p>這一切聽起來是不是很偏執？是的，這不是缺點，而是特色！這是安全工程領域的最後一個核心觀念：<u>安全心態</u>。</p>
 <p>以不起眼的電梯為例。現代電梯有備用鋼纜，<em>還有</em>備用發電機，<em>還有</em>斷電即作動的煞車，<em>還有</em>速度過快即作動的煞車，<em>還有</em>井底的緩衝器……這就是為什麼電梯安全到不可思議：在美國，死於<em>樓梯</em>的案例比死於電梯的案例多了<em>約 400 倍</em><sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>。</p>
@@ -1105,8 +1106,7 @@ GPT-4 的參數估計約有 1,760,000,000,000 個。<sup class="footnote-ref"><a
 </li>
 <li id="fn5" class="footnote-item"><p>多數人憑經驗就知道，不過也有數據支持！<a href="https://cssh.northeastern.edu/pandemic-teaching-initiative/wp-content/uploads/sites/43/2020/09/What-Makes-Online-Content-Viral.pdf">Berger &amp; Milkman 2012</a> 顯示：憤怒讓文章爆紅的機率增加 34%。（見圖 2）公平起見，「敬畏」與「實用價值」也緊追在後，讓爆紅機率增加 30%。 <a href="#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn6" class="footnote-item"><p>節錄自 <a href="http://web.archive.org/web/20240622002719/https://www.edge.org/conversation/the-myth-of-ai#26015">Russell (2014) 在 Edge Magazine</a>：「當一個系統在最佳化一個有 <em>n</em> 個變數的函數，而目標只依賴於大小為 <em>k</em>、且 <em>k</em>&lt;<em>n</em> 的子集合時，其他未被約束的變數往往會被推到極端值；若那些未被約束的變數中有我們在乎的，那找到的解可能極度不可取。」</p>
-<p>嚴謹，但不太朗朗上口。 <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+<li id="fn6" class="footnote-item"><p>節錄自 <a href="http://web.archive.org/web/20240622002719/https://www.edge.org/conversation/the-myth-of-ai#26015">Russell (2014) 在 Edge Magazine</a>：「當一個系統在最佳化一個有 <em>n</em> 個變數的函數，而目標只依賴於大小為 <em>k</em>、且 <em>k</em>&lt;<em>n</em> 的子集合時，其他未被約束的變數往往會被推到極端值；若那些未被約束的變數中有我們在乎的，那找到的解可能極度不可取。」 <a href="#fnref6" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn7" class="footnote-item"><p>例如，我們給機器人這個目標：「去對街咖啡店幫我拿一（1）杯咖啡。」就只是一杯，沒有要最大化。但如果我們沒有<em>明確</em>說我們重視 [X]，它就會把 [X] 輾過去。例如機器人可能會從客人手中偷咖啡、或者留下 0% 小費，等等。） <a href="#fnref7" class="footnote-backref">↩︎</a></p>
 </li>
