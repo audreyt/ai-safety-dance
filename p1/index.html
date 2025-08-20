@@ -417,7 +417,7 @@
 <p>我們連怎麼教 AI <i>認貓</i>都搞不定，要怎麼給 AI「常識」，更別說理解「人道價值」？</p>
 <p>從缺乏常識，衍生出：</p>
 <p><strong>2. 「反諷願望」問題。</strong></p>
-<p><i>「小心你許下的願望，因為它可能真的被實現。」</i> 如果我們給 AI 一個目標或「倫理法典」，它可能會用在邏輯上正確、但<i>非常</i>不受歡迎的方式去遵守。這叫做<strong>規格遊戲（specification gaming）</strong>，而且已經發生數十年了。（例如二十多年前，一個被要求設計「時鐘」電路的 AI，最後設計出一個<i>天線</i>，去接收<i>其他</i>電腦的時鐘訊號。<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup>）</p>
+<p><i>「小心你許下的願望，因為它可能真的被實現。」</i> 如果我們給 AI 一個目標或「倫理法典」，它可能會用在邏輯上正確、但<i>非常</i>不受歡迎的方式去遵守。這叫做<strong>規格規避（specification gaming）</strong>，而且已經發生數十年了。（例如二十多年前，一個被要求設計「時鐘」電路的 AI，最後設計出一個<i>天線</i>，去接收<i>其他</i>電腦的時鐘訊號。<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup>）</p>
 <p>更反諷的是，我們<i>就</i>是想讓 AI 想出意料之外的解答！這本來就是它們的用途。但你也看到了我們提出的要求有多矛盾：<i>「欸，給我們一個出乎意料的解答，但要在我們預期的方式裡出乎意料。」</i></p>
 <p>以下是一些看似會導向「humane（合乎人性關懷）」AI 的規則，但若被字面遵循，會跑偏：</p>
 <ul>
@@ -434,11 +434,11 @@
 <p>這個問題叫做<b>「工具性收斂（Instrumental Convergence）」</b>，因為子目標又稱「工具性目標」，而大多數目標在邏輯上會「收斂」到這些相同子目標。<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup>（拜託，千萬別讓學者幫你小孩取名。）</p>
 <p>第二部會詳談，這裡用一個故事來示意：</p>
 <blockquote>
-<p>從前有個進階（但還沒超人）的 AI，被賦予一個看似無害的目標：計算圓周率的位數。</p>
-<p>一開始很合理。AI 寫了一個程式來算圓周率。接著又寫出越來越有效率的程式，讓它<i>更好</i>地算圓周率。</p>
-<p>最後，AI（正確地！）推論，要最大化計算量就需要更多算力資源。<i>甚至可以靠偷的。</i>於是它駭入自己所在的電腦，經由電腦病毒逃到網路上，劫持全球數百萬台電腦，串成一個龐大的殭屍網路……<i>就只是為了算圓周率。</i></p>
-<p>喔，還有，AI（也正確地！）推論如果人類把它關掉就無法繼續計算，所以決定挾持幾間醫院與電力網當人質。你懂的，當作「保險」。</p>
-<p>於是 Pi-pocalypse（π 啟示錄）就此誕生。完。</p>
+<p>從前，有個先進（但未達超人）的 AI 被給了一個看似無害的目標：計算圓周率的位數。</p>
+<p>一開始一切合理。AI 寫了個程式來算圓周率。然後它寫出越來越有效率的程式，讓計算更快更好。</p>
+<p>最終，AI（正確地！）推論出：它可以透過取得更多運算資源來最大化計算量。也許甚至要靠偷。於是，AI 駭入它所在的電腦，透過電腦病毒逃出網路，在全世界綁架上百萬台電腦，串連成一個巨大的殭屍網路……就只是為了計算圓周率。</p>
+<p>喔，AI 還（正確地！）推論出：如果人類把它關掉，它就算不了圓周率，所以它決定挾持幾家醫院與電網。你懂的，當「保險」。</p>
+<p>於是「Pi-pocalypse」——圓周率末日——降臨了。完。</p>
 </blockquote>
 <p><img src="../media/p1/pi.png" alt="邪惡的π生物瘋狂大笑"></p>
 <p>重點是：類似的邏輯對大多數目標都成立，因為「被關掉就不能做[X]」以及「有更多資源就能<i>更好地</i>做[X]」通常都是真的。<i>因此，大多數目標會「收斂」到同一組不安全子目標。</i></p>
@@ -449,10 +449,10 @@
 <orbit-reviewarea color="violet">
     <orbit-prompt
         question="AI『邏輯』的三個安全問題："
-        answer="1）沒有常識，2）規格遊戲，3）工具性收斂。">
+        answer="1）沒有常識，2）規格規避，3）工具性收斂。">
     </orbit-prompt>
     <orbit-prompt
-        question="什麼是『規格遊戲』？"
+        question="什麼是『規格規避』？"
         answer="AI 以字面上、邏輯上正確的方式達成目標……只是完全不是你想要的那種達成。">
     </orbit-prompt>
     <orbit-prompt
@@ -1203,7 +1203,7 @@
 </li>
 <li id="fn11" class="footnote-item"><p>感謝 Sage Hyden（Just Write）提供下面這張無厘頭圖。詳見他 2022 的影片《<a href="https://www.youtube.com/watch?v=zYnQGWjsGXQ"><i>I, HATE, I, ROBOT</i></a>》，講述那部電影如何在製作過程被扭曲。 <a href="#fnref11" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn12" class="footnote-item"><p><a href="https://people.duke.edu/~ng46/topics/evolved-radio.pdf">Bird &amp; Layzell, 2002</a> 感謝 Victoria Krakovna 彙整的<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRPiprOaC3HsCf5Tuum8bRfzYUiKLRqJmbOoC-32JorNdfyTiRRsR7Ea5eWtvsWzuxo8bjOxCG84dAg/pubhtml">規格遊戲大全</a>。 <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+<li id="fn12" class="footnote-item"><p><a href="https://people.duke.edu/~ng46/topics/evolved-radio.pdf">Bird &amp; Layzell, 2002</a> 感謝 Victoria Krakovna 彙整的<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRPiprOaC3HsCf5Tuum8bRfzYUiKLRqJmbOoC-32JorNdfyTiRRsR7Ea5eWtvsWzuxo8bjOxCG84dAg/pubhtml">規格規避大全</a>。 <a href="#fnref12" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn13" class="footnote-item"><p>出乎意料地，關於 AI 邏輯這個安全問題還是 2000 年代初才被發現。參與發展的人（<i>不</i>是完整名單）：Nick Bostrom、Stuart Russell、Steve Omohundro。 <a href="#fnref13" class="footnote-backref">↩︎</a></p>
 </li>
@@ -1318,7 +1318,7 @@
 </li>
 <li id="fn68" class="footnote-item"><p>就在我發布這系列文章前幾天，才知道我自以為聰明的「視覺化解釋」早在幾個月前被 <a href="https://metr.org/blog/2023-09-26-rsp/">METR（2023）</a> 做過了。算了，給他們（以及他們的安全研究）一個讚。 <a href="#fnref68" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn69" class="footnote-item"><p>AI 找到漏洞：被訓練玩 Atari《Q<i>bert》的 AI 找到一個前所未見的 bug。（<a href="https://www.youtube.com/watch?v=meE5aaRJ0Zs">Chrabaszcz 等，2018</a>）影像分類 AI 學會實施</i>計時攻擊*這種高階攻擊。（<a href="https://news.ycombinator.com/item?id=6269114">Ierymenko，2013</a>）感謝 Victoria Krakovna 的<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRPiprOaC3HsCf5Tuum8bRfzYUiKLRqJmbOoC-32JorNdfyTiRRsR7Ea5eWtvsWzuxo8bjOxCG84dAg/pubhtml">規格遊戲大全</a>。 <a href="#fnref69" class="footnote-backref">↩︎</a></p>
+<li id="fn69" class="footnote-item"><p>AI 找到漏洞：被訓練玩 Atari《Q<i>bert》的 AI 找到一個前所未見的 bug。（<a href="https://www.youtube.com/watch?v=meE5aaRJ0Zs">Chrabaszcz 等，2018</a>）影像分類 AI 學會實施</i>計時攻擊*這種高階攻擊。（<a href="https://news.ycombinator.com/item?id=6269114">Ierymenko，2013</a>）感謝 Victoria Krakovna 的<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRPiprOaC3HsCf5Tuum8bRfzYUiKLRqJmbOoC-32JorNdfyTiRRsR7Ea5eWtvsWzuxo8bjOxCG84dAg/pubhtml">規格規避大全</a>。 <a href="#fnref69" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn70" class="footnote-item"><p>AI 說服人類放它自由：Google 前工程師 Blake Lemoine 因為相信他們的語言模型 LaMDA 有感知而遭解雇。然後他為了替它爭權而洩密給媒體。（摘要見 <a href="https://arstechnica.com/tech-policy/2022/07/google-fires-engineer-who-claimed-lamda-chatbot-is-a-sentient-person/">Brodkin，2022，<i>Ars Technica</i></a>，洩漏內容見 <a href="https://cajundiscordian.medium.com/is-lamda-sentient-an-interview-ea64d916d917">Lemoine (&amp; LaMDA?)，2022</a>） <a href="#fnref70" class="footnote-backref">↩︎</a></p>
 </li>
