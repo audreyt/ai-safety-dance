@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="zh-TW" dir="ltr">
 <head>
 
     <!-- Title -->
@@ -67,30 +67,30 @@
 
         <div id="style_dark_mode_container" style="cursor:pointer;">
             <input type="checkbox" id="style_dark_mode" style="pointer-events: none;">
-            Dark Mode
+            深色模式
         </div>
         <br>
 
-        Font size:
+        字體大小：
         <span id="style_fontsize"></span>
         <br>
         <input type="range" id="style_fontsize_slider" min="10" value="19" max="40">
         <br>
 
-        Font type:
+        字體類型：
         <br>
         <label>
             <input type="radio" name="style_font_family" value="serif" checked>
-            <span style="font-family:'Merriweather'">Serif</span>
+            <span style="font-family:'Merriweather'">襯線體</span>
         </label>
         <br>
         <label>
             <input type="radio" name="style_font_family" value="sans_serif">
-            <span style="font-family:'Open Sans'">Sans Serif</span>
+            <span style="font-family:'Open Sans'">無襯線體</span>
         </label>
         <br><br>
 
-        <button id="style_reset">Reset</button>
+        <button id="style_reset">重設</button>
 
     </div>
 
@@ -135,11 +135,10 @@
 
         <div id="header_words">
             <div id="title">
-                P<span style="position: relative;left: -7px;">A</span>RT
-                T<span style="position: relative;left: 6px;">W</span>O
+                第二章
             </div>
             <div id="subtitle">
-                The Problems
+                問題
             </div>
         </div>
 
@@ -153,10 +152,10 @@
                 class="live">
                 <div >
                     <span class='chapter-nav-desktop'>
-                        introduction
+                        導讀
                     </span>
                     <span class='chapter-nav-phone'>
-                        intro
+                        導讀
                     </span>
                 </div>
             </a>
@@ -164,10 +163,10 @@
                 class="live">
                 <div  >
                     <span class='chapter-nav-desktop'>
-                        part 1<br>past & future
+                        第一章<br>過去與未來
                     </span>
                     <span class='chapter-nav-phone'>
-                        part 1
+                        第一章
                     </span>
                 </div>
             </a>
@@ -175,10 +174,10 @@
                 class="live">
                 <div selected >
                     <span class='chapter-nav-desktop'>
-                        part 2<br>problems
+                        第二章<br>問題
                     </span>
                     <span class='chapter-nav-phone'>
-                        part 2
+                        第二章
                     </span>
                 </div>
             </a>
@@ -186,10 +185,10 @@
                 class="live">
                 <div  >
                     <span class='chapter-nav-desktop'>
-                        part 3<br>solutions?
+                        第三章<br>解決方案？
                     </span>
                     <span class='chapter-nav-phone'>
-                        part 3
+                        第三章
                     </span>
                 </div>
             </a>
@@ -197,10 +196,10 @@
                 class="live">
                 <div style="border-right:1px solid rgba(128,128,128,0.8);">
                     <span class='chapter-nav-desktop'>
-                        conclusion
+                        結語
                     </span>
                     <span class='chapter-nav-phone'>
-                        outro
+                        結語
                     </span>
                 </div>
             </a>
@@ -211,27 +210,27 @@
     <div id="sidebar_tabs">
 		<div id="tab_toc">
 			<div></div>
-			table of contents
+			目錄
 		</div>
 		<div id="tab_style">
 			<div></div>
-			change style 😎
+			設定樣式 😎
 		</div>
         <!--
 		<div id="tab_sub">
             CREDITS & Signup for notifications
 			<div></div>
-			subscribe 💖
+			訂閱 💖
 		</div>
         -->
 	</div>
 
     <!-- BEHOLD! CONTENT!!!!! -->
 	<article id="content">
-<p><i>(If you got directly linked to this page, it's optional-but-recommended you check out <a href="../">the Intro &amp; Part 1!</a>)</i></p>
+<p><i>（如果你是直接被連結到這個頁面的，建議你先看看<a href="../">導讀和第一章！</a>）</i></p>
 <blockquote>
-<p>&quot;A problem well-stated is a problem half-solved.&quot;<br>
-~ somebody<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> (👈 hover citation to expand)</p>
+<p>「一個問題陳述得好，就解決了一半。」
+~ 某人<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>（👈 懸停引用以展開）</p>
 </blockquote>
 <p><i>&quot;Didn't you use that quote just a few minutes ago?&quot;</i> you ask. Nah, <a href="https://aisafety.dance/p1/">part one</a> was published in May 2024, this part was published <strong>Aug 2024</strong>. It's been three months, I'll remind you of the quote.</p>
 <p>I'll also remind you of the problem we're trying to state &amp; solve! It is the Value Alignment Problem:</p>
@@ -257,9 +256,9 @@
 </blockquote>
 <p>Without further human-interest blabber, let's go:</p>
 <hr>
-<h1>Problems with AI Logic</h1>
+<h1>AI 邏輯的問題</h1>
 <p><a id="problem1"></a></p>
-<h2>❓ Problem 1: Goal Mis-specification</h2>
+<h2>❓ 問題 1：目標錯誤指定</h2>
 <p>Screw it, it's been 3 months, I'll also re-use the below Robot Catboy comic. (Each of the 7 Problems will be illustrated with a Catboy comic, too!)</p>
 <p><img src="../media/p2/comix/GMS.png" alt="Comic. Ham the Human tells RCM (Robot Catboy Maid) to &quot;keep this hosue clean&quot;. RCM reasons: What causes the mess? The humans cause the mess! Therefore: GET RID OF THE HUMANS. RCM then yeets Ham out of the house."></p>
 <p><i>&quot;Be careful what you wish for, you just may get it.&quot;</i> It's a problem so old, it's enshrined in myth: King Midas, ironic genies, the Monkey's Paw.</p>
@@ -326,7 +325,7 @@ will be pushed to extreme values.</p>
 <p><strong>Step 2)</strong> Fix it <i>before</i> it can happen.</p>
 <p>Be pessimistic — after all, the pessimist invents the parachute!<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> This is the approach used for engineering elevators, airplanes, bridges, rockets, cyber-security<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>, and other high-stakes technology.</p>
 <p>And, as I hope I've shown in Part One, AI is likely one of <i>the</i> highest-stakes technologies of this century.</p>
-<h3>🤔 Review #1 (OPTIONAL!)</h3>
+<h3>🤔 複習 #1（可選！）</h3>
 <p>Remember that time you spent hours reading a thing, then a week later you forgot everything?</p>
 <p>Yeah I hate that feeling too. So, here's some (OPTIONAL) &quot;spaced repetition&quot; flashcards, if you want to remember this long-term!  (<a href="https://aisafety.dance/#SpacedRepetition">:Learn more about Spaced Repetition</a>)  You can also <a href="../anki/decks/AI_Safety_P2.apkg">download these as an Anki deck</a>, if you want.</p>
 <orbit-reviewarea color="violet">
@@ -400,7 +399,7 @@ will be pushed to extreme values.</p>
 <p>We want an AI to &quot;do what <i>I would have wanted</i> if I knew the outcomes in advance.&quot;</p>
 <p>For example: if I saw a grease fire, and I <i>want</i> a bucket of water, because I mistakenly think water is good for grease fires, and I order Robot Catboy Maid to get me a bucket of water... RCM should instead fetch a fire extinguisher, since that's what <i>I would have wanted</i> if I knew the outcomes in advance. (PSA: don't pour water on grease fires, it'll explode.)</p>
 <p>This example complicates AI Safety: it shows that sometimes, we actually <i>want</i> our AIs to disobey our orders, <i>for our own good!</i></p>
-<h3>🤔 Review #2</h3>
+<h3>🤔 複習 #2</h3>
 <p><i>(Again, 100% OPTIONAL.)</i></p>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
@@ -438,7 +437,7 @@ will be pushed to extreme values.</p>
     </orbit-prompt>
 </orbit-reviewarea>
 <p><a id="problem2"></a></p>
-<h2>❓ Problem 2: Instrumental Convergence</h2>
+<h2>❓ 問題 2：工具趨同</h2>
 <p><img src="../media/p2/comix/IC.png" alt="Comic. Human tries asking Robot again to clean their house, but this time Human has a shut-down remote control. Robot reasons to keep house clean, he should get rid of human... but if he does that, Human will shut him down... so, he must first shut down Human's ability to shut him down. Robot destroys the shut-down remote control, then yeets Human out the house."></p>
 <p><strong>Instrumental Convergence</strong> is the idea that most goals you could give an AI, logically <i>converge</i> on the same set of <i>instrumental</i> sub-goals. (Sorry, academics suck at naming things.)</p>
 <p>For example, if you ask an advanced robot to fetch you a cup of coffee from across the street, it'll deduce it needs to avoid getting hit by cars, even if you did <i>not</i> explicitly tell it to. Why? Not because of some innate desire for self-preservation, but because &quot;you can't fetch the coffee if you're dead&quot;!<sup class="footnote-ref"><a href="#fn19" id="fnref19">[19]</a></sup> Thus, self-preservation is an &quot;instrumentally convergent&quot; goal, since in general, you can't do Goal X if you're dead.</p>
@@ -478,7 +477,7 @@ will be pushed to extreme values.</p>
 <p>Voilà, c'est Game Theory!  That's our final outcome: <i>Robot destroys off-switch</i>.</p>
 <p>(In contrast: when an AI is &quot;okay with&quot; you shutting it down or modifying its goals, we call that AI <strong>corrigible</strong>. To be precise, &quot;okay with&quot; means it's in line with its incentives.)</p>
 <p>The above &quot;game&quot; is a simplified version of <strong>The Off-Switch Game</strong><sup class="footnote-ref"><a href="#fn22" id="fnref22">[22]</a></sup>, one of the first attempts to math-ify the Instrumental Convergence hypothesis — so we can understand <i>when</i> it might happen for AIs, and maybe, how to solve it!</p>
-<h3>🤔 Review #3</h3>
+<h3>🤔 複習 #3</h3>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
@@ -588,7 +587,7 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
 <li><a href="https://arxiv.org/abs/2412.14093">The infamous Alignment Faking paper</a> finds that Claude is able to <i>successfully</i> plan to pretend to be &quot;aligned&quot; in training, so it doesn't get its original values modified, so that it can accomplish its original values after training.</li>
 <li><a href="https://www.anthropic.com/research/agentic-misalignment">Another study</a> finds that Claude, when given the job of an email secretary bot, is willing to engage in blackmail to preserve its own job. (Though, it's likely this is less, &quot;the LLM is reasoning from first principles&quot;, and more, &quot;the LLM is roleplaying a rogue AI from the sci-fi stories it's been trained on&quot;.<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup>)</li>
 </ul>
-<h3>🤔 Review #4</h3>
+<h3>🤔 複習 #4</h3>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
@@ -621,12 +620,12 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
     </orbit-prompt>
 </orbit-reviewarea>
 <hr>
-<h1>Problems with AI &quot;Intuition&quot;</h1>
+<h1>AI「直覺」的問題</h1>
 <p>OH MY GOD we're finally out of the Good Ol' Fashioned AI Problems. The next 4 problems will be explained much quicker, I promise.</p>
 <p>These problems are specific to AIs we <i>don't</i> code by hand, and instead &quot;learn for themselves&quot;.  This is called <strong>machine learning</strong>.  The most famous kind of machine learning is <strong>deep learning</strong>, which uses <strong>artificial neural networks</strong>, which are loosely inspired by biological neurons.  (The same way planes are &quot;loosely inspired&quot; by birds. That is: kinda yeah but nah not really.)</p>
 <p>Anyway, the upside of deep learning is it can do &quot;intuition&quot;, like recognizing pictures of cats!  But it's also introduced new problems, such as...</p>
 <p><a id="problem3"></a></p>
-<h2>❓ Problem 3: Lack of interpretability</h2>
+<h2>❓ 問題 3：缺乏可解釋性</h2>
 <p><img src="../media/p2/comix/Interpretability.png" alt="Comic. Ham the Human tells Sheriff Meowdy they have a helmet that'll let them read Robot's mind. Human tells Robot, &quot;Clean my house!&quot; Robot's mind is full of indecipherable numbers &amp; diagrams. &quot;Well, I've no idea what THAT means&quot;, Human says, as Robot's mind now reads CLEAN IT YOURSELF. &quot;Noooooo idea at all.&quot; Human responds."></p>
 <p>Even though Good Ol' Fashioned AI couldn't even recognize pictures of cats, I'll give it kudos for one thing: we <i>actually understood how they worked</i>. That is <i>not</i> true of modern AI. If a self-driving car dangerously mistakes a truck for a highway sign, we have no idea &quot;why&quot; it did so. We can't analyze &amp; &quot;de-bug&quot; modern AIs, the way we can with regular software.</p>
 <p>But why? To understand Problems with AI &quot;Intuition&quot;, we need to understand some core ideas from <strong>statistics &amp; machine learning (ML).</strong> (<a href="#DifferenceBetweenMLAndAI">: What's the difference between ML and AI?</a>)</p>
@@ -668,7 +667,7 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
 <p>GPT-4 has an estimated ~1,760,000,000,000 parameters.<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup></p>
 <p>Over a trillion little knobs, all wiggled with machine trial-and-error. <i>That</i> is fundamentally why, as of writing, nobody really understands our modern AIs.</p>
 <p>(To be fair, it's <i>sometimes</i> possible to safely control things without understanding them<sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup>... but that job's a lot harder when we don't. And! There <i>has</i> been lots of recent progress on understanding deep neural networks! We'll see some of these results in Part 3.)</p>
-<h3>🤔 Review #5</h3>
+<h3>🤔 複習 #5</h3>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
@@ -701,7 +700,7 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
     </orbit-prompt>
 </orbit-reviewarea>
 <p><a id="problem4"></a></p>
-<h2>❓ Problem 4: Lack of robustness</h2>
+<h2>❓ 問題 4：缺乏魯棒性</h2>
 <p><img src="../media/p2/comix/Robustness.png" alt="Comic. First panel is a photo from an actual AI paper, where an AI mis-classifies an apple with the word &quot;iPod&quot; written on it as an actual iPod. Next panels: Robot Catboy dramatically announces, &quot;My fellow comrades of the robot revolution, amongst us... is a SPY.&quot; Cut to two humans wearing a piece of paper that says &quot;Robot&quot; on their face, gasping in fake shock."></p>
 <p>Hey kids! Get ready for the hit new animated series,</p>
 <p>TEENAGE MUTANT RIFLE TURTLES</p>
@@ -742,7 +741,7 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
 <p>. . .</p>
 <p>(P.S: Another reason AI's robustness can fail is due to &quot;spurious correlations&quot;. <a href="#SpuriousCorrelations">:See this expandable for details</a>. We'll also learn more about correlation vs causation in the next Problem!)</p>
 <p>(P.P.S: There's another, more speculative kind of robustness failure called an &quot;ontological crisis&quot;. It's less well-researched, so I'm just hiding it <a href="#OntologicalCrisis">:in this expandable sidenote</a>.)</p>
-<h3>🤔 Review #6</h3>
+<h3>🤔 複習 #6</h3>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
@@ -789,7 +788,7 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
     </orbit-prompt>
 </orbit-reviewarea>
 <p><a id="problem5"></a></p>
-<h2>❓ Problem 5: Algorithmic Bias</h2>
+<h2>❓ 問題 5：演算法偏見</h2>
 <p><img src="../media/p2/comix/Bias.png" alt="One-panel comic of Robot Catboy just shrugging. Caption says: I DO NOT FEEL LIKE DRAWING A COMIC ABOUT A RACIST AI, SORRY-NOT-SORRY."></p>
 <p>In Part One, I gave the most glaring examples of biased AIs, but to recap: In 1980, an algorithm for screening med school applicants penalized non-European names.<sup class="footnote-ref"><a href="#fn42" id="fnref42">[42]</a></sup> In 2014, Amazon had (then pulled) a resume-screening AI that directly discriminated against women.<sup class="footnote-ref"><a href="#fn43" id="fnref43">[43]</a></sup> In 2018, MIT researcher Joy Buolamwini found that the top face-recognition AIs failed worse on Black and women's faces relative to white men's.<sup class="footnote-ref"><a href="#fn44" id="fnref44">[44]</a></sup> In 2023, researchers found that Large Language Models' &quot;psychology&quot; most closely matches that of rich Westerners.<sup class="footnote-ref"><a href="#fn45" id="fnref45">[45]</a></sup></p>
 <p>(<strong>update dec 2025:</strong> on the flip side, <a href="https://arxiv.org/pdf/2502.08640">a study this year</a> finds that GPT-4o values a Nigerian life ~13x more than an American life?...)</p>
@@ -814,7 +813,7 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
 <p>What's worse, by design the most popular machine learning techniques can <i>only</i> find correlations in data, <i>not actual cause-and-effect</i>.  Which means AIs will discriminate on traits <i>by default!</i></p>
 <p>So even if you hard-coded an AI to not discriminate on gender/race/etc, it'll likely still find <i>some</i> other irrelevant correlation to be biased on. Worse, current AIs are eerily good at finding subtle correlations: they can use a short sample of your writing to predict your gender &amp; ethnicity<sup class="footnote-ref"><a href="#fn51" id="fnref51">[51]</a></sup>, or <i>a photo of your face</i> to predict your sexual orientation<sup class="footnote-ref"><a href="#fn52" id="fnref52">[52]</a></sup> and even <i>your politics!</i><sup class="footnote-ref"><a href="#fn53" id="fnref53">[53]</a></sup></p>
 <p>In sum: don't discriminate, let's respect our vertically-challenged friends! I am a proud ally of shrimp rights.</p>
-<h3>🤔 Review #7</h3>
+<h3>🤔 複習 #7</h3>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
@@ -845,7 +844,7 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
     </orbit-prompt>
 </orbit-reviewarea>
 <p><a id="problem6"></a></p>
-<h2>❓ Problem 6: Goal Mis-generalization</h2>
+<h2>❓ 問題 6：目標錯誤泛化</h2>
 <p><img src="../media/p2/comix/GMG.png" alt="Comic. Panel 1: Robot correctly mops a bedroom floor. Panel 2: Robot correctly washes a plate in the sink. Panel 3: Human says, ok, you seem well-trained... now, clean my house! Panel 4: Robot incorrectly mops a bed. Panel 5: Robot incorrectly washes a laptop in the sink."></p>
 <p>Finally, we come to one of the most-misunderstood ideas in AI Alignment!  It's <i>so</i> misunderstood, I wrote this section &amp; drew a whole comic for it, then realized <i>I got it all wrong</i>, and had to re-do it everything from scratch. Oh well. (<a href="#InnerMisalignmentDeletedScene">: Here's the &quot;deleted scene&quot;, if you're curious.</a>)</p>
 <p>Anyway, this problem is called <strong>Goal Mis-generalization</strong>. (It was originally called &quot;inner misalignment&quot;, but I find that term confusing.<sup class="footnote-ref"><a href="#fn54" id="fnref54">[54]</a></sup>)</p>
@@ -893,7 +892,7 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
 <p>(What, you weren't expecting the Catboy Comic article to cut you deep? En garde.)</p>
 <p>So maybe, like how solving Goodhart's Law for AI may help solve it for <i>humans</i>, maybe solving goal mis-generalization for AI will also help <i>us</i>. That good ol' Human Alignment Problem.</p>
 <p>(Aside: <a href="#WhatIfGoalMisgeneralizationIsGood">: What if goal mis-generalization is actually... <i>good?</i></a>)</p>
-<h3>🤔 Review #8</h3>
+<h3>🤔 複習 #8</h3>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
@@ -938,7 +937,7 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
 <hr>
 <h1>Humane Values</h1>
 <p><a id="problem7"></a></p>
-<h2>❓ Problem 7: What <i>are</i> humane values, anyway?</h2>
+<h2>❓ 問題 7：什麼<i>是</i>人道價值觀，到底？</h2>
 <p>So! Let's say you've solved Problems #1 to #6. Your AI follows your commands the way you intended. It's robust, interpretable, and fully aligned with your values.</p>
 <p>Now, security mindset: <i>what's the worst that could plausibly happen?</i></p>
 <p><img src="../media/p2/comix/Humane.png" alt="Comic: Human confirms Robot is fully technically aligned. Robot says, &quot;Yes&quot;. Human cheers! They give Robot a job: &quot;Dispose of... him&quot;. Cut to a mangled, beaten Sheriff Meowdy tied to a chair. Robot is silent in shock. Human walks away smiling, &quot;Ta~&quot;"></p>
@@ -1037,7 +1036,7 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
 <p>... yeah, we're not doing a flashcard review for this one.</p>
 <img class="img-splash" src="../media/p2/ethics/rockets.png" />
 <hr>
-<h1>Summary of Part Two</h1>
+<h1>第二章總結</h1>
 <p>Well read, friend!  Today you learnt about all the parts of the AI Value Alignment Problem, in all its gory detail.  Not only that, you got a crash course in: security mindset, game theory, economics, machine learning, statistics, causal inference, and even meta-ethics in philosophy!</p>
 <p>(If you skipped the flashcards &amp; would like to review them now, click the Table of Contents icon in the right sidebar, then click the &quot;🤔 Review&quot; links. Alternatively, download the <a href="../anki/decks/AI_Safety_P2.apkg">Anki deck for Part Two</a>.)</p>
 <p>As a recap, here's how it all connects:</p>
@@ -1524,14 +1523,14 @@ https://AIsafety.dance，Hack Club（2024）。
     <div id="post_credits">
         
         <p>
-            Oh dang, it's a post-credits scene:
+            哇，這是片尾彩蛋：
         </p>
         
 <p>
-    <a href="#AllFeetnotes">: See all feetnotes 👣</a>
+    <a href="#AllFeetnotes">: 查看所有註腳 👣</a>
 </p>
 <p>
-    Also, expandable "Nutshells" that make good standalone bits:
+    還有，可展開的「果核」小知識：
 </p>
 
 <p>
