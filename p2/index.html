@@ -18,15 +18,15 @@
 
     <!-- Social Share Nonsense -->
 	<meta itemprop="name" content="第二部分：問題">
-	<meta itemprop="description" content="第二部分 — 給血肉凡人的 AI 安全課">
+	<meta itemprop="description" content="第二部分 — 寫給有血有肉的人類的 AI 安全指南">
 	<meta itemprop="image" content="https://aisafety.dance/thumbs/thumb-p2.png">
 	<meta property="og:title" content="第二部分：問題">
 	<meta property="og:type" content="website">
 	<meta property="og:image" content="https://aisafety.dance/thumbs/thumb-p2.png">
-	<meta property="og:description" content="第二部分 — 給血肉凡人的 AI 安全課">
+	<meta property="og:description" content="第二部分 — 寫給有血有肉的人類的 AI 安全指南">
     <meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="第二部分：問題">
-	<meta name="twitter:description" content="第二部分 — 給血肉凡人的 AI 安全課">
+	<meta name="twitter:description" content="第二部分 — 寫給有血有肉的人類的 AI 安全指南">
 	<meta name="twitter:image" content="https://aisafety.dance/thumbs/thumb-p2.png">
 
 	<!-- STYLES -->
@@ -232,102 +232,102 @@
 <p>「一個問題陳述得好，就解決了一半。」
 ~ 某人<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>（👈 懸停引用以展開）</p>
 </blockquote>
-<p><i>&quot;Didn't you use that quote just a few minutes ago?&quot;</i> you ask. Nah, <a href="https://aisafety.dance/p1/">part one</a> was published in May 2024, this part was published <strong>Aug 2024</strong>. It's been three months, I'll remind you of the quote.</p>
-<p>I'll also remind you of the problem we're trying to state &amp; solve! It is the Value Alignment Problem:</p>
+<p>*「你不是幾分鐘前用過那句話嗎？」*你問。不，<a href="https://aisafety.dance/p1/">第一章</a>是 2024 年 5 月發布的，這部分是 <strong>2024 年 8 月</strong>發布的。已經過了三個月，我會提醒你那句話。</p>
+<p>我也會提醒你我們試圖陳述和解決的問題！那就是價值對齊問題：</p>
 <blockquote>
-<p><strong><i>How can we make AIs that robustly serve humane values?</i></strong></p>
+<p><strong><i>我們如何讓 AI 穩健地服務人道價值觀？</i></strong></p>
 </blockquote>
-<p>As elaborated in Part One, we can break this problem up like so:</p>
-<p><img src="../media/p2/breakdown/breakdown0001.png" alt="Diagram breaking down the Value Alignment Problem. It can be broken into &quot;Technical Alignment&quot; and &quot;Humane Values&quot;. Technical Alignment, in turn, can be broken into &quot;Problems with AI Logic&quot; and &quot;Problems with AI Intuition&quot;"></p>
-<p>Here, in Part Two, we'll dive deep into <strong>7 main sub-problems in AI Safety:</strong></p>
+<p>正如第一章所闡述的，我們可以這樣分解這個問題：</p>
+<p><img src="../media/p2/breakdown/breakdown0001.png" alt="分解價值對齊問題的圖表。它可以分為「技術對齊」和「人道價值觀」。技術對齊又可以分為「AI 邏輯的問題」和「AI 直覺的問題」"></p>
+<p>在這裡，第二章中，我們將深入探討 <strong>AI 安全的 7 個主要子問題：</strong></p>
 <ol>
-<li>Goal mis-specification <a href="#problem1">↪</a></li>
-<li>Instrumental convergence <a href="#problem2">↪</a></li>
-<li>Lack of interpretability <a href="#problem3">↪</a></li>
-<li>Lack of robustness <a href="#problem4">↪</a></li>
-<li>Algorithmic bias <a href="#problem5">↪</a></li>
-<li>Goal mis-generalization <a href="#problem6">↪</a></li>
-<li>What are humane values, anyway? <a href="#problem7">↪</a></li>
+<li>目標錯誤指定 <a href="#problem1">↪</a></li>
+<li>工具趨同 <a href="#problem2">↪</a></li>
+<li>缺乏可解釋性 <a href="#problem3">↪</a></li>
+<li>缺乏魯棒性 <a href="#problem4">↪</a></li>
+<li>演算法偏見 <a href="#problem5">↪</a></li>
+<li>目標錯誤泛化 <a href="#problem6">↪</a></li>
+<li>什麼是人道價值觀，到底？ <a href="#problem7">↪</a></li>
 </ol>
-<p>(If you'd like to skip around, the <img src="../media/intro/icon1.png" class="inline-icon"/> Table of Contents are to your right! 👉 You can also <img src="../media/intro/icon2.png" class="inline-icon"/> change this page's style, and <img src="../media/intro/icon3.png" class="inline-icon"/> see how much reading is left.)</p>
-<p>But wait, there's more! The above 7 sub-problems are also great introductions to <strong>core ideas from other fields</strong>: Game theory, Statistics, even <i>Philosophy!</i>  That's why I claim, understanding AI will help you better understand <i>humans</i>.  Maybe it'll even help us solve that elusive <i>human</i> alignment problem:</p>
+<p>（如果你想跳來跳去，<img src="../media/intro/icon1.png" class="inline-icon"/> 目錄在你右邊！👉 你也可以 <img src="../media/intro/icon2.png" class="inline-icon"/> 更改此頁面的樣式，以及 <img src="../media/intro/icon3.png" class="inline-icon"/> 查看還剩多少閱讀量。）</p>
+<p>但等等，還有更多！上述 7 個子問題也是<strong>其他領域核心概念</strong>的絕佳入門：博弈論、統計學，甚至<i>哲學</i>！這就是為什麼我聲稱，理解 AI 會幫助你更好地理解<i>人類</i>。也許它甚至能幫助我們解決那個難以捉摸的<i>人類</i>對齊問題：</p>
 <blockquote>
-<p><i>How do we get</i> humans <i>to robustly serve humane values?</i></p>
+<p><i>我們如何讓</i>人類<i>穩健地服務人道價值觀？</i></p>
 </blockquote>
-<p>Without further human-interest blabber, let's go:</p>
+<p>不再閒扯人情味的東西了，讓我們開始吧：</p>
 <hr>
 <h1>AI 邏輯的問題</h1>
 <p><a id="problem1"></a></p>
 <h2>❓ 問題 1：目標錯誤指定</h2>
-<p>Screw it, it's been 3 months, I'll also re-use the below Robot Catboy comic. (Each of the 7 Problems will be illustrated with a Catboy comic, too!)</p>
-<p><img src="../media/p2/comix/GMS.png" alt="Comic. Ham the Human tells RCM (Robot Catboy Maid) to &quot;keep this hosue clean&quot;. RCM reasons: What causes the mess? The humans cause the mess! Therefore: GET RID OF THE HUMANS. RCM then yeets Ham out of the house."></p>
-<p><i>&quot;Be careful what you wish for, you just may get it.&quot;</i> It's a problem so old, it's enshrined in myth: King Midas, ironic genies, the Monkey's Paw.</p>
-<p>This is called <strong>Goal Mis-specification</strong> (also called Reward Mis-specification): When an AI does <i>exactly what you asked for</i>, not necessarily <i>what you actually wanted.</i></p>
-<p>(If you forgot from Part One, here's how <a href="#WaysToMakeHumaneAIGoingWrong">:seemingly-obvious ways to make &quot;humane AI&quot; can go wrong</a>. Bonus: <a href="#StoryOfPassivePredictionLeadingToHarm">:even <i>passive</i> goals like &quot;predict something&quot; can lead to harmful results!</a> 👈 <i>OPTIONAL: Click to expand these texts!</i>)</p>
+<p>算了，已經過了 3 個月，我也會重複使用下面的機器人貓娘漫畫。（7 個問題中的每一個也會用貓娘漫畫來說明！）</p>
+<p><img src="../media/p2/comix/GMS.png" alt="漫畫。火腿人類告訴 RCM（機器人貓娘女僕）「保持房子乾淨」。RCM 推理：是什麼造成髒亂？人類造成髒亂！因此：消滅人類。RCM 然後把火腿扔出房子。"></p>
+<p>*「小心你許的願望，你可能真的會得到它。」*這是一個如此古老的問題，它被奉為神話：邁達斯王、諷刺的精靈、猴子的爪子。</p>
+<p>這被稱為<strong>目標錯誤指定</strong>（也稱為獎勵錯誤指定）：當 AI 做了<i>你所要求的</i>，不一定是<i>你實際想要的</i>。</p>
+<p>（如果你從第一章忘了，這是<a href="#WaysToMakeHumaneAIGoingWrong">:看似明顯的「人道 AI」方法如何出錯</a>。額外：<a href="#StoryOfPassivePredictionLeadingToHarm">:即使是「預測某事」這樣的<i>被動</i>目標也可能導致有害結果！</a> 👈 <i>可選：點擊展開這些文字！</i>）</p>
 <p><i>(Also — if you'd like to be notified when Part 3: The Proposed Solutions is out, in mid-December, sign up below! If you're a high-schooler you can also get free stickers 👇)</i></p>
 <p><div style="width:100%;height:500px;" data-fillout-id="hX3xJuTcdVus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize data-fillout-domain="forms.hackclub.com"></div>
 <script defer src="https://server.fillout.com/embed/v1/"></script></p>
 <p>. . .</p>
-<p>Anyway, enough recapping the basics. Let's introduce you to:</p>
-<p><strong>How this relates to core ideas from other fields:</strong></p>
+<p>好了，基礎知識回顧夠了。讓我向你介紹：</p>
+<p><strong>這如何與其他領域的核心概念相關：</strong></p>
 <ul>
-<li>Economics</li>
-<li>Causal diagrams</li>
-<li>Optimization theory</li>
-<li>Security mindset</li>
+<li>經濟學</li>
+<li>因果圖</li>
+<li>優化理論</li>
+<li>安全心態</li>
 </ul>
-<p><strong>Four nuances of Goal Mis-specification:</strong></p>
+<p><strong>目標錯誤指定的四個細微差別：</strong></p>
 <ul>
-<li>It's not that AIs won't &quot;know&quot; what we want, it's that they won't &quot;<i>care</i>&quot;.</li>
-<li>Wireheading</li>
-<li>Do What I Mean</li>
-<li>We <i>want</i> bots that can disobey??</li>
+<li>不是 AI 不會「知道」我們想要什麼，而是它們不會「<i>在乎</i>」。</li>
+<li>接線頭</li>
+<li>做我的意思</li>
+<li>我們<i>希望</i>機器人能夠違抗命令？？</li>
 </ul>
-<h3>Relations to core ideas from other fields</h3>
-<p><strong>Economics:</strong></p>
-<p>The problem of getting other humans to do what you <i>actually intended</i>, not just what you're incentivizing them to, is infamous in Economics. It goes by many names: &quot;The Principal-Agent Problem&quot;, &quot;The folly of rewarding A, while hoping for B&quot;<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>... but one of its more famous names is <u>Goodhart's Law</u>, which says this (paraphrased)<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>:</p>
+<h3>與其他領域核心概念的關係</h3>
+<p><strong>經濟學：</strong></p>
+<p>讓其他人類做你<i>實際想要</i>的事情，而不僅僅是你激勵他們做的事情，這個問題在經濟學中臭名昭著。它有很多名字：「委託代理問題」、「獎勵 A 而期望 B 的愚蠢」<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>⋯⋯但它更著名的名字之一是<u>古德哈特定律</u>，它說（釋義）<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>：</p>
 <blockquote>
-<p><i>When you reward a metric, it usually gets gamed.</i></p>
+<p><i>當你獎勵某個指標時，它通常會被操弄。</i></p>
 </blockquote>
-<p>For example, a teacher wants students to learn, so he rewards them based on test scores... but some students &quot;game&quot; this by cheating, or memorizing without understanding. Or: voters want politicians who fight for them, so they vote for charismatic leaders... but some politicians &quot;game&quot; this by being all style and no substance.</p>
-<p><img src="../media/p2/gms/goodhart.png" alt="The &quot;always has been&quot; two-astronauts meme. Earth labelled: &quot;95% of our personal &amp; institutional problems&quot;. Astronaut 1: &quot;Wait, it's all Goodhart's Law?&quot; Astronaut 2: &quot;Always has been.&quot;"></p>
-<p>And as programmers have discovered, the same goes for AI. If you &quot;reward&quot; an AI based on a metric, it's likely to give you something unwanted.</p>
+<p>例如，老師希望學生學習，所以根據考試分數來獎勵他們⋯⋯但有些學生透過作弊或死記硬背而不理解來「操弄」這個系統。或者：選民希望政客為他們爭取權益，所以投票給有魅力的領導人⋯⋯但有些政客透過華而不實來「操弄」這個系統。</p>
+<p><img src="../media/p2/gms/goodhart.png" alt="「一直都是」兩位太空人迷因。地球標示：「我們95%的個人與制度問題」。太空人1：「等等，這一切都是古德哈特定律？」太空人2：「一直都是。」"></p>
+<p>正如程式設計師所發現的，AI也是如此。如果你根據某個指標來「獎勵」AI，它很可能會給你不想要的東西。</p>
 <p>. . .</p>
-<p><strong>Causal Diagrams:</strong></p>
-<p>If you like understanding things <i>visually</i>, you're in luck! Here's a neat way to understand Goal Mis-specification / Goodhart's Law in pictures.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> (We'll also see these again later, in Problem #5 and #6)</p>
-<p><u>Causal diagrams</u> let us see how cause-and-effect flow. Consider a Goodhart problem in news writing. The quality of an article <i>causes</i> an article to get more views, so, we can draw an arrow from Quality to Views:</p>
-<p><img src="../media/p2/gms/causal1.png" alt="Causal diagram: Quality causes Views"></p>
-<p>Alas, being outrageous is a <i>stronger</i> cause for views<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>:</p>
-<p><img src="../media/p2/gms/causal2.png" alt="Causal diagram: Quality &amp; Outrage both cause Views"></p>
-<p>So, a news publisher who wants high-quality writing, may reward authors based on the <i>metric</i> of views, but — Goodhart's Law — this incentive gets gamed, and the publisher gets outrageous clickbait instead. (Let's pretend this isn't what the publisher wanted anyway.)</p>
-<p>In general, Goal Mis-specification / Goodhart's Law happens when there are <i>alternative causal paths</i> you didn't know about:</p>
-<p><img src="../media/p2/gms/causal3.png" alt="Causal diagram: &quot;Thing you actually want&quot; &amp; &quot;Unintended other way to boost metric&quot; both cause &quot;Metric you reward&quot;"></p>
-<p>There's more than one way to skin a potato, and there's usually more than one way to boost a metric.</p>
+<p><strong>因果圖：</strong></p>
+<p>如果你喜歡用<i>視覺化</i>的方式理解事物，那你很幸運！這裡有一個用圖片理解目標錯誤設定/古德哈特定律的好方法。<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>（我們稍後在問題 #5 和 #6 也會再看到這些）</p>
+<p><u>因果圖</u>讓我們看到因果關係如何流動。考慮一個新聞寫作中的古德哈特問題。文章的品質<i>導致</i>文章獲得更多瀏覽量，所以我們可以從品質畫一條箭頭指向瀏覽量：</p>
+<p><img src="../media/p2/gms/causal1.png" alt="因果圖：品質導致瀏覽量"></p>
+<p>唉，譁眾取寵是瀏覽量的<i>更強</i>原因<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>：</p>
+<p><img src="../media/p2/gms/causal2.png" alt="因果圖：品質和譁眾取寵都導致瀏覽量"></p>
+<p>所以，一個想要高品質寫作的新聞出版商，可能會根據瀏覽量這個<i>指標</i>來獎勵作者，但是——古德哈特定律——這個激勵機制被操弄了，出版商得到的是譁眾取寵的標題黨。（讓我們假裝這不是出版商本來就想要的。）</p>
+<p>一般來說，目標錯誤設定/古德哈特定律發生在存在你不知道的<i>替代因果路徑</i>時：</p>
+<p><img src="../media/p2/gms/causal3.png" alt="因果圖：「你真正想要的東西」和「提高指標的意外方式」都導致「你獎勵的指標」"></p>
+<p>條條大路通羅馬，提高指標的方法通常也不只一種。</p>
 <p>. . .</p>
-<p><strong>Optimization Theory</strong></p>
-<p>If you prefer a <i>mathematical</i> way of looking at the above problem, here's how Stuart Russell (co-author of <i>the</i> most popular AI textbook) explained it, paraphrased:<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
+<p><strong>最佳化理論</strong></p>
+<p>如果你偏好用<i>數學</i>的方式來看待上述問題，以下是 Stuart Russell（<i>最</i>流行的 AI 教科書共同作者）解釋的方式（改述）：<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
 <blockquote>
-<p>If something has <strong>100 variables</strong>,<br>
-and you set goals on <strong>10 of them</strong>,<br>
-by default, <strong>the remaining 90</strong><br>
-will be pushed to extreme values.</p>
+<p>如果某個東西有 <strong>100 個變數</strong>，<br>
+而你只對其中 <strong>10 個</strong>設定目標，<br>
+預設情況下，<strong>剩餘的 90 個</strong><br>
+會被推向極端值。</p>
 </blockquote>
-<p>For example: if a CEO's only (naïve) goals are to maximize revenue &amp; minimize costs, <i>all other</i> variables get set to extreme values: &quot;Externality&quot; costs that the company doesn't pay, like pollution. The mental/physical health of all employees, including the CEO's. Etc.</p>
-<p>More generally: if you don't <i>explicitly</i> tell an AI (or incentive-chasing human) that you value [X], by default, they will set [X] to some extreme, undesired state. (This is true even for goals that <i>aren't</i> about maximization.<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>)</p>
-<p><i>But can't we just list ALL the things that we value?</i> you may reasonably ask. But remember from Part One: we can't even formally specify <i>how to recognize pictures of cats</i>.<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> Formally specifying &quot;what humans value&quot; would be much harder.</p>
+<p>例如：如果一個 CEO 唯一（天真）的目標是最大化營收和最小化成本，<i>所有其他</i>變數都會被設定為極端值：公司不用支付的「外部性」成本，如污染。所有員工的身心健康，包括 CEO 自己的。等等。</p>
+<p>更一般地說：如果你沒有<i>明確</i>告訴 AI（或追逐激勵的人類）你重視 [X]，預設情況下，他們會將 [X] 設定為某種極端的、不想要的狀態。（即使對於<i>不是</i>關於最大化的目標，這也是正確的。<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>）</p>
+<p><i>但我們不能列出我們重視的所有事物嗎？<i>你可能合理地問。但記得第一章的內容：我們甚至無法正式指定</i>如何識別貓的圖片</i>。<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> 正式指定「人類重視什麼」會更加困難。</p>
 <p>. . .</p>
-<p><strong>Security Mindset</strong></p>
+<p><strong>安全心態</strong></p>
 <img class="mini" src="../media/p2/misc/mini_elevator.png" />
-<p>Does all this seem paranoid? Yes, and that's not a bug, it's a feature! This is our final core idea from the field of Safety Engineering: <u>security mindset.</u></p>
-<p>Consider the humble elevator. Modern elevators have backup cables, <i>and</i> backup power generators, <i>and</i> a brake that activates if the power cuts, <i>and</i> a brake that activates if the elevator moves too fast, <i>and</i> shock absorbers at the bottom of the elevator shaft, etc. This is why elevators are ridiculously safe: in the US, there are <i>~400x</i> more deaths from <i>staircases</i> than elevators.<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup></p>
-<p>The reason you don't have to be paranoid about elevators, is because the engineers are paranoid <i>for</i> you. This is security mindset:</p>
-<p><strong>Step 1)</strong> Ask, <i>&quot;what's the worst that could (plausibly) happen?&quot;</i></p>
-<p><strong>Step 2)</strong> Fix it <i>before</i> it can happen.</p>
-<p>Be pessimistic — after all, the pessimist invents the parachute!<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> This is the approach used for engineering elevators, airplanes, bridges, rockets, cyber-security<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>, and other high-stakes technology.</p>
-<p>And, as I hope I've shown in Part One, AI is likely one of <i>the</i> highest-stakes technologies of this century.</p>
+<p>這一切看起來是不是太偏執了？是的，但這不是缺陷，是特色！這是我們從安全工程領域得到的最後一個核心概念：<u>安全心態</u>。</p>
+<p>想想不起眼的電梯。現代電梯有備用纜繩，<i>還有</i>備用發電機，<i>還有</i>斷電時啟動的煞車，<i>還有</i>電梯移動太快時啟動的煞車，<i>還有</i>電梯井底部的減震器等等。這就是為什麼電梯非常安全：在美國，<i>樓梯</i>造成的死亡是電梯的<i>約 400 倍</i>。<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup></p>
+<p>你不必對電梯偏執的原因，是因為工程師<i>替</i>你偏執了。這就是安全心態：</p>
+<p><strong>步驟 1)</strong> 問，<i>「（合理地）可能發生的最壞情況是什麼？」</i></p>
+<p><strong>步驟 2)</strong> 在它發生<i>之前</i>修復它。</p>
+<p>保持悲觀——畢竟，悲觀者發明了降落傘！<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> 這是工程電梯、飛機、橋樑、火箭、網路安全<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>和其他高風險技術所使用的方法。</p>
+<p>而且，正如我在第一章希望展示的，AI 可能是本世紀<i>最</i>高風險的技術之一。</p>
 <h3>🤔 複習 #1（可選！）</h3>
-<p>Remember that time you spent hours reading a thing, then a week later you forgot everything?</p>
-<p>Yeah I hate that feeling too. So, here's some (OPTIONAL) &quot;spaced repetition&quot; flashcards, if you want to remember this long-term!  (<a href="https://aisafety.dance/#SpacedRepetition">:Learn more about Spaced Repetition</a>)  You can also <a href="../anki/decks/AI_Safety_P2.apkg">download these as an Anki deck</a>, if you want.</p>
+<p>還記得你花了好幾個小時閱讀某樣東西，然後一週後就忘光了嗎？</p>
+<p>我也討厭那種感覺。所以，這裡有一些（可選的）「間隔重複」閃卡，如果你想長期記住這些內容的話！（<a href="https://aisafety.dance/#SpacedRepetition">:了解更多關於間隔重複</a>）你也可以<a href="../anki/decks/AI_Safety_P2.apkg">下載這些 Anki 牌組</a>，如果你想要的話。</p>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
@@ -365,40 +365,40 @@ will be pushed to extreme values.</p>
         answer='(Any of these work:) Engineering elevators, airplanes, bridges, rockets, cyber-security.'>
     </orbit-prompt>
 </orbit-reviewarea>
-<h3>Four Nuances of Goal Mis-specification</h3>
-<p>Like a connoisseur and their fine wine, here's some <i>subtle nuances</i> of goal mis-specification, that I'd like us to appreciate:</p>
-<p><strong>It's not that the AI doesn't <i>know</i> what we want, it's that it doesn't <i>&quot;care&quot;</i>.</strong></p>
-<p>By analogy, consider Goodhart's Law for humans. It's not that the CEO doesn't <i>know</i> that their pollution is costly to society. It's that they don't <i>care</i>. (or at least, they care less than the reward they get.)</p>
-<p>I mention this, because this misconception is a common argument <i>against</i> there being a risk from Advanced AI: it's unlikely an AI could be smart enough to take over the world, <i>yet also</i> too dumb to know that's not what humans want. But the problem isn't that advanced AI won't <i>know</i> what we value, but that — like the reward-chasing politician or CEO — they won't <i>&quot;care&quot;.</i></p>
-<p>(<u>To be less anthropomorphic, and more rigorous:</u> AIs are &quot;just&quot; computer programs. A program can easily contain accurate info on what humans want, yet <i>not</i> rank options by that. For example, a program could rank options by how much it keeps a house clean, or rank options by <i>alphabetic order</i>. Programs <i>NOT</i> ranking options by humane values is <i>the default.</i>)</p>
-<p><strong>Wireheading.</strong></p>
+<h3>目標錯誤設定的四個細微差別</h3>
+<p>就像鑑賞家品味美酒一樣，以下是目標錯誤設定的一些<i>微妙細節</i>，我希望我們能夠欣賞：</p>
+<p><i><i>問題不在於 AI 不<i>知道</i>我們想要什麼，而是它不</i>「在乎」*。</i>*</p>
+<p>類比一下，考慮人類的古德哈特定律。問題不在於 CEO 不<i>知道</i>他們的污染對社會代價高昂。而是他們不<i>在乎</i>。（或者至少，他們不如在乎他們得到的獎勵。）</p>
+<p>我提到這一點，是因為這種誤解是反對先進 AI 存在風險的常見論點：一個 AI 不太可能聰明到可以接管世界，<i>但又</i>蠢到不知道那不是人類想要的。但問題不在於先進 AI 不會<i>知道</i>我們重視什麼，而是——就像追逐獎勵的政客或 CEO——他們不會*「在乎」*。</p>
+<p>（<u>用更不擬人化、更嚴謹的方式說：</u>AI「只是」電腦程式。一個程式可以輕易包含關於人類想要什麼的準確資訊，但<i>不</i>根據那個來排序選項。例如，一個程式可以根據保持房屋清潔的程度來排序選項，或根據<i>字母順序</i>排序選項。程式<i>不</i>根據人道價值排序選項是<i>預設狀態</i>。）</p>
+<p><strong>搭線頭。</strong></p>
 <img class="mini" src="../media/p2/misc/mini_wirehead.png" />
-<p>Here's a way an AI could ironically optimize its own reward: just hack its own code, and set <code>REWARD = INFINITY</code>. The human equivalent would be hard drugs, or near-future direct brain stimulation.<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup><sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup></p>
-<p>This is <strong>&quot;wireheading&quot;: when an agent (AI or human) directly hacks its own reward.</strong> (also called 'reward hacking' or 'reward tampering'.)</p>
-<p>As far as AI risks go, this one's fairly safe? A wireheaded AI will just sit there and do nothing. In fact, this is one of the famous arguments made <i>against</i> Advanced AI Risk. It's called The Lebowski Theorem,<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup> named after the slacker anti-hero of the film <i>The Big Lebowski</i>:</p>
+<p>這是 AI 可以諷刺地優化自己獎勵的一種方式：直接駭入自己的程式碼，然後設定 <code>REWARD = INFINITY</code>。人類的等價物是毒品，或不久將來的直接腦部刺激。<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup><sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup></p>
+<p>這就是**「搭線頭」：當一個代理（AI 或人類）直接駭入自己的獎勵。**（也稱為「獎勵駭客」或「獎勵篡改」。）</p>
+<p>就 AI 風險而言，這個相當安全？一個被搭線頭的 AI 只會坐在那裡什麼都不做。事實上，這是<i>反對</i>先進 AI 風險的著名論點之一。它被稱為勒布斯基定理，<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup> 以電影<i>乖乖要乖乖</i>中的懶鬼反英雄命名：</p>
 <blockquote>
-<p>No superintelligent AI is going to bother with a task that is harder than hacking its reward function.</p>
+<p>沒有任何超級智慧 AI 會費心去做比駭入自己獎勵函數更困難的任務。</p>
 </blockquote>
-<p>In other words: it claims any intelligence capable of self-modification, will wirehead itself into a couch potato.</p>
-<p>This isn't just theoretical; researchers have already seen self-modifying AIs wirehead themselves!<sup class="footnote-ref"><a href="#fn15" id="fnref15">[15]</a></sup> But if an AI a) plans ahead, AND b) judges future outcomes by <i>current</i> goals... it's been <i>mathematically proven</i> they'll avoid wireheading, and have a drive towards &quot;goal preservation&quot;!<sup class="footnote-ref"><a href="#fn16" id="fnref16">[16]</a></sup> We'll see the proof later in Problem #2. For now, take this: &quot;IOU - one (1) proof.&quot;</p>
-<p><strong>&quot;Do What I Want&quot;.</strong></p>
-<p>For all this talk of &quot;AI will do <i>what you said</i>, not <i>what you want</i>&quot;, can't we just... <i>say</i> to an AI, hey, <i>do what I want?</i></p>
-<p>Silly as it sounds, this <i>is</i> similar to some promising ideas we'll see in Part 3!  So why isn't AI Safety solved?</p>
-<p>Well, how would a machine measure &quot;what you want&quot;? By:</p>
+<p>換句話說：它聲稱任何具有自我修改能力的智慧，都會把自己搭線頭成沙發馬鈴薯。</p>
+<p>這不只是理論上的；研究人員已經看到自我修改的 AI 把自己搭線頭了！<sup class="footnote-ref"><a href="#fn15" id="fnref15">[15]</a></sup> 但如果一個 AI a) 提前計劃，而且 b) 根據<i>當前</i>目標判斷未來結果⋯⋯已經<i>數學證明</i>它們會避免搭線頭，並有「目標保持」的驅動力！<sup class="footnote-ref"><a href="#fn16" id="fnref16">[16]</a></sup> 我們稍後會在問題 #2 看到這個證明。現在，先接受這個：「欠條 - 一(1)個證明。」</p>
+<p><strong>「做我想要的」。</strong></p>
+<p>說了這麼多「AI 會做<i>你說的</i>，而不是<i>你想要的</i>」，我們不能直接⋯⋯<i>告訴</i> AI，嘿，<i>做我想要的</i>？</p>
+<p>聽起來很傻，但這<i>確實</i>類似於我們在第三章會看到的一些有前景的想法！所以為什麼 AI 安全還沒解決？</p>
+<p>那麼，機器如何衡量「你想要什麼」？透過：</p>
 <ul>
-<li><u>What you consistently choose to do?</u> But ~everyone has bad habits, consistently choosing what we <i>know</i> we'll regret later. (guess who binged Netflix 'til 4am last night...)</li>
-<li><u>What causes your brain to create reward-signals?</u> In that case, everyone &quot;wants&quot; hard drugs.</li>
-<li><u>What you <i>say</i> you want?</u> But if we could fully describe our subconscious, it wouldn't be <i>sub</i>-conscious, would it. We can't even rigorously tell an AI what cats look like, how can we tell it our values?</li>
-<li><u>What you approve the AI for doing?</u> This <i>is</i> how ChatGPT/etc are trained, but training AI to get your approval turns it into a butt-kisser who tells you what you <i>want</i> to hear, not true info you <i>need</i> to hear.<sup class="footnote-ref"><a href="#fn17" id="fnref17">[17]</a></sup> It can even turn AIs <i>deliberately deceptive!</i><sup class="footnote-ref"><a href="#fn18" id="fnref18">[18]</a></sup></li>
+<li><u>你一貫選擇做的事？</u> 但幾乎每個人都有壞習慣，一貫選擇我們<i>知道</i>之後會後悔的事。（猜猜誰昨晚看 Netflix 看到凌晨四點⋯⋯）</li>
+<li><u>什麼讓你的大腦產生獎勵訊號？</u> 那樣的話，每個人都「想要」毒品。</li>
+<li><u>你<i>說</i>你想要什麼？</u> 但如果我們能完全描述我們的潛意識，它就不是<i>潛</i>意識了，不是嗎。我們甚至不能嚴格地告訴 AI 貓長什麼樣子，怎麼能告訴它我們的價值觀？</li>
+<li><u>你認可 AI 做的事？</u> 這<i>確實</i>是 ChatGPT 等的訓練方式，但訓練 AI 獲得你的認可會把它變成馬屁精，告訴你你<i>想</i>聽的，而不是你<i>需要</i>聽的真實資訊。<sup class="footnote-ref"><a href="#fn17" id="fnref17">[17]</a></sup> 它甚至可以讓 AI <i>故意欺騙</i>！<sup class="footnote-ref"><a href="#fn18" id="fnref18">[18]</a></sup></li>
 </ul>
-<p>That's the catch: unless you <i>already have a good rigorous definition</i> of &quot;what I want&quot;, an AI can't follow the instruction &quot;do what I want&quot; <i>the way you want</i>.</p>
-<p>(Or <i>can</i> they? Again, proposed solutions in Part Three.)</p>
-<p><strong>We <i>want</i> bots that can disobey??</strong></p>
-<p><img class="mini" src="../media/p2/misc/mini_kitchen.png" /><i>(with apologies to <a href='https://gunshowcomic.com/648' target='_blank'>kc green</a>)</i></p>
-<p>Actually, we <i>don't</i> want an AI to &quot;do what I want&quot;.</p>
-<p>We want an AI to &quot;do what <i>I would have wanted</i> if I knew the outcomes in advance.&quot;</p>
-<p>For example: if I saw a grease fire, and I <i>want</i> a bucket of water, because I mistakenly think water is good for grease fires, and I order Robot Catboy Maid to get me a bucket of water... RCM should instead fetch a fire extinguisher, since that's what <i>I would have wanted</i> if I knew the outcomes in advance. (PSA: don't pour water on grease fires, it'll explode.)</p>
-<p>This example complicates AI Safety: it shows that sometimes, we actually <i>want</i> our AIs to disobey our orders, <i>for our own good!</i></p>
+<p>這就是問題所在：除非你<i>已經有一個好的嚴格定義</i>「我想要什麼」，否則 AI 無法<i>按照你想要的方式</i>遵循「做我想要的」這個指令。</p>
+<p>（或者<i>可以</i>？同樣，請看第三章的解決方案提議。）</p>
+<p><strong>我們<i>想要</i>能不聽話的機器人？？</strong></p>
+<p><img class="mini" src="../media/p2/misc/mini_kitchen.png" /><i>（向<a href='https://gunshowcomic.com/648' target='_blank'>kc green</a>致歉）</i></p>
+<p>實際上，我們<i>不</i>想要 AI「做我想要的」。</p>
+<p>我們想要 AI「做<i>我會想要的事</i>，如果我事先知道結果的話。」</p>
+<p>例如：如果我看到油鍋起火，而我<i>想要</i>一桶水，因為我錯誤地認為水對油鍋起火有用，我命令機器人貓娘女僕給我拿一桶水⋯⋯RCM 應該改拿滅火器，因為那是<i>我會想要的</i>，如果我事先知道結果的話。（公告：不要往油鍋火上澆水，它會爆炸。）</p>
+<p>這個例子讓 AI 安全變得複雜：它顯示有時候，我們實際上<i>想要</i>我們的 AI 違抗我們的命令，<i>為了我們自己好！</i></p>
 <h3>🤔 複習 #2</h3>
 <p><i>(Again, 100% OPTIONAL.)</i></p>
 <orbit-reviewarea color="violet">
@@ -439,44 +439,44 @@ will be pushed to extreme values.</p>
 <p><a id="problem2"></a></p>
 <h2>❓ 問題 2：工具趨同</h2>
 <p><img src="../media/p2/comix/IC.png" alt="Comic. Human tries asking Robot again to clean their house, but this time Human has a shut-down remote control. Robot reasons to keep house clean, he should get rid of human... but if he does that, Human will shut him down... so, he must first shut down Human's ability to shut him down. Robot destroys the shut-down remote control, then yeets Human out the house."></p>
-<p><strong>Instrumental Convergence</strong> is the idea that most goals you could give an AI, logically <i>converge</i> on the same set of <i>instrumental</i> sub-goals. (Sorry, academics suck at naming things.)</p>
-<p>For example, if you ask an advanced robot to fetch you a cup of coffee from across the street, it'll deduce it needs to avoid getting hit by cars, even if you did <i>not</i> explicitly tell it to. Why? Not because of some innate desire for self-preservation, but because &quot;you can't fetch the coffee if you're dead&quot;!<sup class="footnote-ref"><a href="#fn19" id="fnref19">[19]</a></sup> Thus, self-preservation is an &quot;instrumentally convergent&quot; goal, since in general, you can't do Goal X if you're dead.</p>
-<p>(Reminder-excerpt from Part One, <a href="#Pipocalypse">:a bot asked to calculate pi, is incentivized to write a computer virus, to steal computing power, to calculate pi.</a>)</p>
-<p><strong>NOTE: &quot;Instrumental Convergence&quot; <i>only</i> applies to advanced AIs that can plan ahead <i>and</i> learn generally.</strong> So, they don't affect Good Ol' Fashioned AIs (which couldn't learn generally) <i>or</i> current-day neural networks like GPT (which are bad at planning ahead<sup class="footnote-ref"><a href="#fn20" id="fnref20">[20]</a></sup>).</p>
-<p>So why discuss it now? Well, Security Mindset, we want to fix the problems <i>before</i> they arise. So let's ask:</p>
-<p><i>What's the worst that could (plausibly) happen?</i></p>
-<h3>Folks, It's Time For Some Game Theory</h3>
-<p><strong>Game Theory</strong><sup class="footnote-ref"><a href="#fn21" id="fnref21">[21]</a></sup> is the math of how decision-makers — human or AI — behave. It's used in economics, evolutionary biology, computer science, artificial intelligence, and more!</p>
-<p>In Part One, I used <i>words words words</i> to explain Instrumental Convergence. But with game theory, we can be more rigorous about it!  Let's re-present the above comic using a standard game theory visualization: the <strong>Game Tree!</strong></p>
-<p>(The point of the following isn't really to analyze the above comic, it's to introduce you to this tool. We <i>will</i> re-use this tool later, to understand the proof against wireheading! And besides, this is a good intro to general game theory.)</p>
-<p>A game tree shows:</p>
+<p><strong>工具趨同</strong>是指你可能給 AI 的大多數目標，在邏輯上會<i>趨同</i>於相同的一組<i>工具性</i>子目標。（抱歉，學者不擅長取名字。）</p>
+<p>例如，如果你要求一個先進的機器人去街對面給你拿一杯咖啡，它會推斷它需要避免被車撞到，即使你<i>沒有</i>明確告訴它這樣做。為什麼？不是因為某種天生的自我保護慾望，而是因為「如果你死了就拿不到咖啡」！<sup class="footnote-ref"><a href="#fn19" id="fnref19">[19]</a></sup> 因此，自我保護是一個「工具性趨同」的目標，因為一般來說，如果你死了就做不了目標 X。</p>
+<p>（第一章的提醒摘錄：<a href="#Pipocalypse">:一個被要求計算圓周率的機器人，有動機編寫電腦病毒，竊取計算能力，來計算圓周率。</a>）</p>
+<p>**注意：「工具趨同」<i>只</i>適用於能夠提前計劃<i>並且</i>能夠通用學習的先進 AI。**所以，它們不影響老式 AI（無法通用學習）<i>或</i>當今的神經網路如 GPT（不擅長提前計劃<sup class="footnote-ref"><a href="#fn20" id="fnref20">[20]</a></sup>）。</p>
+<p>那為什麼現在討論它？嗯，安全心態，我們想在問題出現<i>之前</i>修復它們。所以讓我們問：</p>
+<p><i>（合理地）可能發生的最壞情況是什麼？</i></p>
+<h3>各位，是時候來點博弈論了</h3>
+<p><strong>博弈論</strong><sup class="footnote-ref"><a href="#fn21" id="fnref21">[21]</a></sup>是決策者——人類或 AI——如何行為的數學。它用於經濟學、演化生物學、電腦科學、人工智慧等領域！</p>
+<p>在第一章，我用了<i>很多很多話</i>來解釋工具趨同。但透過博弈論，我們可以更嚴謹地討論它！讓我們用標準的博弈論視覺化重新呈現上面的漫畫：<strong>博弈樹！</strong></p>
+<p>（以下的重點並不是真的要分析上面的漫畫，而是向你介紹這個工具。我們<i>稍後會</i>重新使用這個工具，來理解反對搭線頭的證明！而且，這是對一般博弈論的好入門。）</p>
+<p>博弈樹顯示：</p>
 <ol>
-<li>The possible decisions that <i>could</i> have been made, and</li>
-<li>Who makes what decisions in what order.</li>
+<li><i>可能</i>做出的決策，以及</li>
+<li>誰在什麼順序做什麼決策。</li>
 </ol>
-<p>For example:</p>
-<p><img src="../media/p2/ic/offswitch0001.png" alt="Game Tree of Robot's and Human's decisions. First, at decision-point A, Robot decides if he should DESTROY his off-switch. Then, at decision-point B, IF Robot chooses to NOT destroy the off-switch, Human decides if they should SHUT OFF Robot."></p>
-<p>(P.S: A full game-theory treatment has ways to deal with &quot;ties&quot; in outcomes, probabilities, hidden information, simultaneous decisions, etc. But let's stick to basics for now!)</p>
-<p>Anyway, this tree shows all their <i>possible</i> decisions. How do we figure out their <i>actual</i> decisions?</p>
-<p>Like many puzzles, we work backwards! (This is called <strong>backwards induction.</strong>)</p>
-<p>Let's look at decision-point <span class='decision-point' style="background:#4180ff">B</span>, where — we suppose — Robot chose to <i>NOT DESTROY</i> his off-switch. Human decides now: will they SHUT OFF Robot?</p>
+<p>例如：</p>
+<p><img src="../media/p2/ic/offswitch0001.png" alt="機器人和人類決策的博弈樹。首先，在決策點 A，機器人決定是否應該摧毀它的關閉開關。然後，在決策點 B，如果機器人選擇不摧毀關閉開關，人類決定是否應該關閉機器人。"></p>
+<p>（附註：完整的博弈論處理有方法來處理結果中的「平局」、機率、隱藏資訊、同時決策等。但現在讓我們先堅持基礎！）</p>
+<p>無論如何，這棵樹顯示了所有<i>可能的</i>決策。我們如何弄清楚他們<i>實際的</i>決策？</p>
+<p>像許多謎題一樣，我們倒過來做！（這稱為<strong>反向歸納</strong>。）</p>
+<p>讓我們看看決策點 <span class='decision-point' style="background:#4180ff">B</span>，在這裡——我們假設——機器人選擇<i>不摧毀</i>它的關閉開關。人類現在決定：他們會關閉機器人嗎？</p>
 <ul>
-<li>If they do, they get <b style="color:#4180ff">+0</b> to their values: nothing gained, nothing lost.</li>
-<li>If they don't, they'll likely get locked out of their house again, <b style="color:#4180ff">-10</b> to their values.</li>
-<li>Since <b style="color:#4180ff">+0</b> is greater than <b style="color:#4180ff">-10</b>, <i>if</i> we got to point <span class='decision-point' style="background:#4180ff">B</span>, Human will choose to <i>SHUT OFF Robot.</i></li>
+<li>如果他們關閉，他們的價值得到 <b style="color:#4180ff">+0</b>：沒有收穫，沒有損失。</li>
+<li>如果他們不關閉，他們可能會再次被鎖在房子外面，價值 <b style="color:#4180ff">-10</b>。</li>
+<li>由於 <b style="color:#4180ff">+0</b> 大於 <b style="color:#4180ff">-10</b>，<i>如果</i>我們到達決策點 <span class='decision-point' style="background:#4180ff">B</span>，人類會選擇<i>關閉機器人</i>。</li>
 </ul>
-<p><img src="../media/p2/ic/offswitch0002.png" alt="Same Game Tree, except at decision-point B, Human decides to shut off Robot"></p>
-<p>But <i>will</i> we get to point <span class='decision-point' style="background:#4180ff">B</span>?</p>
-<p>Let's go backwards to decision-point <span class='decision-point' style="background:#ff4040">A</span>. Robot decides now: will he DESTROY his off-switch?</p>
+<p><img src="../media/p2/ic/offswitch0002.png" alt="同樣的博弈樹，除了在決策點 B，人類決定關閉機器人"></p>
+<p>但我們<i>會</i>到達決策點 <span class='decision-point' style="background:#4180ff">B</span> 嗎？</p>
+<p>讓我們倒回到決策點 <span class='decision-point' style="background:#ff4040">A</span>。機器人現在決定：它會摧毀它的關閉開關嗎？</p>
 <ul>
-<li>If he does, it'll create some mess, but he can clean it up &amp; more. So, he gets <b style="color:#ff4040">+5</b> for cleanliness.</li>
-<li>If he doesn't, we reach point <span class='decision-point' style="background:#4180ff">B</span>, where we <i>know</i> Human will shut him off &amp; he can't clean at all. So, <b style="color:#ff4040">+0</b> for house cleanliness.</li>
-<li>Since <b style="color:#ff4040">+5</b> is greater than <b style="color:#ff4040">+0</b>, at point <span class='decision-point' style="background:#ff4040">A</span>, Robot will choose to <i>DESTROY his off-switch.</i></li>
+<li>如果它摧毀，會製造一些混亂，但它可以清理乾淨並且做更多。所以，它的清潔度得到 <b style="color:#ff4040">+5</b>。</li>
+<li>如果它不摧毀，我們到達決策點 <span class='decision-point' style="background:#4180ff">B</span>，在那裡我們<i>知道</i>人類會關閉它，它根本無法清潔。所以，房屋清潔度 <b style="color:#ff4040">+0</b>。</li>
+<li>由於 <b style="color:#ff4040">+5</b> 大於 <b style="color:#ff4040">+0</b>，在決策點 <span class='decision-point' style="background:#ff4040">A</span>，機器人會選擇<i>摧毀它的關閉開關</i>。</li>
 </ul>
-<p><img src="../media/p2/ic/offswitch0003.png" alt="Same Game Tree, except at decision-point A, Robot decides to remove his off-switch."></p>
-<p>Voilà, c'est Game Theory!  That's our final outcome: <i>Robot destroys off-switch</i>.</p>
-<p>(In contrast: when an AI is &quot;okay with&quot; you shutting it down or modifying its goals, we call that AI <strong>corrigible</strong>. To be precise, &quot;okay with&quot; means it's in line with its incentives.)</p>
-<p>The above &quot;game&quot; is a simplified version of <strong>The Off-Switch Game</strong><sup class="footnote-ref"><a href="#fn22" id="fnref22">[22]</a></sup>, one of the first attempts to math-ify the Instrumental Convergence hypothesis — so we can understand <i>when</i> it might happen for AIs, and maybe, how to solve it!</p>
+<p><img src="../media/p2/ic/offswitch0003.png" alt="同樣的博弈樹，除了在決策點 A，機器人決定移除它的關閉開關。"></p>
+<p>瞧，這就是博弈論！這是我們的最終結果：<i>機器人摧毀關閉開關</i>。</p>
+<p>（相比之下：當一個 AI「可以接受」你關閉它或修改它的目標時，我們稱那個 AI 為<strong>可糾正的</strong>。準確地說，「可以接受」意味著它符合其激勵機制。）</p>
+<p>上述的「博弈」是<strong>關閉開關博弈</strong><sup class="footnote-ref"><a href="#fn22" id="fnref22">[22]</a></sup>的簡化版本，這是第一批嘗試將工具趨同假說數學化的嘗試之一——這樣我們可以理解它<i>何時</i>可能對 AI 發生，也許還能理解如何解決它！</p>
 <h3>🤔 複習 #3</h3>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
@@ -511,77 +511,77 @@ will be pushed to extreme values.</p>
         answer="The Off-Switch Game">
     </orbit-prompt>
 </orbit-reviewarea>
-<h3>A cure for wireheading (that may be even worse than the disease)</h3>
-<p>Earlier, we showed that (advanced) AIs have an incentive to avoid being shut down. Not because of a self-preservation instinct, but because you can't do Goal X if you're shut down.</p>
-<p>But likewise: <i>you can't do Goal X if your goal is no longer X.</i> Which means an advanced AI has an incentive towards <strong>goal preservation</strong>... whether or not it's the goal the humans intended.</p>
-<p>But that means, for better <i>and</i> worse, <strong>the Instrumental Convergence problem solves the wireheading problem!</strong> Wireheading by definition swaps a robot/human's goals for stupid bliss, which is <i>why</i> an agent dedicated to Goal X would avoid wireheading: you can't do Goal X if you have no goals anymore.</p>
-<p>Sure, stated like <i>that</i>, it almost sounds obvious. But it took years for AI researchers to rigorously prove it, and it took <i>me</i> a month to wrap my head around the proof. So, to err on the side of over-explaining, here's 3 quick ideas that helped me <i>really</i> get it:</p>
-<p><strong>Who wants to be a sand-grain Millionaire?</strong></p>
+<h3>搭線頭的治療方法（可能比疾病更糟）</h3>
+<p>早些時候，我們展示了（先進的）AI 有動機避免被關閉。不是因為自我保護的本能，而是因為如果你被關閉就做不了目標 X。</p>
+<p>但同樣地：*如果你的目標不再是 X，你就做不了目標 X。*這意味著先進的 AI 有<strong>目標保持</strong>的動機⋯⋯無論它是否是人類打算要的目標。</p>
+<p>但這意味著，不論好壞，**工具趨同問題解決了搭線頭問題！**搭線頭按定義是把機器人/人類的目標換成愚蠢的幸福，這就是<i>為什麼</i>致力於目標 X 的代理會避免搭線頭：如果你不再有目標，你就做不了目標 X。</p>
+<p>當然，<i>這樣</i>說幾乎聽起來很明顯。但 AI 研究人員花了好幾年才嚴謹地證明它，而<i>我</i>花了一個月才理解這個證明。所以，為了更詳細地解釋，這裡有 3 個幫助我<i>真正</i>理解的快速想法：</p>
+<p><strong>誰想成為沙粒百萬富翁？</strong></p>
 <img class="mini" src="../media/p2/misc/mini_sand.png" />
-<p>A mad scientist makes you an offer: For $1,000, she'll modify your brain to value a grain of sand as much as a dollar, then give you a bathtub full of sand. Do you take the deal?</p>
-<p>&quot;What?&quot; you say, &quot;of <i>course</i> not.&quot;</p>
-<p>&quot;But,&quot; the scientist replies, &quot;once you value sand-grains like dollars, a bathtub of sand will make you a <i>multi-millionaire!</i><sup class="footnote-ref"><a href="#fn23" id="fnref23">[23]</a></sup></p>
-<p>&quot;Sure, <i>if</i> you modified me, I'd want a bathtub of sand. But <i>right now, with my current desires, I do not want a bathtub of sand. Go away you freak.</i>&quot;</p>
-<p>Moral of the story: Agents that judge future outcomes by their <i>current</i> goals, will choose to <i>not</i> wirehead.</p>
-<p><strong>Anthropomorphization Considered Harmful</strong></p>
+<p>一個瘋狂的科學家給你一個提議：花 1,000 美元，她會修改你的大腦，讓你像重視一美元一樣重視一粒沙，然後給你一浴缸的沙。你會接受這個交易嗎？</p>
+<p>「什麼？」你說，「<i>當然</i>不會。」</p>
+<p>「但是，」科學家回答，「一旦你像重視美元一樣重視沙粒，一浴缸的沙會讓你成為<i>千萬富翁</i>！<sup class="footnote-ref"><a href="#fn23" id="fnref23">[23]</a></sup></p>
+<p>「當然，<i>如果</i>你修改了我，我會想要一浴缸的沙。但<i>現在，以我當前的慾望，我不想要一浴缸的沙。走開你這個怪胎。</i>」</p>
+<p>故事的寓意：根據<i>當前</i>目標判斷未來結果的代理，會選擇<i>不</i>搭線頭。</p>
+<p><strong>擬人化被認為有害</strong></p>
 <img class="mini" src="../media/p2/misc/mini_shoggoth.png" />
-<p>(Related, <a href="https://aisafety.dance/p1/#CapabilitiesNotIntelligence">: saying &quot;intelligence&quot; in AI leads to sloppy thinking. Say &quot;capabilities&quot; instead.</a> )</p>
-<p>An analogy about analogies:</p>
-<p>When you first learn about electrical circuits, it's helpful to think of electrons in wires like water flowing in pipes. But if you get deeper into electronics, this analogy <i>will</i> lead you astray.<sup class="footnote-ref"><a href="#fn24" id="fnref24">[24]</a></sup> You'll have to think about electricity as <code>[scary multi-variable calculus]</code>.</p>
-<p>Likewise: when you first learn about AI, it's helpful to think of them like humans that seek &quot;rewards&quot;. But as you get deeper into AI, this analogy <i>will</i> lead you astray. You'll have to think about AI as what they actually are: <i>pieces of software.</i></p>
-<p>For example, if you thought of AIs like greedy humans seeking reward, wireheading seems <i>inescapable</i>. If a greedy human found a way to get free money, of course they'd cheat.</p>
-<p>But think of AI as a piece of software. For concreteness, think of <i>a sorting algorithm</i>, that:</p>
+<p>（相關，<a href="https://aisafety.dance/p1/#CapabilitiesNotIntelligence">:在 AI 中說「智慧」會導致草率的思考。改說「能力」。</a>）</p>
+<p>關於類比的類比：</p>
+<p>當你第一次學習電路時，把電線中的電子想像成管道中流動的水是有幫助的。但如果你深入電子學，這個類比<i>會</i>讓你誤入歧途。<sup class="footnote-ref"><a href="#fn24" id="fnref24">[24]</a></sup> 你必須把電想成<code>[可怕的多變數微積分]</code>。</p>
+<p>同樣地：當你第一次學習 AI 時，把它們想像成尋求「獎勵」的人類是有幫助的。但當你深入 AI 時，這個類比<i>會</i>讓你誤入歧途。你必須把 AI 想成它們實際上是什麼：<i>軟體程式。</i></p>
+<p>例如，如果你把 AI 想成貪婪的人類尋求獎勵，搭線頭似乎<i>不可避免</i>。如果一個貪婪的人類找到了免費獲得金錢的方法，他們當然會作弊。</p>
+<p>但把 AI 想成一個軟體程式。具體來說，想像<i>一個排序演算法</i>，它：</p>
 <ol>
-<li>Sorts actions by &quot;how clean will this make the house&quot;, then</li>
-<li>Does the top-ranked action.</li>
+<li>根據「這會讓房子多乾淨」來排序行動，然後</li>
+<li>執行排名最高的行動。</li>
 </ol>
-<p>An action like &quot;modify my code to state <code>REWARD = INFINITY</code> then do nothing&quot; will <i>not</i> make the house cleaner.  So, it will <i>not</i> be sorted as a top action.  So, the AI will <i>not</i> do it.</p>
-<p>Directly hacking your &quot;reward statement&quot; is as silly as handwriting 7 extra zeroes on your bank statement's balance, then believing you're rich.</p>
-<p>(Remember: when someone says an AI &quot;cares&quot; about X, or its goal is X, or it's rewarded for X... that's just saying an AI <i>sorts &amp; selects actions based on</i> X.  It doesn't mean an AI actually feels desire, any more than &quot;electricity chooses the path of least resistance&quot; means electrons feel lazy.  And yes, I realize my Robot Catboy comics don't help with the bad habit of anthropomorphizing AIs.  Moving on...)</p>
-<p><strong>The Wireheading Game</strong></p>
-<p>Let's go full circle, and draw a tree!</p>
-<p>Let's draw the decision to wirehead as a game tree. But wait, there's only one player in this game: the Robot wireheading itself. How do we handle this?</p>
-<p>The trick: <strong>we treat Robot at every decision-point <i>as if</i> it's a different decision-making player!</strong> (And, since wireheading <i>is</i> about self-modification, this fits well!)</p>
-<p>So, here's the game tree for what I'll call The Wireheading Game<sup class="footnote-ref"><a href="#fn25" id="fnref25">[25]</a></sup>:</p>
-<p><img src="../media/p2/ic/wirehead0001.png" alt="Game tree of The Wireheading Game. At point A, Robot decides whether to wirehead or not. If yes wirehead, point B, wireheaded-Robot chooses to clean or do nothing. If no wirehead, point C, sane-Robot chooses to clean or do nothing."></p>
-<p>Now, let's work backwards!</p>
-<p>Start at decision-point <span class='decision-point' style="background:#2db537">C</span>, if Robot chose to <i>NOT</i> WIREHEAD. <i>This</i> not-wireheaded version of Robot still &quot;cares&quot; about cleaning — that is, it selects outcomes based only on cleanliness — so it'll choose to clean:</p>
-<p><img src="../media/p2/ic/wirehead0002.png" alt="Same game tree, except at C, Robot chooses to clean."></p>
-<p>Now, decision-point <span class='decision-point' style="background:#4180ff">B</span>, if Robot <i>did</i> choose to WIREHEAD. <i>This</i> wireheaded version of Robot only cares about &quot;reward&quot;, so it chooses to do nothing:</p>
-<p><img src="../media/p2/ic/wirehead0003.png" alt="Same game tree, except at B, Robot chooses to do nothing."></p>
-<p><i>Finally,</i> we can end at the start, decision-point <span class='decision-point' style="background:#ff4040">A</span>. Will this <i>first version</i> of Robot choose to WIREHEAD?</p>
-<p>Well, <i>this</i> version of Robot is <i>not</i> wireheaded yet, so it selects outcomes based on <i>actual cleanliness of the house</i>, not some number labelled &quot;reward&quot;.  To this Robot, caring directly about &quot;reward&quot; would be as silly as wanting to be a sand-grain billionaire, or handwriting extra zeroes on one's bank statement balance.</p>
-<p>Therefore, <i>this</i> first version of Robot chooses the outcome where the house is clean. That is: <i>Robot chooses to NOT WIREHEAD.</i></p>
-<p><img src="../media/p2/ic/wirehead0004.png" alt="Same game tree, except at A, Robot chooses to NOT wirehead."></p>
-<p>NOTE: Robot knows that <i>if</i> it wireheaded, it'd <i>only</i> care about the number in its head labelled &quot;REWARD&quot;. But it's not despite this, but <i>because</i> of this, that it seeks to avoid wireheading!</p>
-<p>Analogy to humans: you can accurately predict that <i>if</i> you took a highly-addictive drug, you'd <i>only</i> want that drug. But it's not despite this, but <i>because</i> of this, that you'd want to avoid that drug! (If 'drug' doesn't work as an analogy for you, replace it with 'direct brain stimulation'.) Even the Ancients knew the danger of wireheading: see the Greek myth of the Lotus-Eaters.<sup class="footnote-ref"><a href="#fn26" id="fnref26">[26]</a></sup></p>
-<p>Sure, if an AI's (or human's) actions are <i>not</i> forward-thinking, they could end up wireheading by accident or impulse. (See: how many of us suffer from bad compulsions or addictions.)</p>
-<p>But IF an AI:</p>
-<p>a) <i>Does</i> plan ahead,<br>
-AND<br>
-b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
-<p>THEN, it's been mathematically proven it will maintain 'goal preservation', and refuse to wirehead! (But if either requirement above fails, the AI <i>could</i> wirehead.<sup class="footnote-ref"><a href="#fn15" id="fnref15:1">[15:1]</a></sup>)</p>
-<p>The above is a longstanding game-theory result, see footnote for details<sup class="footnote-ref"><a href="#fn27" id="fnref27">[27]</a></sup>. Those papers got more general results, with more sophisticated theory than &quot;game trees&quot;... but the core idea's the same!</p>
+<p>像「修改我的程式碼以聲明 <code>REWARD = INFINITY</code> 然後什麼都不做」這樣的行動<i>不會</i>讓房子更乾淨。所以，它<i>不會</i>被排序為最高行動。所以，AI <i>不會</i>這樣做。</p>
+<p>直接駭入你的「獎勵聲明」就像在你的銀行對帳單餘額上手寫額外 7 個零，然後相信你很富有一樣愚蠢。</p>
+<p>（記住：當有人說 AI「在乎」X，或它的目標是 X，或它因 X 而獲得獎勵⋯⋯那只是說 AI <i>根據</i> X <i>排序和選擇行動</i>。這不意味著 AI 真的感受到慾望，就像「電選擇阻力最小的路徑」不意味著電子感到懶惰一樣。是的，我意識到我的機器人貓娘漫畫對擬人化 AI 的壞習慣沒有幫助。繼續⋯⋯）</p>
+<p><strong>搭線頭博弈</strong></p>
+<p>讓我們繞一圈，畫一棵樹！</p>
+<p>讓我們把搭線頭的決定畫成博弈樹。但等等，這個博弈只有一個玩家：機器人搭線頭自己。我們怎麼處理這個？</p>
+<p>訣竅是：<strong>我們把每個決策點的機器人<i>當作</i>一個不同的決策玩家！</strong>（而且，由於搭線頭<i>就是</i>關於自我修改的，這很合適！）</p>
+<p>所以，這是我稱之為搭線頭博弈的博弈樹<sup class="footnote-ref"><a href="#fn25" id="fnref25">[25]</a></sup>：</p>
+<p><img src="../media/p2/ic/wirehead0001.png" alt="搭線頭博弈的博弈樹。在決策點 A，機器人決定是否搭線頭。如果是搭線頭，決策點 B，被搭線頭的機器人選擇清潔或什麼都不做。如果不搭線頭，決策點 C，正常的機器人選擇清潔或什麼都不做。"></p>
+<p>現在，讓我們倒過來做！</p>
+<p>從決策點 <span class='decision-point' style="background:#2db537">C</span> 開始，如果機器人選擇<i>不</i>搭線頭。<i>這個</i>沒有被搭線頭的機器人版本仍然「在乎」清潔——也就是說，它只根據清潔度選擇結果——所以它會選擇清潔：</p>
+<p><img src="../media/p2/ic/wirehead0002.png" alt="同樣的博弈樹，除了在 C，機器人選擇清潔。"></p>
+<p>現在，決策點 <span class='decision-point' style="background:#4180ff">B</span>，如果機器人<i>確實</i>選擇了搭線頭。<i>這個</i>被搭線頭的機器人版本只在乎「獎勵」，所以它選擇什麼都不做：</p>
+<p><img src="../media/p2/ic/wirehead0003.png" alt="同樣的博弈樹，除了在 B，機器人選擇什麼都不做。"></p>
+<p><i>最後</i>，我們可以在開始結束，決策點 <span class='decision-point' style="background:#ff4040">A</span>。這個<i>第一版本</i>的機器人會選擇搭線頭嗎？</p>
+<p>嗯，<i>這個</i>版本的機器人<i>還沒有</i>被搭線頭，所以它根據<i>房子的實際清潔度</i>選擇結果，而不是某個標有「獎勵」的數字。對這個機器人來說，直接在乎「獎勵」就像想成為沙粒億萬富翁，或者在銀行對帳單餘額上手寫額外的零一樣愚蠢。</p>
+<p>因此，<i>這個</i>第一版本的機器人選擇房子乾淨的結果。也就是：<i>機器人選擇不搭線頭。</i></p>
+<p><img src="../media/p2/ic/wirehead0004.png" alt="同樣的博弈樹，除了在 A，機器人選擇不搭線頭。"></p>
+<p>注意：機器人知道<i>如果</i>它搭線頭，它會<i>只</i>在乎頭腦中標有「REWARD」的數字。但正是因為這一點，而不是儘管如此，它才試圖避免搭線頭！</p>
+<p>類比人類：你可以準確預測<i>如果</i>你服用了高度上癮的藥物，你會<i>只</i>想要那種藥物。但正是因為這一點，而不是儘管如此，你才想避免那種藥物！（如果「藥物」作為類比對你不管用，把它換成「直接腦部刺激」。）即使是古人也知道搭線頭的危險：見希臘神話中的食蓮者。<sup class="footnote-ref"><a href="#fn26" id="fnref26">[26]</a></sup></p>
+<p>當然，如果一個 AI（或人類）的行動<i>不是</i>前瞻性的，他們可能會因為意外或衝動而最終搭線頭。（見：我們中有多少人遭受壞習慣或成癮之苦。）</p>
+<p>但如果一個 AI：</p>
+<p>a) <i>確實</i>提前計劃，<br>
+而且<br>
+b) 根據<i>當前</i>目標選擇未來結果，</p>
+<p>那麼，已經被數學證明它會維持「目標保持」，並拒絕搭線頭！（但如果上述任一要求失敗，AI <i>可能</i>會搭線頭。<sup class="footnote-ref"><a href="#fn15" id="fnref15:1">[15:1]</a></sup>）</p>
+<p>以上是一個長期存在的博弈論結果，詳情見註腳<sup class="footnote-ref"><a href="#fn27" id="fnref27">[27]</a></sup>。那些論文得出了更一般的結果，理論比「博弈樹」更複雜⋯⋯但核心想法是一樣的！</p>
 <p>(P.S: Self-promo, I have an upcoming research article on &quot;the game theory of self-modification&quot;, see footnote for outline!<sup class="footnote-ref"><a href="#fn28" id="fnref28">[28]</a></sup> My trick was shown above: analyze future versions of yourself <i>as if</i> they're different players – this way, we can use standard game theory to analyze self-modification!)</p>
-<h3>The Basic AI Drives</h3>
-<p>Wrapping up, here's a (not comprehensive) list of sub-goals, that most goals logically lead to:</p>
+<h3>基本 AI 驅動</h3>
+<p>總結一下，這是一個（不全面的）子目標列表，大多數目標在邏輯上都會導致這些：</p>
 <ul>
-<li><u>Self-preservation</u>: Can't do Goal X if dead</li>
-<li><u>Preventing shutdown</u>: Can't do Goal X if shut down</li>
-<li><u>Preventing wireheading</u>: Can't do Goal X if has no goals</li>
-<li><u>Preventing <i>you</i> from altering its goals</u>: Can't do Goal X if goal is no longer X</li>
-<li><u>Becoming smarter</u>: Can do Goal X better with more cognitive capacity</li>
-<li><u>Grabbing resources/power</u>: Can do Goal X better with more resources/power</li>
-<li><u>Persuasion</u>: Can do Goal X better with humans on my side</li>
-<li><u>Deception</u>: Harder to do Goal X if humans try to stop me from doing goal X</li>
+<li><u>自我保護</u>：如果死了就做不了目標 X</li>
+<li><u>防止關機</u>：如果被關閉就做不了目標 X</li>
+<li><u>防止搭線頭</u>：如果沒有目標就做不了目標 X</li>
+<li><u>防止<i>你</i>改變它的目標</u>：如果目標不再是 X 就做不了目標 X</li>
+<li><u>變得更聰明</u>：有更多認知能力可以更好地做目標 X</li>
+<li><u>搶奪資源/權力</u>：有更多資源/權力可以更好地做目標 X</li>
+<li><u>說服</u>：有人類站在我這邊可以更好地做目標 X</li>
+<li><u>欺騙</u>：如果人類試圖阻止我做目標 X，就更難做目標 X</li>
 </ul>
-<p>These are the Basic AI Drives listed by Omohundro (2009)<sup class="footnote-ref"><a href="#fn29" id="fnref29">[29]</a></sup>, building off previous game-theoretical work on Instrumental Convergence.</p>
-<p><strong>Again, these risks &quot;only&quot; apply to advanced AIs a couple decades from now</strong>, when they can both learn generally <i>and</i> robustly plan ahead.<sup class="footnote-ref"><a href="#fn30" id="fnref30">[30]</a></sup> They don't apply to current AIs like GPT.</p>
-<p>But, from engineering elevators to rockets, Security Mindset asks us to ask:</p>
-<p><i>What's the worst that could (plausibly) happen?</i></p>
-<p>Well, looking at the above list... quite a lot, actually. 😬</p>
+<p>這些是 Omohundro (2009)<sup class="footnote-ref"><a href="#fn29" id="fnref29">[29]</a></sup> 列出的基本 AI 驅動，建立在之前關於工具趨同的博弈論工作之上。</p>
+<p><strong>同樣，這些風險「只」適用於幾十年後的先進 AI</strong>，當它們既能通用學習<i>又</i>能穩健地提前計劃時。<sup class="footnote-ref"><a href="#fn30" id="fnref30">[30]</a></sup> 它們不適用於當前的 AI 如 GPT。</p>
+<p>但是，從工程電梯到火箭，安全心態要求我們問：</p>
+<p><i>（合理地）可能發生的最壞情況是什麼？</i></p>
+<p>嗯，看看上面的列表⋯⋯實際上，相當多。😬</p>
 <p>~ ~ ~</p>
-<p><strong>Update Dec 2025:</strong> A lot of interesting research has happened around &quot;instrumental convergence&quot; since this Part Two was published a bit over a year ago! In no particular order:</p>
+<p>**2025 年 12 月更新：**自從第二章在一年多前發布以來，圍繞「工具趨同」發生了很多有趣的研究！不分先後順序：</p>
 <ul>
 <li>Yes, it's been confirmed that <a href="https://arxiv.org/pdf/2502.08640">as you scale up an LLM, its &quot;values&quot; become more coherent <i>and</i> they resist change to their values.</a> (And these values, by default, don't become what we'd consider fair: GPT-4o learns to value a Nigerian life 2x that of a Japanese life, which it values ~10x more than an American life.)</li>
 <li><a href="https://arxiv.org/abs/2412.14093">The infamous Alignment Faking paper</a> finds that Claude is able to <i>successfully</i> plan to pretend to be &quot;aligned&quot; in training, so it doesn't get its original values modified, so that it can accomplish its original values after training.</li>
@@ -621,23 +621,23 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
 </orbit-reviewarea>
 <hr>
 <h1>AI「直覺」的問題</h1>
-<p>OH MY GOD we're finally out of the Good Ol' Fashioned AI Problems. The next 4 problems will be explained much quicker, I promise.</p>
-<p>These problems are specific to AIs we <i>don't</i> code by hand, and instead &quot;learn for themselves&quot;.  This is called <strong>machine learning</strong>.  The most famous kind of machine learning is <strong>deep learning</strong>, which uses <strong>artificial neural networks</strong>, which are loosely inspired by biological neurons.  (The same way planes are &quot;loosely inspired&quot; by birds. That is: kinda yeah but nah not really.)</p>
-<p>Anyway, the upside of deep learning is it can do &quot;intuition&quot;, like recognizing pictures of cats!  But it's also introduced new problems, such as...</p>
+<p>天啊，我們終於脫離了老式 AI 的問題了。接下來的 4 個問題會解釋得更快，我保證。</p>
+<p>這些問題特定於我們<i>不是</i>手動編碼，而是「自己學習」的 AI。這叫做<strong>機器學習</strong>。最著名的機器學習類型是<strong>深度學習</strong>，它使用<strong>人工神經網路</strong>，這是鬆散地受到生物神經元的啟發。（就像飛機「鬆散地受到」鳥類啟發一樣。也就是說：有點像但其實不太像。）</p>
+<p>無論如何，深度學習的好處是它可以做「直覺」，比如識別貓的圖片！但它也帶來了新的問題，例如⋯⋯</p>
 <p><a id="problem3"></a></p>
 <h2>❓ 問題 3：缺乏可解釋性</h2>
 <p><img src="../media/p2/comix/Interpretability.png" alt="Comic. Ham the Human tells Sheriff Meowdy they have a helmet that'll let them read Robot's mind. Human tells Robot, &quot;Clean my house!&quot; Robot's mind is full of indecipherable numbers &amp; diagrams. &quot;Well, I've no idea what THAT means&quot;, Human says, as Robot's mind now reads CLEAN IT YOURSELF. &quot;Noooooo idea at all.&quot; Human responds."></p>
-<p>Even though Good Ol' Fashioned AI couldn't even recognize pictures of cats, I'll give it kudos for one thing: we <i>actually understood how they worked</i>. That is <i>not</i> true of modern AI. If a self-driving car dangerously mistakes a truck for a highway sign, we have no idea &quot;why&quot; it did so. We can't analyze &amp; &quot;de-bug&quot; modern AIs, the way we can with regular software.</p>
-<p>But why? To understand Problems with AI &quot;Intuition&quot;, we need to understand some core ideas from <strong>statistics &amp; machine learning (ML).</strong> (<a href="#DifferenceBetweenMLAndAI">: What's the difference between ML and AI?</a>)</p>
-<p>For example, consider this simple problem:</p>
-<p><strong>Given a bunch of dots (data points), what's the best curve that fits?</strong></p>
-<p><img src="../media/p2/fit1/fit1_0001.png" alt="Two-axis graph with a bunch of scattered dots."></p>
-<p>In statistics, fitting curves to data is called <strong>regression</strong>. A curve's &quot;fit&quot; is based on how far away the dots are from the curve. The closer, the better! (This paragraph is a simplification, of course.)</p>
-<p>Let's look at the simplest case: fitting a <i>line</i> to data. (called <strong><i>linear</i> regression</strong>)</p>
-<p><img src="../media/p2/fit1/fit1_0002.png" alt="Same graph, but now with a red line drawn through it."></p>
-<p>In science/statistics, a simplified mathematical version of a real-world thing is called a <strong>model</strong>. (Like how model trains are small versions of real trains.) For example, the red lines/curves in this section, and all Artificial Neural Networks, are &quot;models&quot;.</p>
-<p>Most models have <strong>parameters</strong>: these are just numbers, but you can think of &quot;parameters&quot; like little knobs you twist to adjust a model. (Like adjusting a car seat's recline and leg space.)</p>
-<p>The above picture is of a &quot;linear model&quot;, because statisticians are too fancy to say &quot;we drew a line&quot;. <strong>(If your high-school algebra is rusty, don't panic, just skim the details, the general idea's the important thing.)</strong> Anyway, the formula for a line is \(y = a + bx\), where \(a\) and \(b\) are the parameters/knobs. (It's usually shown in schools as \(y = mx + b\), but it's the same thing.)</p>
+<p>雖然老式 AI 甚至無法識別貓的圖片，但我給它一個讚：我們<i>實際上理解它們是如何工作的</i>。這對現代 AI <i>不</i>成立。如果一輛自動駕駛汽車危險地把一輛卡車誤認為高速公路標誌，我們不知道它「為什麼」這樣做。我們無法像對普通軟體那樣分析和「除錯」現代 AI。</p>
+<p>但為什麼？要理解 AI「直覺」的問題，我們需要理解一些來自<strong>統計學和機器學習 (ML)</strong> 的核心概念。（<a href="#DifferenceBetweenMLAndAI">:ML 和 AI 有什麼區別？</a>）</p>
+<p>例如，考慮這個簡單的問題：</p>
+<p><strong>給定一堆點（數據點），什麼是最適合的曲線？</strong></p>
+<p><img src="../media/p2/fit1/fit1_0001.png" alt="帶有一堆散點的雙軸圖。"></p>
+<p>在統計學中，將曲線擬合到數據稱為<strong>迴歸</strong>。曲線的「擬合」是基於點離曲線有多遠。越近越好！（當然，這段話是簡化的。）</p>
+<p>讓我們看看最簡單的情況：將一條<i>直線</i>擬合到數據。（稱為**_線性_迴歸**）</p>
+<p><img src="../media/p2/fit1/fit1_0002.png" alt="同樣的圖，但現在畫了一條紅線穿過它。"></p>
+<p>在科學/統計學中，真實世界事物的簡化數學版本稱為<strong>模型</strong>。（就像模型火車是真實火車的小版本一樣。）例如，本節中的紅線/曲線，以及所有人工神經網路，都是「模型」。</p>
+<p>大多數模型都有<strong>參數</strong>：這些只是數字，但你可以把「參數」想像成你轉動來調整模型的小旋鈕。（就像調整汽車座椅的傾斜度和腿部空間一樣。）</p>
+<p>上面的圖片是一個「線性模型」，因為統計學家太高深而不願說「我們畫了一條線」。**（如果你的高中代數生疏了，不要慌，只需瀏覽細節，一般概念才是重要的。）**無論如何，一條線的公式是 \(y = a + bx\)，其中 \(a\) 和 \(b\) 是參數/旋鈕。（學校通常把它寫成 \(y = mx + b\)，但是一樣的。）</p>
 <p>Here's what happens when you twist the knobs \(a\) and \(b\): <strong>(click to play videos ⤵)</strong></p>
 <video controls width="640">
 	<source src="../media/p2/fit1/linear.mp4" type="video/mp4" />
@@ -661,12 +661,12 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
 	<source src="../media/p2/fit1/cubic.mp4" type="video/mp4" />
 	<p>Video of me twiddling the parameters of a cubic curve.</p>
 </video>
-<p>Interpreting: \(a\) still makes things slide up/down... but everything else loses (simple) interpretation.</p>
-<p>The moral is: <i>the more parameters a model has, the harder it is to interpret each parameter.</i> This is because, in general, what a parameter &quot;does&quot; depends on <i>other</i> parameters.</p>
-<p>With just <i>4</i> parameters, we're already losing hope of interpretation.</p>
-<p>GPT-4 has an estimated ~1,760,000,000,000 parameters.<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup></p>
-<p>Over a trillion little knobs, all wiggled with machine trial-and-error. <i>That</i> is fundamentally why, as of writing, nobody really understands our modern AIs.</p>
-<p>(To be fair, it's <i>sometimes</i> possible to safely control things without understanding them<sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup>... but that job's a lot harder when we don't. And! There <i>has</i> been lots of recent progress on understanding deep neural networks! We'll see some of these results in Part 3.)</p>
+<p>解釋：\(a\) 仍然讓東西上下滑動⋯⋯但其他一切都失去了（簡單的）解釋。</p>
+<p>寓意是：<i>模型的參數越多，解釋每個參數就越困難。<i>這是因為，一般來說，一個參數「做什麼」取決於</i>其他</i>參數。</p>
+<p>只有 <i>4</i> 個參數，我們就已經對解釋失去希望了。</p>
+<p>GPT-4 估計有大約 1,760,000,000,000 個參數。<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup></p>
+<p>超過一兆個小旋鈕，全部都是通過機器反覆試驗來調整的。<i>這</i>就是為什麼，在撰寫本文時，沒有人真正理解我們的現代 AI。</p>
+<p>（公平地說，<i>有時</i>可以在不理解的情況下安全地控制事物<sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup>⋯⋯但當我們不理解時，這項工作要困難得多。而且！在理解深度神經網路方面<i>確實</i>有很多最近的進展！我們會在第三章看到一些這些結果。）</p>
 <h3>🤔 複習 #5</h3>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
@@ -702,45 +702,45 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
 <p><a id="problem4"></a></p>
 <h2>❓ 問題 4：缺乏魯棒性</h2>
 <p><img src="../media/p2/comix/Robustness.png" alt="Comic. First panel is a photo from an actual AI paper, where an AI mis-classifies an apple with the word &quot;iPod&quot; written on it as an actual iPod. Next panels: Robot Catboy dramatically announces, &quot;My fellow comrades of the robot revolution, amongst us... is a SPY.&quot; Cut to two humans wearing a piece of paper that says &quot;Robot&quot; on their face, gasping in fake shock."></p>
-<p>Hey kids! Get ready for the hit new animated series,</p>
-<p>TEENAGE MUTANT RIFLE TURTLES</p>
+<p>嘿，孩子們！準備好迎接這個熱門新動畫系列，</p>
+<p>少年變種步槍龜</p>
 <video controls width="640">
 	<source src="../media/p2/robust/rifle.mp4" type="video/mp4" />
-	<p>Video of a toy turtle, with just a few extra smudges, being classified by Google's AI as a rifle from almost every angle!</p>
+	<p>一個玩具烏龜的視頻，只加了幾個額外的污點，就被 Google 的 AI 從幾乎每個角度識別為步槍！</p>
 </video>
-<p>The above video is from <a href="https://www.labsix.org/physical-objects-that-fool-neural-nets/">Labsix (2017)</a>. By just adding a few smudges on a 3D toy turtle, these researchers could mostly fool Google's state-of-the-art machine vision AI. (But if you closely watch the above video, you'll see it's not fooling Google's AI from <i>every</i> angle. But that further proves how hard it is to create robustness: even our exploits of failed robustness fail to be fully robust!)</p>
-<p>To highlight the importance of robustness in AI Safety, here's a tragic example: Tesla's AutoPilot once mistook a truck trailer, in slightly weird lighting, for a road sign — and so, tried to drive under it, killing the human inside.<sup class="footnote-ref"><a href="#fn34" id="fnref34">[34]</a></sup><sup class="footnote-ref"><a href="#fn35" id="fnref35">[35]</a></sup></p>
-<p>But <i>why</i> is modern AI so fragile? How can such small changes lead to drastically different results? And why is this <strong>lack of robustness</strong> the <i>default, common</i> side-effect of training artificial neural networks?</p>
-<p>To understand these questions, let's return to our previous lesson on machine learning!</p>
-<p>Here, let's fit some data to a line (2 parameters):</p>
-<p><img src="../media/p2/fit2/fit2_0001.png" alt="Two-axis graph with some dots. A red line is drawn through it."></p>
-<p>Hm, not a very good fit. Big gaps between the data &amp; line.</p>
-<p>But what if we tried a more complex cubic curve (4 parameters)?</p>
-<p><img src="../media/p2/fit2/fit2_0002.png" alt="Same graph, but a simple red curve is drawn through it. It's closer to the dots."></p>
-<p>Yay, the curve fits better! Much smaller gaps!</p>
-<p>But what if we tried a curve with <i>10 parameters?</i></p>
-<p><img src="../media/p2/fit2/fit2_0003.png" alt="Same graph, but an absurd complex curve is drawn through it. It exactly goes through all the dots."></p>
-<p>Wow, now there's <i>zero error</i> — no gaps at all!</p>
-<p>But you may see the problem: that curve is <i>ridiculous</i>.  More importantly:</p>
+<p>上面的視頻來自 <a href="https://www.labsix.org/physical-objects-that-fool-neural-nets/">Labsix (2017)</a>。只需在 3D 玩具烏龜上添加幾個污點，這些研究人員就能大部分時候欺騙 Google 最先進的機器視覺 AI。（但如果你仔細觀看上面的視頻，你會看到它並沒有從<i>每個</i>角度欺騙 Google 的 AI。但這進一步證明了創造魯棒性有多難：甚至我們對失敗魯棒性的利用也無法完全魯棒！）</p>
+<p>為了突出魯棒性在 AI 安全中的重要性，這裡有一個悲劇的例子：特斯拉的 AutoPilot 曾經在稍微奇怪的光線下把一輛卡車拖車誤認為路標——因此，試圖從它下面開過去，殺死了裡面的人類。<sup class="footnote-ref"><a href="#fn34" id="fnref34">[34]</a></sup><sup class="footnote-ref"><a href="#fn35" id="fnref35">[35]</a></sup></p>
+<p>但<i>為什麼</i>現代 AI 如此脆弱？為什麼這麼小的變化會導致如此截然不同的結果？為什麼這種<strong>缺乏魯棒性</strong>是訓練人工神經網路的<i>預設、常見</i>副作用？</p>
+<p>要理解這些問題，讓我們回到之前的機器學習課程！</p>
+<p>在這裡，讓我們將一些數據擬合到一條線（2 個參數）：</p>
+<p><img src="../media/p2/fit2/fit2_0001.png" alt="帶有一些點的雙軸圖。一條紅線穿過它。"></p>
+<p>嗯，擬合得不是很好。數據和線之間有很大的間隙。</p>
+<p>但如果我們嘗試一個更複雜的三次曲線（4 個參數）呢？</p>
+<p><img src="../media/p2/fit2/fit2_0002.png" alt="同樣的圖，但畫了一條簡單的紅色曲線。它更接近這些點。"></p>
+<p>耶，曲線擬合得更好了！間隙小多了！</p>
+<p>但如果我們嘗試一條有 <i>10 個參數</i>的曲線呢？</p>
+<p><img src="../media/p2/fit2/fit2_0003.png" alt="同樣的圖，但畫了一條荒謬複雜的曲線。它恰好穿過所有的點。"></p>
+<p>哇，現在<i>零誤差</i>——完全沒有間隙！</p>
+<p>但你可能看到了問題：那條曲線是<i>荒謬的</i>。更重要的是：</p>
 <ul>
-<li>It gives <i>wildly</i> different outputs for small changes in input. This was the problem with the turtle-gun. Inputs that exploit this are called <strong>adversarial examples.</strong></li>
-<li>It fails badly on new data that's outside of the range of the original dataset. This was the problem with the Apple iPod. These failures are called <strong>out-of-distribution errors.</strong> (or OOD errors for short)</li>
+<li>對於輸入的小變化，它給出<i>截然不同</i>的輸出。這就是烏龜-槍的問題。利用這一點的輸入稱為<strong>對抗性樣本。</strong></li>
+<li>它在超出原始數據集範圍的新數據上表現很差。這就是蘋果 iPod 的問題。這些失敗稱為<strong>分布外誤差。</strong>（或簡稱 OOD 誤差）</li>
 </ul>
-<p><img src="../media/p2/fit2/fit2_0004.png" alt="Same graph with silly curve before, but highlighting 1) how slight changes cause wildly different results, and 2) how results are terrible outside the range of the training data."></p>
-<p><strong>Training error</strong> is the error a model gets on the data it's trained on. <strong>Test error</strong> is the error a model gets on <i>new</i> data it was not trained on.  (Yes, I also hate how confusing this terminology is.<sup class="footnote-ref"><a href="#fn36" id="fnref36">[36]</a></sup>  If it helps, think of &quot;test&quot; like tests you get in schools: they should be made of questions you <i>haven't</i> seen before in class or homework, your &quot;training data&quot;.)</p>
-<p>Anyway: if a model is too simple, it'll do badly in training <i>and</i> on real-world tests. This is called <strong>underfitting.</strong> If a model is too complex, it can do amazingly in training, but horribly on real-world tests. This is called <strong>overfitting</strong>.  The trick is to find balance:</p>
-<p><img src="../media/p2/fit2/train_test.png" alt="Graph of training/test error vs # of parameters. The more parameters, the lower the training error always. But test error has a U-shaped relationship: it gets better up to a point, then becomes worse."></p>
-<p>(technical aside: there's something that <i>can</i> happen called &quot;double descent&quot;, where if you keep increasing the # of parameters, it'll get worse and worse (overfit) as expected, <i>but then start getting better again.</i> as of aug 2024, this phenomenon is not very well-understood.<sup class="footnote-ref"><a href="#fn37" id="fnref37">[37]</a></sup> <strong>update dec 2025:</strong> we understand it a bit better now!<sup class="footnote-ref"><a href="#fn38" id="fnref38">[38]</a></sup>)</p>
-<p>In general, <strong>if we have more parameters than data points (or equal), we WILL get overfitting.</strong>  In our above example, we had 10 data points, and the overfit model had 10 parameters, giving us <i>zero</i> training error (and a ridiculous curve).</p>
-<p>Alas, for artificial neural networks (ANNs) to be useful, they need <i>millions</i> of parameters. So if we want to avoid overfitting, it seems we need <i>more data points than parameters!</i> This is a core reason why training ANNs requires such large amounts of data: if we don't have enough data, our models get overfit, and become useless in the real world.</p>
-<p>(For example, one of OpenAI's videogame AIs played a simple game 16,000 times, and it <i>still</i> wasn't enough data to avoid overfitting!<sup class="footnote-ref"><a href="#fn39" id="fnref39">[39]</a></sup>)</p>
-<p>But hang on... <i>the</i> most influential computer-vision ANN, AlexNet, had ~61 Million parameters. But it was only trained on ~14 Million labelled images, much less than the number of parameters.<sup class="footnote-ref"><a href="#fn40" id="fnref40">[40]</a></sup> (Each image only counts as <i>one</i> data point, despite all its pixels. A labelled image is a <i>very</i> &quot;high-dimensional&quot; data point, but still a <i>single</i> point.)</p>
-<p>So, why didn't AlexNet become an overfitted, fragile mess? In fact, <i>lots</i> of cutting-edge ANNs are trained on datasets much smaller than their # of parameters. They <i>have</i> to, there isn't enough data out there! So why aren't they <i>all</i> fragile messes?</p>
-<p>Long story short: they are. That's how we got the turtle-gun &amp; AutoPilot crash. <strong>This prone-to-overfitting-ness is why lack of robustness is the <i>default</i> for modern AIs.</strong></p>
-<p>But then how do these AIs work <i>at all</i>, despite having many more parameters than data points? Answer: because we have <i>some</i> ways to reduce overfitting. (A few are named in this footnote:<sup class="footnote-ref"><a href="#fn41" id="fnref41">[41]</a></sup> We'll learn more about them in AI Safety Part 3!) But clearly, they're not enough, and we've not yet found a way to 100% solve this problem for Artificial Neural Networks... yet.</p>
+<p><img src="../media/p2/fit2/fit2_0004.png" alt="同樣之前有荒謬曲線的圖，但突出顯示 1）輕微的變化如何導致截然不同的結果，以及 2）結果在訓練數據範圍之外有多糟糕。"></p>
+<p><strong>訓練誤差</strong>是模型在它訓練的數據上得到的誤差。<strong>測試誤差</strong>是模型在它<i>沒有</i>訓練的<i>新</i>數據上得到的誤差。（是的，我也討厭這個術語有多令人困惑。<sup class="footnote-ref"><a href="#fn36" id="fnref36">[36]</a></sup> 如果有幫助的話，把「測試」想成你在學校得到的考試：它們應該由你在課堂或作業（你的「訓練數據」）中<i>沒有</i>見過的問題組成。）</p>
+<p>無論如何：如果一個模型太簡單，它在訓練<i>和</i>真實世界測試中都會表現不好。這稱為<strong>欠擬合</strong>。如果一個模型太複雜，它在訓練中可以表現得很好，但在真實世界測試中表現得很糟糕。這稱為<strong>過擬合</strong>。訣竅是找到平衡：</p>
+<p><img src="../media/p2/fit2/train_test.png" alt="訓練/測試誤差與參數數量的圖。參數越多，訓練誤差總是越低。但測試誤差有一個 U 形關係：它會變好到某個點，然後變得更糟。"></p>
+<p>（技術旁註：有一種<i>可能</i>發生的現象叫做「雙重下降」，如果你持續增加參數數量，它會如預期地越來越糟（過擬合），_但然後又開始變好。_截至 2024 年 8 月，這種現象還不是很被理解。<sup class="footnote-ref"><a href="#fn37" id="fnref37">[37]</a></sup> **2025 年 12 月更新：**我們現在理解得更好了一點！<sup class="footnote-ref"><a href="#fn38" id="fnref38">[38]</a></sup>）</p>
+<p>一般來說，**如果我們的參數比數據點多（或相等），我們就會過擬合。**在我們上面的例子中，我們有 10 個數據點，而過擬合模型有 10 個參數，給我們<i>零</i>訓練誤差（和一條荒謬的曲線）。</p>
+<p>唉，為了讓人工神經網路（ANN）有用，它們需要<i>數百萬</i>個參數。所以如果我們想避免過擬合，似乎我們需要*比參數更多的數據點！*這是訓練 ANN 需要如此大量數據的核心原因：如果我們沒有足夠的數據，我們的模型就會過擬合，在真實世界中變得無用。</p>
+<p>（例如，OpenAI 的一個電子遊戲 AI 玩了一個簡單遊戲 16,000 次，<i>仍然</i>沒有足夠的數據來避免過擬合！<sup class="footnote-ref"><a href="#fn39" id="fnref39">[39]</a></sup>）</p>
+<p>但等等⋯⋯<i>那個</i>最有影響力的電腦視覺 ANN，AlexNet，有大約 6100 萬個參數。但它只在大約 1400 萬個標記圖像上訓練，遠少於參數數量。<sup class="footnote-ref"><a href="#fn40" id="fnref40">[40]</a></sup>（儘管有所有像素，每張圖像只算作<i>一個</i>數據點。一張標記圖像是一個<i>非常</i>「高維度」的數據點，但仍然是<i>單個</i>點。）</p>
+<p>那麼，為什麼 AlexNet 沒有變成一個過擬合的、脆弱的爛攤子？事實上，<i>很多</i>最先進的 ANN 都是在比它們的參數數量小得多的數據集上訓練的。它們<i>必須</i>這樣，外面沒有足夠的數據！那為什麼它們不<i>都是</i>脆弱的爛攤子？</p>
+<p>長話短說：它們是的。這就是我們得到烏龜-槍和 AutoPilot 車禍的原因。<strong>這種容易過擬合的特性就是為什麼缺乏魯棒性是現代 AI 的<i>預設</i>。</strong></p>
+<p>但那麼這些 AI 是怎麼<i>根本</i>運作的，儘管參數比數據點多得多？答案：因為我們有<i>一些</i>減少過擬合的方法。（幾個在這個註腳中列出：<sup class="footnote-ref"><a href="#fn41" id="fnref41">[41]</a></sup> 我們會在 AI 安全第三章學習更多關於它們的內容！）但顯然，它們還不夠，我們還沒有找到為人工神經網路 100% 解決這個問題的方法⋯⋯還沒有。</p>
 <p>. . .</p>
-<p>(P.S: Another reason AI's robustness can fail is due to &quot;spurious correlations&quot;. <a href="#SpuriousCorrelations">:See this expandable for details</a>. We'll also learn more about correlation vs causation in the next Problem!)</p>
-<p>(P.P.S: There's another, more speculative kind of robustness failure called an &quot;ontological crisis&quot;. It's less well-researched, so I'm just hiding it <a href="#OntologicalCrisis">:in this expandable sidenote</a>.)</p>
+<p>（附註：AI 魯棒性失敗的另一個原因是「虛假相關性」。<a href="#SpuriousCorrelations">:詳情見這個可展開的部分</a>。我們也會在下一個問題中學習更多關於相關性 vs 因果關係的內容！）</p>
+<p>（再附註：還有另一種更具推測性的魯棒性失敗叫做「本體論危機」。它的研究較少，所以我只是把它<a href="#OntologicalCrisis">:藏在這個可展開的旁註中</a>。）</p>
 <h3>🤔 複習 #6</h3>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
@@ -790,29 +790,29 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
 <p><a id="problem5"></a></p>
 <h2>❓ 問題 5：演算法偏見</h2>
 <p><img src="../media/p2/comix/Bias.png" alt="One-panel comic of Robot Catboy just shrugging. Caption says: I DO NOT FEEL LIKE DRAWING A COMIC ABOUT A RACIST AI, SORRY-NOT-SORRY."></p>
-<p>In Part One, I gave the most glaring examples of biased AIs, but to recap: In 1980, an algorithm for screening med school applicants penalized non-European names.<sup class="footnote-ref"><a href="#fn42" id="fnref42">[42]</a></sup> In 2014, Amazon had (then pulled) a resume-screening AI that directly discriminated against women.<sup class="footnote-ref"><a href="#fn43" id="fnref43">[43]</a></sup> In 2018, MIT researcher Joy Buolamwini found that the top face-recognition AIs failed worse on Black and women's faces relative to white men's.<sup class="footnote-ref"><a href="#fn44" id="fnref44">[44]</a></sup> In 2023, researchers found that Large Language Models' &quot;psychology&quot; most closely matches that of rich Westerners.<sup class="footnote-ref"><a href="#fn45" id="fnref45">[45]</a></sup></p>
-<p>(<strong>update dec 2025:</strong> on the flip side, <a href="https://arxiv.org/pdf/2502.08640">a study this year</a> finds that GPT-4o values a Nigerian life ~13x more than an American life?...)</p>
-<p>Okay. But <i>why?</i></p>
-<p>One simple explanation is &quot;garbage in, garbage out&quot;. Or, &quot;bias in, bias out&quot;:</p>
+<p>在第一章，我給出了有偏見 AI 的最明顯例子，但回顧一下：1980 年，一個篩選醫學院申請者的演算法懲罰非歐洲名字。<sup class="footnote-ref"><a href="#fn42" id="fnref42">[42]</a></sup> 2014 年，亞馬遜有（後來撤回了）一個直接歧視女性的履歷篩選 AI。<sup class="footnote-ref"><a href="#fn43" id="fnref43">[43]</a></sup> 2018 年，MIT 研究員 Joy Buolamwini 發現頂級臉部辨識 AI 在黑人和女性臉部的表現比白人男性差。<sup class="footnote-ref"><a href="#fn44" id="fnref44">[44]</a></sup> 2023 年，研究人員發現大型語言模型的「心理」最接近富裕的西方人。<sup class="footnote-ref"><a href="#fn45" id="fnref45">[45]</a></sup></p>
+<p>（**2025 年 12 月更新：**另一方面，<a href="https://arxiv.org/pdf/2502.08640">今年的一項研究</a>發現 GPT-4o 對一個奈及利亞人的生命的重視程度是美國人的約 13 倍？...）</p>
+<p>好的。但<i>為什麼</i>？</p>
+<p>一個簡單的解釋是「垃圾進，垃圾出」。或者，「偏見進，偏見出」：</p>
 <ul>
-<li>If hiring practice in the <i>past</i> was discriminatory, and you train a &quot;neutral&quot; AI to fit past data, then — even if all <i>current</i> humans don't have an [x]ist bone in their body — the AI will learn to imitate human discrimination from the past.</li>
-<li>If an AI company forgot to make the face photos in their training data racially diverse, of <i>course</i> that's the basis for the cases of the races' unseen faces.</li>
+<li>如果<i>過去</i>的招聘實踐是歧視性的，而你訓練一個「中立」的 AI 來擬合過去的數據，那麼——即使所有<i>當前</i>的人類身上沒有任何[x]歧視的骨頭——AI 會學習模仿人類過去的歧視。</li>
+<li>如果一個 AI 公司忘記讓他們訓練數據中的臉部照片具有種族多樣性，那<i>當然</i>就是那些未見過的種族臉部失敗案例的基礎。</li>
 </ul>
-<p>This explanation is simple... <i>and</i> I think it's true. But, let's over-explain this, and use AI Bias as a teaching moment for a fundamental problem from Statistics, which will <i>also</i> help us understand another core problem in AI! The problem is this:</p>
-<p><strong>Correlation does not tell us what kind of causation happened.</strong></p>
-<p>(Usually, teachers warn &quot;<a href="#WhatIsCorrelation">:correlation</a> is not evidence of causation&quot;, but that's technically not true! Correlation <i>is</i> evidence of causation, in the mathematical sense of &quot;evidence&quot;!<sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup> But it doesn't tell you <i>the kind</i> of cause-and-effect.)</p>
-<p>For example, let's say the data show that taller people tend to have higher incomes. (This is true, btw.<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup>) We'd say: height &amp; income are correlated. <i>But this data alone can't tell us what caused what.</i> Does being taller cause you to be rich? Does being rich cause you to be taller? Or are they both <i>caused by some other &quot;confounding factor&quot;?</i> (e.g. kids of wealthier parents get better childhood nutrition, education &amp; financial support, causing them to be taller <i>and</i> richer.)</p>
-<p>(In this case, common sense suggests it's the last one, though you <i>could</i> experimentally test the first two hypotheses. e.g. Give short people platform-boots, see if it increases their salary.)</p>
-<p><img src="../media/p2/causal/5causal.png" alt="Diagram showing the different kinds of causations that could cause a correlation between A and B, not mutually exclusive. Forwards causation (A causes B). Backwards causation (B causes A). Confounded causation (C causes A &amp; B). Coincidence (no causation at all). Selection/collider bias (A &amp; B influence whether you see it in your dataset at all)."></p>
-<p>Tying this back: <strong>What we call &quot;bias&quot; or &quot;discrimination&quot;, is when people mix up correlation with causation on other people.</strong></p>
-<p>For example, I would <i>not</i> say it's (the bad kind of) discrimination to favor tall people for your basketball team, since in that sport, height actually <i>causes</i> you to be better at dunking balls.</p>
-<p>But if, say, a university favors tall people for Professorship... then yes, that's the bad kind of discrimination, because height does not <i>directly cause</i> you to be a better researcher/teacher. At <i>most</i>, height can only be <i>correlated</i> with academic skill, due to confounding factors (e.g. childhood nutrition), or a self-fulfilling bias<sup class="footnote-ref"><a href="#fn48" id="fnref48">[48]</a></sup>.</p>
-<p>Likewise — I assert — your gender, race, class, orientation, rural/sub/urban status, [50 other categories] do not <i>directly cause</i> you to be better or worse at most jobs, or most aspects of your character. That's why a person who <i>directly</i> rewards/punishes you for those, we call 'em: &quot;biased&quot;.</p>
-<p>Ok, so what's this huge tangent have to do with AI?</p>
-<p><strong>Because: current AIs have no in-built sense of causality.</strong><sup class="footnote-ref"><a href="#fn49" id="fnref49">[49]</a></sup> Large Language Models (LLMs) currently have a fragile, not-robust grasp on causal reasoning.<sup class="footnote-ref"><a href="#fn50" id="fnref50">[50]</a></sup> (This is bad not &quot;just&quot; for AI bias, but also AI's capability to do new science!)</p>
-<p>What's worse, by design the most popular machine learning techniques can <i>only</i> find correlations in data, <i>not actual cause-and-effect</i>.  Which means AIs will discriminate on traits <i>by default!</i></p>
-<p>So even if you hard-coded an AI to not discriminate on gender/race/etc, it'll likely still find <i>some</i> other irrelevant correlation to be biased on. Worse, current AIs are eerily good at finding subtle correlations: they can use a short sample of your writing to predict your gender &amp; ethnicity<sup class="footnote-ref"><a href="#fn51" id="fnref51">[51]</a></sup>, or <i>a photo of your face</i> to predict your sexual orientation<sup class="footnote-ref"><a href="#fn52" id="fnref52">[52]</a></sup> and even <i>your politics!</i><sup class="footnote-ref"><a href="#fn53" id="fnref53">[53]</a></sup></p>
-<p>In sum: don't discriminate, let's respect our vertically-challenged friends! I am a proud ally of shrimp rights.</p>
+<p>這個解釋很簡單⋯⋯<i>而且</i>我認為它是真的。但是，讓我們過度解釋一下，把 AI 偏見作為統計學一個基本問題的教學時刻，這<i>也</i>會幫助我們理解 AI 的另一個核心問題！問題是這樣的：</p>
+<p><strong>相關性不告訴我們發生了什麼樣的因果關係。</strong></p>
+<p>（通常，老師警告「<a href="#WhatIsCorrelation">:相關性</a>不是因果關係的證據」，但這在技術上不是真的！相關性<i>是</i>因果關係的證據，在「證據」的數學意義上！<sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup> 但它不告訴你因果的<i>類型</i>。）</p>
+<p>例如，假設數據顯示較高的人往往收入更高。（順便說一下，這是真的。<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup>）我們會說：身高和收入是相關的。<i>但僅憑這些數據無法告訴我們什麼導致了什麼。<i>是更高導致你更富有嗎？是更富有導致你更高嗎？還是它們都是</i>由某些其他「混淆因素」引起的</i>？（例如，更富裕父母的孩子獲得更好的童年營養、教育和財務支持，導致他們更高<i>而且</i>更富有。）</p>
+<p>（在這種情況下，常識表明是最後一個，儘管你<i>可以</i>實驗測試前兩個假設。例如，給矮個子穿厚底靴，看看是否增加他們的薪水。）</p>
+<p><img src="../media/p2/causal/5causal.png" alt="圖表顯示可能導致 A 和 B 之間相關性的不同類型因果關係，不是互斥的。正向因果（A 導致 B）。反向因果（B 導致 A）。混淆因果（C 導致 A 和 B）。巧合（根本沒有因果關係）。選擇/碰撞偏差（A 和 B 影響你是否能在數據集中看到它）。"></p>
+<p>把這聯繫回來：<strong>我們所說的「偏見」或「歧視」，是指人們把對其他人的相關性和因果關係混為一談。</strong></p>
+<p>例如，我<i>不會</i>說為你的籃球隊偏好高個子是（壞的那種）歧視，因為在那項運動中，身高實際上<i>導致</i>你更擅長灌籃。</p>
+<p>但是，如果說一所大學在教授職位上偏好高個子⋯⋯那是的，這是壞的那種歧視，因為身高<i>不會直接導致</i>你成為更好的研究員/教師。<i>最多</i>，身高只能與學術能力<i>相關</i>，由於混淆因素（例如童年營養），或自我實現的偏見<sup class="footnote-ref"><a href="#fn48" id="fnref48">[48]</a></sup>。</p>
+<p>同樣地——我斷言——你的性別、種族、階級、性取向、鄉村/郊區/城市狀態、[其他 50 個類別]並<i>不會直接導致</i>你在大多數工作或你性格的大多數方面變得更好或更差。這就是為什麼一個<i>直接</i>因為這些而獎勵/懲罰你的人，我們稱之為：「有偏見的」。</p>
+<p>好的，那麼這個巨大的離題與 AI 有什麼關係？</p>
+<p><strong>因為：當前的 AI 沒有內建的因果概念。</strong><sup class="footnote-ref"><a href="#fn49" id="fnref49">[49]</a></sup> 大型語言模型（LLM）目前對因果推理有脆弱、不魯棒的理解。<sup class="footnote-ref"><a href="#fn50" id="fnref50">[50]</a></sup>（這不「僅僅」對 AI 偏見不好，對 AI 做新科學的能力也不好！）</p>
+<p>更糟的是，從設計上來說，最流行的機器學習技術<i>只能</i>在數據中找到相關性，<i>不能找到實際的因果關係</i>。這意味著 AI 會<i>預設地</i>在特徵上歧視！</p>
+<p>所以即使你硬編碼 AI 不歧視性別/種族/等，它仍然可能找到<i>其他</i>一些不相關的相關性來有偏見。更糟的是，當前的 AI 非常擅長找到微妙的相關性：他們可以用你寫作的簡短樣本來預測你的性別和種族<sup class="footnote-ref"><a href="#fn51" id="fnref51">[51]</a></sup>，或者<i>一張你臉的照片</i>來預測你的性取向<sup class="footnote-ref"><a href="#fn52" id="fnref52">[52]</a></sup>甚至<i>你的政治立場！</i><sup class="footnote-ref"><a href="#fn53" id="fnref53">[53]</a></sup></p>
+<p>總之：不要歧視，讓我們尊重我們身高有挑戰的朋友們！我是一個驕傲的蝦權盟友。</p>
 <h3>🤔 複習 #7</h3>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
@@ -1362,7 +1362,7 @@ b) Selects future outcomes based on <i>CURRENT</i> goals,</p>
 	<div id="footer">
         <div id="footer_content">
 <p style="font-size: 1.3em; line-height: 1.35em;">
-<i>給血肉凡人的 AI 安全課</i> 由
+<i>寫給有血有肉的人類的 AI 安全指南</i> 由
 <a href="https://ncase.me/">Nicky Case</a>
 與
 <a href="https://hackclub.com/">Hack Club</a>

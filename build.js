@@ -28,7 +28,7 @@ let convertConfigs = [
     {
         markdown:'intro.md', template:'templates/page_template.html', exportTo:'index.html',
         extras:{
-            title: '給血肉凡人的 AI 安全課', // '[DRAFT, DO NOT PUBLICLY SHARE]'
+            title: '寫給有血有肉的人類的 AI 安全指南', // '[DRAFT, DO NOT PUBLICLY SHARE]'
             share_desc: '一站式了解 AI 和 AI 安全的所有核心思想！',
             share_image: 'https://aisafety.dance/thumbs/thumb.png',
             root:'',
@@ -40,7 +40,7 @@ let convertConfigs = [
         markdown:'p1/p1.md', template:'templates/page_template.html', exportTo:'p1/index.html',
         extras:{
             title: '第一部分：過去、現在與可能的未來',
-            share_desc: '第一部分 — 給血肉凡人的 AI 安全課',
+            share_desc: '第一部分 — 寫給有血有肉的人類的 AI 安全指南',
             share_image: 'https://aisafety.dance/thumbs/thumb-p1.png',
             root:'../',
 
@@ -51,7 +51,7 @@ let convertConfigs = [
         markdown:'p2/p2.md', template:'templates/page_template.html', exportTo:'p2/index.html',
         extras:{
             title: '第二部分：問題',
-            share_desc: '第二部分 — 給血肉凡人的 AI 安全課',
+            share_desc: '第二部分 — 寫給有血有肉的人類的 AI 安全指南',
             share_image: 'https://aisafety.dance/thumbs/thumb-p2.png',
             root:'../',
 
@@ -62,7 +62,7 @@ let convertConfigs = [
         markdown:'p3/p3.md', template:'templates/page_template.html', exportTo:'p3/index.html',
         extras:{
             title: '第三部分：解決方案',
-            share_desc: '第三部分 — 給血肉凡人的 AI 安全課',
+            share_desc: '第三部分 — 寫給有血有肉的人類的 AI 安全指南',
             share_image: 'https://aisafety.dance/thumbs/thumb-p3.png',
             root:'../',
 
