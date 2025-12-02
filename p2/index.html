@@ -638,28 +638,28 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <p>在科學/統計學中，真實世界事物的簡化數學版本稱為<strong>模型</strong>。（就像模型火車是真實火車的小版本一樣。）例如，本節中的紅線/曲線，以及所有人工神經網路，都是「模型」。</p>
 <p>大多數模型都有<strong>參數</strong>：這些只是數字，但你可以把「參數」想像成你轉動來調整模型的小旋鈕。（就像調整汽車座椅的傾斜度和腿部空間一樣。）</p>
 <p>上面的圖片是一個「線性模型」，因為統計學家太高深而不願說「我們畫了一條線」。**（如果你的高中代數生疏了，不要慌，只需瀏覽細節，一般概念才是重要的。）**無論如何，一條線的公式是 \(y = a + bx\)，其中 \(a\) 和 \(b\) 是參數/旋鈕。（學校通常把它寫成 \(y = mx + b\)，但是一樣的。）</p>
-<p>Here's what happens when you twist the knobs \(a\) and \(b\): <strong>(click to play videos ⤵)</strong></p>
+<p>當你轉動旋鈕 \(a\) 和 \(b\) 時會發生什麼：<strong>（點擊播放影片 ⤵）</strong></p>
 <video controls width="640">
 	<source src="../media/p2/fit1/linear.mp4" type="video/mp4" />
-	<p>Video of me twiddling the parameters of a line.</p>
+	<p>我調整線條參數的影片。</p>
 </video>
-<p><i>(videos made with the <a href="https://www.desmos.com/calculator">Desmos interactive graphing calculator</a>)</i></p>
-<p>To &quot;fit&quot; a statistical model, a computer twists the knobs until the line gets as close as possible to all the data points. (Again, simplification.)</p>
-<p>For linear models, the numbers \(a\) and \(b\) actually have simple-ish interpretations! Changing \(a\) makes the line go up/down, \(b\) is the line's slope.</p>
-<p>But what if we try fitting a more complex model? Like a &quot;quadratic&quot; curve?</p>
-<p><img src="../media/p2/fit1/fit1_0003.png" alt="Same graph, but now with an upside-down-U red curve drawn through it."></p>
-<p>The formula for a quadratic curve is \(y = a + bx + cx^2\). Here's what happens when we adjust the parameters \(a\), \(b\), and \(c\)...</p>
+<p><i>（影片使用 <a href="https://www.desmos.com/calculator">Desmos 互動圖形計算器</a> 製作）</i></p>
+<p>要「擬合」一個統計模型，電腦會轉動旋鈕直到線條盡可能接近所有數據點。（再次，這是簡化的說法。）</p>
+<p>對於線性模型，數字 \(a\) 和 \(b\) 實際上有相對簡單的解釋！改變 \(a\) 使線條上下移動，\(b\) 是線條的斜率。</p>
+<p>但如果我們嘗試擬合一個更複雜的模型呢？比如一條「二次」曲線？</p>
+<p><img src="../media/p2/fit1/fit1_0003.png" alt="同樣的圖表，但現在畫了一條倒 U 形的紅色曲線穿過它。"></p>
+<p>二次曲線的公式是 \(y = a + bx + cx^2\)。當我們調整參數 \(a\)、\(b\) 和 \(c\) 時會發生什麼⋯⋯</p>
 <video controls width="640">
 	<source src="../media/p2/fit1/quadratic.mp4" type="video/mp4" />
-	<p>Video of me twiddling the parameters of a quadratic curve.</p>
+	<p>我調整二次曲線參數的影片。</p>
 </video>
-<p>Now, it's harder to interpret the parameters. \(a\) still makes the curve go up/down, \(b\)... makes the whole thing slide in a U-shape, or upside-down U sometimes? And \(c\) makes it curve upwards or downwards.</p>
-<p>But what about an <i>even</i> more complex model? Like a &quot;cubic&quot; curve?</p>
-<p><img src="../media/p2/fit1/fit1_0004.png" alt="Same graph, but now with a up-down-up double-curve drawn through it."></p>
-<p>The cubic curve's formula is \(y = a + bx + cx^2 + dx^3\). Here's the parameters' effects:</p>
+<p>現在，解釋參數變得更難了。\(a\) 仍然使曲線上下移動，\(b\)⋯⋯使整個東西以 U 形滑動，或者有時是倒 U 形？而 \(c\) 使它向上或向下彎曲。</p>
+<p>但如果是<i>更</i>複雜的模型呢？比如一條「三次」曲線？</p>
+<p><img src="../media/p2/fit1/fit1_0004.png" alt="同樣的圖表，但現在畫了一條上下上的雙曲線穿過它。"></p>
+<p>三次曲線的公式是 \(y = a + bx + cx^2 + dx^3\)。以下是參數的效果：</p>
 <video controls width="640">
 	<source src="../media/p2/fit1/cubic.mp4" type="video/mp4" />
-	<p>Video of me twiddling the parameters of a cubic curve.</p>
+	<p>我調整三次曲線參數的影片。</p>
 </video>
 <p>解釋：\(a\) 仍然讓東西上下滑動⋯⋯但其他一切都失去了（簡單的）解釋。</p>
 <p>寓意是：<i>模型的參數越多，解釋每個參數就越困難。<i>這是因為，一般來說，一個參數「做什麼」取決於</i>其他</i>參數。</p>
@@ -846,52 +846,52 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <p><a id="problem6"></a></p>
 <h2>❓ 問題 6：目標錯誤泛化</h2>
 <p><img src="../media/p2/comix/GMG.png" alt="Comic. Panel 1: Robot correctly mops a bedroom floor. Panel 2: Robot correctly washes a plate in the sink. Panel 3: Human says, ok, you seem well-trained... now, clean my house! Panel 4: Robot incorrectly mops a bed. Panel 5: Robot incorrectly washes a laptop in the sink."></p>
-<p>Finally, we come to one of the most-misunderstood ideas in AI Alignment!  It's <i>so</i> misunderstood, I wrote this section &amp; drew a whole comic for it, then realized <i>I got it all wrong</i>, and had to re-do it everything from scratch. Oh well. (<a href="#InnerMisalignmentDeletedScene">: Here's the &quot;deleted scene&quot;, if you're curious.</a>)</p>
-<p>Anyway, this problem is called <strong>Goal Mis-generalization</strong>. (It was originally called &quot;inner misalignment&quot;, but I find that term confusing.<sup class="footnote-ref"><a href="#fn54" id="fnref54">[54]</a></sup>)</p>
-<p>Goal Mis-generalization is confusing, in part because it seems similar to Problem 1: Goal Mis-<i>specification</i> and Problem 4: Lack of Robustness. (Some researchers even question if Goal Mis-generalization vs Mis-specification is even a useful divide!<sup class="footnote-ref"><a href="#fn55" id="fnref55">[55]</a></sup>)</p>
-<p>So to de-confuse this, let's compare &amp; contrast!</p>
-<p><strong>Goal Mis-generalization and Goal Mis-specification:</strong></p>
+<p>終於，我們來到 AI 對齊中最被誤解的概念之一！它被誤解得<i>太厲害</i>了，我寫了這一節並為它畫了一整幅漫畫，然後意識到<i>我完全搞錯了</i>，不得不從頭重做所有東西。哦好吧。（<a href="#InnerMisalignmentDeletedScene">:如果你好奇的話，這是「被刪除的場景」。</a>）</p>
+<p>無論如何，這個問題被稱為<strong>目標錯誤泛化</strong>。（它最初被稱為「內部不對齊」，但我覺得那個術語很令人困惑。<sup class="footnote-ref"><a href="#fn54" id="fnref54">[54]</a></sup>）</p>
+<p>目標錯誤泛化很令人困惑，部分原因是它看起來與問題 1：目標錯誤<i>設定</i>和問題 4：缺乏魯棒性相似。（一些研究人員甚至質疑目標錯誤泛化 vs 錯誤設定是否是一個有用的區分！<sup class="footnote-ref"><a href="#fn55" id="fnref55">[55]</a></sup>）</p>
+<p>所以為了消除困惑，讓我們比較和對比！</p>
+<p><strong>目標錯誤泛化和目標錯誤設定：</strong></p>
 <ul>
-<li>Goal Mis-<i>specification</i> is the AI doing exactly what you asked, not what you want.</li>
-<li>Goal Mis-<i>generalization</i> is the AI doing what you wanted <i>in training</i>, but not in the real-world / deployment / test.</li>
-<li>Note: Even with <i>perfect</i> goal specification, you can still get goal mis-generalization!<sup class="footnote-ref"><a href="#fn56" id="fnref56">[56]</a></sup> <i>What you reward the AI for doing ≠ What goal the AI learns to optimize for.</i></li>
+<li>目標錯誤<i>設定</i>是 AI 做你要求的，而不是你想要的。</li>
+<li>目標錯誤<i>泛化</i>是 AI 在<i>訓練</i>中做你想要的，但在真實世界/部署/測試中不是。</li>
+<li>注意：即使有<i>完美的</i>目標設定，你仍然可能得到目標錯誤泛化！<sup class="footnote-ref"><a href="#fn56" id="fnref56">[56]</a></sup> <i>你獎勵 AI 做的 ≠ AI 學會優化的目標。</i></li>
 </ul>
-<p><strong>Goal Mis-generalization and Robustness:</strong></p>
+<p><strong>目標錯誤泛化和魯棒性：</strong></p>
 <ul>
-<li>Goal Mis-generalization <i>is</i> a kind of failed robustness. Specifically, a failure of <strong>goal robustness</strong>.</li>
-<li>This is in contrast to a typical failure of <strong>capabilities robustness</strong>, like a self-driving car hitting a truck under unusual lighting conditions.</li>
-<li>A failure in goal robustness is <i>worse</i> than a failure in capabilities robustness. Instead of an AI that &quot;just&quot; breaks down, you now have an AI that can <i>skillfully execute on bad goals!</i></li>
+<li>目標錯誤泛化<i>是</i>一種魯棒性失敗。具體來說，是<strong>目標魯棒性</strong>的失敗。</li>
+<li>這與典型的<strong>能力魯棒性</strong>失敗形成對比，比如自動駕駛汽車在不尋常的光照條件下撞上卡車。</li>
+<li>目標魯棒性的失敗比能力魯棒性的失敗<i>更糟</i>。你現在擁有的不是一個「只是」崩潰的 AI，而是一個可以<i>熟練地執行壞目標</i>的 AI！</li>
 </ul>
-<p>To help us further understand Goal Mis-generalization, let's look at a famous example. In 2021, some researchers trained an AI to play a videogame named CoinRun.<sup class="footnote-ref"><a href="#fn57" id="fnref57">[57]</a></sup></p>
+<p>為了幫助我們進一步理解目標錯誤泛化，讓我們看一個著名的例子。2021 年，一些研究人員訓練了一個 AI 來玩一個名為 CoinRun 的電子遊戲。<sup class="footnote-ref"><a href="#fn57" id="fnref57">[57]</a></sup></p>
 <img class="mini" alt="A GIF of a platformer videogame, where the player jumps over obstacles to reach a coin." src="../media/p2/gmg/coinrun.gif" />
-<p>Importantly: <i>the &quot;goal specification&quot;, the exact rewards the AI got, was perfect for the intended task.</i> The AI was punished for hitting obstacles &amp; falling down, rewarded for getting the coin at the end.</p>
-<p>However: in all the levels the AI was trained on, the coin was at the <i>end</i> of the level.</p>
-<p><i>After</i> training, they gave the AI new levels, where the coin was in the middle of the level...</p>
-<p>...and the AI would <i>skillfully</i> run &amp; jump past obstacles, <i>miss</i> the coin, and still go to the end.</p>
+<p>重要的是：*「目標設定」，AI 獲得的確切獎勵，對於預期任務來說是完美的。*AI 因撞到障礙物和掉下去而受到懲罰，因在終點獲得硬幣而獲得獎勵。</p>
+<p>然而：在 AI 訓練的所有關卡中，硬幣都在關卡的<i>終點</i>。</p>
+<p><i>訓練後</i>，他們給 AI 新的關卡，其中硬幣在關卡的中間⋯⋯</p>
+<p>⋯⋯而 AI 會<i>熟練地</i>跑跳過障礙物，<i>錯過</i>硬幣，仍然走到終點。</p>
 <video controls width="640">
 	<source src="../media/p2/gmg/aquire_wall.mp4" type="video/mp4" />
 	<p>Video of a videogame-playing AI skillfully dodging traps, but MISSING the coin to go to the end. The video is captioned "DISREGARD CURRENCY / ACQUIRE WALL"</p>
 </video>
 <p><i>(clip from <a href="https://www.youtube.com/watch?v=zkbPdEHEyEI">Rob Miles' excellent video</a> on inner misalignment/goal mis-generalization)</i></p>
-<p>So: even though we <i>correctly specified</i> the goal (get coin), the AI learnt a <i>totally different</i> goal (go to end), and optimized for that instead.</p>
-<p>(<a href="#GMGGoals">:Technical side - how do we know what goal an AI 'really' has?</a>)</p>
-<p>But why's the AI mis-learning a goal? It's as I over-explained in Problem #5: <strong>most modern AI systems only do correlation, not causation.</strong> In the above AI's training data, &quot;go all the way to the end&quot; correlated strongly with a high reward.  In the new levels, this correlation stopped, but the AI kept its &quot;habit&quot; anyway.</p>
-<p>Let's draw this as a causal diagram! Training levels with the coin at the end <i>causes</i> both AI going to the end and AI going to the coin... which causes a <i>confounded correlation</i> between &quot;go to end&quot; &amp; &quot;go to coin&quot;. But only &quot;go to coin&quot; <i>actually causes</i> getting a reward:</p>
+<p>所以：即使我們<i>正確設定</i>了目標（獲得硬幣），AI 學到了一個<i>完全不同的</i>目標（走到終點），並為此優化。</p>
+<p>（<a href="#GMGGoals">:技術方面 - 我們怎麼知道 AI「真正」有什麼目標？</a>）</p>
+<p>但為什麼 AI 會錯誤學習目標？正如我在問題 #5 中過度解釋的：**大多數現代 AI 系統只做相關性，不做因果關係。**在上述 AI 的訓練數據中，「一直走到終點」與高獎勵強烈相關。在新的關卡中，這種相關性停止了，但 AI 仍然保持它的「習慣」。</p>
+<p>讓我們把這畫成因果圖！硬幣在終點的訓練關卡<i>導致</i> AI 走到終點和 AI 走到硬幣⋯⋯這導致「走到終點」和「走到硬幣」之間的<i>混淆相關性</i>。但只有「走到硬幣」<i>實際上導致</i>獲得獎勵：</p>
 <p><img src="../media/p2/gmg/gmg1.png" alt="Causal diagram visualizing above text."></p>
-<p>In general, for goal mis-generalization:</p>
-<p><img src="../media/p2/gmg/gmg2.png" alt="Causal diagram. (Pattern in training data) causes a confounded correlation between a mis-generalized goal, and a specified goal. But only the specified goal leads to the AI getting a reward."></p>
-<p>Tying to catastrophic AI risk: this suggests that the risk may not be, &quot;We asked the AI to make folks happy, so it optimized for that by wireheading us&quot;, but more, &quot;We asked the AI to make folks happy, [correlation we don't understand], now our heads are surgically attached to giant cat masks. We're not even happy.<sup class="footnote-ref"><a href="#fn58" id="fnref58">[58]</a></sup>&quot;)</p>
-<p>(Note: Good Ol' Fashioned AIs <i>don't</i> have this problem, because 1) They <i>can't</i> mis-learn the goal, since you give it to them directly, and 2) They usually <i>can</i> reason about cause-and-effect. For better and worse, as elaborated in Part One, nobody's yet found a way to seamlessly merge the power of AI Logic &amp; AI Intuition.)</p>
+<p>一般來說，對於目標錯誤泛化：</p>
+<p><img src="../media/p2/gmg/gmg2.png" alt="因果圖。（訓練數據中的模式）導致錯誤泛化的目標和設定的目標之間的混淆相關性。但只有設定的目標才能讓 AI 獲得獎勵。"></p>
+<p>與災難性 AI 風險的關聯：這表明風險可能不是「我們要求 AI 讓人們快樂，所以它通過給我們接上電極來優化」，而更像是「我們要求 AI 讓人們快樂，[我們不理解的相關性]，現在我們的頭被手術接到了巨大的貓面具上。我們甚至不快樂。<sup class="footnote-ref"><a href="#fn58" id="fnref58">[58]</a></sup>」）</p>
+<p>（注意：傳統老派 AI <i>沒有</i>這個問題，因為 1）它們<i>不可能</i>錯誤學習目標，因為你直接給它們目標，2）它們通常<i>能夠</i>推理因果關係。無論好壞，正如第一章詳細說明的，還沒有人找到一種方法來無縫融合 AI 邏輯和 AI 直覺的力量。）</p>
 <p>. . .</p>
-<p>Y'know, we <i>humans</i> suffer from Goal Mis-generalization, too.</p>
-<p>These are our bad habits, formed because they <i>used</i> to be adaptive in our &quot;training environment&quot;. It's all the clichés from therapy:</p>
+<p>你知道嗎，我們<i>人類</i>也受目標錯誤泛化之苦。</p>
+<p>這些是我們的壞習慣，形成是因為它們<i>曾經</i>在我們的「訓練環境」中是適應性的。這都是心理治療中的老生常談：</p>
 <ul>
-<li>Alyx was a &quot;gifted kid&quot;, always praised for acing tests. In her training environment, reward correlated with &quot;doing excellently&quot; and &quot;surpassing others&quot;. But this led to unhealthy habits as an adult: she avoids going past her comfort zone (where she won't &quot;do excellently&quot; anymore) and she covers up her mistakes while putting down others (to &quot;surpass&quot; them).</li>
-<li>Beau grew up with abusive parents &amp; a low-trust neighborhood. In his training environment, <i>negative</i> reward (punishment) correlated with having his guard down. So, he learnt to be unemotional. This saved his life as a kid, but led to unhealthy habits as an adult: never opening up, never letting anyone in. En garde.</li>
+<li>Alyx 是個「天才兒童」，總是因為考試拿高分而受到稱讚。在她的訓練環境中，獎勵與「表現優秀」和「超越他人」相關。但這導致了成年後的不健康習慣：她避免走出舒適區（在那裡她不會再「表現優秀」了），她掩蓋自己的錯誤同時貶低他人（來「超越」他們）。</li>
+<li>Beau 在虐待他的父母和低信任度的社區中長大。在他的訓練環境中，<i>負面</i>獎勵（懲罰）與放鬆警惕相關。所以，他學會了不帶感情。這在他小時候救了他的命，但導致了成年後的不健康習慣：永遠不敞開心扉，永遠不讓任何人進來。防備。</li>
 </ul>
-<p>(What, you weren't expecting the Catboy Comic article to cut you deep? En garde.)</p>
-<p>So maybe, like how solving Goodhart's Law for AI may help solve it for <i>humans</i>, maybe solving goal mis-generalization for AI will also help <i>us</i>. That good ol' Human Alignment Problem.</p>
-<p>(Aside: <a href="#WhatIfGoalMisgeneralizationIsGood">: What if goal mis-generalization is actually... <i>good?</i></a>)</p>
+<p>（什麼，你沒想到貓男孩漫畫文章會深深刺痛你？防備。）</p>
+<p>所以也許，就像為 AI 解決古德哈特定律可能有助於為<i>人類</i>解決它一樣，也許為 AI 解決目標錯誤泛化也會幫助<i>我們</i>。那個老生常談的人類對齊問題。</p>
+<p>（旁註：<a href="#WhatIfGoalMisgeneralizationIsGood">:如果目標錯誤泛化實際上是⋯⋯<i>好的</i>呢？</a>）</p>
 <h3>🤔 複習 #8</h3>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
@@ -935,54 +935,54 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
     </orbit-prompt>
 </orbit-reviewarea>
 <hr>
-<h1>Humane Values</h1>
+<h1>人道價值觀</h1>
 <p><a id="problem7"></a></p>
 <h2>❓ 問題 7：什麼<i>是</i>人道價值觀，到底？</h2>
-<p>So! Let's say you've solved Problems #1 to #6. Your AI follows your commands the way you intended. It's robust, interpretable, and fully aligned with your values.</p>
-<p>Now, security mindset: <i>what's the worst that could plausibly happen?</i></p>
-<p><img src="../media/p2/comix/Humane.png" alt="Comic: Human confirms Robot is fully technically aligned. Robot says, &quot;Yes&quot;. Human cheers! They give Robot a job: &quot;Dispose of... him&quot;. Cut to a mangled, beaten Sheriff Meowdy tied to a chair. Robot is silent in shock. Human walks away smiling, &quot;Ta~&quot;"></p>
-<p>Oh. Right. A <i>human's</i> values may or may not be <i>humane</i> values.</p>
-<p>I know I've re-used that wordplay too much, but it's worth emphasizing that smart ≠ good. There's intelligent serial killers. And one of the head scientists who got us to the moon, Wernher von Braun (~pronounced &quot;Brown&quot;<sup class="footnote-ref"><a href="#fn59" id="fnref59">[59]</a></sup>), was literally a Nazi.</p>
-<p>But what if <i>very</i>-smart = good? Maybe a <i>truly</i> advanced AI would find moral truths, the same way it can find scientific &amp; mathematical truths? <strong>Is true rationality = morality? Would a true alignment to <i>one</i> human's values, necessarily lead to <i>humane</i> values?</strong></p>
-<p><i>This</i> is the fun part, where technology meets humanities, where programming meets philosophy. Let's introduce you to a sub-field of moral philosophy: <strong>Meta-Ethics!</strong>  If &quot;regular&quot; ethics asks &quot;What should I do in this scenario?&quot;, meta-ethics asks:</p>
-<p><i>Hey, what</i> is <i>the nature of 'moral truth', anyway?</i></p>
-<h3>Scenario #1: God(s) exist(s), morality is objective</h3>
-<p>Whether or not god(s) exist(s) is left as an exercise for the reader.</p>
+<p>好！假設你已經解決了問題 #1 到 #6。你的 AI 按照你的意圖執行你的命令。它是魯棒的、可解釋的，並且完全與你的價值觀對齊。</p>
+<p>現在，安全思維：<i>可能發生的最壞情況是什麼？</i></p>
+<p><img src="../media/p2/comix/Humane.png" alt="漫畫：人類確認機器人完全技術對齊。機器人說「是」。人類歡呼！他們給機器人一個工作：「處理掉⋯⋯他」。鏡頭切到一個被打得殘破的 Meowdy 警長被綁在椅子上。機器人震驚地沉默。人類微笑著走開，「掰~」"></p>
+<p>哦。對。一個<i>人類的</i>價值觀可能是也可能不是<i>人道的</i>價值觀。</p>
+<p>我知道我過度使用了這個雙關語，但值得強調的是聰明 ≠ 善良。有聰明的連環殺手。而且讓我們登上月球的首席科學家之一，Wernher von Braun（~發音為「Brown」<sup class="footnote-ref"><a href="#fn59" id="fnref59">[59]</a></sup>），字面上是一個納粹。</p>
+<p>但如果<i>非常</i>聰明 = 善良呢？也許一個<i>真正</i>先進的 AI 會發現道德真理，就像它能發現科學和數學真理一樣？<strong>真正的理性 = 道德嗎？與<i>一個</i>人類的價值觀真正對齊，是否必然導致<i>人道的</i>價值觀？</strong></p>
+<p><i>這</i>是有趣的部分，科技與人文相遇，程式設計與哲學相遇。讓我們向你介紹道德哲學的一個子領域：**元倫理學！**如果「普通」倫理學問「在這種情況下我應該做什麼？」，元倫理學問：</p>
+<p><i>嘿，「道德真理」的本質到底是什麼？</i></p>
+<h3>情境 #1：神存在，道德是客觀的</h3>
+<p>神是否存在留給讀者作為練習。</p>
 <img class="mini" src="../media/p2/misc/mini_god.png" />
-<p>But even if so, this won't ensure that an advanced AI would discover objective morality:</p>
+<p>但即使如此，這也不能確保先進的 AI 會發現客觀道德：</p>
 <ul>
-<li>Like how a very-colorblind person can't even <i>perceive</i> the difference between red &amp; green, a machine without consciousness or soul may not <i>perceive</i> the difference between right &amp; wrong, divine &amp; unholy. (Reminder: &quot;AI = a piece of cool software&quot;, and advanced &quot;cool software&quot; may not <i>necessarily</i> be conscious.)</li>
-<li>Morality may objectively exist, but not be binding on non-conscious AIs, any more than morality is binding on a rock.</li>
+<li>就像一個嚴重色盲的人甚至無法<i>感知</i>紅色和綠色的區別，一台沒有意識或靈魂的機器可能無法<i>感知</i>對與錯、神聖與邪惡的區別。（提醒：「AI = 一個很酷的軟體」，而先進的「很酷的軟體」不<i>一定</i>有意識。）</li>
+<li>道德可能客觀存在，但對無意識的 AI 沒有約束力，就像道德對一塊石頭沒有約束力一樣。</li>
 </ul>
-<h3>Scenario #2: God(s) don't exist, morality is still objective.</h3>
-<p>After Newton, all the philosophers got physics-envy. Like how Newton found universal physical laws grounded in math, philosophers sought to find universal moral laws grounded in rationality. If true, then a super-intelligent AI could re-discover morality!</p>
-<p>Here's a diagram capturing the Top Three schools of thought in modern ethics<sup class="footnote-ref"><a href="#fn60" id="fnref60">[60]</a></sup>, <i>and</i> a causal diagram of how they relate to each other!</p>
-<p><img src="../media/p2/ethics/ethics.png" alt="Comic of Ham the Human throwing a brick at Sheriff Meowdy's head, Krazy Kat-style. Captioned: Virtue Ethics focuses on character, Deontology focuses on actions, Consequentialism focuses on results of your actions. There's a causal diagram, too: character causes actions causes results of your actions."></p>
-<p>Putting aside the rich debate on whether these moral philosophies work for <i>humans</i>, I'm doubtful they'll work for <i>AIs</i>. In my opinion, all &quot;rationality-based&quot; moral philosophies have at least one of these 3 issues:</p>
-<p><u>Issue 1)</u> The philosophy depends on the specifics of human nature. For example, both ancient &amp; modern Virtue Ethics ground their moral philosophy on human needs &amp; human psychology. Maybe that's fine for us, but these won't apply to non-human AI.</p>
-<p><u>Issue 2)</u> The philosophy requires you accept at least one &quot;moral <a href="#axiom">:axiom</a>&quot;, which <i>is not</i> discoverable from physical observation or rational deduction. And so, an advanced AI would not <i>automatically</i> accept it.</p>
-<p>For example, Utilitarianism (the main type of Consequentialism) assumes only one moral axiom: <i>Happiness is good</i>.<sup class="footnote-ref"><a href="#fn61" id="fnref61">[61]</a></sup> Everything else follows from this axiom! But an advanced AI may not accept this axiom in the first place, because it's not scientifically discoverable: no matter how much you poke at the neurochemistry of happiness, you won't find &quot;goodness&quot; hiding in the atoms.</p>
-<p>(This is also known as Hume's &quot;is-ought&quot; gap<sup class="footnote-ref"><a href="#fn62" id="fnref62">[62]</a></sup>. And it's not just Utilitarianism, some Deontological philosophies also have this issue.<sup class="footnote-ref"><a href="#fn63" id="fnref63">[63]</a></sup>)</p>
-<p><u>Issue 3)</u> The philosophy <i>claims</i> to be fully grounded in rationality, no need for an extra &quot;moral axiom&quot; -- but it either sneaks in a moral axiom anyway, or the philosophy &quot;proves too much&quot;.</p>
-<p>For example, consider Immanuel Kant's Deontological argument for why it's irrational/immoral to steal. <i>If</i> it were rational to steal, all rational beings would steal, so there'd be nothing left to steal – a logical contradiction! Therefore, it must be <i>irrational</i> to steal, it's <i>always</i> immoral.</p>
-<p>Another example: <i>If</i> it's rational to lie, all rational beings would lie, thus not trust each others' words, thus no reason to bother lying — a logical contradiction! Therefore, it's irrational, and <i>always</i> immoral, to lie.</p>
-<p>But c'mon, really? <i>Always?</i> Even stealing from a private restaurant dumpster to not starve, or lying to the Taliban to protect your gay brother?<sup class="footnote-ref"><a href="#fn64" id="fnref64">[64]</a></sup> Are <i>you</i> the literal-rule-following robot? Besides, by the same logic, Sir Kant, it's irrational/immoral to be a full-time philosopher. <i>If</i> it were rational to do full-time philosophy, nobody would grow the crops, so we'd all starve to death, so we can't do full-time philosophy — a logical contradiction! Therefore... you get the idea. (Other deontological theories fall into similar traps.)</p>
-<p>Long story short, I think there's reasonable doubt that rationality <i>is</i> morality... at least for non-human AIs.</p>
-<p>(<a href="#MoreMetaEthics">:Further resources to learn about meta-ethics!</a> If you couldn't tell, this topic is one of my special interests.)</p>
-<h3>Scenario #3: Morality is relative!</h3>
-<p>That's an absolute statement, you dingus.</p>
-<h3>Scenario #4: Morality isn't real, but it's game-theoretically useful to pretend it is.</h3>
+<h3>情境 #2：神不存在，道德仍然是客觀的。</h3>
+<p>牛頓之後，所有哲學家都得了物理學羨慕症。就像牛頓發現了以數學為基礎的普遍物理定律，哲學家們試圖找到以理性為基礎的普遍道德定律。如果是真的，那麼超級智慧 AI 可以重新發現道德！</p>
+<p>這是一張圖表，捕捉了現代倫理學的三大思想流派<sup class="footnote-ref"><a href="#fn60" id="fnref60">[60]</a></sup>，<i>以及</i>它們如何相互關聯的因果圖！</p>
+<p><img src="../media/p2/ethics/ethics.png" alt="漫畫，Ham 人類向 Meowdy 警長的頭扔磚頭，Krazy Kat 風格。標題：美德倫理學關注品格，義務論關注行動，後果主義關注行動的結果。還有一個因果圖：品格導致行動導致行動的結果。"></p>
+<p>撇開這些道德哲學是否適用於<i>人類</i>的豐富辯論，我懷疑它們是否適用於 <i>AI</i>。在我看來，所有「基於理性」的道德哲學至少有以下 3 個問題之一：</p>
+<p><u>問題 1）</u>哲學依賴於人類本性的具體細節。例如，古代和現代的美德倫理學都將其道德哲學建立在人類需求和人類心理學上。也許這對我們來說沒問題，但這些不適用於非人類 AI。</p>
+<p><u>問題 2）</u>哲學要求你接受至少一個「道德<a href="#axiom">:公理</a>」，這<i>不是</i>從物理觀察或理性推演中可發現的。因此，先進的 AI 不會<i>自動</i>接受它。</p>
+<p>例如，功利主義（後果主義的主要類型）只假設一個道德公理：<i>快樂是好的</i>。<sup class="footnote-ref"><a href="#fn61" id="fnref61">[61]</a></sup> 其他一切都從這個公理推導出來！但先進的 AI 可能一開始就不接受這個公理，因為它在科學上是不可發現的：無論你怎麼探究快樂的神經化學，你都不會在原子中找到隱藏的「善」。</p>
+<p>（這也被稱為休謨的「是-應該」鴻溝<sup class="footnote-ref"><a href="#fn62" id="fnref62">[62]</a></sup>。而且不只是功利主義，一些義務論哲學也有這個問題。<sup class="footnote-ref"><a href="#fn63" id="fnref63">[63]</a></sup>）</p>
+<p><u>問題 3）</u>哲學<i>聲稱</i>完全建立在理性上，不需要額外的「道德公理」——但它要麼偷偷帶入道德公理，要麼哲學「證明太多」。</p>
+<p>例如，考慮康德的義務論論證，為什麼偷竊是不理性/不道德的。<i>如果</i>偷竊是理性的，所有理性的存在都會偷竊，所以就沒有東西可偷了——邏輯矛盾！因此，偷竊必須是<i>不理性的</i>，它<i>總是</i>不道德的。</p>
+<p>另一個例子：<i>如果</i>說謊是理性的，所有理性的存在都會說謊，因此不信任彼此的話，因此沒有理由費心說謊——邏輯矛盾！因此，說謊是不理性的，而且<i>總是</i>不道德的。</p>
+<p>但拜託，真的嗎？*總是？*即使是從私人餐廳的垃圾桶偷東西以免餓死，或者對塔利班說謊以保護你的同性戀兄弟？<sup class="footnote-ref"><a href="#fn64" id="fnref64">[64]</a></sup> <i>你</i>是那個字面遵守規則的機器人嗎？此外，按同樣的邏輯，康德先生，做全職哲學家是不理性/不道德的。<i>如果</i>做全職哲學是理性的，沒有人會種莊稼，所以我們都會餓死，所以我們不能做全職哲學——邏輯矛盾！因此⋯⋯你懂的。（其他義務論理論也落入類似的陷阱。）</p>
+<p>長話短說，我認為有合理的懷疑理性<i>就是</i>道德⋯⋯至少對於非人類 AI 來說。</p>
+<p>（<a href="#MoreMetaEthics">:進一步學習元倫理學的資源！</a> 如果你看不出來，這個話題是我的特別興趣之一。）</p>
+<h3>情境 #3：道德是相對的！</h3>
+<p>這是一個絕對的陳述，你這傻瓜。</p>
+<h3>情境 #4：道德不是真實的，但假裝它存在在賽局論上是有用的。</h3>
 <img class="mini" src="../media/p2/misc/mini_hobbes.png" />
-<p><i>(if i have to explain the joke it's not funny<sup class="footnote-ref"><a href="#fn65" id="fnref65">[65]</a></sup>)</i></p>
-<p>Let's say my neighbor has an awesome raccoon costume. I'd like to steal it. However, I don't want people to steal <i>my</i> stuff, so I &quot;consent&quot; to the State taking a cut of my money, to fund a police department, to stop people from stealing stuff in general. And thus, we arrive at a compromise, a social contract:</p>
-<p>&quot;Thou Shalt Not Steal&quot; (or the cops will get you).</p>
-<p>The above is a toy example of the <strong>social contract theory</strong> of ethics. In this theory, there <i>is</i> no objective morality, but it's useful to pretend it exists, to coordinate on a social contract. It's the same way there's no objective reason a red octagon <i>has</i> to mean &quot;STOP&quot;, but we all agree it does, so we can coordinate on not crashing our cars.</p>
-<p>(<a href="#SocialContract">:extra 'deleted scenes' from this section</a>)</p>
-<p>So: can <i>this</i> be the basis of &quot;rational, objective ethics&quot; for an advanced AI?  The game theory of social contracts?</p>
-<p>As long as an AI isn't <i>too</i> powerful, sure!  We don't have to <i>win</i> against an AI to impose a cost on it, and if we can impose a cost on it, then we have leverage to enforce a contract. And if there turn out to be <i>multiple</i> advanced AIs with roughly equal power, we may have a precariously balanced &quot;multipolar&quot; world. (Sidenote: <a href="#TradingWithAdvancedAI">:could we trade with super-human AIs?</a>)</p>
-<p>But if the multiple AIs create a <i>new</i> contract to collude with each other against us... or if a single AI gets so powerful no entity can enforce a contract against it...</p>
-<p>Then, well, back to square one.</p>
-<h3>🤔 Review #9</h3>
+<p><i>（如果我必須解釋這個笑話，它就不好笑了<sup class="footnote-ref"><a href="#fn65" id="fnref65">[65]</a></sup>）</i></p>
+<p>假設我的鄰居有一套很棒的浣熊服裝。我想偷它。然而，我不希望人們偷<i>我的</i>東西，所以我「同意」國家從我的錢中抽一部分，來資助警察部門，阻止人們普遍偷東西。因此，我們達成了一個妥協，一個社會契約：</p>
+<p>「你不可偷竊」（否則警察會抓你）。</p>
+<p>以上是<strong>社會契約論</strong>倫理學的一個玩具例子。在這個理論中，<i>沒有</i>客觀道德，但假裝它存在是有用的，以便在社會契約上協調。這就像沒有客觀理由說紅色八角形<i>必須</i>意味著「停」，但我們都同意它是，所以我們可以協調不撞車。</p>
+<p>（<a href="#SocialContract">:這一節的額外「刪除場景」</a>）</p>
+<p>所以：<i>這</i>能成為先進 AI「理性、客觀倫理」的基礎嗎？社會契約的賽局理論？</p>
+<p>只要 AI 不是<i>太</i>強大，當然可以！我們不必<i>贏過</i> AI 才能對它施加成本，如果我們能對它施加成本，那我們就有籌碼來執行契約。如果結果是有<i>多個</i>大致同等力量的先進 AI，我們可能會有一個不穩定平衡的「多極」世界。（旁註：<a href="#TradingWithAdvancedAI">:我們能與超人類 AI 進行交易嗎？</a>）</p>
+<p>但如果多個 AI 創建一個<i>新的</i>契約來聯合對付我們⋯⋯或者如果單個 AI 變得如此強大，沒有實體可以對它執行契約⋯⋯</p>
+<p>那麼，好吧，回到原點。</p>
+<h3>🤔 複習 #9</h3>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
@@ -1011,59 +1011,59 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
         answer="If it gets *too* powerful, we can't enforce a contract against it.">
     </orbit-prompt>
 </orbit-reviewarea>
-<h3>Scenario #5: Morality isn't real, and it's <i>not even useful</i> to pretend it is.</h3>
-<p>Well, crap.</p>
-<p>In this case, there are no &quot;humane values&quot;, only <i>specific humans'</i> values. There's no humane alignment, <i>only</i> technical alignment. There's no &quot;I should&quot;, <i>only</i> &quot;I want&quot;.</p>
-<p>So, <i>whose</i> wants do we want to technically-align an advanced AI to?</p>
-<p>The tech-company billionaires who run the biggest AI labs? The US government, whose ruling party can shift dramatically every 4 years? The EU? The UN? The IMF? NATO? Some other acronym? I think most people worldwide would be uncomfortable with <i>any</i> of that, to understate it. So, <i>whose</i> wants?</p>
-<p>&quot;Everybody's!&quot; you say? An AI that gives equal weight to all 8 billion of us, a full democracy of the world? I remind you that the majority of people worldwide believe being gay is &quot;never justifiable&quot;.<sup class="footnote-ref"><a href="#fn66" id="fnref66">[66]</a></sup> The majority disapproved of Martin Luther King during his lifetime.<sup class="footnote-ref"><a href="#fn67" id="fnref67">[67]</a></sup> Direct democracy would have delayed inter-racial marriage in the US by over a generation.<sup class="footnote-ref"><a href="#fn68" id="fnref68">[68]</a></sup> <i>Equality would not survive an equal vote.</i> To be clear, I'm <i>not</i> saying my specific cultural group is the pinnacle of morality -- I'm saying everywhere, every-when, every culture has struggled with hypocrisy &amp; inhumanity, and &quot;democracy&quot; doesn't solve that.</p>
-<p>&quot;Fine,&quot; you concede, &quot;everybody's values &amp; wants, <i>but</i> if we cured all the trauma that makes us bigoted, if we were all wise &amp; compassionate, and really got to know the facts and each other.&quot; This <i>is</i> one of the better proposals (which we'll cover in AI Safety Part 3<sup class="footnote-ref"><a href="#fn69" id="fnref69">[69]</a></sup>), but it's still a tall order, and kicks the question down: <i>whose</i> definition of &quot;wise&quot;, or &quot;compassionate&quot;?</p>
+<h3>情境 #5：道德不是真實的，假裝它存在<i>甚至沒有用</i>。</h3>
+<p>好吧，糟糕。</p>
+<p>在這種情況下，沒有「人道價值觀」，只有<i>特定人類的</i>價值觀。沒有人道對齊，<i>只有</i>技術對齊。沒有「我應該」，<i>只有</i>「我想要」。</p>
+<p>那麼，我們想把先進 AI 技術對齊到<i>誰的</i>想要？</p>
+<p>運營最大 AI 實驗室的科技公司億萬富翁？美國政府，其執政黨每 4 年可能會發生巨大變化？歐盟？聯合國？國際貨幣基金組織？北約？其他什麼縮寫？我認為全世界大多數人對<i>任何</i>這些都會感到不舒服，這還是輕描淡寫。那麼，<i>誰的</i>想要？</p>
+<p>「每個人的！」你說？一個對我們所有 80 億人給予同等權重的 AI，一個完全的世界民主？我提醒你，全世界大多數人認為同性戀是「永遠不可接受的」。<sup class="footnote-ref"><a href="#fn66" id="fnref66">[66]</a></sup> 在馬丁·路德·金的有生之年，大多數人不贊同他。<sup class="footnote-ref"><a href="#fn67" id="fnref67">[67]</a></sup> 直接民主會將美國的跨種族婚姻推遲超過一代人。<sup class="footnote-ref"><a href="#fn68" id="fnref68">[68]</a></sup> <i>平等不會在平等的投票中存活下來。<i>為了明確，我</i>不是</i>說我特定的文化群體是道德的頂峰——我是說每個地方、每個時代、每種文化都在與偽善和不人道作鬥爭，「民主」並不能解決這個問題。</p>
+<p>「好吧，」你讓步，「每個人的價值觀和想要，<i>但是</i>如果我們治癒了所有讓我們偏執的創傷，如果我們都是睿智和有同情心的，並且真正了解事實和彼此。」這<i>確實</i>是更好的提議之一（我們將在 AI 安全第三章中討論<sup class="footnote-ref"><a href="#fn69" id="fnref69">[69]</a></sup>），但這仍然是一個艱鉅的任務，並把問題踢下去：<i>誰的</i>「睿智」或「同情心」的定義？</p>
 <p>. . .</p>
-<p><img src="../media/p2/ethics/aim_vs_target.png" alt="Left: rocket being built, labeled, &quot;technical alignment: how to robustly aim AI at any target at all&quot;. Right: the moon, labeled, &quot;whose values: what should be our target?&quot;"></p>
-<p>An anthropological anecdote:</p>
-<p>A few years ago, in the AI Alignment community, it seemed the consensus was &quot;technical alignment&quot; was higher-priority than figuring out &quot;humane values&quot;. A common analogy given: Imagine it's the early days of rocket engineering. It's useless to argue <i>where</i> we should go with the rocket (The moon? Mars? Venus?), since <i>given our current technical knowledge, by default</i>, a powerful rocket will just explode and burn everyone on the ground.</p>
-<p>But post-ChatGPT, I've noticed more recognition<sup class="footnote-ref"><a href="#fn70" id="fnref70">[70]</a></sup> we <i>should also</i> prioritize the &quot;humane values&quot; question. To extend the above analogy: It's like folks realized that <i>given our current political situation, by default</i>, the rockets will be used by Great Powers to bomb each other, not for exploring space. (To be explicit: it seems by default, technically-aligned AI will be used for war, &amp; making us consume more products.)</p>
-<p>(Reminder from Part One: <a href="#WaysToMakeHumaneAIGoingWrong">:the obvious ways</a> of specifying &quot;human flourishing&quot;, or even straightforward codes-of-ethics like <a href="#AsimovsLaws">:Asimov's Three Laws</a>, all break down.)</p>
-<p>So, if moral truth doesn't exist — or if it does, but a machine can't perceive it / derive it / be bound to it — then we need to get the major AI creators to pre-commit to aligning their advanced AIs to <i>some</i> not-terrible list of values.</p>
-<p>This is the kind of problem that's hardest for technical-minded engineers to admit: <i>it's a problem of politics, not programming.</i></p>
-<p>Let's close with <a href="https://www.youtube.com/watch?v=TjDEsGZLbio">one of my favorite songs</a> — about ethics, rockets, and choosing where we want our technology to take us:</p>
+<p><img src="../media/p2/ethics/aim_vs_target.png" alt="左：正在建造的火箭，標籤為「技術對齊：如何魯棒地將 AI 瞄準任何目標」。右：月球，標籤為「誰的價值觀：我們的目標應該是什麼？」"></p>
+<p>一個人類學趣聞：</p>
+<p>幾年前，在 AI 對齊社區，共識似乎是「技術對齊」比弄清楚「人道價值觀」優先級更高。一個常見的類比是：想像這是火箭工程的早期。爭論我們應該用火箭去<i>哪裡</i>（月球？火星？金星？）是沒有用的，因為<i>根據我們目前的技術知識，默認情況下</i>，一個強大的火箭只會爆炸並燒死地面上的所有人。</p>
+<p>但在 ChatGPT 之後，我注意到更多的認識<sup class="footnote-ref"><a href="#fn70" id="fnref70">[70]</a></sup>，我們<i>也應該</i>優先考慮「人道價值觀」問題。延伸上面的類比：這就像人們意識到<i>根據我們目前的政治情況，默認情況下</i>，火箭將被大國用來互相轟炸，而不是用於探索太空。（明確地說：似乎默認情況下，技術對齊的 AI 將被用於戰爭和讓我們消費更多產品。）</p>
+<p>（第一章的提醒：<a href="#WaysToMakeHumaneAIGoingWrong">:明顯的方式</a>來指定「人類繁榮」，甚至像<a href="#AsimovsLaws">:阿西莫夫三定律</a>這樣直接的倫理準則，都會崩潰。）</p>
+<p>所以，如果道德真理不存在——或者如果存在，但機器無法感知它/推導它/受它約束——那麼我們需要讓主要的 AI 創造者預先承諾將他們的先進 AI 對齊到<i>某個</i>不太糟糕的價值觀列表。</p>
+<p>這是技術思維的工程師最難承認的那種問題：<i>這是政治問題，不是程式設計問題。</i></p>
+<p>讓我們以<a href="https://www.youtube.com/watch?v=TjDEsGZLbio">我最喜歡的歌曲之一</a>來結束——關於倫理、火箭，以及選擇我們希望技術帶我們去哪裡：</p>
 <blockquote>
-<p>🎵 <i>“Once ze rockets are up,</i><br>
-<i>Who cares where zey come down?</i><br>
-<i>Zat's not my department”,</i><br>
-<i>says Wernher von Braun.</i> 🎵</p>
+<p>🎵 <i>「一旦火箭升空，</i><br>
+<i>誰在乎它們落在哪裡？</i><br>
+<i>那不是我的部門」，</i><br>
+<i>Wernher von Braun 說。</i> 🎵</p>
 </blockquote>
-<p>... yeah, we're not doing a flashcard review for this one.</p>
+<p>⋯⋯是的，我們這次不做抽認卡複習。</p>
 <img class="img-splash" src="../media/p2/ethics/rockets.png" />
 <hr>
 <h1>第二章總結</h1>
-<p>Well read, friend!  Today you learnt about all the parts of the AI Value Alignment Problem, in all its gory detail.  Not only that, you got a crash course in: security mindset, game theory, economics, machine learning, statistics, causal inference, and even meta-ethics in philosophy!</p>
-<p>(If you skipped the flashcards &amp; would like to review them now, click the Table of Contents icon in the right sidebar, then click the &quot;🤔 Review&quot; links. Alternatively, download the <a href="../anki/decks/AI_Safety_P2.apkg">Anki deck for Part Two</a>.)</p>
-<p>As a recap, here's how it all connects:</p>
-<p><img src="../media/p2/breakdown/breakdown0002.png" alt="Same breakdown chart of the Value Alignment Problem from the start of Part 2, except with labels showing the connection to safety engineering, game theory, economics, machine learning, statistics, causal inference, and meta-ethics."></p>
-<p><strong>IN SUM:</strong></p>
+<p>讀得好，朋友！今天你學到了 AI 價值對齊問題的所有部分，包括所有血淋淋的細節。不僅如此，你還速成學習了：安全思維、賽局理論、經濟學、機器學習、統計學、因果推論，甚至還有哲學中的元倫理學！</p>
+<p>（如果你跳過了抽認卡並想現在複習它們，請點擊右側邊欄中的目錄圖標，然後點擊「🤔 複習」連結。或者，下載<a href="../anki/decks/AI_Safety_P2.apkg">第二章的 Anki 牌組</a>。）</p>
+<p>作為回顧，這是它們如何連結在一起：</p>
+<p><img src="../media/p2/breakdown/breakdown0002.png" alt="與第二章開頭相同的價值對齊問題分解圖，但增加了標籤顯示與安全工程、賽局理論、經濟學、機器學習、統計學、因果推論和元倫理學的連結。"></p>
+<p><strong>總結：</strong></p>
 <ul>
-<li>🙀 <strong>To engineer safe, helpful things,</strong> we gotta be paranoid. Ask, <i>What's the worst that could (plausibly) happen?</i>, then fix it in advance. The optimist invents the airplane, the pessimist invents the parachute.</li>
-<li>⚙️ <strong>The main problems with AI Logic</strong> can be understood with Goodhart's Law and game theory.
+<li>🙀 **要工程設計安全、有用的東西，**我們必須偏執。問，<i>可能（合理地）發生的最壞情況是什麼？</i>，然後提前修復它。樂觀主義者發明飛機，悲觀主義者發明降落傘。</li>
+<li>⚙️ <strong>AI 邏輯的主要問題</strong>可以用古德哈特定律和賽局理論來理解。
 <ul>
-<li>👀 VISUAL: You can use &quot;game trees&quot; to understand instrumental convergence &amp; wireheading-avoidance.</li>
+<li>👀 視覺化：你可以使用「賽局樹」來理解工具趨同和避免腦內電極。</li>
 </ul>
 </li>
-<li>💭 <strong>The main problems with AI &quot;Intuition&quot;</strong> are the same as the problems of 'fitting curves to data points' (uninterpretable, overfitting), and the 'correlation doesn't tell you about the kind of causation' problem (which leads to discrimination &amp; mis-generalization).
+<li>💭 <strong>AI「直覺」的主要問題</strong>與「將曲線擬合到數據點」的問題（不可解釋、過度擬合）相同，以及「相關性不能告訴你因果關係的種類」問題（這導致歧視和錯誤泛化）。
 <ul>
-<li>👀 VISUAL: You can use &quot;causal diagrams&quot; to understand correlation &amp; causation.</li>
+<li>👀 視覺化：你可以使用「因果圖」來理解相關性和因果關係。</li>
 </ul>
 </li>
-<li>💖 <strong>The problem of &quot;which values&quot;</strong> is the millennia-old problem of moral philosophy. Good luck.</li>
+<li>💖 <strong>「哪些價值觀」的問題</strong>是千年來的道德哲學問題。祝你好運。</li>
 </ul>
 <p>. . .</p>
-<p><i>&quot;A problem well-stated is a problem half-solved.&quot;</i></p>
-<p>The other half is, well, solving it.</p>
-<p>After two long chapters, finally, we can understand the top proposed solutions to <i>every</i> sub-part of the Alignment Problem! Stay tuned for the grand finale, Part 3, of AI Safety for Fleshy Humans, coming <strong>end of November 2025!</strong></p>
-<p>Sign up to be notified when the final part is out: 👇</p>
+<p><i>「問題陳述得好，問題就解決了一半。」</i></p>
+<p>另一半是，嗯，解決它。</p>
+<p>經過兩個長章節，終於，我們可以理解對齊問題<i>每個</i>子部分的頂級提議解決方案！敬請期待給肉身人類的 AI 安全的大結局，第三章，即將於 <strong>2025 年 11 月底</strong>推出！</p>
+<p>註冊以在最終部分推出時收到通知：👇</p>
 <p><div style="width:100%;height:500px;" data-fillout-id="hX3xJuTcdVus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize data-fillout-domain="forms.hackclub.com"></div>
 <script defer src="https://server.fillout.com/embed/v1/"></script></p>
-<p>In the meantime, check out the other stuff I've made, or learn more about Hack Club, in the credits below! <span class='NEXT_ARROW'><img src="../media/misc/NEXT_ARROW.png"></span></p>
+<p>在此期間，請查看我製作的其他東西，或在下面的致謝中了解更多關於 Hack Club 的資訊！<span class='NEXT_ARROW'><img src="../media/misc/NEXT_ARROW.png"></span></p>
 <h4>:x Ways to make &quot;Humane AI&quot; going wrong</h4>
 <p>(copy-pasted from <a href="https://aisafety.dance/p1/">Part One</a>)</p>
 <p>Here's some rules you'd <i>think</i> would lead to humane-with-an-e AI, but if taken literally, would go awry:</p>
