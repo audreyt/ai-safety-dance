@@ -213,7 +213,7 @@ AI 安全 / AI 風險過去不那麼主流，但現在在 2024 年，美國和�
 
 [^departments]: 英國在 [2023 年 11 月](https://www.gov.uk/government/publications/ai-safety-institute-overview/introducing-the-ai-safety-institute)推出了世界上第一個國家支持的 AI 安全研究所。美國在 [2024 年 2 月](https://www.commerce.gov/news/press-releases/2024/02/biden-harris-administration-announces-first-ever-consortium-dedicated)緊隨其後建立了 AI 安全研究所。我剛注意到*兩篇*文章都聲稱是「第一個」。好吧。
 
-[^international-agreements]: [2023 年布萊切利宣言](https://www.computerworld.com/article/1638908/china-us-and-eu-agree-to-work-together-on-ai-safety.html)，[2024 年首爾 AI 峰會](https://www.gov.uk/government/news/global-leaders-agree-to-launch-first-international-network-of-ai-safety-institutes-to-boost-understanding-of-ai)。**2025 年 12 月更新：**一個酸楚的音符，[2025 年 AI 行動峰會](https://en.wikipedia.org/wiki/AI_Action_Summit)進展不太順利，因為美國和英國由於協議中有關於「包容性 AI」的條款而拒絕簽署。
+[^international-agreements]: [2023 年布萊切利宣言](https://www.computerworld.com/article/1638908/china-us-and-eu-agree-to-work-together-on-ai-safety.html)，[2024 年首爾 AI 峰會](https://www.gov.uk/government/news/global-leaders-agree-to-launch-first-international-network-of-ai-safety-institutes-to-boost-understanding-of-ai)。<b>2025 年 12 月更新：</b>一個酸楚的音符，[2025 年 AI 行動峰會](https://en.wikipedia.org/wiki/AI_Action_Summit)進展不太順利，因為美國和英國由於協議中有關於「包容性 AI」的條款而拒絕簽署。
 
 * Geoffrey Hinton[^hinton] 和 Yoshua Bengio[^bengio]，2018 年圖靈獎（「計算機界的諾貝爾獎」）的共同獲獎者，因他們在深度神經網路方面的工作——這是*所有*新的著名 AI 使用的東西。[^all-famous-ai]
 * Stuart Russell 和 Peter Norvig，*最*常用人工智慧教科書的作者。[^russell-norvig]
@@ -249,7 +249,7 @@ AI 安全 / AI 風險過去不那麼主流，但現在在 2024 年，美國和�
 
 但是，「無聊」並不意味著*不重要*。如何設計安全電梯/飛機/橋樑的技術細節對大多數外行人來說很無聊⋯⋯*也是*生死攸關的事情。災難性的 AI 風險甚至不需要「超人類通用智慧」！例如，一個「只」擅長設計病毒的 AI 可以幫助生物恐怖組織（如奧姆真理教[^aum]）殺死數百萬人。
 
-（**2025 年 12 月更新：**雖然 AI 意識仍然與 AI 安全垂直，但在我開始這個系列到現在的 1.5 年裡，對 *AI 本身*福祉的關注已經變得更加主流了一些。不是，像，*主流*主流，但領先的 AI 實驗室之一 Anthropic 最近聘請了一位[全職「AI 福利」研究員](https://arstechnica.com/ai/2024/11/anthropic-hires-its-first-ai-welfare-researcher/)，他的工作已經導致了[產品的實際變化](https://www.anthropic.com/research/end-subset-conversations)。）
+（<b>2025 年 12 月更新：</b>雖然 AI 意識仍然與 AI 安全垂直，但在我開始這個系列到現在的 1.5 年裡，對 *AI 本身*福祉的關注已經變得更加主流了一些。不是，像，*主流*主流，但領先的 AI 實驗室之一 Anthropic 最近聘請了一位[全職「AI 福利」研究員](https://arstechnica.com/ai/2024/11/anthropic-hires-its-first-ai-welfare-researcher/)，他的工作已經導致了[產品的實際變化](https://www.anthropic.com/research/end-subset-conversations)。）
 
 但無論如何！說到殺人⋯⋯
 
@@ -271,7 +271,7 @@ AI 安全 / AI 風險過去不那麼主流，但現在在 2024 年，美國和�
 * <u>網路安全贖金地獄</u>：網路罪犯製造一種電腦病毒，它*自己進行駭客攻擊和重新編程*，所以它總是領先人類防禦一步。結果：一個無法阻擋的全球殭屍網絡，它劫持關鍵基礎設施作為贖金，並操縱頂級 CEO 和政客為它做事。
   * （作為背景：*沒有* AI，駭客已經破壞了核電站[^stuxnet]，劫持醫院作為贖金[^ransom-hospitals]，這可能殺死了某人[^hospital-death]，並*兩次*幾乎毒害一個城鎮的供水系統。[^water-supply] *有了* AI，深偽已被用來影響選舉[^deepfake-election]，在一次搶劫中偷走 2500 萬美元[^hong-kong]，並針對父母進行贖金，使用他們孩子被綁架並哭著求救的偽造聲音。[^deepfake-ransom]）
   * （這就是為什麼「當我們注意到 AI 失控時就關閉它」不容易；正如電腦安全的歷史所示，我們一般就是*不擅長*注意問題。[:我無法過分強調現代世界是建立在一座倒置的紙牌屋上。](#xz)）
-  * （**2025 年 12 月更新：**幾個月前，研究人員發現了[世界上第一個確認的案例](https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf)，「代理 AI 成功獲得對確認的高價值目標的訪問權限以進行情報收集，包括主要技術公司和政府機構」。它正在發生！！）
+  * （<b>2025 年 12 月更新：</b>幾個月前，研究人員發現了[世界上第一個確認的案例](https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf)，「代理 AI 成功獲得對確認的高價值目標的訪問權限以進行情報收集，包括主要技術公司和政府機構」。它正在發生！！）
 
 以上例子都是「人類*濫用* AI 造成混亂」，但記住先進 AI 可以*自己*做到上述事情，由於「無聊的」原因：它以邏輯但不可取的方式完成目標，它的目標出錯但技能保持完整，等等。
 
