@@ -172,9 +172,15 @@ p + ul{
     margin-top: -1em;
 }
 ul ul{
-    margin-top: 0;
+    margin-top: 0.5em;
+}
+li{
+    margin-bottom: 0.5em;
 }
 
+blockquote{
+    margin-right: 0;
+}
 blockquote, .nutshell-bubble blockquote{
     border-left: 5px solid rgba(128,128,128,0.4);
     margin-left: 0;
@@ -300,6 +306,11 @@ s{
     position: relative;
     height:100%;
     opacity: 0.75;
+}
+#header #p3-banner{
+    position: relative;
+    height:100%;
+    opacity: 0.5;
 }
 #header > #header_words{
     position: absolute;

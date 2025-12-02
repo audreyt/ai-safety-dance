@@ -2,18 +2,31 @@
     {% if isFrontpage %} href="p1" {% endif %}
     {% if isPartOne %} href="../p2" {% endif %}
     {% if isPartTwo %} href="../p3" {% endif %}
+    {% if isPartThree %} href="../conclusion" {% endif %}
     target="_self">
 <div id="next_button">
     <div id="nb--crt_lines"></div>
     <div id="nb--static"></div>
     <div id="nb--words">
         {% if isFrontpage %}
-            <b>第一部分 →</b>
+            <b>PART ONE →</b>
         {% elif isPartOne %}
-            <b>第二部分 →</b>
+            <b>PART TWO →</b>
         {% elif isPartTwo %}
-            <b>第三部分 →</b>
+            <b>PART THREE →</b>
+        {% elif isPartThree %}
+            <b style="font-size:78px">CONCLUSION →</b>
         {% endif %}
     </div>
 </div>
 </a>
+{% if isPartTwo %}
+<div style="height:0; position:relative">
+    <img style="display: block;
+  margin: 0 auto;
+  width: 250px;
+  position: relative;
+  top: -160px;"
+  src='{{root}}/media/misc/unfinished.png'/>
+</div>
+{% endif %}

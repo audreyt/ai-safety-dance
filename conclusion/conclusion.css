@@ -1,0 +1,172 @@
+html, body{
+    width:100%;
+    height:100%;
+    margin:0;
+
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    font-size: 50px;
+    line-height: 1.27em;
+
+    scroll-behavior: smooth;
+
+    background:#000;
+    color:#fff;
+}
+
+#scroll_arrow{
+    z-index:999;
+    position:fixed;
+    width:100px; height:100px;
+    left:calc(50% - 50px);
+    bottom:10px;
+    animation: bounce 0.7s ease-in-out infinite;
+    font-size: 20px;
+    text-align:center;
+    line-height: 50px;
+}
+@keyframes bounce {
+     0%, 100% {
+         transform: translateY(0);
+     }
+     50% {
+         transform: translateY(-20px);
+     }
+ }
+
+
+
+a{
+    color: hsla(0, 80%, 60%);
+    transition: color 0.1s;
+}
+a:hover{
+    color: hsla(0, 80%, 70%);
+}
+body{
+    overflow-x:hidden;
+}
+
+b,strong{
+    font-weight:bold;
+}
+.container{
+    position:relative;
+    text-align:center;
+}
+.container > div{
+    width:800px;
+    margin:0 auto;
+}
+
+.glitchy{
+    text-shadow: -3px 0px 0px rgba(255,0,0,0.35), 3px 0px 0px rgba(0,0,255,0.35);
+}
+
+#splash_image{
+    position:fixed;
+    width:100%; height:100%;
+    z-index:0;
+    animation: header-background 8s linear infinite;
+}
+@keyframes header-background {
+    0% {
+        background-color: #41898D;
+    }
+    50% {
+        background-color: #91237A;
+    }
+    100%{
+        background-color: #41898D;
+    }
+}
+#crt_lines{
+    background: url(../media/splash/crt_lines.png);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-size: 100% 100%;
+}
+#static{
+    background: url(../media/splash/static.png);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-size: 100% 100%;
+    background-position: 0px 250px;
+}
+
+/* Mobile... tolerant. */
+@media (max-width: 850px) {
+    .container{
+        min-width: 800px;
+    }
+    body{
+        overflow-x: auto;
+    }
+}
+
+.load_me{
+    opacity:0.001;
+    position:absolute;
+    /*width:1px; height:1px;*/
+}
+
+/*************************
+MISC PICS
+**************************/
+#all_of_us{
+    background: url('pics/all_of_us.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.parallax{
+    overflow:hidden;
+    position:relative;
+}
+.parallax > img{
+    position:absolute;
+    top:0;left:0;
+}
+
+/*************************
+FORK
+**************************/
+#fork_1, #fork_2{
+    overflow:hidden;
+}
+#fork_1_visual, #fork_2_visual{
+    transition: transform 1s ease-in-out;
+}
+.fork_container{
+    position:absolute;
+}
+.fork_container > img{
+    position:absolute;
+    top:0; left:0;
+}
+
+/*************************
+SUNSET
+**************************/
+#sunset_bg{
+    background-image: url('pics/sunset_bg.png');
+    background-size: 105% auto;
+    background-repeat: no-repeat;
+    background-position: calc(50% - 14px) bottom;
+    box-shadow: inset 0 300px 100px -200px #000;
+}
+#sunset_chars{
+    background-image: url('pics/sunset_chars1.png');
+    background-size: 1000px auto;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+#sunset_railing{
+    background-image: url('pics/sunset_railing.png');
+    background-size: auto 300px;
+    background-repeat: repeat-x;
+    background-position: center bottom;
+}
