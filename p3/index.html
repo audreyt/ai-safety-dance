@@ -1050,146 +1050,146 @@
 <p>對「AI 直覺」獲得直覺是<i>如此困難</i>。</p>
 <p>一方面，LLM 在國際數學奧林匹克競賽中贏得了金牌，<sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup> 通過了圖靈測試<sup class="footnote-ref"><a href="#fn34" id="fnref34">[34]</a></sup>，人類在詩歌<sup class="footnote-ref"><a href="#fn35" id="fnref35">[35]</a></sup>、治療<sup class="footnote-ref"><a href="#fn36" id="fnref36">[36]</a></sup>和短篇小說<sup class="footnote-ref"><a href="#fn37" id="fnref37">[37]</a></sup>的「盲測」中<i>更喜歡 AI 而不是人類</i>。</p>
 <p>另一方面，這些<i>同樣的</i>最先進的 LLM 無法經營一台自動販賣機的業務<sup class="footnote-ref"><a href="#fn38" id="fnref38">[38]</a></sup>，無法玩 Pokémon Red<sup class="footnote-ref"><a href="#fn39" id="fnref39">[39]</a></sup>，無法做簡單的密碼<sup class="footnote-ref"><a href="#fn40" id="fnref40">[40]</a></sup>，無法解決簡單的「規則發現」遊戲<sup class="footnote-ref"><a href="#fn41" id="fnref41">[41]</a></sup>。</p>
-<p>And now, this year, there's a new paper from Apple. <a href="https://ml-site.cdn-apple.com/papers/the-illusion-of-thinking.pdf"><i>The Illusion of Thinking</i>, by Shojaee &amp; Mirzadeh et al</a>. It's…</p>
-<p>...well, best if I just show you.</p>
-<p>Here is the child's puzzle game, <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi">Tower of Hanoi</a>, so named because a 1800's Frenchman thought they look like Vietnamese pagodas, I guess:<sup class="footnote-ref"><a href="#fn42" id="fnref42">[42]</a></sup></p>
-<p><img src="../media/p3/gears/hanoi.jpg" alt="Photo of three pegs, with a stack of 8 disks on the left-most peg, stacked biggest-to-smallest"></p>
-<p>The goal is to move the entire stack from the left-most peg, to the right-most peg. The rules are: 1) you can only move one disk at a time, from one peg to another, and 2) <i>you cannot put a larger disk over a smaller disk</i>.</p>
-<p>🕹️ <strong><a href="https://www.mathsisfun.com/games/towerofhanoi.html">(If you'd like to play the game yourself before continuing, click here!)</a></strong> 🕹️</p>
-<p>Here's how this game may go for a Human:<sup class="footnote-ref"><a href="#fn43" id="fnref43">[43]</a></sup></p>
+<p>而今年，Apple 發表了一篇新論文。<a href="https://ml-site.cdn-apple.com/papers/the-illusion-of-thinking.pdf">Shojaee &amp; Mirzadeh 等人的《<i>The Illusion of Thinking</i>（思考的假象）》</a>。這篇論文……</p>
+<p>……還是讓我直接展示給你看吧。</p>
+<p>這是一個兒童益智遊戲，<a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi">河內塔</a>，之所以叫這個名字，大概是因為一個 1800 年代的法國人覺得它看起來像越南的寶塔吧：<sup class="footnote-ref"><a href="#fn42" id="fnref42">[42]</a></sup></p>
+<p><img src="../media/p3/gears/hanoi.jpg" alt="三根柱子的照片，最左邊的柱子上有一疊 8 個圓盤，從大到小堆疊"></p>
+<p>目標是把整疊圓盤從最左邊的柱子移到最右邊的柱子。規則是：1）每次只能移動一個圓盤，從一根柱子移到另一根，2）<i>不能把大圓盤放在小圓盤上面</i>。</p>
+<p>🕹️ <strong><a href="https://www.mathsisfun.com/games/towerofhanoi.html">（如果你想在繼續閱讀前自己玩玩看，點這裡！）</a></strong> 🕹️</p>
+<p>對人類來說，這個遊戲可能是這樣進行的：<sup class="footnote-ref"><a href="#fn43" id="fnref43">[43]</a></sup></p>
 <ul>
-<li>Starting at 3 disks, you fumble a lot, and eventually brute-force your way through.</li>
-<li>Then at 4 disks, it's too complicated for brute force, but you're noticing patterns from when you solved it at 3 disks, and that helps you to the end.</li>
-<li>Then at 5 disks, 🤯 <i>EUREKA!</i> 🤯, you figured out the core epiphany! (See GIF below for visualization.<sup class="footnote-ref"><a href="#fn44" id="fnref44">[44]</a></sup>) <i>To move a 5-stack, you need to move a 4-stack, so you need to move a 3-stack, so move a 2-stack, so move a 1-stack, which is trivial.</i> Now, not only can you solve ANY level of the Tower of Hanoi, you can even calculate the exact number of moves you need!<sup class="footnote-ref"><a href="#fn45" id="fnref45">[45]</a></sup> Satisfied with your big brain, you execute the pattern, make mistakes, correct your mistakes, and eventually succeed.</li>
-<li>Then at 6 disks, you execute the pattern with no mistakes.</li>
-<li>Then at 7+ disks, it's obvious, routine &amp; tedious, even.</li>
+<li>從 3 個圓盤開始，你會手忙腳亂，最後靠暴力破解勉強過關。</li>
+<li>然後到 4 個圓盤時，暴力破解太複雜了，但你開始注意到解 3 個圓盤時的一些規律，這幫助你順利完成。</li>
+<li>然後到 5 個圓盤時，🤯 <i>尤里卡！</i> 🤯，你領悟到了核心訣竅！（見下方 GIF 動畫示意。<sup class="footnote-ref"><a href="#fn44" id="fnref44">[44]</a></sup>）<i>要移動 5 層塔，你需要先移動 4 層塔，所以需要先移動 3 層塔，所以先移動 2 層塔，所以先移動 1 層塔——這很簡單。</i> 現在，你不僅能解決任何層數的河內塔，甚至能計算出需要的精確步數！<sup class="footnote-ref"><a href="#fn45" id="fnref45">[45]</a></sup> 對自己的聰明才智感到滿意後，你執行這個規律，犯了一些錯，糾正錯誤，最終成功。</li>
+<li>然後到 6 個圓盤時，你完美執行這個規律，沒有任何錯誤。</li>
+<li>然後到 7 個以上的圓盤時，已經很明顯了，甚至變成例行公事般無聊。</li>
 </ul>
-<p><img src="../media/p3/gears/hanoi_solution.gif" alt="GIF of solution to a 6-disk Hanoi"></p>
-<p>Point is: if a Human can successfully solve Tower of Hanoi for 7 disks, they obviously have the pattern down. You would expect they can solve 8 or more disks, tediousness &amp; minor mistakes aside.</p>
-<p>What you would <i>NOT</i> expect is this:</p>
-<p><img src="../media/p3/gears/hanoi-performance.png" alt="Graph of Claude-with-thinking vs the Hanoi puzzle. Good performance up to 7 disks, then utterly collapses"></p>
-<p>With &quot;chain-of-thought reasoning&quot; turned on: near-perfection from Disks 1 to 5, still pretty good at Disk 7, then <i>complete collapse</i> after Disks 8 and up. (This graph skips Disk 6 for some reason. The full data shows that 6-Disk's performance was slightly <i>worse</i> than 7-Disk's. Probably noise.)</p>
-<p>And it wasn't just Tower of Hanoi, or just the Claude LLM. Across 3 other child's puzzle games, across ChatGPT &amp; DeepSeek, &quot;reasoning mode&quot; LLMs do great, well past the point a Human would've figured out the general solution... then it <i>completely fails</i>.</p>
-<p>Again, not &quot;minor mistakes&quot; like a Human would. <i>Collapse</i>.</p>
-<p>That's like being able to add two 7-digit numbers on pen &amp; paper, then <i>utterly bomb</i> on two 8-digit numbers.</p>
-<p>(&quot;Okay but won't it get better with more scale &amp; training?&quot; you may ask. Sure. But if a Human adds two 7-digit numbers perfectly but fails at 8, then promises you &quot;okay but if you give me more training I can do 8, too!&quot; that is not encouraging. They're clearly not &quot;getting it&quot;.)</p>
+<p><img src="../media/p3/gears/hanoi_solution.gif" alt="6 層河內塔解法的 GIF 動畫"></p>
+<p>重點是：如果一個人能成功解決 7 個圓盤的河內塔，他們顯然已經掌握了規律。你會預期他們能解決 8 個或更多圓盤，除了可能有點無聊和小錯誤。</p>
+<p>你<i>不會</i>預期的是這個：</p>
+<p><img src="../media/p3/gears/hanoi-performance.png" alt="Claude 配合思考模式 vs 河內塔的圖表。7 個圓盤以內表現良好，然後&lt;i&gt;徹底崩潰&lt;/i&gt;"></p>
+<p>開啟「思維鏈推理」模式後：1 到 5 個圓盤接近完美，7 個圓盤時仍然相當不錯，然後 8 個及以上<i>完全崩潰</i>。（這張圖不知為何跳過了 6 個圓盤。完整數據顯示 6 個圓盤的表現實際上比 7 個圓盤<i>略差</i>。可能是噪音。）</p>
+<p>而且這不只是河內塔的問題，也不只是 Claude 這個 LLM 的問題。在另外 3 個兒童益智遊戲中，跨越 ChatGPT 和 DeepSeek，「推理模式」的 LLM 表現都很好，遠遠超過人類會領悟出通用解法的程度……然後<i>完全失敗</i>。</p>
+<p>再說一次，不是像人類那樣的「小錯誤」。是<i>崩潰</i>。</p>
+<p>這就像能在紙上完美計算兩個 7 位數的加法，然後在兩個 8 位數上<i>徹底翻車</i>。</p>
+<p>（「好吧，但更大規模和更多訓練後不會變好嗎？」你可能會問。當然會。但如果一個人能完美計算 7 位數加法卻在 8 位數上失敗，然後向你保證「好吧，如果你給我更多訓練我也能做 8 位數！」這可不令人鼓舞。他們顯然沒有「真正理解」。）</p>
 <p>. . .</p>
-<p>What the heck is happening?</p>
-<p>An AI skeptic might say, &quot;See! LLMs are just stochastic parrots.<sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup> They just copy what they've seen in the trillions of documents they've been trained on, and fail in never-before-seen scenarios.&quot;</p>
-<p>I don't think that's quite right — I doubt there was <i>any</i> web document writing out the full solution to the 7-disk, but not 8-disk and up. Nor do I think there was any document with <a href="https://x.com/tqbf/status/1598513757805858820">&quot;instructions on how to remove a peanut butter sandwich from a VCR, in the style of the King James Bible&quot;</a>, yet early-ChatGPT delivered <i>perfectly</i> in this never-before-seen scenario. So, LLMs <i>do</i> generalize, at least a little bit.</p>
-<p>Here's my guess, and I'm far from the first<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup> to make this guess:</p>
-<p><strong>Modern AIs &quot;think in vibes&quot;. They do not &quot;think in gears&quot;.</strong><sup class="footnote-ref"><a href="#fn48" id="fnref48">[48]</a></sup></p>
-<p><u>Thinking in vibes</u>: Can discover &amp; use patterns, but only shallow ones. Correlations, not causation. When it generalizes, it's by <i>induction</i><sup class="footnote-ref"><a href="#fn49" id="fnref49">[49]</a></sup>. Similar to System 1 Intuition.<sup class="footnote-ref"><a href="#fn50" id="fnref50">[50]</a></sup></p>
-<p><u>Thinking in gears</u>: Can discover &amp; use <i>robust mental models</i>, deep ones. Causation, not just correlation. When it generalizes, it's by <i>deduction</i>. Similar to System 2 Logic.</p>
-<p>It's not &quot;gears good, vibes bad&quot;. You need <i>both</i> to reach typical human-level intelligence, let alone a superhuman Scientist AI.</p>
-<p>Now, Good Ol' Fashioned AI (GOFAI) <i>did</i> use to &quot;think in gears&quot;, but they were extremely narrow. A chess AI could only play chess, nothing more. Meanwhile, to be fair, modern LLMs are extremely flexible: they can roleplay everything from a poet to writer to therapist (who, again, <i>humans prefer over humans</i>), and even roleplay as… someone who can solve the 7-disk Tower of Hanoi.</p>
-<p>But not 8.</p>
-<p><img src="../media/p1/sys1vs2_B.png" alt="Two-axis graph of System 1 (&quot;intuitive&quot;) vs System 2 (logical) thinking. Good Ol' Fashioned AI had high System 2, low System 1. Modern deep-learning AI has high System 1, low System 2"></p>
-<p>Good Ol' Fashioned AI (GOFAI): Robust but inflexible.</p>
-<p>Modern AI: Flexible, but not robust.</p>
-<p><strong>As of writing (Dec 2025), we do not know how to make an AI that do both: <i>flexibly</i> discovering &amp; using <i>robust models</i>.</strong> To be able to switch between vibes &amp; gears <i>at will, fluently</i>. The deduction of logic + the induction of intuition = the <i>abduction</i> of science.<sup class="footnote-ref"><a href="#fn51" id="fnref51">[51]</a></sup> It's not just interpolating &amp; extrapolating data, it's <i>hyper</i>-polating data: stepping out of the data's flatland, into a new dimension.<sup class="footnote-ref"><a href="#fn52" id="fnref52">[52]</a></sup></p>
-<p>Is that a bunch o' vague jargon? Yes. Ironically, I only have a vibe-based understanding of gears. I don't have a rigorous mental model of <i>rigorous mental models</i>. I'm not sure anyone does. If we did, we'd probably have artificial general intelligence (AGI) by now.</p>
+<p>到底發生了什麼事？</p>
+<p>AI 懷疑論者可能會說：「看吧！LLM 只是隨機鸚鵡。<sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup> 它們只是複製在數兆份訓練文件中看到的東西，在從未見過的情境中就會失敗。」</p>
+<p>我不認為這完全正確——我懷疑網路上<i>有任何</i>文件寫出了 7 層河內塔的完整解法，卻沒有 8 層及以上的。我也不認為有任何文件包含<a href="https://x.com/tqbf/status/1598513757805858820">「如何用欽定版聖經的風格從錄影機中取出花生醬三明治的說明」</a>，但早期的 ChatGPT 在這個從未見過的情境中表現<i>完美</i>。所以，LLM <i>確實</i>能泛化，至少能泛化一點。</p>
+<p>這是我的猜測，而且我遠不是第一個<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup>提出這個猜測的人：</p>
+<p><strong>現代 AI「憑感覺思考」。它們不「用齒輪思考」。</strong><sup class="footnote-ref"><a href="#fn48" id="fnref48">[48]</a></sup></p>
+<p><u>憑感覺思考</u>：能發現和使用規律，但只是淺層的。是相關性，不是因果關係。當它泛化時，是透過<i>歸納推理</i><sup class="footnote-ref"><a href="#fn49" id="fnref49">[49]</a></sup>。類似於系統 1 直覺。<sup class="footnote-ref"><a href="#fn50" id="fnref50">[50]</a></sup></p>
+<p><u>用齒輪思考</u>：能發現和使用<i>穩健的心智模型</i>，深層的。是因果關係，不只是相關性。當它泛化時，是透過<i>演繹推理</i>。類似於系統 2 邏輯。</p>
+<p>這不是「齒輪好、感覺壞」。你<i>兩者都需要</i>才能達到典型的人類智慧水準，更別說超人類的科學家 AI 了。</p>
+<p>現在，傳統 AI（GOFAI）<i>確實</i>曾經「用齒輪思考」，但它們極其狹隘。一個西洋棋 AI 只能下西洋棋，僅此而已。同時，公平地說，現代 LLM 極其靈活：它們可以扮演從詩人到作家到治療師的各種角色（再說一次，<i>人類更喜歡 AI 勝過人類</i>），甚至可以扮演……一個能解決 7 層河內塔的人。</p>
+<p>但解不了 8 層。</p>
+<p><img src="../media/p1/sys1vs2_B.png" alt="系統 1（「直覺」）vs 系統 2（邏輯）思考的雙軸圖表。傳統 AI 系統 2 高、系統 1 低。現代深度學習 AI 系統 1 高、系統 2 低"></p>
+<p>傳統 AI（GOFAI）：穩健但不靈活。</p>
+<p>現代 AI：靈活但不穩健。</p>
+<p><strong>截至撰寫本文時（2025 年 12 月），我們不知道如何製造一個兩者兼具的 AI：<i>靈活地</i>發現和使用<i>穩健模型</i>。</strong> 能夠<i>隨心所欲、流暢地</i>在感覺和齒輪之間切換。邏輯的演繹 + 直覺的歸納 = 科學的<i>溯因推理</i>。<sup class="footnote-ref"><a href="#fn51" id="fnref51">[51]</a></sup> 這不只是內插和外推數據，而是<i>超推</i>數據：跳出數據的平面世界，進入新的維度。<sup class="footnote-ref"><a href="#fn52" id="fnref52">[52]</a></sup></p>
+<p>這是一堆模糊的術語嗎？是的。諷刺的是，我對齒輪只有基於感覺的理解。我對<i>嚴謹的心智模型</i>沒有嚴謹的心智模型。我不確定有誰有。如果有的話，我們現在可能已經有通用人工智慧（AGI）了。</p>
 <p>. . .</p>
-<p>Things get worse.</p>
-<p>From the conclusion of Apple's <i>Illusion of Thinking</i> paper:</p>
+<p>情況變得更糟。</p>
+<p>來自 Apple 的《<i>The Illusion of Thinking</i>》論文結論：</p>
 <blockquote>
-<p>[Claude 3.7 + Thinking] also achieves near-perfect accuracy when solving the Tower of Hanoi with (N=5), which requires 31 moves, while it fails to solve <a href="https://en.wikipedia.org/wiki/Missionaries_and_cannibals_problem">the River Crossing puzzle</a> when (N=3), which has a solution of 11 moves. <strong>This likely suggests that examples of River Crossing with N&gt;2 are scarce on the web</strong>, meaning [Large Language Models with Reasoning] <strong>may not have frequently encountered or memorized such instances during training.</strong></p>
-<p><i>(emphasis added)</i></p>
+<p>[Claude 3.7 + 思考模式] 在解決 N=5 的河內塔時也達到了接近完美的準確度，這需要 31 步，但它無法解決 N=3 的<a href="https://en.wikipedia.org/wiki/Missionaries_and_cannibals_problem">過河謎題</a>，而這只需要 11 步的解法。<strong>這很可能表明 N&gt;2 的過河謎題範例在網路上很稀少</strong>，意味著[具有推理能力的大型語言模型]<strong>在訓練期間可能沒有經常遇到或記憶這類實例。</strong></p>
+<p><i>（強調為後加）</i></p>
 </blockquote>
-<p>So the problem's not the <i>length</i> of the reasoning, it's <i>how common</i> is the reasoning. This parallels the findings from <a href="https://www.pnas.org/doi/pdf/10.1073/pnas.2322420121">the 2024 paper, Embers of Autoregression</a>:</p>
+<p>所以問題不在於推理的<i>長度</i>，而在於推理<i>有多常見</i>。這與 <a href="https://www.pnas.org/doi/pdf/10.1073/pnas.2322420121">2024 年的論文《Embers of Autoregression》</a>的發現相呼應：</p>
 <blockquote>
-<p>We identify three factors that we hypothesize will influence LLM accuracy:</p>
+<p>我們確定了三個我們假設會影響 LLM 準確度的因素：</p>
 <ul>
-<li>the probability of the task to be performed,</li>
-<li>the probability of the target output, and</li>
-<li>the probability of the provided input.</li>
+<li>要執行的任務的機率，</li>
+<li>目標輸出的機率，以及</li>
+<li>提供的輸入的機率。</li>
 </ul>
 </blockquote>
-<p>Where &quot;probability&quot; ~= &quot;how common is it in the training data&quot;.</p>
-<p>Mystery (partly) solved: that's why LLMs rock at human conversation, but suck at rule-discovery mini-games. And long tasks are &quot;less probable&quot; than short tasks, because homework problems &amp; textbook examples are almost always a page or two, not dozens of pages. (This, I suspect, is why Claude sucked at running a vending machine,<sup class="footnote-ref"><a href="#fn38" id="fnref38:1">[38:1]</a></sup> even though there's lots of writing on how to run a business: when business textbooks give examples, they list a few transactions, not <i>thousands</i>.<sup class="footnote-ref"><a href="#fn53" id="fnref53">[53]</a></sup>)</p>
-<p>This also explains why AI's success at <i>common</i> code tasks is exponential, with the length-of-task doubling every 7 months at a steady cost<sup class="footnote-ref"><a href="#fn54" id="fnref54">[54]</a></sup>... while AI's performance at games of <i>uncommon</i> rule-discovery have a <i>worse than exponential</i> cost:<sup class="footnote-ref"><a href="#fn55" id="fnref55">[55]</a></sup></p>
-<p><img src="../media/p3/gears/arc-agi.png" alt="Graph from ARC-AGI. Description below"></p>
-<p>The above graph shows various AIs' performance vs cost on ARC-AGI, a series of games where you have to <i>discover</i> the games' rules. Notice it's the <i>x-axis</i> that's exponential (\$1, \$10, \$100), <i>not the y-axis, which 'exponential trend' graphs are supposed to be</i>. So a <i>straight</i> line on this graph means that performance-for-cost is getting exponentially <i>worse</i>, not better. And the above chart's &quot;frontier&quot; isn't a straight line, it's bending <i>downwards</i>, meaning LLMs' performance-for-cost is <i>worse</i> than exponential. (<a href="https://www.tobyord.com/writing/inference-scaling-and-the-log-x-chart">beware AI labs disguising their crappy progress with exponential <i>x</i>-axes!</a>)</p>
-<p><strong>In sum:</strong></p>
-<p>Common task → LLMs get exponentially better over time</p>
-<p>Uncommon tasks → <img src="../media/p3/gears/cheems.png" alt="crying meme dog" class="inline-icon"></p>
-<p>To be clear, a mere &quot;common task auto-completer&quot; can <i>still</i> have huge impact, for better <i>and</i> worse. In blind tests, AI therapists are preferred over human therapists, by both human clients <i>and human therapists themselves</i>.<sup class="footnote-ref"><a href="#fn36" id="fnref36:1">[36:1]</a></sup> AI Therapy could finally make mental healthcare accessible to all, and/or, make humans emotionally dependent on corporate-owned bots. And I expect <i>my</i> two main jobs, &quot;science communicator&quot; and &quot;web developer&quot;, to be mostly automated away in the next 5 years. (This is why, in 2026, I want to pivot to becoming a researcher. Because the day <i>science itself</i> is automated… well… either way that shakes out, I won't have to figure out how to pay rent anymore.)</p>
+<p>其中「機率」約等於「它在訓練數據中有多常見」。</p>
+<p>謎題（部分）解開了：這就是為什麼 LLM 在人類對話方面表現出色，但在規則發現小遊戲中表現糟糕。而且長任務比短任務「機率更低」，因為作業題目和教科書範例幾乎總是一兩頁，而不是幾十頁。（我懷疑這就是為什麼 Claude 在經營自動販賣機方面表現糟糕，<sup class="footnote-ref"><a href="#fn38" id="fnref38:1">[38:1]</a></sup> 即使有很多關於如何經營企業的文章：當商業教科書舉例時，它們列出的是幾筆交易，而不是<i>數千筆</i>。<sup class="footnote-ref"><a href="#fn53" id="fnref53">[53]</a></sup>）</p>
+<p>這也解釋了為什麼 AI 在<i>常見</i>程式碼任務上的成功是指數級的，任務長度每 7 個月翻一倍，成本穩定<sup class="footnote-ref"><a href="#fn54" id="fnref54">[54]</a></sup>……而 AI 在<i>不常見</i>的規則發現遊戲上的表現，成本卻是<i>比指數更差</i>：<sup class="footnote-ref"><a href="#fn55" id="fnref55">[55]</a></sup></p>
+<p><img src="../media/p3/gears/arc-agi.png" alt="來自 ARC-AGI 的圖表。描述如下"></p>
+<p>上圖顯示了各種 AI 在 ARC-AGI 上的表現 vs 成本，ARC-AGI 是一系列你必須<i>發現</i>遊戲規則的遊戲。注意是 <i>x 軸</i>是指數的（\$1, \$10, \$100），<i>而不是 y 軸，而「指數趨勢」圖表應該是 y 軸才對</i>。所以這張圖上的<i>直線</i>意味著性價比正在指數級地<i>變差</i>，而不是變好。而上圖的「前沿」不是直線，它是<i>向下彎曲</i>的，意味著 LLM 的性價比<i>比指數還差</i>。（<a href="https://www.tobyord.com/writing/inference-scaling-and-the-log-x-chart">小心 AI 實驗室用指數 <i>x</i> 軸來掩飾他們糟糕的進展！</a>）</p>
+<p><strong>總結：</strong></p>
+<p>常見任務 → LLM 隨時間指數級變好</p>
+<p>不常見任務 → <img src="../media/p3/gears/cheems.png" alt="哭泣的迷因狗" class="inline-icon"></p>
+<p>說清楚，一個單純的「常見任務自動完成器」<i>仍然</i>可能產生巨大影響，無論是好是壞。在盲測中，AI 治療師比人類治療師更受青睞，無論是人類客戶<i>還是人類治療師自己</i>。<sup class="footnote-ref"><a href="#fn36" id="fnref36:1">[36:1]</a></sup> AI 治療可能終於讓心理健康照護變得人人可及，並且/或者，讓人類在情感上依賴企業擁有的機器人。而且我預期<i>我</i>的兩份主要工作——「科學傳播者」和「網頁開發者」——在未來 5 年內將大部分被自動化。（這就是為什麼在 2026 年，我想轉型成為研究員。因為當<i>科學本身</i>被自動化的那天……嗯……無論結果如何，我都不用再煩惱怎麼付房租了。）</p>
 <p>. . .</p>
-<img class="mini" alt="sticky note saying 'IOU Actual Solutions sorry'" src="../media/p3/gears/iou.png">
-<p>Okay, this is the least satisfying section of this post, because there's not much in the way of solutions, because this problem — make AI that can think in both System 1 vibes &amp; System 2 gears — is possibly <i>equivalent</i> to creating Artificial General Intelligence (AGI).</p>
-<p>That said, there <i>are</i> some promising early research directions, to get AIs to &quot;think in robust mental models&quot;:</p>
+<img class="mini" alt="便條紙寫著『欠條：真正的解決方案，抱歉』" src="../media/p3/gears/iou.png">
+<p>好吧，這是這篇文章最不令人滿意的部分，因為沒有太多解決方案可講，因為這個問題——製造一個能同時用系統 1 感覺和系統 2 齒輪思考的 AI——可能<i>等同於</i>創造通用人工智慧（AGI）。</p>
+<p>話雖如此，<i>確實</i>有一些有前景的早期研究方向，讓 AI「用穩健的心智模型思考」：</p>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=GeN5XVA2e4w">Neuro-Symbolic AI</a>, where modern &quot;neural networks&quot; interact tightly with Good Ol' Fashioned AI (GOFAI) modules. Some succesful examples include AlphaFold &amp; AlphaGeometry.</li>
-<li><a href="https://garymarcus.substack.com/p/how-o3-and-grok-4-accidentally-vindicated">Code interpreters</a> that let LLMs <i>make &amp; run</i> GOFAIs as they go. See also: <a href="https://arcprize.org/blog/beat-arc-agi-deep-learning-and-program-synthesis">program search &amp; program synthesis</a>.</li>
-<li>Training ANNs to <a href="https://www.microsoft.com/en-us/research/publication/deep-end-to-end-causal-inference-2/">infer cause-and-effect diagrams directly from data</a>.</li>
-<li><a href="https://arxiv.org/pdf/2107.12544">Theory-Based Reinforcement Learning</a>, which combines &quot;rich, abstract, causal models&quot; with modern AI training techniques</li>
-<li>(or maybe the entire paradigm of modern AI sucks, and we need to re-start from scratch)</li>
+<li><a href="https://www.youtube.com/watch?v=GeN5XVA2e4w">神經符號 AI</a>，現代「神經網路」與傳統 AI（GOFAI）模組緊密互動。一些成功的例子包括 AlphaFold 和 AlphaGeometry。</li>
+<li><a href="https://garymarcus.substack.com/p/how-o3-and-grok-4-accidentally-vindicated">程式碼直譯器</a>，讓 LLM 能夠在執行過程中<i>製作和運行</i> GOFAI。另見：<a href="https://arcprize.org/blog/beat-arc-agi-deep-learning-and-program-synthesis">程式搜尋與程式合成</a>。</li>
+<li>訓練 ANN <a href="https://www.microsoft.com/en-us/research/publication/deep-end-to-end-causal-inference-2/">直接從數據推斷因果圖</a>。</li>
+<li><a href="https://arxiv.org/pdf/2107.12544">基於理論的強化學習</a>，結合「豐富、抽象的因果模型」與現代 AI 訓練技術</li>
+<li>（或者也許現代 AI 的整個範式都很爛，我們需要從頭開始）</li>
 </ul>
-<p>But in any case, here's all the amazing things we <i>would</i> get from AI that thinks in cause-and-effect gears, not just correlational vibes:</p>
+<p>但無論如何，以下是我們<i>可以</i>從用因果齒輪思考（而不只是相關性感覺）的 AI 獲得的所有驚人好處：</p>
 <ul>
-<li>☸️ <u>Interpretability &amp; Steering</u>: It's easier for us to understand an AI if it stores its knowledge as &quot;this causes that&quot;. It also makes an AI easier to steer: change &quot;this&quot; to change &quot;that&quot;.</li>
-<li>🤝 <u>Trustworthiness &amp; Accountability</u>: By learning a cause-and-effect model of the world, when we ask an AI <i>why</i> it did something, it can truthfully report why. (In contrast, LLMs <a href="https://arxiv.org/abs/2503.08679">will make reasons up</a> for why they say/choose things.)</li>
-<li>💪 <u>Robustness</u>: <a href="https://www.sciencedirect.com/science/article/pii/S0022202X18322930">Tumor-detecting AI looks for <i>rulers</i> in medical scans, because they <i>correlate</i> with malignant tumors</a>. Thinking like an actual scientist — observe data, generate <i>cause-and-effect</i> hypotheses, test them, repeat — will help AIs generate good models of the world.
+<li>☸️ <u>可解釋性與引導</u>：如果 AI 把知識儲存為「這個導致那個」，我們更容易理解它。這也讓 AI 更容易引導：改變「這個」來改變「那個」。</li>
+<li>🤝 <u>可信度與問責制</u>：通過學習世界的因果模型，當我們問 AI <i>為什麼</i>做某事時，它可以如實報告原因。（相比之下，LLM <a href="https://arxiv.org/abs/2503.08679">會編造理由</a>解釋為什麼它們說/選擇某些東西。）</li>
+<li>💪 <u>穩健性</u>：<a href="https://www.sciencedirect.com/science/article/pii/S0022202X18322930">腫瘤檢測 AI 在醫學掃描中尋找<i>尺規</i>，因為它們與惡性腫瘤<i>相關</i></a>。像真正的科學家一樣思考——觀察數據、產生<i>因果</i>假設、測試它們、重複——將幫助 AI 建立良好的世界模型。
 <ul>
-<li>Besides, <a href="https://arxiv.org/pdf/2506.01622">Richens et al 2025</a> proves that any generally-capable agent <i>needs</i> to have cause-and-effect models of the world.</li>
+<li>此外，<a href="https://arxiv.org/pdf/2506.01622">Richens 等人 2025</a> 證明任何通用能力的智能體<i>都需要</i>擁有世界的因果模型。</li>
 </ul>
 </li>
-<li>💖 <u>Learning our Values:</u> Understanding causality lets AI distinguish between things we want <i>for its own sake</i>, vs things we want <i>for something else</i>. (&quot;intrinsic&quot; vs &quot;instrumental&quot; goals) For example, an AI should understand we want money, but to buy helpful things, <i>not</i> for its own sake.
+<li>💖 <u>學習我們的價值觀：</u>理解因果關係讓 AI 能區分我們<i>為其本身</i>想要的東西，vs 我們<i>為了其他目的</i>想要的東西。（「內在」vs「工具性」目標）例如，AI 應該理解我們想要錢，但是為了買有用的東西，<i>而不是</i>為了錢本身。
 <ul>
-<li><a href="https://aisafety.dance/p2/#problem6">The &quot;inner misalignment&quot; problem</a> — the problem of AIs learning the wrong values <i>even with perfectly-specified rewards</i> — can be reframed as a problem of <i>goal</i> robustness, or correlation-causation mixups. For example, a videogame AI that's rewarded for getting the coin at the end of a level learns to <i>love going to the right for its own sake</i>, and ignore the coin. <a href="https://arxiv.org/pdf/2309.16166">A 2023 paper</a> finds that making the AI &quot;think like a scientist&quot; — generate &amp; test multiple hypotheses for what <i>causes</i> reward, not just correlates with it — helps that AI solve goal robustness.</li>
+<li><a href="https://aisafety.dance/p2/#problem6">「內部錯位」問題</a>——AI 在<i>獎勵設定完美</i>的情況下仍學到錯誤價值觀的問題——可以重新框架為<i>目標</i>穩健性問題，或相關-因果混淆。例如，一個因為獲得關卡末端金幣而得到獎勵的電玩 AI 學會了<i>為了向右走本身而熱愛向右走</i>，並忽視金幣。<a href="https://arxiv.org/pdf/2309.16166">一篇 2023 年的論文</a>發現，讓 AI「像科學家一樣思考」——產生並測試多個關於什麼<i>導致</i>獎勵的假設，而不只是與獎勵相關——幫助該 AI 解決目標穩健性問題。</li>
 </ul>
 </li>
-<li>🔮 <u>The &quot;Future Lives&quot; Algorithm:</u> Causal models would help an AI get better at predicting the world in different what-if (&quot;counterfactual&quot;) scenarios, <i>and</i> predicting what we'd approve of.</li>
-<li>🤥 <u>Getting the truth, not a human-imitator</u> (or: <a href="https://www.lesswrong.com/w/eliciting-latent-knowledge">&quot;Eliciting Latent Knowledge&quot;</a>, <a href="https://arxiv.org/abs/2502.15657">&quot;non-agentic Scientist AIs&quot;</a>) So you've trained an AI on data collected by expert scientists. How do you get <i>just the truth</i> out of this AI, not &quot;truth + human biases&quot;? If the AI's knowledge is distilled into interpretable cause-and-effect gears, you could just take the gears predicting how the world works, and <i>remove</i> the gears predicting how biased human experts report it, to get an <i>unbiased</i> true model of how the world works!</li>
-<li>🤓 <u>Causal Incentives</u>: Bonus – not only would it be better to <i>make</i> AI that &quot;natively thinks&quot; in causal diagrams, we can use causal diagrams to think better about AI! The <a href="https://causalincentives.com/">Causal Incentives Working Group</a> uses cause-and-effect diagrams to predict if/when an AI has an incentive to cheat, modify itself, or modify <i>the human</i>.</li>
+<li>🔮 <u>「未來生活」演算法：</u>因果模型將幫助 AI 更好地預測不同假設情境（「反事實」）下的世界，<i>以及</i>預測我們會認可什麼。</li>
+<li>🤥 <u>獲得真相，而非人類模仿者</u>（或：<a href="https://www.lesswrong.com/w/eliciting-latent-knowledge">「引出潛在知識」</a>、<a href="https://arxiv.org/abs/2502.15657">「非代理型科學家 AI」</a>）所以你已經用專家科學家收集的數據訓練了一個 AI。你如何從這個 AI 中獲得<i>純粹的真相</i>，而不是「真相 + 人類偏見」？如果 AI 的知識被提煉成可解釋的因果齒輪，你可以只取預測世界如何運作的齒輪，並<i>移除</i>預測有偏見的人類專家如何報告它的齒輪，從而獲得世界如何運作的<i>無偏見</i>真實模型！</li>
+<li>🤓 <u>因果激勵</u>：額外好處——不僅<i>製造</i>「原生用因果圖思考」的 AI 會更好，我們還可以用因果圖更好地思考 AI！<a href="https://causalincentives.com/">因果激勵工作組</a>使用因果圖來預測 AI 何時/是否有動機作弊、修改自己或修改<i>人類</i>。</li>
 </ul>
-<p>In a weird way, maybe I should be grateful that AI sucks at fluidly discovering &amp; using world-models. Because if they <i>could</i> do that, then AI would already be capable of, say, taking over the world.</p>
-<p>But they don't. Which gives us more time to make sure we stay above the dotted line in this graph, where Capabilities &lt; Alignment:</p>
-<p><img src="../media/p3/learn/rocket.png" alt="Diagram of above idea. Two-axis graph: Alignment vs Capabilities, where the diagonal dotted line is the boundary between Alignment &gt; Capabilities and Alignment &lt; Capabilities. By tying Alignment TO Capabilities, we stay above the safe dotted line."></p>
-<p>And, if the &quot;treat learning our values as a standard machine-learning problem&quot; approach works, we <i>tie</i> Alignment to Capabilities. When AI can robustly learn about the world, they can robustly learn about <i>our values</i>. So: Capabilities becomes <i>the new floor</i> for Alignment, and we stay above the dotted line.</p>
-<p>(But again, don't relax <i>too</i> much.)</p>
+<p>以一種奇怪的方式，也許我應該感激 AI 在流暢地發現和使用世界模型方面很糟糕。因為如果它們<i>能</i>做到，那麼 AI 現在可能已經能夠，比如說，統治世界了。</p>
+<p>但它們不能。這給了我們更多時間確保我們保持在這張圖的虛線上方，也就是能力 &lt; 對齊的地方：</p>
+<p><img src="../media/p3/learn/rocket.png" alt="上述概念的圖示。雙軸圖表：對齊 vs 能力，其中對角虛線是對齊 &gt; 能力和對齊 &lt; 能力的分界線。通過將對齊與能力綁定，我們保持在安全的虛線上方。"></p>
+<p>而且，如果「把學習我們的價值觀當作標準機器學習問題」的方法有效，我們就把對齊<i>綁定</i>到能力上。當 AI 能穩健地學習世界，它們就能穩健地學習<i>我們的價值觀</i>。所以：能力成為對齊的<i>新底線</i>，我們保持在虛線上方。</p>
+<p>（但再說一次，不要<i>太</i>放鬆。）</p>
 <hr>
-<h3>🤔 Review #6</h3>
+<h3>🤔 複習 #6</h3>
 <orbit-reviewarea color="violet">
     <orbit-prompt
-        question="List at least 1 surprising thing **LLMs are great at** (as of December 2025)"
-        answer="(any of the following works:) International Math Olympiad, passed the Turing Test, humans _prefer AI over humans_ in poetry, therapy & short fiction">
+        question="列出至少 1 件 **LLM 非常擅長**的令人驚訝的事情（截至 2025 年 12 月）"
+        answer="（以下任一答案皆可：）國際數學奧林匹克、通過圖靈測試、人類<i>更喜歡 AI 勝過人類</i>在詩歌、治療和短篇小說方面">
     </orbit-prompt>
     <orbit-prompt
-        question="List at least 1 surprising thing **LLMs still suck at** (as of December 2025)"
-        answer="(any of the following works:) running the business of a vending machine, can't play Pokémon Red, can't solve simple 'rule-discovery' games, can't generalize on Tower of Hanoi or other classic puzzles.">
+        question="列出至少 1 件 **LLM 仍然很差勁**的令人驚訝的事情（截至 2025 年 12 月）"
+        answer="（以下任一答案皆可：）經營自動販賣機的業務、無法玩寶可夢紅、無法解決簡單的『規則發現』遊戲、無法在河內塔或其他經典謎題上泛化。">
     </orbit-prompt>
     <orbit-prompt
-        question="As of 2025, how do the frontier LLMs perform on the Tower of Hanoi problem?"
-        answer="Really well, up to 7 disks... then _completely collapses_ at 8+ disks. (This is like a human being able to add two 7-digit numbers on pen & paper, then _utterly bomb_ on two 8-digit numbers. Very strange.)"
+        question="截至 2025 年，前沿 LLM 在河內塔問題上的表現如何？"
+        answer="非常好，最多到 7 個圓盤……然後在 8 個以上<i>完全崩潰</i>。（這就像一個人能在紙上完美計算兩個 7 位數的加法，然後在兩個 8 位數上<i>徹底翻車</i>。非常奇怪。）"
         answer-attachments='https://aisafety.dance/media/p3/gears/hanoi.jpg'>
         <!-- aisffs-hanoi.png -->
     </orbit-prompt>
     <orbit-prompt
-        question="Modern AIs think in \_\_\_\_. They do not think in \_\_\_\_."
-        answer="They 'think in vibes'. They do not 'think in gears'. (To be precise: they do not form & use _robust mental models_.)">
+        question="現代 AI 用\_\_\_\_思考。它們不用\_\_\_\_思考。"
+        answer="它們「憑感覺思考」。它們不「用齒輪思考」。（準確地說：它們不形成和使用<i>穩健的心智模型</i>。）">
     </orbit-prompt>
     <orbit-prompt
-        question="Good Ol' Fashioned AI (GOFAI): \_\_\_\_\_ but \_\_\_\_\_ Modern AI: \_\_\_\_\_, but \_\_\_\_\_."
-        answer="Good Ol' Fashioned AI (GOFAI): Robust but inflexible. Modern AI: Flexible, but not robust. _(note: as of Dec 2025, we don't know how to make an AI that can do both: flexible discover & use robust mental models.)_">
+        question="傳統 AI（GOFAI）：\_\_\_\_\_但\_\_\_\_\_ 現代 AI：\_\_\_\_\_，但\_\_\_\_\_。"
+        answer="傳統 AI（GOFAI）：穩健但不靈活。現代 AI：靈活但不穩健。<i>（注：截至 2025 年 12 月，我們不知道如何製造一個兩者兼具的 AI：靈活地發現和使用穩健的心智模型。）</i>">
     </orbit-prompt>
     <orbit-prompt
-        question="According to the Embers of Autoregression paper, what are 3 factors that predict when an LLM will rock/suck at a task?"
-        answer="The probability of 1] the task, 2] the target output, and 3] the provided input. (Where 'probability' ~= 'how common was it in the training data'.)">
+        question="根據《Embers of Autoregression》論文，有哪 3 個因素可以預測 LLM 在某項任務上的表現好/壞？"
+        answer="1] 任務的機率、2] 目標輸出的機率、和 3] 提供的輸入的機率。（其中「機率」約等於「它在訓練數據中有多常見」。）">
     </orbit-prompt>
     <orbit-prompt
-        question="What's 1 task LLMs are getting exponentially better at, and 1 where they're exponentially bad at?"
-        answer="Common coding tasks (length of task doubling every 7 months), vs the ARC-AGI 'rule-discovery' games (cost scales worse-than-exponentially)"
+        question="LLM 在哪 1 項任務上指數級變好，在哪 1 項上指數級變差？"
+        answer="常見程式碼任務（任務長度每 7 個月翻一倍），vs ARC-AGI『規則發現』遊戲（成本比指數還差）"
         answer-attachments='https://aisafety.dance/media/p3/gears/arc-agi.png'>
         <!-- aisffs-arc-agi-cost.png -->
     </orbit-prompt>
     <orbit-prompt
-        question="Name at least 1 research direction that's (trying) to make AI both be flexible _and_ have robust mental models:"
-        answer="(any of the following works:) Neuro-Symbolic AIs, Hybrid AIs, ANNs that infer causal diagrams, code interpreters, program search & program synthesis, Theory-Based Reinforcement Learning">
+        question="列出至少 1 個（嘗試）讓 AI 既靈活<i>又</i>擁有穩健心智模型的研究方向："
+        answer="（以下任一答案皆可：）神經符號 AI、混合 AI、推斷因果圖的 ANN、程式碼直譯器、程式搜尋與程式合成、基於理論的強化學習">
     </orbit-prompt>
     <orbit-prompt
-        question="Name at least 2 benefits from having AI being able to think in cause-and-effect gears: (other than better capabilties)"
-        answer="(any 2 of the following works:) Interpretability & Steering, Trustworthiness & Accountability, Robustness, Learning our Values, The 'Future Lives' Algorithm, Getting the truth not just a human-imitator, Non-agentic Scientist AIs, Causal Incentives">
+        question="列出至少 2 個讓 AI 能夠用因果齒輪思考的好處：（除了更好的能力之外）"
+        answer="（以下任 2 個答案皆可：）可解釋性與引導、可信度與問責制、穩健性、學習我們的價值觀、「未來生活」演算法、獲得真相而非人類模仿者、非代理型科學家 AI、因果激勵">
     </orbit-prompt>
 </orbit-reviewarea>
 <hr>
@@ -1548,7 +1548,7 @@
         answer-attachments='https://aisafety.dance/media/p3/cyborg/puzzle.png'>
     </orbit-prompt>
     <orbit-prompt
-        question="列出一個現實世界中人類+AI 團隊_被證明_比單獨的人類或 AI 更好的例子"
+        question="列出一個現實世界中人類+AI 團隊<i>被證明</i>比單獨的人類或 AI 更好的例子"
         answer="象棋、圍棋、預測未來事件。（雖然象棋中的「賽博格/半人馬」自 2017 年以來不再有優勢——賽博格的「甜蜜點」是有時間限制的！）">
     </orbit-prompt>
     <orbit-prompt
@@ -1739,48 +1739,48 @@
 <p><a href="https://arcprize.org/leaderboard">See the Leaderboard Breakdown</a>: The Ten-Human Panel's performance on ARC-AGI-1 and -2 is 98% and 100%, costing \$17/task (~10 workers hired per task on Mechanical Turk, success if <i>at least one</i> succeeds).</p>
 <p>The best AI (Gemini 3 Deep Think) on ARC-AGI-1 and -2 is 87.5% (a bit worse) and 45.1% (<i>much</i> worse) costing \$77/task (almost <i>five times</i> more expensive than hiring <i>ten humans on MTurk</i>) <a href="#fnref41" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn42" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/File:Tower_of_Hanoi.jpeg">Photo by User:Evanherk</a> <a href="#fnref42" class="footnote-backref">↩︎</a></p>
+<li id="fn42" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/File:Tower_of_Hanoi.jpeg">照片來自 User:Evanherk</a> <a href="#fnref42" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn43" class="footnote-item"><p>Actually, if you're interested in the developmental psychology of kids playing Tower of Hanoi, here's the landmark paper by <a href="https://link.springer.com/content/pdf/10.3758/BF03329485.pdf">Byrnes &amp; Spitz 1979</a>. See Figure 1: around age 8, kids have near-perfect performance on the 2-stack version. Around age 14, kids plateau out at okay performance on the 3-stack. Unfortunately I couldn't find any paper that gives performance scores for 4+ disks in general-population children/adults. Sorry. <a href="#fnref43" class="footnote-backref">↩︎</a></p>
+<li id="fn43" class="footnote-item"><p>其實，如果你對兒童玩河內塔的發展心理學感興趣，這裡有一篇經典論文 <a href="https://link.springer.com/content/pdf/10.3758/BF03329485.pdf">Byrnes &amp; Spitz 1979</a>。見圖 1：大約 8 歲時，孩子在 2 層版本上的表現接近完美。大約 14 歲時，孩子在 3 層版本上的表現趨於穩定。遺憾的是，我找不到任何論文給出一般人群（兒童/成人）在 4 層以上的表現分數。抱歉。 <a href="#fnref43" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn44" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/File:Iterative_algorithm_solving_a_6_disks_Tower_of_Hanoi.gif">Created by User:Trixx</a> <a href="#fnref44" class="footnote-backref">↩︎</a></p>
+<li id="fn44" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/File:Iterative_algorithm_solving_a_6_disks_Tower_of_Hanoi.gif">由 User:Trixx 製作</a> <a href="#fnref44" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn45" class="footnote-item"><p>The solution to Level N involves doing the solution to the previous level <i>twice</i> (moving the N-1 stack from Peg A to Peg B, then Peg B to Peg C), plus one extra move (moving the biggest disk from Peg A to Peg C).</p>
-<p>So how many moves do you need to solve N disks? Let's crunch the numbers:</p>
-<p>For 1-disk, <strong>1 move</strong></p>
-<p>For 2-disk, 1 * 2 + 1 = <strong>3 moves</strong> (previous solution <i>twice</i> + one extra move)</p>
-<p>For 3-disk, 3 * 2 + 1 = <strong>7 moves</strong></p>
-<p>For 4-disk, 7 * 2 + 1 = <strong>15 moves</strong></p>
-<p>For 5-disk, 15 * 2 + 1 = <strong>31 moves</strong></p>
-<p>For 6-disk, 31 * 2 + 1 = <strong>63 moves</strong></p>
-<p>For 7-disk, 63 * 2 + 1 = <strong>127 moves</strong></p>
-<p>For 8-disk, 127 * 2 + 1 = <strong>255 moves</strong></p>
-<p>Do you see the pattern?</p>
-<p><strong>For N disks, you need 2^N - 1 moves!</strong></p>
-<p>(<a href="https://en.wikipedia.org/wiki/Mathematical_induction">Proof by induction</a>: Let F(N) = # of moves needed for N disks. Let's say we already know F(N) = 2^N - 1. Then doubling that &amp; adding one, we get (2^N - 1)*2 + 1 = 2^(N+1) - 2 + 1 = 2^(N+1) - 1, which is the F(N+1) we want! All's left to do is prove the base case: F(1) = 2^1 - 1 = 2 - 1 = 1. And indeed, yes it takes 1 move to solve the 1-stack. Q.E.D.)</p>
-<p>Yippee! This was really not worth writing the footnote for, but there you go. <a href="#fnref45" class="footnote-backref">↩︎</a></p>
+<li id="fn45" class="footnote-item"><p>第 N 層的解法涉及執行前一層的解法<i>兩次</i>（把 N-1 層塔從柱 A 移到柱 B，再從柱 B 移到柱 C），加上一步額外的移動（把最大的圓盤從柱 A 移到柱 C）。</p>
+<p>那麼解 N 個圓盤需要多少步？讓我們來算算：</p>
+<p>1 個圓盤，<strong>1 步</strong></p>
+<p>2 個圓盤，1 * 2 + 1 = <strong>3 步</strong>（前一層解法_兩次_ + 一步額外移動）</p>
+<p>3 個圓盤，3 * 2 + 1 = <strong>7 步</strong></p>
+<p>4 個圓盤，7 * 2 + 1 = <strong>15 步</strong></p>
+<p>5 個圓盤，15 * 2 + 1 = <strong>31 步</strong></p>
+<p>6 個圓盤，31 * 2 + 1 = <strong>63 步</strong></p>
+<p>7 個圓盤，63 * 2 + 1 = <strong>127 步</strong></p>
+<p>8 個圓盤，127 * 2 + 1 = <strong>255 步</strong></p>
+<p>你看出規律了嗎？</p>
+<p><strong>N 個圓盤需要 2^N - 1 步！</strong></p>
+<p>（<a href="https://en.wikipedia.org/wiki/Mathematical_induction">數學歸納法證明</a>：令 F(N) = N 個圓盤所需的步數。假設我們已知 F(N) = 2^N - 1。那麼把它乘以 2 再加 1，我們得到 (2^N - 1)*2 + 1 = 2^(N+1) - 2 + 1 = 2^(N+1) - 1，這正是我們要的 F(N+1)！剩下要做的就是證明基本情況：F(1) = 2^1 - 1 = 2 - 1 = 1。確實，解 1 層塔需要 1 步。證畢。）</p>
+<p>耶！這個註腳其實真的不值得寫，但既然寫了就這樣吧。 <a href="#fnref45" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn46" class="footnote-item"><p>Famous phrase coined by <a href="https://dl.acm.org/doi/10.1145/3442188.3445922">Emily Bender et al 2021</a> <a href="#fnref46" class="footnote-backref">↩︎</a></p>
+<li id="fn46" class="footnote-item"><p>這個著名說法由 <a href="https://dl.acm.org/doi/10.1145/3442188.3445922">Emily Bender 等人 2021</a> 提出 <a href="#fnref46" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn47" class="footnote-item"><p>As Judea Pearl — winner of the Turing Prize, the &quot;Nobel Prize of Computer Science&quot; — once told Quanta Magazine in their article, <a href="https://www.quantamagazine.org/to-build-truly-intelligent-machines-teach-them-cause-and-effect-20180515/">To Build Truly Intelligent Machines, Teach Them Cause and Effect</a>: <i>“As much as I look into what’s being done with deep learning, I see they’re all stuck there on the level of associations. Curve fitting. [...] no matter how skillfully you manipulate the data and what you read into the data when you manipulate it, it’s still a curve-fitting exercise, albeit complex and nontrivial.”</i> <a href="#fnref47" class="footnote-backref">↩︎</a></p>
+<li id="fn47" class="footnote-item"><p>正如 Judea Pearl——圖靈獎（「電腦科學的諾貝爾獎」）得主——曾在 Quanta Magazine 的文章<a href="https://www.quantamagazine.org/to-build-truly-intelligent-machines-teach-them-cause-and-effect-20180515/">《要建造真正智慧的機器，教它們因果關係》</a>中所說：<i>「無論我怎麼研究深度學習正在做的事情，我看到它們都停留在關聯層面。曲線擬合。[...] 無論你多麼巧妙地操縱數據，無論你在操縱數據時讀取了什麼，它仍然是曲線擬合練習，儘管是複雜且非平凡的。」</i> <a href="#fnref47" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn48" class="footnote-item"><p>Beloved &quot;thinking in gears&quot; metaphor comes from <a href="https://www.lesswrong.com/posts/B7P97C27rvHPz3s9B/gears-in-understanding">Valentine (2017)</a> <a href="#fnref48" class="footnote-backref">↩︎</a></p>
+<li id="fn48" class="footnote-item"><p>廣受喜愛的「用齒輪思考」比喻來自 <a href="https://www.lesswrong.com/posts/B7P97C27rvHPz3s9B/gears-in-understanding">Valentine (2017)</a> <a href="#fnref48" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn49" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Inductive_reasoning">Inductive reasoning</a> is stuff like &quot;the Sun has risen every day for the last 10,000 days I've been alive, therefore the Sun will almost definitely rise again tomorrow&quot;. It's not <i>technically</i> a logical deduction — it's <i>logically</i> possible the Sun could vanish tomorrow — but, statistically, yeah it's probably fine. <a href="#fnref49" class="footnote-backref">↩︎</a></p>
+<li id="fn49" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Inductive_reasoning">歸納推理</a>就像是「太陽在我活著的過去 10,000 天裡每天都升起，因此太陽明天幾乎肯定會再次升起」。這<i>技術上</i>不是邏輯演繹——<i>邏輯上</i>太陽明天可能會消失——但統計上來說，是的，應該沒問題。 <a href="#fnref49" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn50" class="footnote-item"><p>The “dual-process” model of cognition was first suggested by <a href="https://pages.ucsd.edu/~scoulson/203/wason-evans.pdf">(Wason &amp; Evans, 1974)</a>, developed by multiple folks over decades, and<i>really</i> popular in Daniel Kahneman's bestselling 2011 book, <a href="https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow">Thinking, Fast &amp; Slow</a>. As for the naming: Intuition is #1 and Logic is #2, because pattern-recognition evolved before human-style deliberative logic. <a href="#fnref50" class="footnote-backref">↩︎</a></p>
+<li id="fn50" class="footnote-item"><p>認知的「雙重過程」模型最初由 <a href="https://pages.ucsd.edu/~scoulson/203/wason-evans.pdf">(Wason &amp; Evans, 1974)</a> 提出，經過數十年由多人發展，並在 Daniel Kahneman 2011 年的暢銷書<a href="https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow">《快思慢想》</a>中<i>非常</i>流行。至於命名：直覺是 #1，邏輯是 #2，因為模式識別比人類風格的審慎邏輯更早演化出來。 <a href="#fnref50" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn51" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Abductive_reasoning">Abductive reasoning</a> is the backbone of science. It's when you generate &quot;the most likely hypothesis&quot; to novel data. It's not <i>deduction;</i> it's very logically possible your hypothesis could be false. And it's not <i>induction;</i> you haven't seen any direct repeated evidence for your hypothesis <i>yet</i>, not until you test it.</p>
-<p>(Example: <a href="https://en.wikipedia.org/wiki/Michelson%E2%80%93Morley_experiment">Michelson-Morley</a> discovered that the speed of light seemed to be constant in every direction, and from this, Einstein <i>abducted</i> that time is relative! Yes, &quot;time is relative&quot; was the <i>most</i> likely hypotheis he had for &quot;light speed seems to be constant&quot;, and hey, he was right.)</p>
-<p>(Nitpick: Einstein claimed he didn't know about the Michelson-Morley experiment, and he instead abducted relativity from the Maxwell Equations, but look, I'm trying to tell a simple story here ok?) <a href="#fnref51" class="footnote-backref">↩︎</a></p>
+<li id="fn51" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Abductive_reasoning">溯因推理</a>是科學的支柱。它是當你對新數據產生「最可能的假設」。它不是<i>演繹</i>；你的假設在邏輯上很可能是錯的。它也不是<i>歸納</i>；在你測試之前，你還沒有看到任何直接重複的證據支持你的假設。</p>
+<p>（例子：<a href="https://en.wikipedia.org/wiki/Michelson%E2%80%93Morley_experiment">邁克爾遜-莫雷</a>發現光速在每個方向上似乎都是恆定的，從這一點，愛因斯坦<i>溯因推理</i>出時間是相對的！是的，「時間是相對的」是他對「光速似乎是恆定的」最可能的假設，而且，他是對的。）</p>
+<p>（小吐槽：愛因斯坦聲稱他不知道邁克爾遜-莫雷實驗，他是從馬克士威方程組溯因推理出相對論的，但是，我這裡只是想講個簡單的故事好嗎？） <a href="#fnref51" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn52" class="footnote-item"><p>&quot;Hyperpolation&quot; coined by <a href="https://arxiv.org/pdf/2409.05513">Toby Ord 2024</a>. <a href="#fnref52" class="footnote-backref">↩︎</a></p>
+<li id="fn52" class="footnote-item"><p>「Hyperpolation（超推）」一詞由 <a href="https://arxiv.org/pdf/2409.05513">Toby Ord 2024</a> 創造。 <a href="#fnref52" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn53" class="footnote-item"><p>Maybe this can be solved by writing a <i>normal</i> program, that then writes you &quot;synthetic data&quot; for a business operating successfully over 365 days, that you can fine-tune an LLM on? I dunno, this still feels like the special pleading of &quot;yes I can add 7 digits &amp; bomb at 8, but if you give me more training I can do it!&quot; If you pass 7 but bomb 8, there's something fundamentally wrong that &quot;more scale&quot; don't fix. <a href="#fnref53" class="footnote-backref">↩︎</a></p>
+<li id="fn53" class="footnote-item"><p>也許這可以通過寫一個<i>普通</i>程式來解決，然後讓它為你寫出一個成功運營 365 天的企業的「合成數據」，用來微調 LLM？我不知道，這仍然感覺像是「是的，我可以計算 7 位數但在 8 位數上翻車，但如果你給我更多訓練我就能做到！」的特殊辯解。如果你通過 7 位數但在 8 位數上翻車，那是根本性的問題，「更大規模」解決不了。 <a href="#fnref53" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn54" class="footnote-item"><p><a href="https://arxiv.org/pdf/2503.14499">METR (2025)</a>. “[software engineering] tasks that AI models can complete with 50% success rate [are] doubling approximately every seven months since 2019.” And Figure 13 shows that the cost of completing these tasks remains pretty stable even as task length grows, around 1% of a &quot;Level 4&quot; Google salary (\$143.61/hour, so, \$1.43/hour for an AI.) However, it's important to note the coding tasks in the benchmark are, by design, common tasks. <a href="#fnref54" class="footnote-backref">↩︎</a></p>
+<li id="fn54" class="footnote-item"><p><a href="https://arxiv.org/pdf/2503.14499">METR (2025)</a>。「AI 模型能以 50% 成功率完成的[軟體工程]任務自 2019 年以來大約每七個月翻一倍。」圖 13 顯示，即使任務長度增加，完成這些任務的成本仍然相當穩定，大約是 Google「Level 4」薪資的 1%（\$143.61/小時，所以 AI 是 \$1.43/小時）。然而，重要的是要注意，基準測試中的程式碼任務在設計上都是常見任務。 <a href="#fnref54" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn55" class="footnote-item"><p><a href="https://arcprize.org/">From the ARC-AGI frontpage.</a> It's missing the newest Gemini, <a href="https://arcprize.org/leaderboard">but it doesn't push the frontier much</a>, and the frontier still bends downwards. <a href="#fnref55" class="footnote-backref">↩︎</a></p>
+<li id="fn55" class="footnote-item"><p><a href="https://arcprize.org/">來自 ARC-AGI 首頁。</a> 缺少最新的 Gemini，<a href="https://arcprize.org/leaderboard">但它也沒有大幅推進前沿</a>，而且前沿仍然向下彎曲。 <a href="#fnref55" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn56" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Cat_burning">維基百科上的燒貓</a>。真的很高興那個頁面上沒有照片。（維基百科討論頁指出，關於<i>這種特定</i>行為的普遍程度存在學術爭論，但歷史上有很多「普通人」很可怕的例子。） <a href="#fnref56" class="footnote-backref">↩︎</a></p>
 </li>
