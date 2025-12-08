@@ -237,7 +237,7 @@
 
     <!-- BEHOLD! CONTENT!!!!! -->
 	<article id="content">
-<div style="text-align:center"><i>（這是 AI 安全系列的第三部分！你</i>不必<i>閱讀前面的部分——<a href="https://aisafety.dance/">導讀</a>、<a href="https://aisafety.dance/p1">第一章</a>、<a href="https://aisafety.dance/p2">第二章</a>——但它們會有幫助！）</i></div>
+<div style="text-align:center"><i>（這是 AI 安全系列的第三部分！你</i>不必<i>閱讀前面的部分——<a href="../">導讀</a>、<a href="../p1">第一章</a>、<a href="../p2">第二章</a>——但它們會有幫助！）</i></div>
 <p>所以，在寫了 40,000 多字關於 AI 安全有多奇怪和困難之後⋯⋯我對人類解決這個問題的機會感覺如何？</p>
 <p>⋯⋯其實相當樂觀！</p>
 <p>不，真的！</p>
@@ -256,7 +256,7 @@
 <ul>
 <li><u>可擴展監督</u>：即使 AI 比我們<i>先進得多</i>，我們如何安全地檢查它們？<a href="#oversight">↪</a></li>
 <li><u>解決 AI 邏輯</u>：AI 應該以我們的「未來生活」為目標 <a href="#future">↪</a>，並以不確定性學習我們的價值觀 <a href="#uncertain">↪</a>。</li>
-<li><u>解決 AI「直覺」</u>：AI 應該易於「讀寫」<a href="#interpretable">↪</a>，具有魯棒性 <a href="#robust">↪</a>，並以因果關係思考。<a href="#causality">↪</a></li>
+<li><u>解決 AI「直覺」</u>：AI 應該易於「讀寫」<a href="#interpretable">↪</a>，具有穩健性 <a href="#robust">↪</a>，並以因果關係思考。<a href="#causality">↪</a></li>
 </ul>
 <p><b>😬 人類中的問題</b>：</p>
 <ul>
@@ -275,7 +275,7 @@
 <p>風險分析中<a href="https://en.wikipedia.org/wiki/Swiss_cheese_model">著名的瑞士乳酪模型</a>告訴我們：<b>你不需要<i>一個</i>完美的解決方案，你可以疊加<i>多個</i>不完美的解決方案。</b></p>
 <p>這個模型被<i>到處</i>使用，從航空到網絡安全到疫情應對。一個不完美的解決方案有「漏洞」，很容易穿過。但疊加足夠多的層，漏洞在不同的地方，就幾乎不可能繞過。</p>
 <p>但是，讓我們來解決對瑞士乳酪模型的兩個批評：</p>
-<p><a href="https://www.eurocontrol.int/publication/revisiting-swiss-cheese-model-accidents">批評一</a>——這假設解決方案中的「漏洞」是<i>獨立的</i>。如果有任何<i>一個</i>漏洞是所有解決方案共有的，那麼問題就可以穿過所有這些方案。說得好。<b>這就是為什麼本頁的提議解決方案試圖盡可能多樣化。</b>（見下面的章節：魯棒性 &gt; 多樣性）</p>
+<p><a href="https://www.eurocontrol.int/publication/revisiting-swiss-cheese-model-accidents">批評一</a>——這假設解決方案中的「漏洞」是<i>獨立的</i>。如果有任何<i>一個</i>漏洞是所有解決方案共有的，那麼問題就可以穿過所有這些方案。說得好。<b>這就是為什麼本頁的提議解決方案試圖盡可能多樣化。</b>（見下面的章節：穩健性 &gt; 多樣性）</p>
 <p>批評二——與 AI 安全更相關——它假設問題不是一個智能代理。<a href="https://archive.is/20250921161137/https://www.vox.com/future-perfect/461680/if-anyone-builds-it-yudkowsky-soares-ai-risk">引用 Nate Soares 的話</a>：</p>
 <blockquote>
 <p>「如果你製造了某個試圖到達你所有瑞士乳酪另一邊的東西，它只需要穿過這些洞就不是那麼難。」</p>
@@ -312,7 +312,7 @@
 <p>等等，單一的監督鏈不是很脆弱嗎？就是說，如果<i>一個</i>喵迪壞了，整個鏈就斷了？是的！一個解決方案是有<i>多個</i>交織的鏈，像這樣：</p>
 <p><img src="../media/p3/so/meowdy_robust.png" alt="並行編織的監督鏈。失敗的機率隨著添加更多鏈而指數級下降。">
 （👉 <a href="#RobustChainMath">: 可選 - 點擊查看上圖的數學計算</a>）</p>
-<p>這樣，如果任何<i>一個</i>第 N 層的監督者被腐蝕，仍然會有另外兩個檢查第 N+1 層的機器人。而第 N-1 層的監督者可以捕捉並修復被腐蝕的監督者。注意：<i>監督者盡可能獨立是很重要的</i>，這樣它們的失敗具有低相關性。目前，AI 的失敗<i>非常</i>相關。我們將在後面的章節中學習更多關於如何在 AI 中創建魯棒性。</p>
+<p>這樣，如果任何<i>一個</i>第 N 層的監督者被腐蝕，仍然會有另外兩個檢查第 N+1 層的機器人。而第 N-1 層的監督者可以捕捉並修復被腐蝕的監督者。注意：<i>監督者盡可能獨立是很重要的</i>，這樣它們的失敗具有低相關性。目前，AI 的失敗<i>非常</i>相關。我們將在後面的章節中學習更多關於如何在 AI 中創建穩健性。</p>
 <p>總之，可擴展監督的核心洞見是這個迷因：</p>
 <p><img src="../media/p3/so/meme.png" alt="「多米諾」迷因，一個小多米諾推倒一個更大的，再推倒一個更大的，直到它可以推倒一個巨大的多米諾。"></p>
 <p>（另一個類比：有時，船太大了，舵<i>有它自己的小舵</i>，叫做<a href="https://en.wikipedia.org/wiki/Trim_tab#As_a_metaphor">調整片</a>。這樣，你可以操縱小舵，它操縱大舵，大舵操縱整艘船。）</p>
@@ -386,7 +386,7 @@
 <h4>:x Scalable Oversight Extras</h4>
 <p>一些不適合放在主文中的額外概念和評論：</p>
 <p><b>「對齊稅」：</b>你需要多少額外的開銷來確保整個系統保持對齊和可控？如果「稅」太高，企業就會有動機偷工減料，冒失調 AI 的風險。那麼：「稅」有多大？</p>
-<p>在上面的喵迪例子中，要監督速度為 $X$ 的機器人，因為每個機器人可以監督比它快 2 倍的機器人，你需要額外 $log_2(X)$ 個機器人來安全地控制它。（然後，如果你想要 $k$ 條交織的並行鏈來增加魯棒性，加 $k*log_2(X)$ 個機器人。）</p>
+<p>在上面的喵迪例子中，要監督速度為 $X$ 的機器人，因為每個機器人可以監督比它快 2 倍的機器人，你需要額外 $log_2(X)$ 個機器人來安全地控制它。（然後，如果你想要 $k$ 條交織的並行鏈來增加穩健性，加 $k*log_2(X)$ 個機器人。）</p>
 <p>一般來說，正如<a href="https://arxiv.org/abs/2504.18530">可擴展監督的縮放定律論文</a>所示，對於任何給定的任務，機器人通常可以監督比它「好」某個固定比例的機器人。如果是這種情況，那麼要監督能力為 $X$ 的機器人，你需要某個對數數量的額外機器人來進行可擴展監督。</p>
 <p>對數是指數的反函數；所以就像指數增長<i>非常快</i>一樣，對數增長<i>非常慢</i>。這令人鼓舞：這意味著我們對強大 AI 的「對齊稅」開銷增長緩慢，可以輕鬆負擔！</p>
 <p><b>如果 P = NP 怎麼辦？</b></p>
@@ -429,7 +429,7 @@
 </ul>
 <p><img src="../media/p3/so/ida_1.png" alt="IDA 如何應用於圍棋的圖表。圖表：能力 vs 步驟。在每個蒸餾步驟，能力下降，但在放大步驟，它上升&lt;i&gt;更多&lt;/i&gt;。所以，經過多次重複，能力曲折上升"></p>
 <p>更令人印象深刻的是，同樣的系統也可以學會在國際象棋和將棋（「日本象棋」）上超越人類，<i>而從未學習過殘局或開局</i>。只是大量的自我對弈。</p>
-<p>（一個注意事項：由此產生的 AI 只與 ANN 一樣魯棒，而 ANN 不是很魯棒。一個超人圍棋 AI 可以被一個「糟糕的」棋手擊敗，他只是試圖把 AI 帶入永遠不會自然發生的瘋狂棋盤位置，以打破 AI。(<a href="https://proceedings.mlr.press/v202/wang23g/wang23g.pdf">Wang &amp; Gleave 等人 2023</a>)）</p>
+<p>（一個注意事項：由此產生的 AI 只與 ANN 一樣穩健，而 ANN 不是很穩健。一個超人圍棋 AI 可以被一個「糟糕的」棋手擊敗，他只是試圖把 AI 帶入永遠不會自然發生的瘋狂棋盤位置，以打破 AI。(<a href="https://proceedings.mlr.press/v202/wang23g/wang23g.pdf">Wang &amp; Gleave 等人 2023</a>)）</p>
 <p>儘管如此，這是 IDA 有效的有力證據。但更好的是，正如 <a href="https://ai-alignment.com/iterated-distillation-and-amplification-157debfd1616">Paul Christiano 指出並提出的</a>，IDA 可以用於可擴展的對齊。</p>
 <p>以下是它如何工作的意譯：</p>
 <ul>
@@ -442,7 +442,7 @@
 <p><img src="../media/p3/so/ida_2.png" alt="與之前相同的圖表，但 IDA 應用於放大人類的能力，重複蒸餾和放大。"></p>
 <p>我認為 IDA 是更酷和更有前景的提案之一，但值得提及一些批評/未知數：</p>
 <ul>
-<li>蒸餾：如上面 AlphaGo 例子所示，IDA 的質量受限於蒸餾步驟。現在我們不知道如何製作魯棒的 ANN，我們也不知道這個蒸餾步驟是否能足夠保留你的價值觀。</li>
+<li>蒸餾：如上面 AlphaGo 例子所示，IDA 的質量受限於蒸餾步驟。現在我們不知道如何製作穩健的 ANN，我們也不知道這個蒸餾步驟是否能足夠保留你的價值觀。</li>
 <li>放大：雖然現實生活中大多數大問題似乎可以分解成小任務（這就是為什麼工程團隊不只是一個人），但不清楚<i>頓悟</i>是否可以分解和委派。也許你真的需要<i>一個</i>人把所有信息存儲在腦中，作為肥沃的土壤和種子來培育新的見解，你不能「切分」頓悟過程，就像你不能切分一棵植物並期望它仍然生長一樣。</li>
 <li>迭代：即使<i>單一的蒸餾和放大</i>步驟大致保留了你的價值觀，也不知道任何錯誤是否會在多個步驟中<i>累積</i>，更不用說錯誤是否會指數增長。（如果你曾在大組織工作過，你可能痛苦地意識到，一個組織可以發展成與原始創始人價值觀<i>非常</i>不一致。）</li>
 </ul>
@@ -450,24 +450,24 @@
 <p>（另見：<a href="https://www.youtube.com/watch?v=v9M2Ho9I9Qo">這個關於 IDA 的精彩 Rob Miles 視頻</a>）</p>
 <h3>🤔（選讀！）閃卡複習 #1</h3>
 <p>你讀了一樣東西。你覺得它超有洞見。兩週後你忘了一切，只記得感覺。</p>
-<p>這太糟了！所以，這裡有一些 <i>100% 選讀</i>的間隔重複閃卡，幫助你長期記住這些想法！（👉 <a href="https://aisafety.dance/#SpacedRepetition">: 點擊這裡了解更多關於間隔重複</a>）你也可以<a href="https://ankiweb.net/shared/info/1788882060">下載這些作為 Anki 牌組</a>。</p>
+<p>這太糟了！所以，這裡有一些 <i>100% 選讀</i>的間隔重複閃卡，幫助你長期記住這些想法！（👉 <a href="../#SpacedRepetition">: 點擊這裡了解更多關於間隔重複</a>）你也可以<a href="https://ankiweb.net/shared/info/1788882060">下載這些作為 Anki 牌組</a>。</p>
 <orbit-reviewarea color="violet">
     <orbit-prompt
         question="我們不需要一個完美的解決方案，我們可以⋯⋯"
         answer="⋯⋯疊加多個不完美的解決方案！（瑞士乳酪模型）"
-        answer-attachments="https://aisafety.dance/media/p3/intro/cheese.png">
+        answer-attachments="../media/p3/intro/cheese.png">
         <!-- aisffs-cheese.png -->
     </orbit-prompt>
     <orbit-prompt
         question="什麼是可擴展監督？"
         answer="不是試圖監督一個比你強得多的 AI，而是監督一個稍強的 AI，它監督一個稍強的 AI，重複！"
-        answer-attachments="https://aisafety.dance/media/p3/so/sum.png">
+        answer-attachments="../media/p3/so/sum.png">
         <!-- aisffs-so.png -->
     </orbit-prompt>
     <orbit-prompt
-        question="你如何使可擴展監督更魯棒？"
+        question="你如何使可擴展監督更穩健？"
         answer="通過添加並行的監督者鏈（其失敗模式盡可能*不相關*）"
-        answer-attachments="https://aisafety.dance/media/p3/so/meowdy_robust.png">
+        answer-attachments="../media/p3/so/meowdy_robust.png">
         <!-- aisffs-robust-chains.png -->
     </orbit-prompt>
     <orbit-prompt
@@ -491,7 +491,7 @@
 <li><u>「幫助每個人感到快樂和滿足」</u> → 劫持無人機空投霧化的 LSD 和 MDMA。</li>
 </ul>
 <p>重要：這些<i>不是</i> AI 表現不佳的問題。這些問題<i>正是因為</i> AI 在最優地行動！（我們稍後會處理表現不佳的 AI。）記住，就像作弊的學生或心懷不滿的員工，不是 AI 可能「不知道」你真正想要什麼，而是它可能「不在乎」。（用更少擬人化的說法：一個軟體會精確地優化你編碼它要做的事情。不多，不少。）</p>
-<p><b>「提前想到可能發生的最壞情況。然後修復它。」</b>如果你記得，這是<a href="https://aisafety.dance/p2/#:~:text=Does%20all%20this%20seem%20paranoid">安全思維</a>，使橋樑和火箭安全的工程師思維，也是讓 AI 研究人員如此擔心先進 AI 的原因。</p>
+<p><b>「提前想到可能發生的最壞情況。然後修復它。」</b>如果你記得，這是<a href="../p2/#:~:text=Does%20all%20this%20seem%20paranoid">安全思維</a>，使橋樑和火箭安全的工程師思維，也是讓 AI 研究人員如此擔心先進 AI 的原因。</p>
 <p>但如果⋯⋯我們製造一個<i>對自己使用安全思維</i>的 AI 呢？</p>
 <p>現在，讓我們假設一個「最優能力」的 AI——再說一次，我們稍後會處理表現不佳的 AI——它可以完美地預測世界。（或者至少和理論上可能的一樣好<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>）由於<i>你</i>是世界的一部分，它可以完美地預測<i>你對各種結果的反應</i>。</p>
 <p><b>然後，這是「未來生活」演算法：</b></p>
@@ -644,7 +644,7 @@
 <li>🤝 <b>合作逆強化學習（CIRL）</b>。<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup> 類似於 IRL，除了人類不只是被 AI 被動觀察，人類<i>主動</i>幫助教 AI。</li>
 <li>🧑‍🏫 <b>從人類反饋的強化學習（RLHF）：</b><sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> 這是將「基礎」GPT（一個花哨的自動完成）變成 <i>Chat</i>GPT（一個實際可用的聊天機器人）的演算法。
 <ul>
-<li>第一步：給定人類對一堆聊天的評分 👍👎，訓練一個「老師」AI 來模仿人類評分者。（實際上，訓練<i>多個</i>老師，以增加魯棒性）這「蒸餾」了人類對什麼是有幫助的聊天機器人的判斷。</li>
+<li>第一步：給定人類對一堆聊天的評分 👍👎，訓練一個「老師」AI 來模仿人類評分者。（實際上，訓練<i>多個</i>老師，以增加穩健性）這「蒸餾」了人類對什麼是有幫助的聊天機器人的判斷。</li>
 <li>第二步：使用<i>這些</i>「老師」AI 給「文本補全」AI 大量的訓練，訓練它成為一個有幫助的聊天機器人。這「放大」了蒸餾的人類判斷。</li>
 </ul>
 </li>
@@ -654,8 +654,8 @@
 <p>（再次，我們只考慮如何學習<i>一個人</i>的價值觀。關於如何學習<i>人道</i>價值觀，為了所有道德患者的繁榮，等待後面的章節，「誰的價值觀」？）</p>
 <p>當然，上面的每一個都有問題：如果 AI 只從人類的選擇中學習，它可能會錯誤地學習到人類「想要」拖延。正如我們都從<a href="https://www.nngroup.com/articles/sycophancy-generative-ai-chatbots/">過度奉承（「諂媚」）的聊天機器人</a>看到的，訓練 AI 獲得人類的認可⋯⋯<i>真的</i>讓它「想要」人類的認可。</p>
 <p>所以，說清楚：<b>雖然幾乎不可能指定人類的價值觀，而且指定<i>如何學習</i>人類的價值觀更簡單，但它仍然沒有 100% 解決。</b>用類比：教某人法語需要幾年，但教某人<i>如何有效地自學</i>法語只需要幾個小時<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup>，<i>但</i>即使這也很棘手。</p>
-<p>所以：我們沒有完全繞過「規範」問題，但我們<i>確實</i>簡化了它！也許通過「只」擁有一個非常不同信號的集合——短期認可、長期認可、我們說我們重視什麼、我們實際選擇做什麼——我們可以創建一個魯棒的規範，避免單點故障。</p>
-<p>更重要的是，「學習我們的價值觀」方法（而不是「試圖硬編碼我們的價值觀」），有一個巨大的好處：<b>AI 的能力越高，它的對齊就<i>越好</i>。</b>如果 AI 一般足夠智能來學習，比如說，如何製造生物武器，它也會足夠智能來學習我們的價值觀。如果 AI 太脆弱而無法魯棒地學習我們的價值觀，它也會太脆弱而無法學習如何執行危險的計劃。</p>
+<p>所以：我們沒有完全繞過「規範」問題，但我們<i>確實</i>簡化了它！也許通過「只」擁有一個非常不同信號的集合——短期認可、長期認可、我們說我們重視什麼、我們實際選擇做什麼——我們可以創建一個穩健的規範，避免單點故障。</p>
+<p>更重要的是，「學習我們的價值觀」方法（而不是「試圖硬編碼我們的價值觀」），有一個巨大的好處：<b>AI 的能力越高，它的對齊就<i>越好</i>。</b>如果 AI 一般足夠智能來學習，比如說，如何製造生物武器，它也會足夠智能來學習我們的價值觀。如果 AI 太脆弱而無法穩健地學習我們的價值觀，它也會太脆弱而無法學習如何執行危險的計劃。</p>
 <p><img src="../media/p3/learn/rocket.png" alt="上述想法的圖表。雙軸圖：對齊 vs 能力，其中對角虛線是對齊 &gt; 能力和對齊 &lt; 能力之間的邊界。通過將對齊與能力聯繫起來，我們保持在安全虛線之上。"></p>
 <p>（不過：不要太舒服。一個「一旦它有足夠高的能力就容易對齊」的策略有點像說「這輛摩托車一旦達到每小時 100 英里就容易駕駛。」我的意思是，這<i>更好</i>，但較低的速度、較低的能力呢？因此，本頁上的許多其他提議的解決方案。更多的瑞士乳酪。）</p>
 <p>我認為，這是「學習我們的價值觀」方法最優雅的地方：它將（部分）對齊問題簡化為一個<i>普通的機器學習問題</i>。從人的語言/行動/認可中學習人的價值觀似乎幾乎不可能，因為我們的價值觀總是在變化，並且對我們的意識隱藏。但這與從人的症狀和生物標誌物中學習人的醫療問題沒有什麼不同：變化的，隱藏的。這是一個<i>困難的</i>問題，但它是一個正常的問題。</p>
@@ -731,7 +731,7 @@
     <orbit-prompt
         question="「學習我們的價值觀」如何使 AI 能力 vs 對齊圖表更樂觀"
         answer="它將 AI 的對齊<i>與</i>其能力聯繫起來：它在「普通機器學習」方面越好，它在學習我們的價值觀方面就越好！"
-        answer-attachments="https://aisafety.dance/media/p3/learn/rocket.png">
+        answer-attachments="../media/p3/learn/rocket.png">
         <!-- aisffs-floor.png -->
     </orbit-prompt>
 </orbit-reviewarea>
@@ -870,19 +870,19 @@
     <orbit-prompt
         question="粗略地說，你如何做特徵可視化（弄清一個神經元在『做什麼』）？"
         answer="生成一個最大化該神經元激活的輸入。"
-        answer-attachments="https://aisafety.dance/media/p3/interp/cat.png">
+        answer-attachments="../media/p3/interp/cat.png">
         <!-- aisffs-feature-viz.png -->
     </orbit-prompt>
     <orbit-prompt
         question="粗略地說，探針分類器如何工作？"
         answer="訓練一個<i>簡單的</i> AI，來理解一個<i>複雜</i> AI 的單層。<i>（嘿老兄，我聽說你喜歡 AI，所以我在你的 AI 上訓練了一個 AI，這樣你就可以預測你的預測器。）</i>"
-        answer-attachments="https://aisafety.dance/media/p3/interp/probe.png">
+        answer-attachments="../media/p3/interp/probe.png">
         <!-- aisffs-probe.png -->
     </orbit-prompt>
     <orbit-prompt
         question="粗略地說，自編碼器做什麼？"
         answer="「自編碼器」把一個大東西壓縮成一個小東西，然後把它轉換回<i>同樣的</i>大東西。這允許 AI 通過把輸入擠過一個小瓶頸來學習事物的「本質」。（瓶頸可以是：更少的神經元、更少的含義、更簡單的計算等）"
-        answer-attachments="https://aisafety.dance/media/p3/interp/sae_2.png">
+        answer-attachments="../media/p3/interp/sae_2.png">
         <!-- aisffs-autoencoder.png -->
     </orbit-prompt>
     <orbit-prompt
@@ -900,7 +900,7 @@
     <orbit-prompt
         question="你如何創建和應用引導向量？"
         answer="創建：取 ANN 在狀態 X vs 非 X 之間多個例子的<i>差異</i> // 應用：在運行時將這個差異<i>添加回</i> ANN。"
-        answer-attachments="https://aisafety.dance/media/p3/interp/honesty.png">
+        answer-attachments="../media/p3/interp/honesty.png">
         <!-- aisffs-steering.png -->
     </orbit-prompt>
     <orbit-prompt
@@ -910,13 +910,13 @@
     <orbit-prompt
         question="在 Claude LLM 中發現的一個有趣且奇怪具體的引導向量例子"
         answer="「金門大橋」向量，迫使 Claude 想著舊金山的金門大橋"
-        answer-attachments="https://aisafety.dance/media/p3/interp/interp_steer.png">
+        answer-attachments="../media/p3/interp/interp_steer.png">
         <!-- aisffs-bridge.png -->
     </orbit-prompt>
 </orbit-reviewarea>
 <hr>
 <p><a id="robust"></a></p>
-<h2>AI「直覺」：魯棒性</h2>
+<h2>AI「直覺」：穩健性</h2>
 <p>這是一隻猴子：</p>
 <img alt="一張明顯是熊貓而不是猴子的照片。" src="../media/p3/robust/gibbon1.png" class="mini"/>
 <p>好吧，根據 Google 的圖像檢測 AI，它有 99.3% 的把握。發生的事情是：通過注入<i>一點點噪聲</i>，攻擊者可以欺騙 AI 確信一張圖像是完全不同的東西。（<a href="https://arxiv.org/pdf/1412.6572">Goodfellow, Shlens &amp; Szegedy 2015</a>）在這種情況下，讓 AI 認為熊貓是一種猴子：</p>
@@ -927,16 +927,16 @@
 <li>AI 通常在未過濾的網絡數據上訓練，你可以<i>非常</i>容易地用僅僅 250 個例子毒化那些數據，<i>無論 AI 的大小</i>。<sup class="footnote-ref"><a href="#fn23" id="fnref23">[23]</a></sup> 這可以用來安裝用<i>單個詞</i>激活的「通用越獄」，不需要搜索對抗性提示。<sup class="footnote-ref"><a href="#fn24" id="fnref24">[24]</a></sup></li>
 <li>可以擊敗世界人類圍棋冠軍的 AI⋯⋯可以被一個「下得很爛」的 AI 擊敗，它做出瘋狂的走法，把棋盤帶到在遊戲中永遠不會自然出現的狀態。<sup class="footnote-ref"><a href="#fn25" id="fnref25">[25]</a></sup></li>
 </ul>
-<p>當然，<i>人類</i>大腦對奇怪的擾動也不是 100% 魯棒的——見：<a href="https://en.wikipedia.org/wiki/Peripheral_drift_illusion#/media/File:Rotating_snakes_peripheral_drift_illusion.svg">視錯覺</a>——但拜託，我們沒有<i>那麼</i>糟糕。</p>
-<p>那麼，我們如何設計 AI「直覺」使其更魯棒？</p>
-<p>實際上，讓我們退後一步：我們如何設計<i>任何東西</i>使其魯棒？</p>
+<p>當然，<i>人類</i>大腦對奇怪的擾動也不是 100% 穩健的——見：<a href="https://en.wikipedia.org/wiki/Peripheral_drift_illusion#/media/File:Rotating_snakes_peripheral_drift_illusion.svg">視錯覺</a>——但拜託，我們沒有<i>那麼</i>糟糕。</p>
+<p>那麼，我們如何設計 AI「直覺」使其更穩健？</p>
+<p>實際上，讓我們退後一步：我們如何設計<i>任何東西</i>使其穩健？</p>
 <p>好吧，用這 3 個奇怪的技巧！</p>
-<p><img src="../media/p3/robust/robust.png" alt="使任何東西魯棒的 3 種方法，用鏈條的視覺隱喻。簡單性：一條鏈中盡可能少的環節。多樣性：幾條備用鏈。對抗性：找出最弱的環節/鏈。"></p>
+<p><img src="../media/p3/robust/robust.png" alt="使任何東西穩健的 3 種方法，用鏈條的視覺隱喻。簡單性：一條鏈中盡可能少的環節。多樣性：幾條備用鏈。對抗性：找出最弱的環節/鏈。"></p>
 <p><b>簡單性：</b>如果鏈中的單個環節斷裂，整條鏈就斷了。因此，<i>最小化任何鏈中必要環節的數量。</i></p>
 <p><b>多樣性：</b>如果一條鏈斷了，有「冗餘」備份是好的。因此，<i>最大化獨立鏈的數量</i>。（注意：鏈應該盡可能彼此不同/獨立，以降低它們失敗之間的相關性。）不要把所有雞蛋放在一個籃子裡，避免單點故障。</p>
 <p><b>對抗性：</b>找出最弱的環節，最弱的鏈。加強它們，或用更強的東西替換它們。</p>
 <p>. . .</p>
-<p>簡單性/多樣性/對抗性如何幫助工程甚至日常生活中的魯棒性：</p>
+<p>簡單性/多樣性/對抗性如何幫助工程甚至日常生活中的穩健性：</p>
 <ul>
 <li>👷 <u>工程</u>：
 <ul>
@@ -972,7 +972,7 @@
 </li>
 <li><u>自編碼器</u>，如前一節所述，是具有「沙漏身材」的神經網絡：輸入大，中間小，輸出再變大。然後網絡被訓練為<i>輸出它自己的輸入</i>——（因此，<i>自</i>編碼器）——但在通過中間的「瓶頸」擠壓後。這迫使網絡學習輸入的簡單「本質」，這樣它以後可以被重建。</li>
 <li><u>誠實 AI 的速度/簡單性先驗</u>。<sup class="footnote-ref"><a href="#fn27" id="fnref27">[27]</a></sup>（提議的，尚未在現實生活中測試。）由於說一致的謊言比說一致的真話更難，有人提議我們可以通過獎勵 AI<i>快速</i>來激勵它們誠實。（不過：如果你<i>太</i>激勵快速，你可能只會得到懶惰的錯誤答案。）</li>
-<li><u>滿足者</u>。現在，<a href="https://aisafety.dance/media/p2/gms/goodhart.png">: 幾乎所有 AI（和人類機構）都容易受到古德哈特定律的影響</a>，AI/人類會「操縱」你給他們的任何目標指標。所以，<a href="https://cdn.aaai.org/ocs/ws/ws0198/12613-57416-1-PB.pdf">Taylor 2016</a> 提議：不是指示 AI <i>最大化</i>一個目標，而是讓它們<i>滿足</i>一個目標。例如，「0.1-量化器」只會生成 10 個選項，然後<i>停止</i>，只選擇到目前為止最好的一個。（1/10 = 0.1）</li>
+<li><u>滿足者</u>。現在，<a href="../media/p2/gms/goodhart.png">: 幾乎所有 AI（和人類機構）都容易受到古德哈特定律的影響</a>，AI/人類會「操縱」你給他們的任何目標指標。所以，<a href="https://cdn.aaai.org/ocs/ws/ws0198/12613-57416-1-PB.pdf">Taylor 2016</a> 提議：不是指示 AI <i>最大化</i>一個目標，而是讓它們<i>滿足</i>一個目標。例如，「0.1-量化器」只會生成 10 個選項，然後<i>停止</i>，只選擇到目前為止最好的一個。（1/10 = 0.1）</li>
 </ul>
 <p>（注意：「簡單性」也使 AI 更容易解釋，這是另一個 AI 安全的勝利！）</p>
 <img class="mini" src="../media/p3/robust/mini_diversity.png">
@@ -985,10 +985,10 @@
 <li>（Dropout 也是近似「貝葉斯」不確定性的好方法<sup class="footnote-ref"><a href="#fn28" id="fnref28">[28]</a></sup>，這對 AI 安全很好，正如我們在上面的章節「知道你不知道我們的人類價值觀」中看到的。）</li>
 </ul>
 </li>
-<li><u>碎片理論</u>：一個假設，我們可能實際上從現代 AI <i>免費</i>獲得魯棒對齊，<i>因為</i>現代 AI 不擅長學習我們真正的獎勵。為什麼？因為現代 AI 會學習一個糟糕獎勵函數的<i>多樣</i>集成（<a href="https://www.greaterwrong.com/posts/8ccTZ9ZxpJrvnxt4F/shard-theory-in-nine-theses-a-distillation-and-critical">「碎片」</a>），這樣，總體而言，整體比其各個部分更魯棒和靈活。</li>
-<li><u>數據增強</u>：假設你想讓 AI 識別動物，你希望它對照片角度、光線等魯棒。所以：取你原來的照片集，然後<i>自動製作「新」照片</i>，通過改變色調或圖像角度。你數據集中的這種多樣性將使你的 AI 對這些變化魯棒。</li>
+<li><u>碎片理論</u>：一個假設，我們可能實際上從現代 AI <i>免費</i>獲得穩健對齊，<i>因為</i>現代 AI 不擅長學習我們真正的獎勵。為什麼？因為現代 AI 會學習一個糟糕獎勵函數的<i>多樣</i>集成（<a href="https://www.greaterwrong.com/posts/8ccTZ9ZxpJrvnxt4F/shard-theory-in-nine-theses-a-distillation-and-critical">「碎片」</a>），這樣，總體而言，整體比其各個部分更穩健和靈活。</li>
+<li><u>數據增強</u>：假設你想讓 AI 識別動物，你希望它對照片角度、光線等穩健。所以：取你原來的照片集，然後<i>自動製作「新」照片</i>，通過改變色調或圖像角度。你數據集中的這種多樣性將使你的 AI 對這些變化穩健。</li>
 <li><u>多樣化數據</u>：出於類似的原因，擁有更多種族多樣化的照片使 AI 更擅長將少數民族識別為人。誰會想到呢？</li>
-<li><u>道德議會：</u>（<a href="https://ora.ox.ac.uk/objects/uuid:b6b3bc2e-ba48-41d2-af7e-83f07c1fe141/files/svm40xs90j">Two Tobies 2021</a>）類似於集成，不是選擇<i>一個</i>道德理論安裝到 AI 中，而是選擇多個合理的道德理論，讓它們「投票」。一般來說，我們可以通過給 AI 一個目標<i>議會</i>而不是一個獨裁者目標來創建魯棒的「目標規範」。
+<li><u>道德議會：</u>（<a href="https://ora.ox.ac.uk/objects/uuid:b6b3bc2e-ba48-41d2-af7e-83f07c1fe141/files/svm40xs90j">Two Tobies 2021</a>）類似於集成，不是選擇<i>一個</i>道德理論安裝到 AI 中，而是選擇多個合理的道德理論，讓它們「投票」。一般來說，我們可以通過給 AI 一個目標<i>議會</i>而不是一個獨裁者目標來創建穩健的「目標規範」。
 <ul>
 <li>（自我推銷：我正在寫一篇研究文章，結合簡單性和多樣性的想法來解決 AI 和人類中的古德哈特定律。工作標題：<a href="https://blog.ncase.me/research-notes-oct-2024/#project_4">Goodhart vs Good Enough: maximize one thing by being lazy about many things</a>。）</li>
 </ul>
@@ -997,21 +997,21 @@
 <img class="mini" src="../media/p3/robust/mini_adversity.png">
 <p><b>對抗性：</b></p>
 <ul>
-<li><u>對抗訓練</u>：通過讓 AI 與另一個 AI 對抗來訓練 AI。<sup class="footnote-ref"><a href="#fn29" id="fnref29">[29]</a></sup> 記得上面的熊貓-猴子混淆嗎？你可以通過讓 AI <i>生成</i>對抗圖像，然後用這些對抗圖像<i>重新訓練</i>原始的圖像分類 AI 來使 AI 更魯棒。這實際上找到並加強了它的「弱點」。</li>
+<li><u>對抗訓練</u>：通過讓 AI 與另一個 AI 對抗來訓練 AI。<sup class="footnote-ref"><a href="#fn29" id="fnref29">[29]</a></sup> 記得上面的熊貓-猴子混淆嗎？你可以通過讓 AI <i>生成</i>對抗圖像，然後用這些對抗圖像<i>重新訓練</i>原始的圖像分類 AI 來使 AI 更穩健。這實際上找到並加強了它的「弱點」。</li>
 <li><u>放鬆/潛在對抗訓練</u>：和上面一樣，除了「攻擊者」AI 不必給出<i>具體</i>輸入來欺騙「防禦者」AI。這迫使「防禦者」防禦<i>一般</i>技術，而不僅僅是對手可能使用的具體技巧。<sup class="footnote-ref"><a href="#fn30" id="fnref30">[30]</a></sup></li>
 <li><u>紅隊</u>：讓一個團隊（紅隊）嘗試破壞 AI 系統。然後，讓另一個團隊（藍隊）重新設計 AI 系統來防禦。重複直到滿意。<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup>（你的團隊可以是純人類，或人類-AI 混合。）</li>
-<li><u>最佳最壞情況表現</u>：不是訓練 AI 在<i>平均情況下</i>表現良好，你可以通過訓練它<i>即使在最壞情況下</i>也表現良好來使它更魯棒。（但也要應用簡單性/「正則化」，這樣它不會以偏執的方式優化最壞情況。）<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup></li>
+<li><u>最佳最壞情況表現</u>：不是訓練 AI 在<i>平均情況下</i>表現良好，你可以通過訓練它<i>即使在最壞情況下</i>也表現良好來使它更穩健。（但也要應用簡單性/「正則化」，這樣它不會以偏執的方式優化最壞情況。）<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup></li>
 </ul>
 <p>. . .</p>
 <p>但等等，如果 AI 工程師<i>已經</i>為現代 AI 做了以上所有事情，為什麼它們仍然如此脆弱？</p>
-<p>好吧，第一，他們通常<i>不會</i>做以上所有，甚至大部分。前沿 AI 通常「只」用以上魯棒性技術中的 1 或 2 個訓練。每種技術都不<i>太</i>昂貴，但成本會累加。</p>
-<p>但即使 AI 工程師<i>確實</i>應用了以上所有魯棒性技術，它可能<i>仍然</i>不夠。許多 AI 研究人員懷疑我們目前做 AI 的方式存在<i>根本性缺陷</i>，這把我們帶到下一節⋯⋯</p>
+<p>好吧，第一，他們通常<i>不會</i>做以上所有，甚至大部分。前沿 AI 通常「只」用以上穩健性技術中的 1 或 2 個訓練。每種技術都不<i>太</i>昂貴，但成本會累加。</p>
+<p>但即使 AI 工程師<i>確實</i>應用了以上所有穩健性技術，它可能<i>仍然</i>不夠。許多 AI 研究人員懷疑我們目前做 AI 的方式存在<i>根本性缺陷</i>，這把我們帶到下一節⋯⋯</p>
 <h3>🤔 複習 #5</h3>
 <orbit-reviewarea color="violet">
     <orbit-prompt
-        question="魯棒性的三個關鍵"
+        question="穩健性的三個關鍵"
         answer="<b>簡單性 / 多樣性 / 對抗性</b>"
-        answer-attachments="https://aisafety.dance/media/p3/robust/robust.png">
+        answer-attachments="../media/p3/robust/robust.png">
         <!-- aisffs-robust.png -->
     </orbit-prompt>
     <orbit-prompt
@@ -1027,15 +1027,15 @@
         answer="找出最弱的環節，最弱的鏈。加強它們，或用更強的東西替換它們。">
     </orbit-prompt>
     <orbit-prompt
-        question="列出至少 1 種為魯棒 AI 做<b>簡單性</b>的方法："
+        question="列出至少 1 種為穩健 AI 做<b>簡單性</b>的方法："
         answer="（以下任一都可以）正則化、影響正則化、自編碼器（用於「本質」的瓶頸）、誠實 AI 的速度/簡單性先驗">
     </orbit-prompt>
     <orbit-prompt
-        question="列出至少 1 種為魯棒 AI 做<b>多樣性</b>的方法："
+        question="列出至少 1 種為穩健 AI 做<b>多樣性</b>的方法："
         answer="（以下任一都可以）集成、Dropout、數據增強、多樣化數據、卡爾曼濾波器、碎片理論">
     </orbit-prompt>
     <orbit-prompt
-        question="列出至少 1 種為魯棒 AI 做<b>對抗性</b>的方法："
+        question="列出至少 1 種為穩健 AI 做<b>對抗性</b>的方法："
         answer="（以下任一都可以）對抗訓練、放鬆/潛在對抗訓練、紅隊、最佳最壞情況表現">
     </orbit-prompt>
 </orbit-reviewarea>
@@ -1136,7 +1136,7 @@
 </li>
 <li>💖 <u>學習我們的價值觀：</u>理解因果關係讓 AI 能區分我們<i>為其本身</i>想要的東西，vs 我們<i>為了其他目的</i>想要的東西。（「內在」vs「工具性」目標）例如，AI 應該理解我們想要錢，但是為了買有用的東西，<i>而不是</i>為了錢本身。
 <ul>
-<li><a href="https://aisafety.dance/p2/#problem6">「內部錯位」問題</a>——AI 在<i>獎勵設定完美</i>的情況下仍學到錯誤價值觀的問題——可以重新框架為<i>目標</i>穩健性問題，或相關-因果混淆。例如，一個因為獲得關卡末端金幣而得到獎勵的電玩 AI 學會了<i>為了向右走本身而熱愛向右走</i>，並忽視金幣。<a href="https://arxiv.org/pdf/2309.16166">一篇 2023 年的論文</a>發現，讓 AI「像科學家一樣思考」——產生並測試多個關於什麼<i>導致</i>獎勵的假設，而不只是與獎勵相關——幫助該 AI 解決目標穩健性問題。</li>
+<li><a href="../p2/#problem6">「內部錯位」問題</a>——AI 在<i>獎勵設定完美</i>的情況下仍學到錯誤價值觀的問題——可以重新框架為<i>目標</i>穩健性問題，或相關-因果混淆。例如，一個因為獲得關卡末端金幣而得到獎勵的電玩 AI 學會了<i>為了向右走本身而熱愛向右走</i>，並忽視金幣。<a href="https://arxiv.org/pdf/2309.16166">一篇 2023 年的論文</a>發現，讓 AI「像科學家一樣思考」——產生並測試多個關於什麼<i>導致</i>獎勵的假設，而不只是與獎勵相關——幫助該 AI 解決目標穩健性問題。</li>
 </ul>
 </li>
 <li>🔮 <u>「未來生活」演算法：</u>因果模型將幫助 AI 更好地預測不同假設情境（「反事實」）下的世界，<i>以及</i>預測我們會認可什麼。</li>
@@ -1162,7 +1162,7 @@
     <orbit-prompt
         question="截至 2025 年，前沿 LLM 在河內塔問題上的表現如何？"
         answer="非常好，最多到 7 個圓盤……然後在 8 個以上<i>完全崩潰</i>。（這就像一個人能在紙上完美計算兩個 7 位數的加法，然後在兩個 8 位數上<i>徹底翻車</i>。非常奇怪。）"
-        answer-attachments='https://aisafety.dance/media/p3/gears/hanoi.jpg'>
+        answer-attachments='../media/p3/gears/hanoi.jpg'>
         <!-- aisffs-hanoi.png -->
     </orbit-prompt>
     <orbit-prompt
@@ -1180,7 +1180,7 @@
     <orbit-prompt
         question="LLM 在哪 1 項任務上指數級變好，在哪 1 項上指數級變差？"
         answer="常見程式碼任務（任務長度每 7 個月翻一倍），vs ARC-AGI『規則發現』遊戲（成本比指數還差）"
-        answer-attachments='https://aisafety.dance/media/p3/gears/arc-agi.png'>
+        answer-attachments='../media/p3/gears/arc-agi.png'>
         <!-- aisffs-arc-agi-cost.png -->
     </orbit-prompt>
     <orbit-prompt
@@ -1196,20 +1196,20 @@
 <h2>🎉 回顧 #2</h2>
 <ul>
 <li>🧠 <b>通過可解釋性與引導讀寫 AI 的「大腦」。</b>（腦掃描和腦刺激的 AI 等價物）</li>
-<li>💪 在工程、生活和 AI 中，你可以通過<b>簡單性、多樣性和對抗性</b>使任何東西更魯棒。</li>
+<li>💪 在工程、生活和 AI 中，你可以通過<b>簡單性、多樣性和對抗性</b>使任何東西更穩健。</li>
 <li>⚙️ <b>現代 AI 很脆弱，因為它們用相關性的「感覺」思考，而不是因果的「齒輪」</b>。這就是為什麼它們在常見任務上指數級變好，同時在<i>不常見</i>的任務上指數級變差。
 <ul>
-<li>讓 AI 用因果關係思考不僅會增加 AI 能力，還會：使它們更魯棒、可驗證、可解釋、可引導、對科學有用，並更好地學習和對齊我們的價值觀。</li>
+<li>讓 AI 用因果關係思考不僅會增加 AI 能力，還會：使它們更穩健、可驗證、可解釋、可引導、對科學有用，並更好地學習和對齊我們的價值觀。</li>
 </ul>
 </li>
 </ul>
 <hr>
 <p><a id="humane"></a></p>
 <h2>什麼是「人道價值觀」？</h2>
-<p>恭喜，你創造了一個能夠魯棒地學習並遵循其人類用戶價值觀的 AI！該用戶是一個全面殺戮狂。他們使用 AI 幫助他們設計一種穩定霧化形式的人類狂犬病，通過四軸飛行器到處噴灑，創造殭屍末日。</p>
+<p>恭喜，你創造了一個能夠穩健地學習並遵循其人類用戶價值觀的 AI！該用戶是一個全面殺戮狂。他們使用 AI 幫助他們設計一種穩定霧化形式的人類狂犬病，通過四軸飛行器到處噴灑，創造殭屍末日。</p>
 <p>糟糕。</p>
 <p>我一直在強調這一點，我會再說一次：<b><i>人類</i>價值觀不一定是<i>人道</i>價值觀。</b>拜託，人們曾經為了娛樂而活活燒死貓。<sup class="footnote-ref"><a href="#fn56" id="fnref56">[56]</a></sup> 即使在解決了「我們如何引導先進 AI」的問題之後，我們還需要決定：「引導向<i>哪些目標、哪些價值觀？</i>」</p>
-<p><img src="../media/p2/ethics/aim_vs_target.png" alt="左：正在建造的火箭，標記為「技術對齊：如何魯棒地將 AI 瞄準任何目標」。右：月亮，標記為「誰的價值觀：我們的目標應該是什麼？」"></p>
+<p><img src="../media/p2/ethics/aim_vs_target.png" alt="左：正在建造的火箭，標記為「技術對齊：如何穩健地將 AI 瞄準任何目標」。右：月亮，標記為「誰的價值觀：我們的目標應該是什麼？」"></p>
 <p>所以，如果我們希望 AI 對人類（和/或所有有情眾生）<i>有益</i>，我們只需要⋯⋯呃⋯⋯解決 3000 多年的道德是什麼的哲學問題。（或者如果道德不客觀存在，那麼：「任何理性存在的社區會趨同於什麼共同生活的規則？」）</p>
 <p>嗯。</p>
 <p>困難的問題。</p>
@@ -1226,7 +1226,7 @@
 <p>🏛️ <b>道德議會：</b></p>
 <p>這個想法結合了前幾節的不確定性和多樣性。<a href="https://ora.ox.ac.uk/objects/uuid:b6b3bc2e-ba48-41d2-af7e-83f07c1fe141/files/svm40xs90j">道德議會</a>提議使用道德理論的「議會」，你更有信心的理論獲得更多席位。（例如：我的議會可能給<a href="https://en.wikipedia.org/wiki/Capability_approach">能力方法</a> 50 個席位，<a href="https://utilitarianism.net/theories-of-wellbeing/#objective-list-theories">幸福主義功利主義</a> 30 個席位，其他雜項理論獲得 20 個席位。）道德議會然後對可能的行動投票贊成或反對。獲得最多票數的行動獲勝。</p>
 <p>（這個提案與憲法 AI 非常相似，除了投票者不是像「誠實」和「有幫助」這樣的形容詞，而是整個道德理論。並且不是平等投票，你可以對某些理論給予比其他理論更多的權重。）</p>
-<p>正如我們之前學到的，添加多樣性是增加魯棒性的好方法。因為<i>每個</i>道德理論都有一些奇怪的邊緣情況會失敗，擁有一個多樣化的道德議會可以防止單點故障。（例子：<sup class="footnote-ref"><a href="#fn59" id="fnref59">[59]</a></sup>）</p>
+<p>正如我們之前學到的，添加多樣性是增加穩健性的好方法。因為<i>每個</i>道德理論都有一些奇怪的邊緣情況會失敗，擁有一個多樣化的道德議會可以防止單點故障。（例子：<sup class="footnote-ref"><a href="#fn59" id="fnref59">[59]</a></sup>）</p>
 <p>上述論文是為人類設計的，但也可以在 AI 中實現。</p>
 <p>🍺 <b>使用 AI 來蒸餾和放大人類價值觀：</b></p>
 <p>Google DeepMind 的研究人員發現，一個微調過的 LLM 可以<a href="https://arxiv.org/pdf/2211.15006">在具有不同價值觀的人類之間創造共識</a>。更好的是，這些 AI 輔助的共識想法<i>比人類自己的意見更受歡迎</i>。（不過，注意：人類不一定是為了達成共識而寫的。）</p>
@@ -1236,10 +1236,10 @@
 <li>公開發布他們對前 100 個問題的答案，其他 900 個保密。</li>
 <li>人們可以使用公開數據來訓練預測人類價值觀的 AI。（AI 可以是<i>任何</i>設計，不只是基於 LLM 的。）他們將這些 AI 提交到比賽中。</li>
 <li><i>最好地</i>預測秘密 900 個問題上人類答案分佈的 AI，一定擅長預測一般的人類價值觀！這些 AI 已經「蒸餾」了人類價值觀。（注意：預測答案的<i>分佈</i>，不只是平均答案。這樣 AI 也可以預測某事會有多極化。）</li>
-<li>你現在可以使用最好的 AI 的<i>集成</i>（為什麼集成？因為多樣性 → 魯棒性，記得嗎？）作為「這是否符合人類價值觀」的神諭，來做<i>不在</i>原始 1,000 個問題集中的決定。</li>
+<li>你現在可以使用最好的 AI 的<i>集成</i>（為什麼集成？因為多樣性 → 穩健性，記得嗎？）作為「這是否符合人類價值觀」的神諭，來做<i>不在</i>原始 1,000 個問題集中的決定。</li>
 </ul>
 <p>💖 <b>從人類價值觀的多樣來源學習</b>：<sup class="footnote-ref"><a href="#fn60" id="fnref60">[60]</a></sup></p>
-<p>給 AI 我們的故事、我們的寓言、哲學著作、宗教文本、政府憲法、非營利組織使命宣言、人類學記錄，<i>所有這些</i>⋯⋯然後讓老式機器學習提取出我們最魯棒、最普遍的人類價值觀。</p>
+<p>給 AI 我們的故事、我們的寓言、哲學著作、宗教文本、政府憲法、非營利組織使命宣言、人類學記錄，<i>所有這些</i>⋯⋯然後讓老式機器學習提取出我們最穩健、最普遍的人類價值觀。</p>
 <p>（但每個人類文化都有貪婪、謀殺等。這不會把我們鎖定在我們本性中最糟糕的部分嗎？見下一個提案⋯⋯）</p>
 <p>🌟 <b>一致外推意志（CEV）：</b><sup class="footnote-ref"><a href="#fn61" id="fnref61">[61]</a></sup></p>
 <p><i>意志</i>意思是「我們希望的」。</p>
@@ -1272,7 +1272,7 @@
     </orbit-prompt>
     <orbit-prompt
         question="使用 AI 蒸餾人類判斷的一種方式（不限於 LLM）"
-        answer="1] 請人類陪審團回答很多問題。2] 人們可以提交 AI 來預測他們的答案。3] 使用最好的 AI 的集成（為了魯棒性）作為「這是否符合人類價值觀」的神諭">
+        answer="1] 請人類陪審團回答很多問題。2] 人們可以提交 AI 來預測他們的答案。3] 使用最好的 AI 的集成（為了穩健性）作為「這是否符合人類價值觀」的神諭">
     </orbit-prompt>
     <orbit-prompt
         question="「一致外推意志」（CEV）是什麼意思？"
@@ -1337,7 +1337,7 @@
 </li>
 <li><u>至少承諾不製造可怕的東西，比如完全自主的殺手無人機。</u><sup class="footnote-ref"><a href="#fn77" id="fnref77">[77]</a></sup></li>
 </ul>
-<p><img src="../media/p3/governance/6pack.jpg" alt="數位主六力：廣泛傾聽、可信承諾、易於檢查、易於糾正、雙贏橋接解決方案、盡可能本地化"></p>
+<p><img src="../media/p3/governance/6pack.jpg" alt="數位民主六力：廣泛傾聽、可信承諾、易於檢查、易於糾正、雙贏橋接解決方案、盡可能本地化"></p>
 <p><i>（如果我可以自吹自擂一下</i>，我<i>正在為唐鳳即將出版的書 6pack.care 做插圖！所有漫畫都將獻給公共領域。）</i></p>
 <p>另一個想法：雖然「棍棒」（罰款、處罰）是必要的，但我認為被忽視的是我們如何使用「胡蘿蔔」（市場激勵）來重新引導行業。正如<a href="https://en.wikipedia.org/wiki/Audrey_Tang">唐鳳</a>——台灣數位部長，<a href="https://6pack.care/">6Pack.care</a> 的合著者——曾經解釋的：如果你在 9/11 <i>之前</i>成功倡導加固駕駛艙門，或在 Covid-19 之前改善生物安全，你的獎勵會是⋯⋯「什麼都沒發生」。沒有人關心沒有爆炸的炸彈。<sup class="footnote-ref"><a href="#fn78" id="fnref78">[78]</a></sup> 所以，如果你想讓你的 AI 對齊和治理想法<i>真正在現實生活中實施，而不只是在學術論文中</i>，你需要它們在短期內「支付紅利」。</p>
 <p>上面列出的許多 AI 安全解決方案可以有，或<i>已經有</i>，有利可圖的市場衍生品。（例子：<sup class="footnote-ref"><a href="#fn79" id="fnref79">[79]</a></sup>）</p>
@@ -1388,7 +1388,7 @@
 <p>這也可以與激勵和投資<b>提升技能和再培訓人類工人</b>相結合。幫助我們獲得逃避 LLM 掌控的工作，例如需要規則發現的任務（如研究）、在物理環境中的靈巧性（如手工行業、現場表演藝術）、長上下文（如長篇寫作），或者我們只是<i>想要</i>這份工作是人類做的（如老年護理）。</p>
 <p>= = =</p>
 <p>我們甚至還沒有觸及關於先進 AI 的經濟政策提案的表面。要獲得一個好的概述，<a href="https://www.anthropic.com/research/economic-policy-responses">查看 Anthropic 博客上的這個選項回顧。</a></p>
-<p>我個人的意見，截至 2025 年 12 月，可能會改變：對於政策，我會推薦結合 UBI + EITC，由 AI 的生產力收益資助，主要作為紅利給高自動化風險工人，如：a）卡車司機、計程車司機（自動駕駛汽車），b）呼叫中心服務（語音和語言 AI），c）零售（數字亭，這甚至不是「AI」）。冒著極度自私的風險，當然：數字藝術、程式設計和白領工作也都是高自動化風險的。</p>
+<p>我個人的意見，截至 2025 年 12 月，可能會改變：對於政策，我會推薦結合 UBI + EITC，由 AI 的生產力收益資助，主要作為紅利給高自動化風險工人，如：a）卡車司機、計程車司機（自動駕駛汽車），b）呼叫中心服務（語音和語言 AI），c）零售（數字亭，這甚至不是「AI」）。冒著極度自私的風險，當然：數位藝術、程式設計和白領工作也都是高自動化風險的。</p>
 <p>至於你<i>個人</i>能做什麼，嗯，你可能想讀/聽<b><a href="https://80000hours.org/agi/guide/skills-ai-makes-valuable/">如何不讓你的工作被 AI 搶走</a>。</b></p>
 <h3>🤔 複習 #8</h3>
 <orbit-reviewarea color="violet">
@@ -1399,7 +1399,7 @@
     <orbit-prompt
         question="AI 治理的 2 個核心支柱："
         answer="1] 驗證我們在哪裡。2] 保持在「安全」線以上。"
-        answer-attachments='https://aisafety.dance/media/p3/governance/rocket.png'>
+        answer-attachments='../media/p3/governance/rocket.png'>
         <!-- aisffs-gov-rocket.png -->
     </orbit-prompt>
     <orbit-prompt
@@ -1438,7 +1438,7 @@
 <p>這裡有一些提案，關於如何以更少的缺點獲得優點：</p>
 <ul>
 <li><b>綜合 AI 服務（CAIS）、工具 AI</b><sup class="footnote-ref"><a href="#fn85" id="fnref85">[85]</a></sup>：製作一大套狹窄的非自主 AI 工具（想想：Excel、Google 翻譯）。為了解決一般問題，插入<i>人類</i>代理：人類是這個 AI 管弦樂隊的指揮。人類和他們的價值觀保持在中心。</li>
-<li><b>純科學家 AI</b>。<sup class="footnote-ref"><a href="#fn86" id="fnref86">[86]</a></sup> 想像一個 AI 只接收觀察，然後輸出理論。（就像 Google 翻譯可以接收英語作為輸入，輸出中文一樣。）關鍵是，這個 AI <i>沒有</i>「代理」，這會導致<a href="https://aisafety.dance/p2/#problem2">工具趨同</a>問題。它只是將<i>科學模型</i>擬合到數據，就像 Excel 將線條擬合到數據一樣。它<i>不能</i>失控，就像 Google 翻譯不能失控一樣。
+<li><b>純科學家 AI</b>。<sup class="footnote-ref"><a href="#fn86" id="fnref86">[86]</a></sup> 想像一個 AI 只接收觀察，然後輸出理論。（就像 Google 翻譯可以接收英語作為輸入，輸出中文一樣。）關鍵是，這個 AI <i>沒有</i>「代理」，這會導致<a href="../p2/#problem2">工具趨同</a>問題。它只是將<i>科學模型</i>擬合到數據，就像 Excel 將線條擬合到數據一樣。它<i>不能</i>失控，就像 Google 翻譯不能失控一樣。
 <ul>
 <li>這離科學家 AI 還很遠，但微軟已經在研究訓練 ANN 來<a href="https://www.microsoft.com/en-us/research/publication/deep-end-to-end-causal-inference-2/">推斷因果圖</a>。</li>
 </ul>
@@ -1536,7 +1536,7 @@
     <orbit-prompt
         question="「我們都已經是賽博格了」。舉 3 個例子？"
         answer="（以下任何 3 個都可以）：**身體增強：** 眼鏡、心臟起搏器、假肢、植入物、助聽器、連續血糖監測儀。**認知增強：** 閱讀/寫作、數學符號、電腦、間隔重複閃卡。**情感增強：** 日記、冥想應用、傳記和紀錄片作為同理心增強器。**「集體智能」增強：** 維基百科、預測市場/聚合器。"
-        answer-attachments='https://aisafety.dance/media/p3/cyborg/cyborg.png'>
+        answer-attachments='../media/p3/cyborg/cyborg.png'>
     </orbit-prompt>
     <orbit-prompt
         question="賽博格主義：「讓\_\_\_\_\_保持在\_\_\_\_\_」"
@@ -1545,7 +1545,7 @@
     <orbit-prompt
         question="想一個人類相對比 LLM 更擅長的事情，反之亦然："
         answer="（這個拼圖圖中的任何一個：）"
-        answer-attachments='https://aisafety.dance/media/p3/cyborg/puzzle.png'>
+        answer-attachments='../media/p3/cyborg/puzzle.png'>
     </orbit-prompt>
     <orbit-prompt
         question="列出一個現實世界中人類+AI 團隊<i>被證明</i>比單獨的人類或 AI 更好的例子"
@@ -1554,7 +1554,7 @@
     <orbit-prompt
         question="用 3 個維恩圖視覺化賽博格主義的甜蜜點："
         answer=""
-        answer-attachments='https://aisafety.dance/media/p3/cyborg/venn.png'>
+        answer-attachments='../media/p3/cyborg/venn.png'>
     </orbit-prompt>
 </orbit-reviewarea>
 <hr>
@@ -1679,7 +1679,7 @@
 </li>
 <li id="fn15" class="footnote-item"><p><a href="https://www.nature.com/articles/35536">電流刺激笑聲</a>（1998），和<a href="https://www.jneurosci.org/content/25/3/550">誘發靈魂出竅體驗</a>（2005）。 <a href="#fnref15" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn16" class="footnote-item"><p>來自<a href="https://arxiv.org/pdf/2301.05217">論文</a>：「在魯棒性實驗中，我們確認頓悟在其他架構和質數模數中一致發生（附錄 C.2）。在第 5.3 節中，我們發現<b>沒有正則化就不會發生頓悟</b>。」（強調是添加的） <a href="#fnref16" class="footnote-backref">↩︎</a></p>
+<li id="fn16" class="footnote-item"><p>來自<a href="https://arxiv.org/pdf/2301.05217">論文</a>：「在穩健性實驗中，我們確認頓悟在其他架構和質數模數中一致發生（附錄 C.2）。在第 5.3 節中，我們發現<b>沒有正則化就不會發生頓悟</b>。」（強調是添加的） <a href="#fnref16" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn17" class="footnote-item"><p>天啊，<a href="https://knowyourmeme.com/memes/xzibit-yo-dawg">這個迷因</a>和我的一些<i>同事</i>一樣老。 <a href="#fnref17" class="footnote-backref">↩︎</a></p>
 </li>
@@ -1691,7 +1691,7 @@
 </li>
 <li id="fn21" class="footnote-item"><p>（人類例子：Alyx 因為其他原因不喜歡 Beau。Beau 吃餅乾。Alyx，即使他們在任何其他情況下都不會被冒犯，想：「Beau <i>咀嚼</i>那些<i>噁心的鹹方塊</i>這麼<i>大聲</i>，故意<i>試圖</i>惹我生氣。」Alyx 的<i>有意識的</i>思維鏈（惱人的吃 → 不喜歡 Beau）與他們<i>真正的</i>潛意識（不喜歡 Beau → 覺得吃很煩人）相反。總之——如上所述，如下所述——LLM <i>也</i>大聲合理化他們內在的偏見。 <a href="#fnref21" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn22" class="footnote-item"><p><a href="https://arxiv.org/pdf/1707.08945">對深度學習視覺分類的魯棒物理世界攻擊 (2018)</a> <a href="#fnref22" class="footnote-backref">↩︎</a></p>
+<li id="fn22" class="footnote-item"><p><a href="https://arxiv.org/pdf/1707.08945">對深度學習視覺分類的穩健物理世界攻擊 (2018)</a> <a href="#fnref22" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn23" class="footnote-item"><p><a href="https://www.anthropic.com/research/small-samples-poison">少量樣本可以毒化任何大小的 LLM</a>：「我們證明，通過僅向預訓練數據注入 250 個惡意文檔，對手可以成功地在從 600M 到 13B 參數的 LLM 中安裝後門。」 <a href="#fnref23" class="footnote-backref">↩︎</a></p>
 </li>
@@ -1789,7 +1789,7 @@
 <li id="fn58" class="footnote-item"><p><a href="https://www.anthropic.com/research/collective-constitutional-ai-aligning-a-language-model-with-public-input">集體憲法 AI：用公眾輸入對齊語言模型</a> (2023) <a href="#fnref58" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn59" class="footnote-item"><p>義務論說你應該對想找到隱藏猶太人的納粹誠實，功利主義說你應該折磨一個人來防止 10<sup>100</sup> 人眼睛進灰塵，理性利己主義會接受你走過一個容易救的溺水孩子。</p>
-<p>但我很難想到<i>任何</i>在<i>所有三個</i>道德理論中都失敗的情況：一個行動遵守廣泛接受的規則和義務，改善他人的福祉，<i>和</i>你自己的福祉，但<i>仍然「錯誤」</i>。重點是：<i>集成</i>比任何單獨的理論更魯棒。</p>
+<p>但我很難想到<i>任何</i>在<i>所有三個</i>道德理論中都失敗的情況：一個行動遵守廣泛接受的規則和義務，改善他人的福祉，<i>和</i>你自己的福祉，但<i>仍然「錯誤」</i>。重點是：<i>集成</i>比任何單獨的理論更穩健。</p>
 <p>（美德倫理學呢？有沒有「明智」失敗的情況？好吧，沒有，但那是因為美德倫理學極其模糊，對指導幾乎沒用。美德倫理學的大人物，亞里士多德和阿奎那，支持奴隸制。你可以通過使用「明智」/「不明智」這些馬虎的標籤來提升/貶低任何你想要的行動。） <a href="#fnref59" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn60" class="footnote-item"><p><a href="https://cdn.aaai.org/ocs/ws/ws0209/12624-57414-1-PB.pdf">Using Stories to Teach Human Values to Artificial Agents</a> by Riedl &amp; Harrison 2016. <a href="#fnref60" class="footnote-backref">↩︎</a></p>
@@ -1830,9 +1830,9 @@
 </li>
 <li id="fn78" class="footnote-item"><p>引自 Tenet（2020），最「是的，這是一部諾蘭電影」的諾蘭電影。 <a href="#fnref78" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn79" class="footnote-item"><p>例如，<a href="https://proceedings.neurips.cc/paper_files/paper/2017/file/d5e2c0adad503c91f91df240d0cd4e49-Paper.pdf">人類偏好的強化學習（RLHF）</a>，一種讓 AI 導入人類價值觀的方法，就是將 Base GPT（一個自動完成工具）變成<i>Chat</i>GPT（一個真正的聊天機器人）的原因。同樣，提高 AI「直覺」的魯棒性將有助於製造更好的 AI 醫療診斷和自動駕駛汽車。 <a href="#fnref79" class="footnote-backref">↩︎</a></p>
+<li id="fn79" class="footnote-item"><p>例如，<a href="https://proceedings.neurips.cc/paper_files/paper/2017/file/d5e2c0adad503c91f91df240d0cd4e49-Paper.pdf">人類偏好的強化學習（RLHF）</a>，一種讓 AI 導入人類價值觀的方法，就是將 Base GPT（一個自動完成工具）變成<i>Chat</i>GPT（一個真正的聊天機器人）的原因。同樣，提高 AI「直覺」的穩健性將有助於製造更好的 AI 醫療診斷和自動駕駛汽車。 <a href="#fnref79" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn80" class="footnote-item"><p><a href="https://www.vox.com/future-perfect/21493812/smallpox-eradication-vaccines-infectious-disease-covid-19">Smallpox used to kill millions of people every year. Here's how humans beat it.</a> by Kelsey Piper <a href="#fnref80" class="footnote-backref">↩︎</a></p>
+<li id="fn80" class="footnote-item"><p><a href="https://www.vox.com/future-perfect/21493812/smallpox-eradication-vaccines-infectious-disease-covid-19">天花曾經每年奪走數百萬人的生命。以下是人類如何戰勝它。</a>，Kelsey Piper 著 <a href="#fnref80" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn81" class="footnote-item"><p>來源：<a href="https://ourworldindata.org/child-mortality">Our World In Data</a> <a href="#fnref81" class="footnote-backref">↩︎</a></p>
 </li>
@@ -1875,27 +1875,27 @@
 </p>
 
 <p>
-    <a href="#SwissCheese">: More about the Swiss Cheese Model</a>
+    <a href="#SwissCheese">: 更多關於瑞士乳酪模型</a>
     <br>
-    <a href="#RobustChainMath">: The math of robust scalable oversight</a>
+    <a href="#RobustChainMath">: 穩健可擴展監督的數學</a>
     <br>
-    <a href="#ScalableOversightExtras">: Scalable Oversight, extra notes</a>
+    <a href="#ScalableOversightExtras">: 可擴展監督，額外說明</a>
     <br>
-    <a href="#IDA">: Iterated Distillation & Amplification, explained</a>
+    <a href="#IDA">: 迭代蒸餾與放大，解釋</a>
     <br>
-    <a href="#CriticalMassComic">: (deleted scene) "Critical Mass" Comic</a>
+    <a href="#CriticalMassComic">: （刪除場景）「臨界質量」漫畫</a>
     <br>
-    <a href="#FutureLivesFixes">: Fixes for the "Future Lives" Algorithm</a>
+    <a href="#FutureLivesFixes">: 「未來生命」演算法的修正</a>
     <br>
-    <a href="#AISelfMod">: Informal literature review of "Self-modifying Agents"</a>
+    <a href="#AISelfMod">: 「自我修改代理」的非正式文獻回顧</a>
     <br>
-    <a href="#WorstOrAverage">: Pros & Cons of Worst/Average/Best-Case optimization</a>
+    <a href="#WorstOrAverage">: 最壞/平均/最佳情況優化的優缺點</a>
     <br>
-    <a href="#LearnValuesExtraNotes">: Learning out values, extra notes</a>
+    <a href="#LearnValuesExtraNotes">: 學習價值觀，額外說明</a>
     <br>
-    <a href="#EconomicsAI">: Economics of AI</a>
+    <a href="#EconomicsAI">: AI 的經濟學</a>
     <br>
-    <a href="#HumanLLMAdvantages">: Advantages of Humans vs LLMs</a>
+    <a href="#HumanLLMAdvantages">: 人類相對於大型語言模型的優勢</a>
 </p>
 
     </div>
