@@ -117,7 +117,15 @@ window.addEventListener("DOMContentLoaded", ()=>{
 
             // Table of Contents link
             let headingText = heading.innerText,
-                headingForURI = headingText.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+                // Keep Unicode word characters (letters, numbers from any language)
+                // Replace spaces with hyphens, remove punctuation, lowercase
+                headingForURI = headingText
+                    .trim()
+                    .toLowerCase()
+                    .replace(/\s+/g, '-')                    // spaces to hyphens
+                    .replace(/[^\p{L}\p{N}\-]/gu, '')        // keep letters, numbers, hyphens (Unicode-aware)
+                    .replace(/-+/g, '-')                     // collapse multiple hyphens
+                    .replace(/^-|-$/g, '');                  // trim hyphens from ends
             // What heading hierarchy? that's the indentation! (1em for each past h2)
             let hierarchy = parseInt(heading.tagName[1]);
             if(hierarchy>2){
