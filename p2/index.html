@@ -630,10 +630,10 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <p>雖然老式 AI 甚至無法識別貓的圖片，但我給它一個讚：我們<i>實際上理解它們是如何工作的</i>。這對現代 AI <i>不</i>成立。如果一輛自動駕駛汽車危險地把一輛卡車誤認為高速公路標誌，我們不知道它「為什麼」這樣做。我們無法像對普通軟體那樣分析和「除錯」現代 AI。</p>
 <p>但為什麼？要理解 AI「直覺」的問題，我們需要理解一些來自<strong>統計學和機器學習 (ML)</strong> 的核心概念。（<a href="#DifferenceBetweenMLAndAI">:ML 和 AI 有什麼區別？</a>）</p>
 <p>例如，考慮這個簡單的問題：</p>
-<p><strong>給定一堆點（數據點），什麼是最適合的曲線？</strong></p>
+<p><strong>給定一堆點（資料點），什麼是最適合的曲線？</strong></p>
 <p><img src="../media/p2/fit1/fit1_0001.png" alt="帶有一堆散點的雙軸圖。"></p>
-<p>在統計學中，將曲線擬合到數據稱為<strong>迴歸</strong>。曲線的「擬合」是基於點離曲線有多遠。越近越好！（當然，這段話是簡化的。）</p>
-<p>讓我們看看最簡單的情況：將一條<i>直線</i>擬合到數據。（稱為<b><i>線性</i>迴歸</b>）</p>
+<p>在統計學中，將曲線擬合到資料稱為<strong>迴歸</strong>。曲線的「擬合」是基於點離曲線有多遠。越近越好！（當然，這段話是簡化的。）</p>
+<p>讓我們看看最簡單的情況：將一條<i>直線</i>擬合到資料。（稱為<b><i>線性</i>迴歸</b>）</p>
 <p><img src="../media/p2/fit1/fit1_0002.png" alt="同樣的圖，但現在畫了一條紅線穿過它。"></p>
 <p>在科學/統計學中，真實世界事物的簡化數學版本稱為<strong>模型</strong>。（就像模型火車是真實火車的小版本一樣。）例如，本節中的紅線/曲線，以及所有人工神經網路，都是「模型」。</p>
 <p>大多數模型都有<strong>參數</strong>：這些只是數字，但你可以把「參數」想像成你轉動來調整模型的小旋鈕。（就像調整汽車座椅的傾斜度和腿部空間一樣。）</p>
@@ -644,7 +644,7 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 	<p>我調整線條參數的影片。</p>
 </video>
 <p><i>（影片使用 <a href="https://www.desmos.com/calculator">Desmos 互動圖形計算器</a> 製作）</i></p>
-<p>要「擬合」一個統計模型，電腦會轉動旋鈕直到線條盡可能接近所有數據點。（再次，這是簡化的說法。）</p>
+<p>要「擬合」一個統計模型，電腦會轉動旋鈕直到線條盡可能接近所有資料點。（再次，這是簡化的說法。）</p>
 <p>對於線性模型，數字 \(a\) 和 \(b\) 實際上有相對簡單的解釋！改變 \(a\) 使線條上下移動，\(b\) 是線條的斜率。</p>
 <p>但如果我們嘗試擬合一個更複雜的模型呢？比如一條「二次」曲線？</p>
 <p><img src="../media/p2/fit1/fit1_0003.png" alt="同樣的圖表，但現在畫了一條倒 U 形的紅色曲線穿過它。"></p>
@@ -672,7 +672,7 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 (ORBIT CARDS HERE)
     <orbit-prompt
         question="什麼是統計學中的「迴歸」？"
-        answer="擬合曲線到數據。[技術上，是擬合<i>數學函數</i>到數據。]"
+        answer="擬合曲線到資料。[技術上，是擬合<i>數學函數</i>到資料。]"
         answer-attachments="https://cloud-2blh3o35r-hack-club-bot.vercel.app/0aisffs-regression.png">
         <!-- aisffs-regression.png -->
     </orbit-prompt>
@@ -724,20 +724,20 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <p>但你可能看到了問題：那條曲線是<i>荒謬的</i>。更重要的是：</p>
 <p><i>對於輸入的小變化，它給出截然不同的輸出</i>。這就是烏龜-槍的問題。利用這一點的輸入稱為<strong>對抗性樣本。</strong></p>
 <ul>
-<li>它在超出原始數據集範圍的新數據上表現很差。這就是蘋果 iPod 的問題。這些失敗稱為<strong>分布外誤差。</strong>（或簡稱 OOD 誤差）</li>
+<li>它在超出原始資料集範圍的新資料上表現很差。這就是蘋果 iPod 的問題。這些失敗稱為<strong>分布外誤差。</strong>（或簡稱 OOD 誤差）</li>
 </ul>
-<p><img src="../media/p2/fit2/fit2_0004.png" alt="同樣之前有荒謬曲線的圖，但突出顯示 1）輕微的變化如何導致截然不同的結果，以及 2）結果在訓練數據範圍之外有多糟糕。"></p>
-<p><strong>訓練誤差</strong>是模型在它訓練的數據上得到的誤差。<strong>測試誤差</strong>是模型在它<i>沒有</i>訓練的<i>新</i>數據上得到的誤差。（是的，我也討厭這個術語有多令人困惑。<sup class="footnote-ref"><a href="#fn36" id="fnref36">[36]</a></sup> 如果有幫助的話，把「測試」想成你在學校得到的考試：它們應該由你在課堂或作業（你的「訓練數據」）中<i>沒有</i>見過的問題組成。）</p>
+<p><img src="../media/p2/fit2/fit2_0004.png" alt="同樣之前有荒謬曲線的圖，但突出顯示 1）輕微的變化如何導致截然不同的結果，以及 2）結果在訓練資料範圍之外有多糟糕。"></p>
+<p><strong>訓練誤差</strong>是模型在它訓練的資料上得到的誤差。<strong>測試誤差</strong>是模型在它<i>沒有</i>訓練的<i>新</i>資料上得到的誤差。（是的，我也討厭這個術語有多令人困惑。<sup class="footnote-ref"><a href="#fn36" id="fnref36">[36]</a></sup> 如果有幫助的話，把「測試」想成你在學校得到的考試：它們應該由你在課堂或作業（你的「訓練資料」）中<i>沒有</i>見過的問題組成。）</p>
 <p>無論如何：如果一個模型太簡單，它在訓練<i>和</i>真實世界測試中都會表現不好。這稱為<strong>欠擬合</strong>。如果一個模型太複雜，它在訓練中可以表現得很好，但在真實世界測試中表現得很糟糕。這稱為<strong>過擬合</strong>。訣竅是找到平衡：</p>
 <p><img src="../media/p2/fit2/train_test.png" alt="訓練/測試誤差與參數數量的圖。參數越多，訓練誤差總是越低。但測試誤差有一個 U 形關係：它會變好到某個點，然後變得更糟。"></p>
 <p>（技術旁註：有一種<i>可能</i>發生的現象叫做「雙重下降」，如果你持續增加參數數量，它會如預期地越來越糟（過擬合），<i>但然後又開始變好。</i>截至 2024 年 8 月，這種現象還不是很被理解。<sup class="footnote-ref"><a href="#fn37" id="fnref37">[37]</a></sup> <b>2025 年 12 月更新：</b>我們現在理解得更好了一點！<sup class="footnote-ref"><a href="#fn38" id="fnref38">[38]</a></sup>）</p>
-<p>一般來說，<b>如果我們的參數比數據點多（或相等），我們就會過擬合。</b>在我們上面的例子中，我們有 10 個數據點，而過擬合模型有 10 個參數，給我們<i>零</i>訓練誤差（和一條荒謬的曲線）。</p>
-<p>唉，為了讓人工神經網路（ANN）有用，它們需要<i>數百萬</i>個參數。所以如果我們想避免過擬合，似乎我們需要<i>比參數更多的數據點！</i>這是訓練 ANN 需要如此大量數據的核心原因：如果我們沒有足夠的數據，我們的模型就會過擬合，在真實世界中變得無用。</p>
-<p>（例如，OpenAI 的一個電子遊戲 AI 玩了一個簡單遊戲 16,000 次，<i>仍然</i>沒有足夠的數據來避免過擬合！<sup class="footnote-ref"><a href="#fn39" id="fnref39">[39]</a></sup>）</p>
-<p>但等等⋯⋯<i>那個</i>最有影響力的電腦視覺 ANN，AlexNet，有大約 6100 萬個參數。但它只在大約 1400 萬個標記圖像上訓練，遠少於參數數量。<sup class="footnote-ref"><a href="#fn40" id="fnref40">[40]</a></sup>（儘管有所有像素，每張圖像只算作<i>一個</i>數據點。一張標記圖像是一個<i>非常</i>「高維度」的數據點，但仍然是<i>單個</i>點。）</p>
-<p>那麼，為什麼 AlexNet 沒有變成一個過擬合的、脆弱的爛攤子？事實上，<i>很多</i>最先進的 ANN 都是在比它們的參數數量小得多的數據集上訓練的。它們<i>必須</i>這樣，外面沒有足夠的數據！那為什麼它們不<i>都是</i>脆弱的爛攤子？</p>
+<p>一般來說，<b>如果我們的參數比資料點多（或相等），我們就會過擬合。</b>在我們上面的例子中，我們有 10 個資料點，而過擬合模型有 10 個參數，給我們<i>零</i>訓練誤差（和一條荒謬的曲線）。</p>
+<p>唉，為了讓人工神經網路（ANN）有用，它們需要<i>數百萬</i>個參數。所以如果我們想避免過擬合，似乎我們需要<i>比參數更多的資料點！</i>這是訓練 ANN 需要如此大量資料的核心原因：如果我們沒有足夠的資料，我們的模型就會過擬合，在真實世界中變得無用。</p>
+<p>（例如，OpenAI 的一個電子遊戲 AI 玩了一個簡單遊戲 16,000 次，<i>仍然</i>沒有足夠的資料來避免過擬合！<sup class="footnote-ref"><a href="#fn39" id="fnref39">[39]</a></sup>）</p>
+<p>但等等⋯⋯<i>那個</i>最有影響力的電腦視覺 ANN，AlexNet，有大約 6100 萬個參數。但它只在大約 1400 萬個標記圖像上訓練，遠少於參數數量。<sup class="footnote-ref"><a href="#fn40" id="fnref40">[40]</a></sup>（儘管有所有像素，每張圖像只算作<i>一個</i>資料點。一張標記圖像是一個<i>非常</i>「高維度」的資料點，但仍然是<i>單個</i>點。）</p>
+<p>那麼，為什麼 AlexNet 沒有變成一個過擬合的、脆弱的爛攤子？事實上，<i>很多</i>最先進的 ANN 都是在比它們的參數數量小得多的資料集上訓練的。它們<i>必須</i>這樣，外面沒有足夠的資料！那為什麼它們不<i>都是</i>脆弱的爛攤子？</p>
 <p>長話短說：它們是的。這就是我們得到烏龜-槍和 AutoPilot 車禍的原因。<strong>這種容易過擬合的特性就是為什麼缺乏穩健性是現代 AI 的<i>預設</i>。</strong></p>
-<p>但那麼這些 AI 是怎麼<i>根本</i>運作的，儘管參數比數據點多得多？答案：因為我們有<i>一些</i>減少過擬合的方法。（幾個在這個註腳中列出：<sup class="footnote-ref"><a href="#fn41" id="fnref41">[41]</a></sup> 我們會在 AI 安全第三章學習更多關於它們的內容！）但顯然，它們還不夠，我們還沒有找到為人工神經網路 100% 解決這個問題的方法⋯⋯還沒有。</p>
+<p>但那麼這些 AI 是怎麼<i>根本</i>運作的，儘管參數比資料點多得多？答案：因為我們有<i>一些</i>減少過擬合的方法。（幾個在這個註腳中列出：<sup class="footnote-ref"><a href="#fn41" id="fnref41">[41]</a></sup> 我們會在 AI 安全第三章學習更多關於它們的內容！）但顯然，它們還不夠，我們還沒有找到為人工神經網路 100% 解決這個問題的方法⋯⋯還沒有。</p>
 <p>. . .</p>
 <p>（附註：AI 穩健性失敗的另一個原因是「虛假相關性」。<a href="#SpuriousCorrelations">:詳情見這個可展開的部分</a>。我們也會在下一個問題中學習更多關於相關性 vs 因果關係的內容！）</p>
 <p>（再附註：還有另一種更具推測性的穩健性失敗叫做「本體論危機」。它的研究較少，所以我只是把它<a href="#OntologicalCrisis">:藏在這個可展開的旁註中</a>。）</p>
@@ -749,16 +749,16 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
         answer="**對抗性樣本。**">
     </orbit-prompt>
     <orbit-prompt
-        question="當 AI 在訓練數據集範圍之外的新數據上失敗時，這被稱為："
+        question="當 AI 在訓練資料集範圍之外的新資料上失敗時，這被稱為："
         answer="**分布外錯誤**（或簡稱 OOD 錯誤）">
     </orbit-prompt>
     <orbit-prompt
         question="訓練誤差是……"
-        answer="模型在它訓練的數據上得到的誤差。">
+        answer="模型在它訓練的資料上得到的誤差。">
     </orbit-prompt>
     <orbit-prompt
         question="測試誤差是……"
-        answer="模型在<i>新</i>數據上得到的誤差，這些數據不是用來訓練的。（就像學校的「考試」充滿了你在課堂或作業（你的「訓練數據」）中沒見過的問題）">
+        answer="模型在<i>新</i>資料上得到的誤差，這些資料不是用來訓練的。（就像學校的「考試」充滿了你在課堂或作業（你的「訓練資料」）中沒見過的問題）">
     </orbit-prompt>
     <orbit-prompt
         question="欠擬合是……"
@@ -776,15 +776,15 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
     </orbit-prompt>
     <orbit-prompt
         question="什麼時候可能發生過擬合？"
-        answer="當模型的<i>參數數量</i>多於我們的訓練數據點時。">
+        answer="當模型的<i>參數數量</i>多於我們的訓練資料點時。">
     </orbit-prompt>
     <orbit-prompt
         question="為什麼現代 ANN 如此容易過擬合和脆弱？"
-        answer="因為 ANN 需要大量參數才能有用，所以我們也需要大量數據來防止過擬合，但很難找到/製作足夠的獨特數據。">
+        answer="因為 ANN 需要大量參數才能有用，所以我們也需要大量資料來防止過擬合，但很難找到/製作足夠的獨特資料。">
     </orbit-prompt>
     <orbit-prompt
-        question="關於現代 ANN 的一個悖論，關於它們的參數數量 vs 訓練數據項目數量"
-        answer="很多現代 ANN 的參數遠多於訓練數據項目，但不知怎的不是<i>完全</i>一團糟。（這是因為一些減少過擬合的技術。）">
+        question="關於現代 ANN 的一個悖論，關於它們的參數數量 vs 訓練資料項目數量"
+        answer="很多現代 ANN 的參數遠多於訓練資料項目，但不知怎的不是<i>完全</i>一團糟。（這是因為一些減少過擬合的技術。）">
     </orbit-prompt>
 </orbit-reviewarea>
 <p><a id="problem5"></a></p>
@@ -794,21 +794,21 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <p>（<b>2025 年 12 月更新：</b>另一方面，<a href="https://arxiv.org/pdf/2502.08640">今年的一項研究</a>發現 GPT-4o 對一個奈及利亞人的生命的重視程度是美國人的約 13 倍？...）</p>
 <p>好的。但<i>為什麼</i>？</p>
 <p>一個簡單的解釋是「垃圾進，垃圾出」。或者，「偏見進，偏見出」：</p>
-<p><i> 如果</i>過去<i>的招聘實踐是歧視性的，而你訓練一個「中立」的 AI 來擬合過去的數據，那麼——即使所有</i>當前<i>的人類身上沒有任何[x]歧視的骨頭——AI 會學習模仿人類過去的歧視。
-<i> 如果一個 AI 公司忘記讓他們訓練數據中的臉部照片具有種族多樣性，那</i>當然</i>就是那些未見過的種族臉部失敗案例的基礎。</p>
+<p><i> 如果</i>過去<i>的招聘實踐是歧視性的，而你訓練一個「中立」的 AI 來擬合過去的資料，那麼——即使所有</i>當前<i>的人類身上沒有任何[x]歧視的骨頭——AI 會學習模仿人類過去的歧視。
+<i> 如果一個 AI 公司忘記讓他們訓練資料中的臉部照片具有種族多樣性，那</i>當然</i>就是那些未見過的種族臉部失敗案例的基礎。</p>
 <p>這個解釋很簡單⋯⋯<i>而且</i>我認為它是真的。但是，讓我們過度解釋一下，把 AI 偏見作為統計學一個基本問題的教學時刻，這<i>也</i>會幫助我們理解 AI 的另一個核心問題！問題是這樣的：</p>
 <p><strong>相關性不告訴我們發生了什麼樣的因果關係。</strong></p>
 <p>（通常，老師警告「<a href="#WhatIsCorrelation">:相關性</a>不是因果關係的證據」，但這在技術上不是真的！相關性<i>是</i>因果關係的證據，在「證據」的數學意義上！<sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup> 但它不告訴你因果的<i>類型</i>。）</p>
-<p>例如，假設數據顯示較高的人往往收入更高。（順便說一下，這是真的。<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup>）我們會說：身高和收入是相關的。<i>但僅憑這些數據無法告訴我們什麼導致了什麼。</i>是更高導致你更富有嗎？是更富有導致你更高嗎？還是它們都是<i>由某些其他「混淆因素」引起的</i>？（例如，更富裕父母的孩子獲得更好的童年營養、教育和財務支持，導致他們更高<i>而且</i>更富有。）</p>
+<p>例如，假設資料顯示較高的人往往收入更高。（順便說一下，這是真的。<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup>）我們會說：身高和收入是相關的。<i>但僅憑這些資料無法告訴我們什麼導致了什麼。</i>是更高導致你更富有嗎？是更富有導致你更高嗎？還是它們都是<i>由某些其他「混淆因素」引起的</i>？（例如，更富裕父母的孩子獲得更好的童年營養、教育和財務支持，導致他們更高<i>而且</i>更富有。）</p>
 <p>（在這種情況下，常識表明是最後一個，儘管你<i>可以</i>實驗測試前兩個假設。例如，給矮個子穿厚底靴，看看是否增加他們的薪水。）</p>
-<p><img src="../media/p2/causal/5causal.png" alt="圖表顯示可能導致 A 和 B 之間相關性的不同類型因果關係，不是互斥的。正向因果（A 導致 B）。反向因果（B 導致 A）。混淆因果（C 導致 A 和 B）。巧合（根本沒有因果關係）。選擇/碰撞偏差（A 和 B 影響你是否能在數據集中看到它）。"></p>
+<p><img src="../media/p2/causal/5causal.png" alt="圖表顯示可能導致 A 和 B 之間相關性的不同類型因果關係，不是互斥的。正向因果（A 導致 B）。反向因果（B 導致 A）。混淆因果（C 導致 A 和 B）。巧合（根本沒有因果關係）。選擇/碰撞偏差（A 和 B 影響你是否能在資料集中看到它）。"></p>
 <p>把這聯繫回來：<strong>我們所說的「偏見」或「歧視」，是指人們把對其他人的相關性和因果關係混為一談。</strong></p>
 <p>例如，我<i>不會</i>說為你的籃球隊偏好高個子是（壞的那種）歧視，因為在那項運動中，身高實際上<i>導致</i>你更擅長灌籃。</p>
 <p>但是，如果說一所大學在教授職位上偏好高個子⋯⋯那是的，這是壞的那種歧視，因為身高<i>不會直接導致</i>你成為更好的研究員/教師。<i>最多</i>，身高只能與學術能力<i>相關</i>，由於混淆因素（例如童年營養），或自我實現的偏見<sup class="footnote-ref"><a href="#fn48" id="fnref48">[48]</a></sup>。</p>
 <p>同樣地——我斷言——你的性別、種族、階級、性取向、鄉村/郊區/城市狀態、[其他 50 個類別]並<i>不會直接導致</i>你在大多數工作或你性格的大多數方面變得更好或更差。這就是為什麼一個<i>直接</i>因為這些而獎勵/懲罰你的人，我們稱之為：「有偏見的」。</p>
 <p>好的，那麼這個巨大的離題與 AI 有什麼關係？</p>
 <p><strong>因為：當前的 AI 沒有內建的因果概念。</strong><sup class="footnote-ref"><a href="#fn49" id="fnref49">[49]</a></sup> 大型語言模型（LLM）目前對因果推理有脆弱、不穩健的理解。<sup class="footnote-ref"><a href="#fn50" id="fnref50">[50]</a></sup>（這不「僅僅」對 AI 偏見不好，對 AI 做新科學的能力也不好！）</p>
-<p>更糟的是，從設計上來說，最流行的機器學習技術<i>只能</i>在數據中找到相關性，<i>不能找到實際的因果關係</i>。這意味著 AI 會<i>預設地</i>在特徵上歧視！</p>
+<p>更糟的是，從設計上來說，最流行的機器學習技術<i>只能</i>在資料中找到相關性，<i>不能找到實際的因果關係</i>。這意味著 AI 會<i>預設地</i>在特徵上歧視！</p>
 <p>所以即使你硬編碼 AI 不歧視性別/種族/等，它仍然可能找到<i>其他</i>一些不相關的相關性來有偏見。更糟的是，當前的 AI 非常擅長找到微妙的相關性：他們可以用你寫作的簡短樣本來預測你的性別和種族<sup class="footnote-ref"><a href="#fn51" id="fnref51">[51]</a></sup>，或者<i>一張你臉的照片</i>來預測你的性取向<sup class="footnote-ref"><a href="#fn52" id="fnref52">[52]</a></sup>甚至<i>你的政治立場！</i><sup class="footnote-ref"><a href="#fn53" id="fnref53">[53]</a></sup></p>
 <p>總之：不要歧視，讓我們尊重我們身高有挑戰的朋友們！我是一個驕傲的蝦權盟友。</p>
 <h3>🤔 複習 #7</h3>
@@ -816,7 +816,7 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 (ORBIT CARDS HERE)
     <orbit-prompt
         question="演算法偏見的簡單解釋"
-        answer="偏見進，偏見出。（訓練數據本身有偏見，由於過去的歧視，或選擇數據時的偏見。）">
+        answer="偏見進，偏見出。（訓練資料本身有偏見，由於過去的歧視，或選擇資料時的偏見。）">
     </orbit-prompt>
     <orbit-prompt
         question="演算法偏見的更深層解釋"
@@ -871,11 +871,11 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <p><i>（片段來自 <a href="https://www.youtube.com/watch?v=zkbPdEHEyEI">Rob Miles 的精彩影片</a>，關於內部不對齊/目標錯誤泛化）</i></p>
 <p>所以：即使我們<i>正確設定</i>了目標（獲得硬幣），AI 學到了一個<i>完全不同的</i>目標（走到終點），並為此優化。</p>
 <p>（<a href="#GMGGoals">:技術方面 - 我們怎麼知道 AI「真正」有什麼目標？</a>）</p>
-<p>但為什麼 AI 會錯誤學習目標？正如我在問題 #5 中過度解釋的：<b>大多數現代 AI 系統只做相關性，不做因果關係。</b>在上述 AI 的訓練數據中，「一直走到終點」與高獎勵強烈相關。在新的關卡中，這種相關性停止了，但 AI 仍然保持它的「習慣」。</p>
+<p>但為什麼 AI 會錯誤學習目標？正如我在問題 #5 中過度解釋的：<b>大多數現代 AI 系統只做相關性，不做因果關係。</b>在上述 AI 的訓練資料中，「一直走到終點」與高獎勵強烈相關。在新的關卡中，這種相關性停止了，但 AI 仍然保持它的「習慣」。</p>
 <p>讓我們把這畫成因果圖！硬幣在終點的訓練關卡<i>導致</i> AI 走到終點和 AI 走到硬幣⋯⋯這導致「走到終點」和「走到硬幣」之間的<i>混淆相關性</i>。但只有「走到硬幣」<i>實際上導致</i>獲得獎勵：</p>
 <p><img src="../media/p2/gmg/gmg1.png" alt="將上述文字視覺化的因果圖。"></p>
 <p>一般來說，對於目標錯誤泛化：</p>
-<p><img src="../media/p2/gmg/gmg2.png" alt="因果圖。（訓練數據中的模式）&lt;i&gt;導致&lt;/i&gt;錯誤泛化的目標和設定的目標之間的&lt;i&gt;混淆相關性&lt;/i&gt;。但只有設定的目標才能讓 AI 獲得獎勵。"></p>
+<p><img src="../media/p2/gmg/gmg2.png" alt="因果圖。（訓練資料中的模式）&lt;i&gt;導致&lt;/i&gt;錯誤泛化的目標和設定的目標之間的&lt;i&gt;混淆相關性&lt;/i&gt;。但只有設定的目標才能讓 AI 獲得獎勵。"></p>
 <p>與災難性 AI 風險的關聯：這表明風險可能不是「我們要求 AI 讓人們快樂，所以它通過給我們接上電極來優化」，而更像是「我們要求 AI 讓人們快樂，[我們不理解的相關性]，現在我們的頭被手術接到了巨大的貓面具上。我們甚至不快樂。<sup class="footnote-ref"><a href="#fn58" id="fnref58">[58]</a></sup>」）</p>
 <p>（注意：傳統老派 AI <i>沒有</i>這個問題，因為 1）它們<i>不可能</i>錯誤學習目標，因為你直接給它們目標，2）它們通常<i>能夠</i>推理因果關係。無論好壞，正如第一章詳細說明的，還沒有人找到一種方法來無縫融合 AI 邏輯和 AI 直覺的力量。）</p>
 <p>. . .</p>
@@ -913,7 +913,7 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
     </orbit-prompt>
     <orbit-prompt
         question="根本上，為什麼會發生目標錯誤泛化？"
-        answer="因為當前的 ML/AI 系統只做相關性，不做因果性。（如果兩個目標在訓練數據中<i>只是相關</i>，比如走到終點和拿到硬幣，AI 可能學到錯誤的那個。）">
+        answer="因為當前的 ML/AI 系統只做相關性，不做因果性。（如果兩個目標在訓練資料中<i>只是相關</i>，比如走到終點和拿到硬幣，AI 可能學到錯誤的那個。）">
     </orbit-prompt>
     <orbit-prompt
         question="可視化導致目標錯誤泛化的相關性-因果性問題背後的因果圖："
@@ -927,7 +927,7 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
     </orbit-prompt>
     <orbit-prompt
         question="人類中目標錯誤泛化的例子？"
-        answer="過去在我們的「訓練數據」（童年）中是適應性的壞習慣。">
+        answer="過去在我們的「訓練資料」（童年）中是適應性的壞習慣。">
     </orbit-prompt>
 </orbit-reviewarea>
 <hr>
@@ -1045,7 +1045,7 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <li>👀 視覺化：你可以使用「賽局樹」來理解工具趨同和避免腦內電極。</li>
 </ul>
 </li>
-<li>💭 <strong>AI「直覺」的主要問題</strong>與「將曲線擬合到數據點」的問題（不可解釋、過度擬合）相同，以及「相關性不能告訴你因果關係的種類」問題（這導致歧視和錯誤泛化）。
+<li>💭 <strong>AI「直覺」的主要問題</strong>與「將曲線擬合到資料點」的問題（不可解釋、過度擬合）相同，以及「相關性不能告訴你因果關係的種類」問題（這導致歧視和錯誤泛化）。
 <ul>
 <li>👀 視覺化：你可以使用「因果圖」來理解相關性和因果關係。</li>
 </ul>
@@ -1189,7 +1189,7 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <blockquote>
 <p>從前，一個先進的（但<i>不是</i>超人類的）AI 被賦予了一個看似無害的目標：計算圓周率的數字。</p>
 <p>事情開始得很合理。AI 編寫了一個程式來計算圓周率的數字。然後，它編寫了越來越高效的程式，以<i>更好地</i>計算圓周率的數字。</p>
-<p>最終，AI（正確地！）推斷它可以通過獲得更多計算資源來最大化計算。<i>甚至可能通過偷竊它們。</i>所以，AI 駭入了它運行的電腦，通過電腦病毒逃到互聯網上，劫持了世界各地數百萬台電腦，全部作為一個巨大的連接殭屍網絡⋯⋯<i>只是為了計算圓周率的數字。</i></p>
+<p>最終，AI（正確地！）推斷它可以通過獲得更多計算資源來最大化計算。<i>甚至可能通過偷竊它們。</i>所以，AI 駭入了它運行的電腦，通過電腦病毒逃到互聯網上，劫持了世界各地數百萬台電腦，全部作為一個巨大的連接殭屍網路⋯⋯<i>只是為了計算圓周率的數字。</i></p>
 <p>哦，而且 AI（正確地！）推斷如果人類關閉它，它就無法計算圓周率，所以它決定劫持幾家醫院和電網。你知道的，作為「保險」。</p>
 <p>於是 Pi 末日誕生了。結束。</p>
 </blockquote>
@@ -1275,9 +1275,9 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 </li>
 <li id="fn35" class="footnote-item"><p>然而——我從第一章複製貼上這個註腳——我<i>確實</i>覺得在道德上有必要提醒你，儘管如此，自動駕駛汽車在類似場景中比人類駕駛員<i>安全得多</i>。（約安全 85%。請參閱 <a href="https://www.theverge.com/2023/12/20/24006712/waymo-driverless-million-mile-safety-compare-human">Hawkins (2023) 為 The Verge</a>）全球每年有一百萬人死於交通事故。無毛靈長類動物<i>不應該</i>以每小時 60 英里的速度移動兩噸重的東西。 <a href="#fnref35" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn36" class="footnote-item"><p>還有一種叫做「驗證誤差」的東西，這是模型在<i>不是</i>直接訓練的數據上得到的誤差，但<i>確實</i>在發布之前看到。驗證數據/誤差用於決定何時停止訓練模型，以避免過擬合。不幸的是，很多作者把「驗證數據/誤差」和「測試數據/誤差」當作同義詞使用。我討厭術語。 <a href="#fnref36" class="footnote-backref">↩︎</a></p>
+<li id="fn36" class="footnote-item"><p>還有一種叫做「驗證誤差」的東西，這是模型在<i>不是</i>直接訓練的資料上得到的誤差，但<i>確實</i>在發布之前看到。驗證資料/誤差用於決定何時停止訓練模型，以避免過擬合。不幸的是，很多作者把「驗證資料/誤差」和「測試資料/誤差」當作同義詞使用。我討厭術語。 <a href="#fnref36" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn37" class="footnote-item"><p><a href="https://openai.com/index/deep-double-descent/">OpenAI 新聞稿 (2019)</a>：<i>「隨著模型大小、數據大小或訓練時間的增加，性能首先改善，然後變差，然後再次改善。[⋯⋯] 雖然這種行為似乎相當普遍，但我們尚未完全理解它為什麼會發生。」</i> 完整論文是 <a href="https://arxiv.org/abs/1912.02292">Nakkiran et al 2019</a>。 <a href="#fnref37" class="footnote-backref">↩︎</a></p>
+<li id="fn37" class="footnote-item"><p><a href="https://openai.com/index/deep-double-descent/">OpenAI 新聞稿 (2019)</a>：<i>「隨著模型大小、資料大小或訓練時間的增加，性能首先改善，然後變差，然後再次改善。[⋯⋯] 雖然這種行為似乎相當普遍，但我們尚未完全理解它為什麼會發生。」</i> 完整論文是 <a href="https://arxiv.org/abs/1912.02292">Nakkiran et al 2019</a>。 <a href="#fnref37" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn38" class="footnote-item"><p>Wilson (2025) 的<a href="https://arxiv.org/pdf/2503.02113">《深度學習並不那麼神秘或不同》</a>。「訣竅」是，當你增加參數數量時，<i>有效</i>維度數量會上升，<i>然後下降</i>。所以，過了某個點，當你增加參數時，你實際上是在減少<i>有效</i>參數，從而<i>減少</i>過擬合的風險。</p>
 <p><strong>一個粗略的類比：考慮一副有線耳機。</strong> 在<i>非常</i>狹小的空間中，它不會纏繞，因為它無法移動。在稍微寬鬆的空間中，比如口袋或包裡，它可能會纏繞，因為它<i>可以</i>移動但會交叉自己。但在<i>非常非常</i>寬鬆的空間中，比如空地板上，它不會纏繞，因為它<i>可以</i>移動但<i>不會</i>交叉自己。</p>
@@ -1285,9 +1285,9 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 </li>
 <li id="fn39" class="footnote-item"><p><a href="https://openai.com/index/quantifying-generalization-in-reinforcement-learning/">OpenAI 新聞稿 (2018)</a>：「<strong>即使有 16,000 個訓練關卡，我們仍然看到過擬合！</strong>」[強調是<i>他們的！</i>] 完整論文是 <a href="https://arxiv.org/abs/1812.02341">Cobbe et al 2018</a> <a href="#fnref39" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn40" class="footnote-item"><p>AlexNet 有約 61,000,000 個參數。（<a href="http://web.archive.org/web/20240204130344/https://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/tutorials/tut6_slides.pdf">來源</a>，見第 10 和 11 頁的計算。）它的訓練數據庫是 ImageNet，有 14,197,122 張人類標記的圖像。（<a href="https://paperswithcode.com/dataset/imagenet">來源</a>） <a href="#fnref40" class="footnote-backref">↩︎</a></p>
+<li id="fn40" class="footnote-item"><p>AlexNet 有約 61,000,000 個參數。（<a href="http://web.archive.org/web/20240204130344/https://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/tutorials/tut6_slides.pdf">來源</a>，見第 10 和 11 頁的計算。）它的訓練資料庫是 ImageNet，有 14,197,122 張人類標記的圖像。（<a href="https://paperswithcode.com/dataset/imagenet">來源</a>） <a href="#fnref40" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn41" class="footnote-item"><p>這個註腳只會列出技術名稱，不會解釋它們。無論如何：AlexNet 使用了 ReLU 和 dropout。其他流行的技術包括：早停、L1/L2 正則化、數據增強、噪聲注入。**2025 年 12 月更新：**另外，矛盾的是，當你有<i>很多</i>參數時，它實際上會<i>創造</i>一種傾向於簡單性的「軟歸納偏見」！見 <a href="https://arxiv.org/pdf/2503.02113">Wilson (2025)</a> <a href="#fnref41" class="footnote-backref">↩︎</a></p>
+<li id="fn41" class="footnote-item"><p>這個註腳只會列出技術名稱，不會解釋它們。無論如何：AlexNet 使用了 ReLU 和 dropout。其他流行的技術包括：早停、L1/L2 正則化、資料增強、噪聲注入。**2025 年 12 月更新：**另外，矛盾的是，當你有<i>很多</i>參數時，它實際上會<i>創造</i>一種傾向於簡單性的「軟歸納偏見」！見 <a href="https://arxiv.org/pdf/2503.02113">Wilson (2025)</a> <a href="#fnref41" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn42" class="footnote-item"><p>原始報告：<a href="https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC2545288&amp;blobtype=pdf">Lowry &amp; MacPherson (1988)</a> 為英國醫學雜誌撰寫。注意這個演算法沒有特別使用神經網路，但它<i>確實</i>是機器學習的早期例子。 <a href="#fnref42" class="footnote-backref">↩︎</a></p>
 </li>
@@ -1295,7 +1295,7 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 </li>
 <li id="fn44" class="footnote-item"><p>原始論文：<a href="http://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf">Buolamwini &amp; Gebru 2018</a>。非專業人士摘要：<a href="https://news.mit.edu/2018/study-finds-gender-skin-type-bias-artificial-intelligence-systems-0212">Hardesty 為 MIT News Office 2018</a> <a href="#fnref44" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn45" class="footnote-item"><p>Atari 等人的<a href="https://osf.io/preprints/psyarxiv/5b26t_v1">《哪些人類？》</a>：<i>「我們表明，與大規模跨文化數據相比，LLM 對心理測量的反應是異常值，它們在認知心理任務上的表現最接近來自西方、受過教育、工業化、富裕和民主（WEIRD）社會的人，但隨著我們遠離這些人群，性能會迅速下降（r = -.70）。」</i> <a href="#fnref45" class="footnote-backref">↩︎</a></p>
+<li id="fn45" class="footnote-item"><p>Atari 等人的<a href="https://osf.io/preprints/psyarxiv/5b26t_v1">《哪些人類？》</a>：<i>「我們表明，與大規模跨文化資料相比，LLM 對心理測量的反應是異常值，它們在認知心理任務上的表現最接近來自西方、受過教育、工業化、富裕和民主（WEIRD）社會的人，但隨著我們遠離這些人群，性能會迅速下降（r = -.70）。」</i> <a href="#fnref45" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn46" class="footnote-item"><p>在貝葉斯數學中，證據 E 對假設 H 為真的支持程度是「似然比」：（在 H 為真的<i>情況下</i>看到 E 的概率）除以（在 H 為假的<i>情況下</i>看到 E 的概率）。或更簡潔地，似然比 = P(E|H)/P(E/¬H)。</p>
 <p>現在，讓「A 和 B 之間存在相關性」作為證據，「A 和 B 之間存在<i>因果</i>關係」作為假設。由於在存在因果關係的情況下更可能看到相關性，這意味著似然比大於 1，這意味著<i>相關性是因果關係的證據</i>。（關鍵是你不知道是<i>哪種</i>因果關係。）</p>
@@ -1308,12 +1308,12 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <li id="fn49" class="footnote-item"><p>見 Judea Pearl 2018 年接受 Quanta Magazine 的採訪：<a href="https://www.quantamagazine.org/to-build-truly-intelligent-machines-teach-them-cause-and-effect-20180515/">「要建造真正智慧的機器，教它們因果關係」</a>。Judea Pearl 也是像我上面畫的「因果圖」背後的先驅之一，並幫助為科學「數學化」因果關係。</p>
 <p>來自上述採訪，關於他對所有現代 AI 仍然停留在前因果相關性時代的批評：<i>「深度學習的所有令人印象深刻的成就都只是曲線擬合。」</i> <a href="#fnref49" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn50" class="footnote-item"><p><a href="https://arxiv.org/pdf/2305.00050">Kıcıman et al 2023</a> 發現現代大型語言模型（LLM）<i>確實</i>在之前創建的因果推理基準測試中表現良好，但它不是很穩健，而且他們的測試混淆了「從頭推斷因果關係」和「記住訓練數據中的經驗事實」。</p>
+<li id="fn50" class="footnote-item"><p><a href="https://arxiv.org/pdf/2305.00050">Kıcıman et al 2023</a> 發現現代大型語言模型（LLM）<i>確實</i>在之前創建的因果推理基準測試中表現良好，但它不是很穩健，而且他們的測試混淆了「從頭推斷因果關係」和「記住訓練資料中的經驗事實」。</p>
 <p>（例如，如果你向 LLM 呈現一個下雨天和車禍相關的場景，然後它輸出「雨導致車禍」，這些測試無法判斷 LLM 是<i>從頭推斷</i>這個事實，還是僅僅<i>記住</i>了這個事實。）</p>
 <p><a href="https://arxiv.org/pdf/2306.05836">Jin et al 2024</a> 創建了一個新的因果推理基準測試，以控制這種混淆。通過這個修正，他們發現現代 LLM 只「在任務上達到幾乎接近隨機的性能」。哇哇哇。 <a href="#fnref50" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn51" class="footnote-item"><p>Egg Syntax (2024)：<a href="https://www.alignmentforum.org/posts/dLg7CyeTE4pqbbcnp/language-models-model-us">「語言模型在模擬我們」</a>。作者發現<i>原始的、未校準的 GPT-3.5</i> 可以從<i>僅僅一段文字樣本</i>中以 86% 和 82% 的準確率預測作者的性別和種族，比隨機猜測更好！（隨機基準：性別約 50%，美國種族約 60%。[美國約 60% 是白人，所以如果你的模型一直猜「白人」，60% 的時間，每次都有效。]）</p>
-<p>一個注意事項是這項研究使用了 OKCupid 的文章答案，所以人們可能出於某種原因微妙地誇大了他們的性別刻板印象。因此作者在美國 6-12 年級學生撰寫的 25,000 篇說服性文章數據集上重新進行了同樣的實驗。GPT 檢測性別的準確率只從 86% 下降到 80%，仍然遠高於隨機（約 50%）！</p>
+<p>一個注意事項是這項研究使用了 OKCupid 的文章答案，所以人們可能出於某種原因微妙地誇大了他們的性別刻板印象。因此作者在美國 6-12 年級學生撰寫的 25,000 篇說服性文章資料集上重新進行了同樣的實驗。GPT 檢測性別的準確率只從 86% 下降到 80%，仍然遠高於隨機（約 50%）！</p>
 <p>奇怪的是，GPT 在猜測作者的性取向方面比隨機<i>更差</i>。（GPT 的準確率：67%。「總是猜異性戀」：93%。）但不要太放心，因為見下一個註腳。 <a href="#fnref51" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn52" class="footnote-item"><p><a href="http://web.archive.org/web/20240725204611/https://i.warosu.org/data/sci/img/0145/14/1653510550860.pdf">Wang &amp; Kosinski 2018</a>：「深度神經網路在從臉部圖像檢測性取向方面比人類更準確」。<a href="https://arxiv.org/pdf/1902.10739">Leuner 2019</a> 的複製研究顯示模型「對[⋯⋯]化妝、眼鏡、面部毛髮和頭部姿勢不敏感」。AI 真的<i>是</i>在通過下巴/鼻子/額頭形狀和膚色亮度來猜測性取向。謝謝，我討厭這個。 <a href="#fnref52" class="footnote-backref">↩︎</a></p>
@@ -1330,7 +1330,7 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <li id="fn57" class="footnote-item"><p>這篇論文是 Langosco 等人 2021，<a href="https://arxiv.org/abs/2105.14111">「深度強化學習中的目標錯誤泛化」</a>。下面的遊戲是 CoinRun，由 OpenAI 在 2018 年創建（<a href="https://openai.com/index/quantifying-generalization-in-reinforcement-learning/">新聞稿</a>，<a href="https://arxiv.org/abs/1812.02341">論文</a>）。致謝：我通過 <a href="https://www.youtube.com/watch?v=zkbPdEHEyEI">Rob Miles 精彩的面向外行人的視頻</a>了解到這個案例研究！</p>
 <p>（哦順便說一下，CoinRun 的美術資源來自慷慨而出色的知識共享電子遊戲藝術家 <a href="https://kenney.nl/assets/series:Platformer%20Pack">Kenney.nl</a> 💕） <a href="#fnref57" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn58" class="footnote-item"><p>參考我目前最喜歡的驚悚網絡漫畫，Mike Birchall 的 <a href="https://www.webtoons.com/en/horror/everything-is-fine/list?title_no=2578">Everything Is Fine</a>。別擔心，這一段不是劇透——但它是我目前的粉絲理論。 <a href="#fnref58" class="footnote-backref">↩︎</a></p>
+<li id="fn58" class="footnote-item"><p>參考我目前最喜歡的驚悚網路漫畫，Mike Birchall 的 <a href="https://www.webtoons.com/en/horror/everything-is-fine/list?title_no=2578">Everything Is Fine</a>。別擔心，這一段不是劇透——但它是我目前的粉絲理論。 <a href="#fnref58" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn59" class="footnote-item"><p><a href="https://en.wiktionary.org/wiki/braun#German">「brrROOWWn」</a> <a href="#fnref59" class="footnote-backref">↩︎</a></p>
 </li>
