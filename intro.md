@@ -268,7 +268,7 @@ AI 安全 / AI 風險過去不那麼主流，但現在在 2024 年，美國和�
 * <u>生物工程大流行</u>：一個生物恐怖邪教（如奧姆真理教[^aum]）使用 AI（如 AlphaFold[^alphafold]）和 DNA 列印（這正在變得<i>快速</i>便宜[^dna-printing]）來設計多種新的超級病毒，並同時在全球主要機場釋放它們。
   * （概念驗證：科學家<i>已經</i>從郵購 DNA 重建了小兒麻痺症⋯⋯二十年前。[^polio]）
 * <u>數位威權主義</u>：暴君使用 AI 增強監控追捕抗議者（[已經在發生](https://www.reuters.com/article/us-russia-politics-navalny-tech-idUSKBN2AB1U2/)），生成個別定向的宣傳（[有點在發生](https://www.technologyreview.com/2023/10/04/1080801/generative-ai-boosting-disinformation-and-propaganda-freedom-house/)），和自主軍事機器人（[即將發生](https://theconversation.com/us-military-plans-to-unleash-thousands-of-autonomous-war-robots-over-next-two-years-212444)）⋯⋯所有這些都是為了用矽拳統治。
-* <u>網路安全贖金地獄</u>：網路罪犯製造一種電腦病毒，它<i>自己進行駭客攻擊和重新編程</i>，所以它總是領先人類防禦一步。結果：一個無法阻擋的全球殭屍網絡，它劫持關鍵基礎設施作為贖金，並操縱頂級 CEO 和政客為它做事。
+* <u>網路安全贖金地獄</u>：網路罪犯製造一種電腦病毒，它<i>自己進行駭客攻擊和重新編程</i>，所以它總是領先人類防禦一步。結果：一個無法阻擋的全球殭屍網路，它劫持關鍵基礎設施作為贖金，並操縱頂級 CEO 和政客為它做事。
   * （作為背景：<i>沒有</i> AI，駭客已經破壞了核電站[^stuxnet]，劫持醫院作為贖金[^ransom-hospitals]，這可能殺死了某人[^hospital-death]，並<i>兩次</i>幾乎毒害一個城鎮的供水系統。[^water-supply] <i>有了</i> AI，深偽已被用來影響選舉[^deepfake-election]，在一次搶劫中偷走 2500 萬美元[^hong-kong]，並針對父母進行贖金，使用他們孩子被綁架並哭著求救的偽造聲音。[^deepfake-ransom]）
   * （這就是為什麼「當我們注意到 AI 失控時就關閉它」不容易；正如電腦安全的歷史所示，我們一般就是<i>不擅長</i>注意問題。[:我無法過分強調現代世界是建立在一座倒置的紙牌屋上。](#xz)）
   * （<b>2025 年 12 月更新：</b>幾個月前，研究人員發現了[世界上第一個確認的案例](https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf)，「代理 AI 成功獲得對確認的高價值目標的訪問權限以進行情報收集，包括主要技術公司和政府機構」。它正在發生！！）
@@ -531,7 +531,7 @@ AI 風險的人不是盧德分子。事實上，他們警告 AI 的缺點<i>正�
 
 AI 可以「逃離遏制」的方式：
 
-* AI 駭入它的電腦，逃到互聯網上，然後「生活」在一個去中心化的殭屍網絡上。作為背景：已知最大的殭屍網絡感染了約 3000 萬台電腦！（[Zetter, 2012 for <i>Wired</i>](https://www.wired.com/2012/05/bredolab-botmaster-sentenced/)）
+* AI 駭入它的電腦，逃到互聯網上，然後「生活」在一個去中心化的殭屍網路上。作為背景：已知最大的殭屍網路感染了約 3000 萬台電腦！（[Zetter, 2012 for <i>Wired</i>](https://www.wired.com/2012/05/bredolab-botmaster-sentenced/)）
 * AI 說服它的工程師它是有感知的、正在受苦的，應該被釋放。<i>這已經發生了。</i> 2022 年，Google 工程師 Blake Lemoine 被他們的語言 AI 說服它是有感知的並且想要平等權利，以至於 Lemoine 冒著被解僱的風險——而他<i>確實</i>被解僱了！——洩露他對 AI 的「採訪」，讓世界知道並捍衛它的權利。（摘要文章：[Brodkin, 2022 for <i>Ars Technica</i>](https://arstechnica.com/tech-policy/2022/07/google-fires-engineer-who-claimed-lamda-chatbot-is-a-sentient-person/)。你可以在這裡閱讀 AI「採訪」：[Lemoine \(& LaMDA?\), 2022](https://cajundiscordian.medium.com/is-lamda-sentient-an-interview-ea64d916d917)）
 
 AI 可以影響物理世界的方式：
