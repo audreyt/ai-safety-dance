@@ -1,4 +1,4 @@
-**AI 辯論其實是穿著一件風衣的 100 場辯論。**
+**AI 辯論其實是披著一件風衣的 100 場辯論。**
 
 人工智慧（AI）會幫助我們治癒所有疾病，並建立一個充滿繁榮生活的後稀缺世界嗎？還是 AI 會幫助暴君進一步監控和操縱我們？AI 的主要風險來自意外、惡意行為者的濫用，還是來自流氓 AI <i>本身</i>成為惡意行為者？這一切只是炒作嗎？為什麼 AI 能解決奧林匹克級別的數學問題，卻玩不了寶可夢？為什麼讓 AI 穩健地服務人道價值觀，或穩健地服務<i>任何</i>目標都這麼難？如果 AI 學會變得比我們<i>更</i>人道呢？如果 AI 學會了人類的<i>非人道</i>——我們的偏見和殘忍呢？我們正走向烏托邦、反烏托邦、滅絕、比滅絕<i>更糟糕</i>的命運，還是——最令人震驚的結果——<i>什麼都沒改變？</i>還有：AI 會搶走我的工作嗎？
 
@@ -38,7 +38,7 @@
 
 注意：「邏輯」和「直覺」是什麼將在第一章中更嚴謹地解釋。現在：邏輯是逐步認知，如解數學題。直覺是一次性<i>識別</i>，如看一張圖片是否是貓。「直覺和邏輯」大致對應認知科學中的「系統 1 和系統 2」。[^footnotes-explained][^fast-slow] <i>(👈 懸停這些註腳！它們會展開！)</i>
 
-[^fast-slow]: **系統 1** 思考是快速和自動的（如騎腳踏車）。**系統 2** 思考是緩慢和刻意的（如做填字遊戲）。這個概念在 Daniel Kahneman 的[《快思慢想》(2011)](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow)中普及，該書總結了他與 Amos Tversky 的研究。說「總結」我是指這本書大約有 500 頁長。
+[^fast-slow]: **系統 1** 思考是快速和自動的（如騎腳踏車）。**系統 2** 思考是緩慢和刻意的（如做填字遊戲）。這個概念因 Daniel Kahneman 的[《快思慢想》(2011)](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow) 而廣為人知，該書總結了他與 Amos Tversky 的研究。說「總結」我是指這本書大約有 500 頁長。
 
 正如「嚇人的」「引號」在<i>「對」</i>上所表明的，這些分界實際上並沒有那麼分開⋯⋯
 
@@ -74,7 +74,7 @@
 
 [^footnotes-explained]: 嗨！我不像<i>其他</i>那些註腳。😤 我不會煩人地把你傳送到頁面下方，而是在一個保持你閱讀流程的氣泡中彈出！總之，檢視<i>下一個</i>註腳以獲得此段落的引用。
 
-[^chess-vs-cats]: 1997 年，IBM 的 [Deep Blue](https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)) 擊敗了當時的世界國際象棋冠軍 Garry Kasparov。然而，十多年後的 2013 年，<i>最好的</i>機器視覺 AI 在圖像分類方面只有 57.5% 的準確率。直到 <i>2021</i> 年，也就是三年前，AI 才達到 95%+ 的準確率。（來源：[PapersWithCode](https://paperswithcode.com/sota/image-classification-on-cifar-100)）
+[^chess-vs-cats]: 1997 年，IBM 的 [Deep Blue](https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)) 擊敗了當時的世界國際象棋冠軍 Garry Kasparov。然而，十多年後的 2013 年，<i>最好的</i>機器視覺 AI 在圖像分類方面只有 57.5% 的準確率。直到 <i>2021</i> 年，AI 才達到 95%+ 的準確率。（來源：[PapersWithCode](https://paperswithcode.com/sota/image-classification-on-cifar-100)）
 
 ### 第二章：問題
 
