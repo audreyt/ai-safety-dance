@@ -14,6 +14,38 @@ const md = markdownit({
 import nunjucks from 'nunjucks';
 nunjucks.configure({ autoescape:false });
 
+// Orbit embeds need a stable UID to persist scheduling state.
+// On the production site, Orbit can infer this from the page URL, but when viewing
+// built HTML from the local filesystem (file://), that inference can yield null.
+// So we inject an explicit UID derived from the intended production URL.
+function inferOrbitUid(exportTo){
+    const base = 'https://aisafety.dance/';
+
+    // Frontpage
+    if(exportTo === 'index.html') return base;
+
+    // Directory index pages (p1/index.html -> https://aisafety.dance/p1/)
+    if(exportTo.endsWith('/index.html')){
+        const dir = exportTo.slice(0, -'/index.html'.length);
+        return base + dir.replace(/^\//,'') + '/';
+    }
+
+    // Fallback: treat as a direct HTML file at site root
+    return base + exportTo.replace(/^\//,'');
+}
+
+function sanitizeOrbitPromptStartTags(html){
+    // Orbit prompt attributes should be plain text/markdown; raw HTML tags inside attribute
+    // values can break parsing in some contexts. Convert common emphasis tags to markdown.
+    return html.replace(/<orbit-prompt[\s\S]*?>/g, (tag)=>{
+        return tag
+            .replace(/<i>/g, '_')
+            .replace(/<\/i>/g, '_')
+            .replace(/<b>/g, '**')
+            .replace(/<\/b>/g, '**');
+    });
+}
+
 // For each of these files...
 // Get the markdown, convert to HTML, render it in template w Nunjucks & export
 let convertConfigs = [
@@ -85,6 +117,16 @@ convertConfigs.forEach((config)=>{
                     // Render any Nunjucks *inside* the markdown...
                     let data = config.extras || {};
                     renderedHTML = nunjucks.renderString(renderedHTML, data);
+
+                    // Inject Orbit UID onto all <orbit-reviewarea> tags (unless already set)
+                    const orbitUid = inferOrbitUid(config.exportTo);
+                    renderedHTML = renderedHTML.replace(
+                        /<orbit-reviewarea(?![^>]*\buid=)([^>]*)>/g,
+                        `<orbit-reviewarea uid="${orbitUid}"$1>`
+                    );
+
+                    // Sanitize Orbit prompt attributes (avoid raw HTML tags inside attrs)
+                    renderedHTML = sanitizeOrbitPromptStartTags(renderedHTML);
 
                     // Render in template with Nunjucks
                     data.content = renderedHTML;
