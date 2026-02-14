@@ -293,7 +293,7 @@ AI 安全 / AI 風險過去不那麼主流，但現在在 2024 年，美國和�
 
 [^hospital-death]: 2020 年 9 月，一名婦女因醫院遭受勒索軟體病毒攻擊而被拒之門外。該婦女死亡。[Cimpanu (2020) for <i>ZDNet</i>](https://www.zdnet.com/article/first-death-reported-following-a-ransomware-attack-on-a-german-hospital/)。（然而，「證據不足」，無法在法律上指控駭客<i>直接</i>導致她的死亡。[Ralston, 2020 for <i>Wired</i>](https://www.wired.co.uk/article/ransomware-hospital-death-germany)）
 
-[^water-supply]: 2021 年 1 月，灣區一家水處理廠被駭客入侵，其處理程序被刪除。（[Collier, 2021 for <i>NBC News</i>](https://www.nbcnews.com/tech/security/hacker-tried-poison-calif-water-supply-was-easy-entering-password-rcna1206)）2021 年 2 月，佛羅裡達州一個城鎮的水處理廠被駭客入侵，向供水中新增危險量的鹼液。（[Bajak, 2021 for <i>AP News</i>](https://apnews.com/article/hacker-tried-poison-water-florida-ab175add0454bcb914c0eb3fb9588466)）
+[^water-supply]: 2021 年 1 月，灣區一家水處理廠被駭客入侵，其處理程式被刪除。（[Collier, 2021 for <i>NBC News</i>](https://www.nbcnews.com/tech/security/hacker-tried-poison-calif-water-supply-was-easy-entering-password-rcna1206)）2021 年 2 月，佛羅裡達州一個城鎮的水處理廠被駭客入侵，向供水中新增危險量的鹼液。（[Bajak, 2021 for <i>AP News</i>](https://apnews.com/article/hacker-tried-poison-water-florida-ab175add0454bcb914c0eb3fb9588466)）
 
 [^hong-kong]: Benj Edwards，[「深偽詐騙者在史上首次 AI 搶劫中帶走 2500 萬美元」](https://arstechnica.com/information-technology/2024/02/deepfake-scammer-walks-off-with-25-million-in-first-of-its-kind-ai-heist/)，<i>Ars Technica</i>，2024 年 2 月 5 日。
 
