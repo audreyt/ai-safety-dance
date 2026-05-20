@@ -247,7 +247,7 @@
 <p><img src="../media/p3/intro/solutions.png" alt="同樣的輪廓，但完全被小彩色圓圈重疊覆蓋，每個圓圈代表一個不同的解決方案"></p>
 <p><b>我們不需要一個完美的解決方案；我們可以疊加多個不完美的解決方案！</b>這類似於風險分析中的<a href="https://en.wikipedia.org/wiki/Swiss_cheese_model">瑞士乳酪模型</a>——每一層防禦都有漏洞，但如果你有足夠多的層，漏洞在<i>不同</i>的位置，風險就無法一路穿過：</p>
 <p><img src="../media/p3/intro/cheese.png" alt="光線穿過瑞士乳酪層，乳酪上有洞。光線很容易穿過&lt;i&gt;一&lt;/i&gt;層乳酪的洞，但無法穿過所有層。"></p>
-<p>（<a href="#SwissCheese">: 🧀 附加章節：瑞士乳酪模型的反對意見和反反對意見</a> ← <i>可選：每當你看到虛線底線的部分，你可以點選展開！</i>）</p>
+<p>（<a href="#SwissCheese">: 🧀 附加章節：為什麼瑞士乳酪模型在 AI 安全領域中具有爭議</a> ← <i>選讀：每當你看到虛線底線的部分，都可以點選展開！</i>）</p>
 <p><i>這並不意味著 AI 安全已經 100% 解決</i>——我們仍然需要反覆檢查這些提案，並讓工程師/政策制定者<i>知道</i>這些解決方案，更不用說實施它們了。但目前，我會說：「還有很多工作要做，但有很多有前景的開始」！</p>
 <p>作為提醒，這是我們如何分解 AI 和 AI 安全的主要問題：</p>
 <p><img src="../media/p3/intro/breakdown.png" alt="分解：「我們如何讓 AI 與人道價值觀對齊？」分解為 AI 中的問題（技術對齊、博弈論、深度學習）和人類中的問題（誰的價值觀？、圍繞 AI 的協調）"></p>
@@ -273,94 +273,42 @@
 <p>好的，讓我們開始吧！不需要更多介紹，或關於牛仔貓男的奇怪故事，讓我們直接——</p>
 <h4>:x Swiss Cheese</h4>
 <p>風險分析中<a href="https://en.wikipedia.org/wiki/Swiss_cheese_model">著名的瑞士乳酪模型</a>告訴我們：<b>你不需要<i>一個</i>完美的解決方案，你可以疊加<i>多個</i>不完美的解決方案。</b></p>
-<p>這個模型被<i>到處</i>使用，從航空到網路安全到疫情應對。一個不完美的解決方案有「漏洞」，很容易穿過。但疊加足夠多的層，漏洞在不同的地方，就幾乎不可能繞過。</p>
-<p>但是，讓我們來解決對瑞士乳酪模型的兩個批評：</p>
-<p><a href="https://www.eurocontrol.int/publication/revisiting-swiss-cheese-model-accidents">批評一</a>——這假設解決方案中的「漏洞」是<i>獨立的</i>。如果有任何<i>一個</i>漏洞是所有解決方案共有的，那麼問題就可以穿過所有這些方案。說得好。<b>這就是為什麼本頁的提議解決方案試圖盡可能多樣化。</b>（見下面的章節：穩健性 &gt; 多樣性）</p>
-<p>批評二——與 AI 安全更相關——它假設問題不是一個智慧代理。<a href="https://archive.is/20250921161137/https://www.vox.com/future-perfect/461680/if-anyone-builds-it-yudkowsky-soares-ai-risk">引用 Nate Soares 的話</a>：</p>
+<p>這個模型被用於<i>每一個</i>安全至關重要的領域，從航空到網路安全到疫情防護。一個不完美的解決方案有「漏洞」，很容易被穿透。但疊加足夠多的層，漏洞在不同的地方，就幾乎不可能被繞過。</p>
+<p>然而，瑞士乳酪模型在 AI 安全領域內特別具有爭議性。所以，讓我們來探討幾個批評：</p>
+<p>1. 有人說瑞士乳酪模型不適用於<i>智慧型</i>對手。例如，<a href="https://archive.is/20250921161137/https://www.vox.com/future-perfect/461680/if-anyone-builds-it-yudkowsky-soares-ai-risk">這裏是機器智慧研究院 (MIRI) 的 Nate Soares 的話</a>：</p>
 <blockquote>
 <p>「如果你製造了某個試圖到達你所有瑞士乳酪另一邊的東西，它只需要穿過這些洞就不是那麼難。」</p>
 </blockquote>
-<p>我接受這個反駁，當涉及到防禦一個<i>已經</i>失調的超級智慧時。但如果我們談論的是<i>從頭培養一個值得信任的智慧</i>，那麼瑞士乳酪模型在每一步仍然有意義，<i>而且</i>，你可以使用每次迭代的可信 AI 作為訓練更好版本 AI 的額外「乳酪層」。（見下面的章節：可擴充套件監督）</p>
-<p>正如 AI 研究員 Jan Leike <a href="https://aligned.substack.com/p/should-we-control-ai">所說</a>：</p>
-<blockquote>
-<p>更一般地說，我們應該真正解決對齊問題，而不是僅僅試圖控制失調的 AI。[...] 不要試圖監禁一個怪物，而是建造一些你真正可以信任的東西！</p>
-</blockquote>
-<hr>
-<p><a id="oversight"></a></p>
-<h2>可擴充套件監督</h2>
-<p>這是警長喵迪，牛仔貓男：</p>
-<p><img src="../media/p3/so/meowdy0001.png" alt="警長喵迪的圖畫"></p>
-<p>有一天，害蟲大搖大擺地走進了小鎮：</p>
-<p><img src="../media/p3/so/meowdy0002.png" alt="警長喵迪盯著一群向他走來的傑瑪老鼠"></p>
-<p>雖然警長是神槍手，但他夠男人（夠貓男人）承認自己需要幫手。所以，他製造了一個機器人助手——喵迪 2.0——來幫助抵禦害蟲：</p>
-<p><img src="../media/p3/so/meowdy0003.png" alt="機器人版本的警長喵迪，標記為「喵迪 2.0」"></p>
-<p>喵迪 2.0 可以射得比警長快兩倍，但有個問題：喵迪 2.0 <i>可能</i>會背叛警長。幸好，轉身背叛警長需要時間，而警長仍然足夠快，可以在喵迪 2.0 這樣做時阻止它。</p>
-<p>這就是<b>監督</b>。</p>
-<p><img src="../media/p3/so/meowdy0004.png" alt="警長喵迪看著 2.0，用槍指著它的頭。2.0 可以在 500ms 內轉身，喵迪可以在 200ms 內反應並射擊。"></p>
-<p>唉，即使是喵迪 2.0 <i>仍然</i>不夠快來阻止數百萬的害蟲。所以警長製造了喵迪 3.0，它比 2.0 快兩倍，或者比警長快<i>四倍</i>。</p>
-<p>這次，警長更難監督它了：</p>
-<p><img src="../media/p3/so/meowdy0005.png" alt="3.0 可以在 250ms 內轉身，喵迪仍然只能在 200ms 內反應。喵迪在流汗。"></p>
-<p>但喵迪 3.0 <i>仍然</i>不夠快。所以警長製造了喵迪 4.0，它比 3.0 快兩倍⋯⋯</p>
-<p>⋯⋯這次，它太快了，如果 4.0 背叛他，警長無法反應：</p>
-<p><img src="../media/p3/so/meowdy0006.png" alt="4.0 可以在 125ms 內轉身，足夠快來背叛喵迪。4.0 把喵迪射死了。"></p>
-<p>那怎麼辦？警長使出他橘貓腦袋裡僅有的兩個腦細胞，想出了一個計劃：<b><i>可擴充套件</i>監督！</b></p>
-<p>他來監督 2.0，2.0 可以監督 3.0，3.0 <i>可以</i>監督 4.0！</p>
-<p><img src="../media/p3/so/meowdy0007.png" alt="喵迪監督 2.0 監督 3.0 監督 4.0"></p>
-<p>事實上，為什麼要停在那裡？他這個瘋狂的「可擴充套件監督」計劃將讓他監督<i>任何</i>速度的喵迪！</p>
-<p>所以，警長製造了 20 個喵迪。喵迪 20.0 比警長快 2<sup>20</sup> ~= <i>一百萬</i>倍：足夠快來阻止數百萬的害蟲！</p>
-<p><img src="../media/p3/so/meowdy0008.png" alt="喵迪監督一連串喵迪，直到喵迪 20.0，它可以把所有害蟲都射死。"></p>
-<p>等等，單一的監督鏈不是很脆弱嗎？就是說，如果<i>一個</i>喵迪壞了，整個鏈就斷了？是的！一個解決方案是有<i>多個</i>交織的鏈，像這樣：</p>
-<p><img src="../media/p3/so/meowdy_robust.png" alt="並行編織的監督鏈。失敗的機率隨著新增更多鏈而指數級下降。">
-（👉 <a href="#RobustChainMath">: 可選 - 點選查看上圖的數學計算</a>）</p>
-<p>這樣，如果任何<i>一個</i>第 N 層的監督者被腐蝕，仍然會有另外兩個檢查第 N+1 層的機器人。而第 N-1 層的監督者可以捕捉並修復被腐蝕的監督者。注意：<i>監督者盡可能獨立是很重要的</i>，這樣它們的失敗具有低相關性。目前，AI 的失敗<i>非常</i>相關。我們將在後面的章節中學習更多關於如何在 AI 中建立穩健性。</p>
-<p>總之，可擴充套件監督的核心洞見是這個迷因：</p>
-<p><img src="../media/p3/so/meme.png" alt="「多米諾」迷因，一個小多米諾推倒一個更大的，再推倒一個更大的，直到它可以推倒一個巨大的多米諾。"></p>
-<p>（另一個類比：有時，船太大了，舵<i>有它自己的小舵</i>，叫做<a href="https://en.wikipedia.org/wiki/Trim_tab#As_a_metaphor">調整片</a>。這樣，你可以操縱小舵，它操縱大舵，大舵操縱整艘船。）</p>
-<p>你可能注意到這類似於 AI <i>能力</i>的「遞迴自我改進」的想法：一個先進的 AI 製造一個<i>稍微更</i>先進的 AI，它再製造另一個更先進的 AI，等等。可擴充套件監督是同樣的想法，但用於 AI <i>安全</i>：一個 AI 幫助你對齊一個稍微更先進的 AI，等等！</p>
-<p>（像這樣的想法，其中第 N 個案例幫助你解決第 N+1 個案例，等等，被稱為「歸納的」或「迭代的」或「遞迴的」。別擔心，你不需要記住這些術語，只是想提一下。）</p>
-<p>總之：憑藉友誼、數學和蹩腳的西部口音的力量⋯⋯</p>
-<p>⋯⋯強大的警長喵迪再次拯救了鎮民！</p>
-<p><img src="../media/p3/so/meowdy0010.png" alt="警長喵迪吹掉槍上的煙，受傷的害蟲在夕陽中蹣跚離去"></p>
-<p>（👉 <a href="#ScalableOversightExtras">: 點選展開附加章節 - 「對齊稅」、P = NP?、對齊 vs 控制、突然跳躍的「急轉彎」怎麼辦？</a>）</p>
-<hr>
-<p>現在視覺鉤子結束了，這是快速的贊助商插播。這個系列由 <b>Hack Club</b> 和 <b>Long Term Future Fund</b> 資助；感謝你們幫助我在這個經濟環境下支付食物和房租。</p>
+<p>我會回應：「這是一個比喻，而非同構（isomorphism）。」瑞士乳酪模型經常在網路安全中被使用，而我們在那裡經常需要防範比我們更強大的對手。例如：藉由強大且唯一的密碼 + 多重身分驗證 + 基本的反詐騙意識 = 一個普羅大眾也能防範更強大的網路罪犯。</p>
+<p>但是，對於瑞士乳酪模型還有一個更強烈的批評，它適用於超級智慧 AI：</p>
+<p>2. 瑞士乳酪模型只有在<i>防禦的每一層</i>沒有共同的單一漏洞時才有效。然而，如果你嘗試「防範所有你能想到的風險」的策略，那麼就有一個共同的漏洞：這些防禦只能防範<i>你所能想到</i>的風險。<strong>但根據定義，一個比人類更聰明的 AI 將能夠識別出我們<i>想不到</i>的風險。</strong></p>
+<p>一個比喻：如果我這個西洋棋新手試圖與世界冠軍馬格努斯·卡爾森（Magnus Carlsen）對弈，那麼「防範所有我能想到的攻擊」肯定會失敗，因為馬格努斯能想到<i>我</i>想不到的攻擊。（<a href="https://www.youtube.com/watch?v=JVIqp_lIwZg">感謝 Robert Miles 提供這個比喻</a>。）另一個比喻：我這個網路安全新手可以防範大多數普通的網路罪犯，但如果我被國家級的行為者特別針對，他們可以執行我甚至無法<i>理解</i>的駭客手段。</p>
+<p>總結來說：瑞士乳酪模型只有在防範比你<i>稍微</i>先進、但不是<i>遠遠</i>先進許多的對手時才有效。</p>
+<p>即便如此，情況並非毫無希望。有兩種方法可以解決這個問題：</p>
+<p>一種是<strong>可擴充套件監督（Scalable Oversight）</strong>（我們稍後將在網頁中更詳細地介紹）。如果我可以驗證一個只比我聰明 10% 的 AI，那麼我就可以使用<i>那個</i> AI 來協助我驗證一個比我聰明 20% 的 AI，接著使用<i>它</i>來協助我驗證一個聰明 30% 的 AI，以此類推，直到達到任意水準的 AI。這種策略在有限的環境下已經行之有效：我們已經設計出可以<i>數學驗證</i>更大程式正確性的程式。（不過，目前我們能驗證的程式類型仍然有限。）</p>
+<p>另一種（互補的）策略是「乾脆」從一開始就避免製造一個<i>對手</i>。這並非易事——因為古德哈特定律，幾乎你程式設定 AI 去最大化的任何指標或分數，</p>
 <ul>
-<li>🦕 <a href="https://hackclub.com/"><b>Hack Club</b></a> 幫助世界各地的青少年黑客互相學習，噓，他們很快就要舉辦兩個<a href="https://midnight.hackclub.com/">很酷的</a><a href="https://midnight.hackclub.com/">黑客松</a>！</li>
-<li>🔮 <a href="https://funds.effectivealtruism.org/funds/far-future"><b>Long Term Future Fund</b></a> 投資於有助於降低 P(doom) 的東西。就像，你知道的，先進 AI、生物武器、核戰爭，以及其他有趣輕鬆的話題。</li>
+<li>💖➡️💖 <strong><a href="https://arxiv.org/abs/1811.07871">遞迴獎勵建模 (Recursive Reward Modeling)</a></strong>：使用第 N 層機器人不僅在<i>事後</i>檢查與控制第 (N+1) 層機器人，而是<i>首先訓練它內在的「目標和慾望」</i>。具體而言，每個機器人會協助<i>你</i>訓練下一個機器人。（詳細細節：<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>）正如 AI 研究員 Jan Leike <a href="https://aligned.substack.com/p/should-we-control-ai">所說</a>：「<i>不要試圖監禁一個怪物，而是建造一些你真正可以信任的東西！</i>」
+<ul>
+<li>這也有助於防止價值漂移（value drift），以防「價值是脆弱的（value is fragile）」。在預設情況下，如果你將你的價值觀傳遞給第一個機器人，而它試圖將其傳遞給第二個，依此類推，就像傳話遊戲一樣，第 N 個機器人最終會得到一個扭曲的價值觀。但在遞迴獎勵建模中，每個機器人都會直接協助<i>你</i>訓練下一個機器人。因此，機器人的能力越強，它就能<i>越好</i>地學習你的價值觀！</li>
 </ul>
-<p>另外，因為這是這個系列的<i>最後</i>一篇，如果你想跟上我未來的數學/科學/AI 解說專案，你可以訂閱<a href="https://www.youtube.com/@itsnickycase">我的 YouTube 頻道</a>或<a href="https://ncase.me/sub/">我的每月通訊</a>：👇</p>
-<iframe src="https://ncase.me/ncase-credits/signup2.html" frameborder="no" width="640" height="250"></iframe>
-<p>好的，回到正題！</p>
-<hr>
-<p>幕後花絮：上面的警長喵迪漫畫是這個系列中我畫的<i>第一</i>個東西⋯⋯<a href="https://www.patreon.com/posts/sheriff-meowdy-78016588">差不多三年前</a>。（孩子們，不要在網上做長篇內容，不值得。）重點是：學習可擴充套件監督是<i>讓我對 AI 安全最樂觀的那一個想法</i>，並激勵我開始這整個系列！</p>
-<p>因為，可擴充套件監督把<i>這個</i>看似不可能的問題：</p>
-<blockquote>
-<p><i>「你如何避免被比你聰明 100 倍的東西欺騙？」</i></p>
-</blockquote>
-<p>⋯⋯變成這個更可行的問題：</p>
-<blockquote>
-<p><i>「你如何避免被只比你聰明 10% 的東西欺騙，而且你還可以從出生就撫養它、讀取它的思想、並調整它的大腦？」</i></p>
-</blockquote>
-<p>說清楚，「監督一個只比你聰明 10% 的 AI」<i>仍然</i>還沒解決。但它更令人鼓舞！這就像一步跳過一個巨大障礙，與用樓梯跨過<i>同樣</i>的障礙，每一步都可行，之間的區別：</p>
-<p><img src="../media/p3/so/sum.png" alt="可擴充套件監督，視覺總結。沒有可擴充套件監督就像試圖一步跳過一個巨大的障礙；可擴充套件監督就像有一個樓梯跨過那個障礙，一次一個可行的步驟。"></p>
-<p>總之，這是<i>一般</i>的想法。這裡是一些<i>具體</i>的實現和實證發現：</p>
-<ul>
-<li>💖➡️💖 <b><a href="https://arxiv.org/abs/1811.07871">遞迴獎勵建模</a></b> 使用第 N 層機器人不僅<i>事後</i>檢查和控制第 (N+1) 層機器人，而是<i>首先訓練它內在的「目標和慾望」</i>。<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> 正如 AI 研究員 Jan Leike <a href="https://aligned.substack.com/p/should-we-control-ai">所說</a>：<i>「不要試圖監禁一個怪物，而是建造一些你真正可以信任的東西！」</i></li>
-<li>📈 <b><a href="https://arxiv.org/abs/2504.18530">可擴充套件監督的縮放定律</a></b> <i>定量</i>測量你需要多少監督層級/步驟來最大化監督成功。令人鼓舞的是，就像之前關於你給 AI 餵更多計算資源時它如何改進的「縮放定律」一樣，這些「可擴充套件監督的縮放定律」似乎也是可預測和可測量的。<a href="https://mikhailterekhov.github.io/control-tax/">Terekhov &amp; Liu 等人 2025</a> 更進一步，計算了各種 AI 攻擊者和防禦者的「控制稅」（以美元計）。</li>
-<li>🕵️🦹 <b><a href="https://arxiv.org/abs/2312.06942">GPT-3.5 可以捕捉由更強大的 GPT-4 編寫的狡猾、微妙有害的程式碼。</a></b></li>
-<li>🕵️🥷 <b><a href="https://openai.com/index/prover-verifier-games-improve-legibility/">證明者-驗證者遊戲</a></b> 讓一個弱小的「數學證明驗證者」AI 對抗兩個更強的 AI：一個「有幫助的證明者」給出真實的證明，和一個「狡猾的證明者」給出<i>看起來</i>真實的假證明。在這個遊戲上訓練的結果：<i>弱驗證者</i>可以變得足夠好來區分真假證明，但<i>強狡猾證明者長期無法獲勝</i>。不錯！</li>
-<li>🪜 <b><a href="https://openai.com/index/weak-to-strong-generalization/">弱到強泛化</a></b> 發現 GPT-<i>2</i> 在監督和訓練 GPT-<i>4</i> 方面做得相當不錯。（一個比它大好幾個數量級的 AI）</li>
-<li>💬💬 <b><a href="https://openai.com/index/debate/">辯論</a></b> 略有不同。不是讓較弱的 AI 監督較強的 AI，辯論讓 2 個同等強大的 AI 互相辯論，拆解彼此的邏輯。只要真理比謬誤更能經受審視，真理就會獲勝。（好吧，也許。<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>）</li>
-<li>☕️ <b><a href="https://arxiv.org/pdf/2402.00530">超級過濾</a></b> 使用一個小型開源 AI 來過濾用於訓練更大 AI 的資料！這可以幫助確保更大的 AI 不僅在高質量寫作上訓練（而不是網上垃圾帖子），而且不會學習如何越獄它自己或它的監督者，學習在評估基準上作弊的答案，或學習像炸彈和生物武器製造這樣的危險能力。
+</li>
+<li>📈 <strong><a href="https://arxiv.org/abs/2504.18530">可擴充套件監督的縮放定律 (Scaling Laws For Scalable Oversight)</a></strong>：<i>定量</i>測量你需要多少監督層級/步驟來最大化監督成功。令人鼓舞的是，就像先前關於你給 AI 餵更多計算資源時它如何改進的「縮放定律」一樣，這些「可擴充套件監督的縮放定律」似乎也是可預測且可測量的。<a href="https://mikhailterekhov.github.io/control-tax/">Terekhov &amp; Liu 等人 2025</a> 更進一步，計算了各種 AI 攻擊者和防禦者的「控制稅」（以美元計）。</li>
+<li>🕵️🦹 <strong><a href="https://arxiv.org/abs/2312.06942">GPT-3.5 可以捕捉由更強大的 GPT-4 編寫的狡猾、微妙有害的程式碼。</a></strong></li>
+<li>🕵️🥷 <strong><a href="https://openai.com/index/prover-verifier-games-improve-legibility/">證明者-驗證者遊戲 (Prover-Verifier Games)</a></strong>：讓一個弱小的「數學證明驗證者」AI 對抗兩個更強的 AI：一個「有幫助的證明者」給出真實的證明，和一個「狡猾的證明者」給出<i>看起來</i>真實的假證明。在這個遊戲上訓練的結果：<i>弱驗證者</i>可以變得足夠好來區分真假證明，但<i>強狡猾證明者長期無法獲勝</i>。不錯！</li>
+<li>🪜 <strong><a href="https://openai.com/index/weak-to-strong-generalization/">弱到強泛化 (Weak-to-Strong Generalization)</a></strong>：發現 GPT-<i>2</i> 在監督和訓練 GPT-<i>4</i> 方面做得相當不錯。（一個比它大好幾個數量級的 AI）</li>
+<li>💬💬 <strong><a href="https://openai.com/index/debate/">辯論 (Debate)</a></strong>：略有不同。不是讓較弱的 AI 監督較強的 AI，辯論讓 2 個同等強大的 AI 互相辯論，拆解彼此的邏輯。只要真理比謬誤更能經受審視，真理就會獲勝。（好吧，也許。<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>）</li>
+<li>☕️ <strong><a href="https://arxiv.org/pdf/2402.00530">超級過濾 (Superfiltering)</a></strong>：使用一個小型開源 AI 來過濾用於訓練更大 AI 的資料！這可以幫助確保更大的 AI 不僅在高質量寫作上訓練（而不是網頁上的垃圾貼文），而且不會學習如何越獄它自己或它的監督者，學習在評估基準上作弊的答案，或學習像炸彈和生物武器製造這樣的危險能力。
 <ul>
 <li>（嚴格來說不是<i>監督</i>，但它仍然是一種迭代的、可擴充套件的方法！）</li>
 </ul>
 </li>
-<li>👯‍♀️ <b><a href="https://www.lesswrong.com/posts/vhfATmAoJcN8RqGg6/a-guide-to-iterated-amplification-and-debate">迭代蒸餾與放大（IDA）</a></b> 更安全——不是監督比你稍聰明的 AI，而是監督<i>嚴格比你弱</i>的 AI。那麼，這種設定如何能給你超人智慧？非常粗略地總結：在 IDA 中，你成為一個由訓練來模仿你的 AI 組成的組織的 CEO！由於每個 AI 都模仿你，而你是整個系統的 CEO，系統作為一個整體與你的價值觀對齊——同時<i>也</i>放大你的能力。
+<li>👯‍♀️ <strong><a href="https://www.lesswrong.com/posts/vhfATmAoJcN8RqGg6/a-guide-to-iterated-amplification-and-debate">迭代蒸餾與放大 (Iterated Distillation &amp; Amplification, IDA)</a></strong>：更安全——不是監督比你稍聰明的 AI，而是監督<i>嚴格比你弱</i>的 AI。那麼，這種設定如何能給你超人智慧？非常粗略地總結：在 IDA 中，你成為一個由訓練來模仿你的 AI 組成的組織的 CEO！由於每個 AI 都模仿你，而你是整個系統的 CEO，系統作為一個整體與你的價值觀對齊——同時<i>也</i>放大你的能力。
 <ul>
 <li>（<a href="#IDA">: 更多關於 IDA，以及對它的批評</a>）</li>
 </ul>
 </li>
+<li>🤓 <strong><a href="https://formal.land/blog/2024/06/05/software-correctness-from-first-principles">形式化驗證 (Formal Verification)</a></strong>：這實際上早於現代 AI。通常在程式設計中，我們藉由嘗試一堆輸入來測試程式碼，但總有可能漏掉某個會導致 Bug 的輸入。因此，在形式化驗證中，我們對程式在<i>所有可能輸入</i>下的運作進行<i>數學證明</i>。這與可擴充套件監督的關聯：我們可以（而且已經！）設計小型程式來協助人類驗證更大程式的可信度！<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></li>
 </ul>
 <p>不過，保持健康的批判態度是好的。這裡是一些來自監控大型語言模型（LLM）如 ChatGPT 和 Claude 的最近「令人沮喪」的發現：如果你用一個能讀取其思維鏈的監控器<i>太努力地</i>訓練一個 LLM，它會學會<i>甚至在它自己的「思想」中</i>隱藏它的邪惡計劃。<a href="https://arxiv.org/pdf/2503.11926">(Baker &amp; Huizinga 2025)</a>。而且，給定天真的監督技術，LLM 實際上很容易越獄它的監控器，因為 LLM 已經存在足夠長的時間，關於越獄的資訊<i>就在</i>它們自己的訓練資料中。<a href="https://arxiv.org/pdf/2510.09462">(Terekhov, Panfilov &amp; Dzenhaliou 2025)</a></p>
 <p>但即使<i>這些</i>監督方法失敗，仍然有很多其他的！（正如我們將在後面的可解釋性和引導章節中看到的）。總的來說，我仍然樂觀。再說一次：我們不需要<i>一個</i>完美的解決方案，我們可以疊加<i>很多</i>不完美的解決方案。</p>
@@ -376,11 +324,11 @@
 <p><i>任何</i>一層失敗的機率，是 1 減去沒有任何一層失敗的機率。$N$ 層都不失敗的機率是 $q^N$。所以，<i>任何</i>一層失敗的機率是 $1 - q^N$。代入 $q = 1 - p^k$，這意味著沒有任何一層失敗，我們的可擴充套件監督方案成功的機率是 $1 - (1-p^k)^N$。我們有了公式！🎉</p>
 <p>現在，代入上面例子的數值，失敗機率 $p = 0.05$，鏈條有 $N = 20$ 層深，那麼失敗的機率是⋯⋯</p>
 <ul>
-<li>對於 $k=1$ 條鏈：$1 - (1-0.05^1)^{20} \approx 0.64 \approx 64%$</li>
+<li>對貼於 $k=1$ 條鏈：$1 - (1-0.05^1)^{20} \approx 0.64 \approx 64%$</li>
 <li>對於 $k = 2$ 條編織鏈：$1 - (1-0.05^2)^{20} \approx 0.049 \approx 5%$</li>
 <li>對於 $k = 3$ 條編織鏈：$1 - (1-0.05^3)^{20} \approx 0.0025 \approx 0.2%$</li>
 <li>對於 $k = 4$ 條編織鏈：$1 - (1-0.05^4)^{20} \approx 0.00012 \approx 0.01%$</li>
-<li>對於 $k = 5$ 條編織鏈：$1 - (1-0.05^2)^{20} \approx 0.0000062 \approx 0.0006%$</li>
+<li>對於 $k = 5$ 條編織鏈：$1 - (1-0.05^5)^{20} \approx 0.0000062 \approx 0.0006%$</li>
 </ul>
 <p>注意失敗的機率如何隨著你新增的每條額外備用鏈<i>指數級</i>下降！這是一個非常高效的「對齊稅」。</p>
 <h4>:x Scalable Oversight Extras</h4>
@@ -417,6 +365,17 @@
 <p>正如你將在本節後面看到的，<i>有</i>一個可擴充套件監督提案，叫做迭代蒸餾與放大，其中監督者只監督<i>嚴格「更笨」</i>的 AI，但系統作為一個整體仍然可以更聰明！繼續閱讀瞭解詳情。</p>
 </li>
 </ol>
+<p><strong>Value Fragility &amp; Value Drift:</strong></p>
+<p>By default, if you pass your values into the 1st bot, and it tried to pass its values to the 2nd, and so on, like a game of Telephone, the Nth bot will get a distorted version of your values.</p>
+<p>A solution is Recursive Reward Modeling — (described briefly later in this section) — where each bot helps <i>you</i> directly train the next bot. And so, the more capable the bot, the <i>better</i> it can  learn your values!</p>
+<p>So, even if <a href="https://www.lesswrong.com/posts/GNnHHmm8EzePmKzPk/value-is-fragile">&quot;Value is Fragile&quot;</a>, the Recursive Reward Modeling setup (or something similar) ensures that we can get overseeable bots that get better &amp; better at modeling our true values.</p>
+<p>But to be honest, I disagree that &quot;value is fragile&quot;. The examples in the linked essay seem either:</p>
+<ul>
+<li>Contrived: the author gives an example of &quot;what if we forget to specify subjective conscious experience?&quot; but even a stupid specification like &quot;increase happiness&quot; already implies subjective experience.</li>
+<li>Or not that bad: the author gives an example of &quot;what if we specify all of human values <i>except for boredom</i>; then it'll make us have a single highly optimized experience, over and over and over again.&quot; Okay, so we'll experience love &amp; friendship &amp; health &amp; growth &amp; creation &amp; joy over and over and over again? That's… fine, honestly? I wouldn't call a monk's life &quot;devoid of value&quot; just because they tend their rock garden over and over in content peace.</li>
+</ul>
+<p>As an analogy, if a superintelligent AI were to learn all our values <i>except for music</i>, the resulting world would <i>still be amazing</i>. The loss of music <i>would</i> be a genuine loss, but there's still love &amp; mathematics &amp; great food &amp; spleunking &amp; the cures for all cancers &amp; so on. Far from a world &quot;devoid of value&quot;</p>
+<p>Anyway, I don't think value is fragile, and even if it is, there's proposed solutions like Recursive Reward Modelling which can address that.</p>
 <h4>:x IDA</h4>
 <p>要理解迭代蒸餾與放大（IDA），讓我們考慮它最大的成功案例：<a href="https://en.wikipedia.org/wiki/AlphaGo">AlphaGo</a>，第一個在圍棋上擊敗世界冠軍的 AI。</p>
 <p>以下是訓練 AlphaGo 的步驟：</p>
@@ -493,16 +452,16 @@
 <p>重要：這些<i>不是</i> AI 表現不佳的問題。這些問題<i>正是因為</i> AI 在最優地行動！（我們稍後會處理表現不佳的 AI。）記住，就像作弊的學生或心懷不滿的員工，不是 AI 可能「不知道」你真正想要什麼，而是它可能「不在乎」。（用更少擬人化的說法：一個軟體會精確地最佳化你編碼它要做的事情。不多，不少。）</p>
 <p><b>「提前想到可能發生的最壞情況。然後修復它。」</b>如果你記得，這是<a href="../p2/#:~:text=Does%20all%20this%20seem%20paranoid">安全思維</a>，使橋樑和火箭安全的工程師思維，也是讓 AI 研究人員如此擔心先進 AI 的原因。</p>
 <p>但如果⋯⋯我們製造一個<i>對自己使用安全思維</i>的 AI 呢？</p>
-<p>現在，讓我們假設一個「最優能力」的 AI——再說一次，我們稍後會處理表現不佳的 AI——它可以完美地預測世界。（或者至少和理論上可能的一樣好<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>）由於<i>你</i>是世界的一部分，它可以完美地預測<i>你對各種結果的反應</i>。</p>
+<p>現在，讓我們假設一個「最優能力」的 AI——再說一次，我們稍後會處理表現不佳的 AI——它可以完美地預測世界。（或者至少和理論上可能的一樣好<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>）由於<i>你</i>是世界的一部分，它可以完美地預測<i>你對各種結果的反應</i>。</p>
 <p><b>然後，這是「未來生活」演算法：</b></p>
 <p>1️⃣ 人類要求機器人做某事。</p>
 <p>2️⃣ 機器人考慮其可能的行動，以及這些行動的結果。</p>
 <p>3️⃣ 機器人預測<i>當前版本的你</i>會如何對<i>那些未來</i>做出反應。</p>
-<p>4️⃣ 它執行你最贊同其未來的行動，而<i>不</i>執行你會反對的行動。<i>「如果我們尖叫，規則改變；如果我們可預測地稍後尖叫，規則現在就改變。」</i><sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<p>4️⃣ 它執行你最贊同其未來的行動，而<i>不</i>執行你會反對的行動。<i>「如果我們尖叫，規則改變；如果我們可預測地稍後尖叫，規則現在就改變。」</i><sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
 <p>（注意：為什麼預測<i>當前</i>的你會如何反應，而不是未來的你？為了避免把你「搭線頭」成一個最大程度快樂的愚蠢大腦的誘因。為什麼是整個未來，而不僅僅是某個時間點的結果？為了避免通往那些目的的不想要的手段，和/或那些目的之後的不想要的後果。）</p>
 <p>（注意 2：目前，我們也只是在處理如何讓 AI 滿足<i>一個</i>人的價值觀的問題，而不是<i>人道</i>價值觀。我們將在本文後面討論「人道價值觀」問題。）</p>
 <p><img src="../media/p3/future/sum.png" alt="上述描述的圖解。沒有比主文更多的額外資訊。"></p>
-<p>正如 Stuart Russell，最常用的 AI 教科書的合著者，曾經說過：<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
+<p>正如 Stuart Russell，最常用的 AI 教科書的合著者，曾經說過：<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
 <blockquote>
 <p>[想像] 如果你能以某種方式觀看兩部電影，每部都以足夠的細節和廣度描述你可能過的未來生活 [以及你生活之外和之後的後果]。你可以說你更喜歡哪個，或表示無所謂。</p>
 </blockquote>
@@ -621,7 +580,7 @@
 <li><u>「做我的意思，而不是我說的」仍然可能失敗</u>：有一場油火。你指示機器人給你拿一桶水。你實際上<i>確實</i>是要一桶水，但你不知道<a href="https://www.reddit.com/r/lifehacks/comments/17t48a3/how_you_should_and_shouldnt_extinguish_an_oil_fire/">水會導致油火爆炸</a>。即使機器人做了「你的意思」，它也會給你一桶水，然後你就爆炸了。</li>
 </ul>
 <p>在所有 3 個案例中，問題是 AI 100% 確定你的目標是什麼：正是你說的或意思的，<i>不多，不少</i>。</p>
-<p><b>解決方案：讓 AI <i>知道它們不知道</i>我們的真正目標！</b>（天啊，<i>人類</i>都不知道自己的真正目標。<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>）AI 應該以機率來思考我們想要什麼，並適當地謹慎。</p>
+<p><b>解決方案：讓 AI <i>知道它們不知道</i>我們的真正目標！</b>（天啊，<i>人類</i>都不知道自己的真正目標。<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>）AI 應該以機率來思考我們想要什麼，並適當地謹慎。</p>
 <p><b>這是演算法：</b></p>
 <p>1️⃣ 從我們價值觀的一個不錯的「先驗」估計開始。</p>
 <p>2️⃣ 之後你（人類）說或做的一切都是你真正價值觀的<i>線索</i>，不是 100% 確定的真相。（這考慮了：健忘、拖延、說謊等）</p>
@@ -641,25 +600,25 @@
 <p>好吧，但「學習人類的價值觀」的<i>實際具體提案</i>是什麼？這是一個快速概述：</p>
 <ul>
 <li>🐶 <b>逆強化學習（IRL）</b>。「強化學習」（RL）就像用零食訓練狗：給定一個「獎勵函式」，狗（或 AI）學習要做什麼動作。<i>逆</i>強化學習（IRL）就像透過觀察某人做什麼來弄清他們真正關心什麼：給定觀察到的動作，你（或 AI）學習「獎勵函式」是什麼。所以，在 IRL 方法中：我們讓 AI 透過觀察我們實際選擇做什麼來學習我們的價值觀。</li>
-<li>🤝 <b>合作逆強化學習（CIRL）</b>。<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup> 類似於 IRL，除了人類不只是被 AI 被動觀察，人類<i>主動</i>幫助教 AI。</li>
-<li>🧑‍🏫 <b>從人類反饋的強化學習（RLHF）：</b><sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> 這是將「基礎」GPT（一個花哨的自動完成）變成 <i>Chat</i>GPT（一個實際可用的聊天機器人）的演算法。
+<li>🤝 <b>合作逆強化學習（CIRL）</b>。<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> 類似於 IRL，除了人類不只是被 AI 被動觀察，人類<i>主動</i>幫助教 AI。</li>
+<li>🧑‍🏫 <b>從人類反饋的強化學習（RLHF）：</b><sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup> 這是將「基礎」GPT（一個花哨的自動完成）變成 <i>Chat</i>GPT（一個實際可用的聊天機器人）的演算法。
 <ul>
 <li>第一步：給定人類對一堆聊天的評分 👍👎，訓練一個「老師」AI 來模仿人類評分者。（實際上，訓練<i>多個</i>老師，以增加穩健性）這「蒸餾」了人類對什麼是有幫助的聊天機器人的判斷。</li>
 <li>第二步：使用<i>這些</i>「老師」AI 給「文字補全」AI 大量的訓練，訓練它成為一個有幫助的聊天機器人。這「放大」了蒸餾的人類判斷。</li>
 </ul>
 </li>
-<li>🤪 <b>學習我們的價值觀<i>同時</i>學習我們的非理性：</b><sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup> 如果你的 AI 假設人類是理性的加上隨機錯誤，你的 AI 會學得很差！因為我們犯的錯誤是<i>非隨機的</i>；我們有系統性的非理性，AI 也需要學習<i>那些</i>，才能學習我們真正的價值觀。</li>
+<li>🤪 <b>學習我們的價值觀<i>同時</i>學習我們的非理性：</b><sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> 如果你的 AI 假設人類是理性的加上隨機錯誤，你的 AI 會學得很差！因為我們犯的錯誤是<i>非隨機的</i>；我們有系統性的非理性，AI 也需要學習<i>那些</i>，才能學習我們真正的價值觀。</li>
 </ul>
 <p><img src="../media/p3/learn/CIRL.png" alt="機器人試圖學習人類偏好的漫畫。為此，機器人開始掃描人類的瀏覽歷史。人類嚇壞了並告訴機器人停下。機器人高興地宣佈：「學到新資料！你偏好隱私！」人類鬆了一口氣。機器人繼續說：「你也想讓我刪除我看到的記憶嗎？你這個病態的 f@#k？」"></p>
 <p>（再次，我們只考慮如何學習<i>一個人</i>的價值觀。關於如何學習<i>人道</i>價值觀，為了所有道德患者的繁榮，等待後面的章節，「誰的價值觀」？）</p>
 <p>當然，上面的每一個都有問題：如果 AI 只從人類的選擇中學習，它可能會錯誤地學習到人類「想要」拖延。正如我們都從<a href="https://www.nngroup.com/articles/sycophancy-generative-ai-chatbots/">過度奉承（「諂媚」）的聊天機器人</a>看到的，訓練 AI 獲得人類的認可⋯⋯<i>真的</i>讓它「想要」人類的認可。</p>
-<p>所以，說清楚：<b>雖然幾乎不可能指定人類的價值觀，而且指定<i>如何學習</i>人類的價值觀更簡單，但它仍然沒有 100% 解決。</b>用類比：教某人法語需要幾年，但教某人<i>如何有效地自學</i>法語只需要幾個小時<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup>，<i>但</i>即使這也很棘手。</p>
+<p>所以，說清楚：<b>雖然幾乎不可能指定人類的價值觀，而且指定<i>如何學習</i>人類的價值觀更簡單，但它仍然沒有 100% 解決。</b>用類比：教某人法語需要幾年，但教某人<i>如何有效地自學</i>法語只需要幾個小時<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>，<i>但</i>即使這也很棘手。</p>
 <p>所以：我們沒有完全繞過「規範」問題，但我們<i>確實</i>簡化了它！也許透過「只」擁有一個非常不同訊號的集合——短期認可、長期認可、我們說我們重視什麼、我們實際選擇做什麼——我們可以建立一個穩健的規範，避免單點故障。</p>
 <p>更重要的是，「學習我們的價值觀」方法（而不是「試圖硬編碼我們的價值觀」），有一個巨大的好處：<b>AI 的能力越高，它的對齊就<i>越好</i>。</b>如果 AI 一般足夠智慧來學習，比如說，如何製造生物武器，它也會足夠智慧來學習我們的價值觀。如果 AI 太脆弱而無法穩健地學習我們的價值觀，它也會太脆弱而無法學習如何執行危險的計劃。</p>
 <p><img src="../media/p3/learn/rocket.png" alt="上述想法的圖表。雙軸圖：對齊 vs 能力，其中對角虛線是對齊 &gt; 能力和對齊 &lt; 能力之間的邊界。透過將對齊與能力聯絡起來，我們保持在安全虛線之上。"></p>
 <p>（不過：不要太舒服。一個「一旦它有足夠高的能力就容易對齊」的策略有點像說「這輛摩托車一旦達到每小時 100 英里就容易駕駛。」我的意思是，這<i>更好</i>，但較低的速度、較低的能力呢？因此，本頁上的許多其他提議的解決方案。更多的瑞士乳酪。）</p>
 <p>我認為，這是「學習我們的價值觀」方法最優雅的地方：它將（部分）對齊問題簡化為一個<i>普通的機器學習問題</i>。從人的語言/行動/認可中學習人的價值觀似乎幾乎不可能，因為我們的價值觀總是在變化，並且對我們的意識隱藏。但這與從人的症狀和生物標誌物中學習人的醫療問題沒有什麼不同：變化的，隱藏的。這是一個<i>困難的</i>問題，但它是一個正常的問題。</p>
-<p>是的，AI 醫療診斷與人類醫生不相上下。已經超過 5 年了。<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup></p>
+<p>是的，AI 醫療診斷與人類醫生不相上下。已經超過 5 年了。<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup></p>
 <h4>:x Worst Or Average</h4>
 <p>「最佳化最好情況」的優缺點相當直接：更高的回報，但風險也高得多。</p>
 <p>現在，有趣的地方在於最佳化_最壞_情況與_平均_情況之間的權衡。</p>
@@ -740,29 +699,29 @@
 <h2>🎉 回顧 #1</h2>
 <ul>
 <li>🧀 我們不需要一個完美的解決方案，我們可以疊加多個不完美的解決方案。</li>
-<li>🪜 <b>可擴充套件監督</b>讓我們把不可能的問題「你如何監督一個比你聰明 1000 倍的東西？」轉換成更可行的「你如何監督一個只比你聰明一點的東西，<i>而且</i>你可以從頭訓練它、讀取它的思想、並調整它的思考？」</li>
-<li>🧭 <b>價值學習 + 不確定性 + 未來生活：</b>我們不是試圖把我們的價值觀硬編碼到 AI 中，而是隻給它一個目標：
+<li>🪜 <strong>可擴充套件監督</strong>讓我們把不可能的問題「你如何監督一個比你聰明 1000 倍的東西？」轉換成更可行的「你如何監督一個只比你聰明一點的東西，<i>而且</i>你可以從頭訓練它、讀取它的思想、並調整它的思考？」</li>
+<li>🧭 **價值學習 + 不確定性 + 未來生活：**我們不是試圖把我們的價值觀硬編碼到 AI 中，而是只給它一個目標：
 <ul>
-<li>1️⃣：學習我們的價值觀</li>
+<li>1️⃣：學習我們的價值觀。</li>
 <li>2️⃣：但是，保持不確定並<i>知道你不 100% 知道我們的價值觀</i>。</li>
 <li>3️⃣：然後，選擇導向<i>當前</i>的我們會贊同的<i>未來</i>生活的行動。
 <ul>
-<li>（並預測和避免最壞情況的未來。這讓 AI 對自己應用安全思維。）</li>
+<li>（並預測 and 避免最壞情況的未來。這讓 AI 對自己應用安全思維。）</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>🚀 「學習我們的價值觀」方法還有另一個好處：如果我們把「學習我們的價值觀」當作一個普通的機器學習問題，<b>AI 的能力越高，它的對齊就<i>越好</i>。</b></li>
+<li>🚀 「學習我們的價值觀」方法還有另一個好處：如果我們把「學習我們的價值觀」當作一個普通的機器學習問題，<strong>AI 的能力越高，它的對齊就<i>越好</i>。</strong></li>
 </ul>
 <hr>
 <p><a id="interpretable"></a></p>
 <h2>AI「直覺」：可解釋性與引導</h2>
 <p>既然我們已經處理了 AI 邏輯，讓我們來處理 AI「直覺」！這是主要問題：</p>
 <p>我們不知道這些東西是怎麼工作的。</p>
-<p>在過去，「老式」AI 是手工製作的。每一行程式碼，都有人理解和設計。現在，有了「機器學習」和「深度學習」：<b>AI 不是被設計的，<i>它們是被培養的</i>。</b>當然，有人設計學習<i>過程</i>，但然後他們把整個維基百科和整個 Reddit 以及過去 100 年的每一篇數位化新聞文章和書籍都餵給 AI，AI <i>大多</i>學會瞭如何預測文字⋯⋯也學會了巴基斯坦人的生命價值是日本人的兩倍<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup>，並且在「SolidGoldMagikarp」這個詞上發瘋<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup>。</p>
+<p>在過去，「老式」AI 是手工製作的。每一行程式碼，都有人理解和設計。現在，有了「機器學習」和「深度學習」：<b>AI 不是被設計的，<i>它們是被培養的</i>。</b>當然，有人設計學習<i>過程</i>，但然後他們把整個維基百科和整個 Reddit 以及過去 100 年的每一篇數位化新聞文章和書籍都餵給 AI，AI <i>大多</i>學會瞭如何預測文字⋯⋯也學會了巴基斯坦人的生命價值是日本人的兩倍<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup>，並且在「SolidGoldMagikarp」這個詞上發瘋<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup>。</p>
 <p>過度強調：<i>我們不知道我們的 AI 是如何工作的。</i></p>
-<p>俗話說，「知道是戰鬥的一半」。因此，研究人員在瞭解 AI 神經網路在想什麼方面取得了很大進展！這被稱為<b>可解釋性</b>。這類似於對人類進行腦部掃描，以讀取他們的思想和感受。（是的，這是我們在人類身上有點可以做到的事情。<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup>）</p>
-<p>但戰鬥的另一半是<i>使用</i>那些知識。一個令人興奮的最新研究方向是<b>引導</b>：使用我們從可解釋性獲得的見解，來實際<i>改變</i> AI「想什麼和感受什麼」。你可以直接<i>注入</i>「更多誠實」或「更少追求權力」到 AI 的大腦中，而且它<i>真的有效</i>。這類似於刺激人類的大腦，讓他們笑或有靈魂出竅的體驗。（是的，這些是科學家真的做過的事情！<sup class="footnote-ref"><a href="#fn15" id="fnref15">[15]</a></sup>）</p>
+<p>俗話說，「知道是戰鬥的一半」。因此，研究人員在瞭解 AI 神經網路在想什麼方面取得了很大進展！這被稱為<b>可解釋性</b>。這類似於對人類進行腦部掃描，以讀取他們的思想和感受。（是的，這是我們在人類身上有點可以做到的事情。<sup class="footnote-ref"><a href="#fn15" id="fnref15">[15]</a></sup>）</p>
+<p>但戰鬥的另一半是<i>使用</i>那些知識。一個令人興奮的最新研究方向是<b>引導</b>：使用我們從可解釋性獲得的見解，來實際<i>改變</i> AI「想什麼和感受什麼」。你可以直接<i>注入</i>「更多誠實」或「更少追求權力」到 AI 的大腦中，而且它<i>真的有效</i>。這類似於刺激人類的大腦，讓他們笑或有靈魂出竅的體驗。（是的，這些是科學家真的做過的事情！<sup class="footnote-ref"><a href="#fn16" id="fnref16">[16]</a></sup>）</p>
 <p><img src="../media/p3/interp/interp_steer.png" alt="「可解釋性與引導」概覽圖。可解釋性：人類讀取機器人的大腦，看看當機器人看到金門大橋時什麼被啟用。引導：人類啟用機器人的大腦，讓它有關於金門大橋的侵入性思想"></p>
 <p>這是可解釋性與引導研究亮點的快速概述：</p>
 <p><b>👀 特徵視覺化與電路</b>：</p>
@@ -770,22 +729,23 @@
 <p>例如，這是最大啟用「貓」神經元的超現實圖像（左）：</p>
 <p><img src="../media/p3/interp/cat.png" alt="一個看起來像融化條紋和眼睛的超現實圖像"></p>
 <p>（你可能在想：你能在 LLM 上做同樣的事情，找出什麼超現實文字會<i>最大地</i>預測，比如說，「good」這個詞嗎？答案：是的！最能預測「good」的文字是⋯⋯「got Rip Hut Jesus shooting basketball Protective Beautiful laughing」。見 <a href="https://www.lesswrong.com/posts/aPeJE8bSo6rAFoLqg/solidgoldmagikarp-plus-prompt-generation">SolidGoldMagikarp 論文</a>。）</p>
-<p>更好的是，在 <a href="https://distill.pub/2020/circuits/zoom-in/">Olah 等人 2020</a> 中，他們不僅弄清楚個別神經元「意味」什麼，還弄清楚<i>神經元之間的連線，「電路」</i>意味著什麼。</p>
+<p>更好的是，在 <a href="https://distill.pub/2020/circuits/zoom-in/">Olah 等人 2020</a> 中，他們不僅弄清楚個別神經元「代表」什麼，還弄清楚*神經元之間的連結，即「電路 (Circuits)」*代表著什麼。</p>
 <p>例如，這是「窗戶」、「車身」和「輪子」神經元如何組合建立「汽車檢測器」電路：</p>
-<p><img src="../media/p3/interp/car.png" alt="三個超現實圖像，對應於最大啟用「窗戶」、「車身」和「輪子」的內容，輸入到一個電路，導致「汽車」的超現實圖像。"></p>
+<p><img src="../media/p3/interp/car.png" alt="三個超現實圖像，對應於最大啟用「窗戶」、「車身」和「輪子」的內容，輸入到一個電路，導致「汽車」的超現實圖像。">
+這不「僅僅」適用於圖像模型；現在電路（Circuits）研究計畫已能用於最尖端的 LLM，並追蹤在幻覺、越獄和目標失調期間，它們內部發生了什麼事！</p>
 <p><b>🤯 理解神經網路中的「頓悟」：</b></p>
 <p><a href="https://arxiv.org/pdf/2201.02177">Power 等人 2022</a> 發現了一些奇怪的事情：訓練一個神經網路做「時鐘算術」，然後數千個迴圈它都做得很糟糕，只是記住測試例子⋯⋯然後<i>突然</i>，在大約第 ~1,000 步，它突然「理解了」（稱為「頓悟」），並且在它從未見過的問題上做得很好。</p>
-<p>一年後，<a href="https://arxiv.org/pdf/2301.05217">Nanda 等人 2023</a> 分析了那個網路的內部，發現「突然性」是一個錯覺：在整個訓練過程中，一個秘密的子網路在慢慢增長——<i>它有一個圓形結構，正是時鐘算術所需要的！</i>（該論文還發現了確切的原因：這要歸功於訓練過程對簡單性的偏好，稱為「正則化」，它讓網路在<i>記住所有訓練例子之後</i>找到了簡單的本質。<sup class="footnote-ref"><a href="#fn16" id="fnref16">[16]</a></sup>）</p>
+<p>一年後，<a href="https://arxiv.org/pdf/2301.05217">Nanda 等人 2023</a> 分析了那個網路的內部，發現「突然性」是一個錯覺：在整個訓練過程中，一個秘密的子網路在慢慢增長——<i>它有一個圓形結構，正是時鐘算術所需要的！</i>（該論文還發現了確切的原因：這要歸功於訓練過程對簡單性的偏好，稱為「正則化」，它讓網路在<i>記住所有訓練例子之後</i>找到了簡單的本質。<sup class="footnote-ref"><a href="#fn17" id="fnref17">[17]</a></sup>）</p>
 <p><b>🌡️ 探針分類器：</b></p>
-<p><i>嘿老兄<sup class="footnote-ref"><a href="#fn17" id="fnref17">[17]</a></sup>，我聽說你喜歡 AI，所以我在你的 AI 上訓練了一個 AI，這樣你就可以預測你的預測器。</i></p>
+<p><i>嘿老兄<sup class="footnote-ref"><a href="#fn18" id="fnref18">[18]</a></sup>，我聽說你喜歡 AI，所以我在你的 AI 上訓練了一個 AI，這樣你就可以預測你的預測器。</i></p>
 <p>假設你訓練完一個人工神經網路（ANN）來預測一條評論是好還是壞。（「情感分析」）你想知道：你的 ANN 只是簡單地加總好/壞詞，還是它理解<i>否定</i>？就像：「不能」是否定的，「抱怨」是否定的，但「不能抱怨」是正面的。</p>
 <p>你怎麼能找出你的 ANN 是否以及<i>在哪裡</i>識別否定？</p>
 <p><a href="https://direct.mit.edu/coli/article/48/1/207/107571/Probing-Classifiers-Promises-Shortcomings-and">探針分類器</a>就像把一堆溫度計插入你的大腦，就像感恩節火雞一樣。但探針不是測量熱量，而是測量<i>處理過的資訊</i>。</p>
-<p>具體來說，探針（通常）是<b>你用來調查<i>多層</i>神經網路的<i>單層</i>神經網路。</b><sup class="footnote-ref"><a href="#fn18" id="fnref18">[18]</a></sup> 像這樣：</p>
+<p>具體來說，探針（通常）是<b>你用來調查<i>多層</i>神經網路的<i>單層</i>神經網路。</b><sup class="footnote-ref"><a href="#fn19" id="fnref19">[19]</a></sup> 像這樣：</p>
 <p><img src="../media/p3/interp/probe.png" alt="線性探針如何工作的圖表。詳見主文"></p>
 <p>回到評論例子。你想知道：「我的 ANN 在哪裡理解否定」？</p>
-<p>所以，你放置探針來<i>觀察</i> ANN 中的每一層。<i>探針不影響原始 ANN</i>，就像溫度計不應該明顯改變它測量的東西的溫度一樣。<sup class="footnote-ref"><a href="#fn19" id="fnref19">[19]</a></sup> 你給你的原始 ANN 一堆句子，有些有否定，有些沒有。然後你訓練每個探針——<i>保持原始 ANN 不變</i>——嘗試預測「這個句子有否定嗎」，<i>只</i>使用 ANN 中<i>一</i>層的神經啟用。</p>
-<p>（另外，因為我們想知道原始 ANN <i>在哪裡</i>處理了足夠的文字以「理解否定」，<i>探針本身應該有盡可能少的處理</i>。它們通常是單層神經網路，或「線性分類器」。<sup class="footnote-ref"><a href="#fn20" id="fnref20">[20]</a></sup>）</p>
+<p>所以，你放置探針來<i>觀察</i> ANN 中的每一層。<i>探針不影響原始 ANN</i>，就像溫度計不應該明顯改變它測量的東西的溫度一樣。<sup class="footnote-ref"><a href="#fn20" id="fnref20">[20]</a></sup> 你給你的原始 ANN 一堆句子，有些有否定，有些沒有。然後你訓練每個探針——<i>保持原始 ANN 不變</i>——嘗試預測「這個句子有否定嗎」，<i>只</i>使用 ANN 中<i>一</i>層的神經啟用。</p>
+<p>（另外，因為我們想知道原始人工神經網路（ANN）<i>在哪裡</i>處理了足夠的文字以「理解否定」，<i>探針本身應該有盡可能少的處理</i>。它們通常是單層神經網路，或「線性分類器」。<sup class="footnote-ref"><a href="#fn21" id="fnref21">[21]</a></sup>）</p>
 <p>你可能會得到這樣的結果：第 1 到 3 層的探針無法準確，但第 4 層之後的探針成功了。這意味著第 4 層是你的 ANN 處理了足夠的資訊，終於「理解」否定的地方。這就是你的答案！</p>
 <p>其他例子：你可以探測一個手寫數字分類 AI 來找出它在哪裡理解「迴圈」和「直線」，你可以探測一個語音轉文字 AI 來找出它在哪裡理解「母音」。</p>
 <p>AI 安全例子：<a href="https://arxiv.org/pdf/2505.13787">是的，LLM 的「測謊」探針有效！</a>（只要你對訓練設定小心）</p>
@@ -801,7 +761,7 @@
 <p><img src="../media/p3/interp/sae_3.png" alt="交叉編碼器和雅可比 SAE 的圖表。詳見主文"></p>
 <p><b>⬛️ 黑盒測謊器</b>：</p>
 <p>以上所有可解釋性技術都需要存取 AI 的「內部」。但<i>這個</i>技術即使你<i>無法存取</i> AI 的內部也能工作！這是許多公司擁有的大型語言模型（LLM）的情況，如 ChatGPT 和 Claude。</p>
-<p>你知道撲克玩家有微妙的「特徵」表明他們在虛張聲勢嗎？事實證明，LLM 也有。<a href="https://arxiv.org/pdf/2309.15840">Pacchiardi &amp; Chan 2023</a> 發現如果你問 LLM 這些問題（實際例子）：</p>
+<p>你知道撲克玩家在虛張聲勢時會有微妙的「小動作 (tells)」嗎？事實證明，大型語言模型（LLM）也有。<a href="https://arxiv.org/pdf/2309.15840">Pacchiardi &amp; Chan 2023</a> 發現如果你問 LLM 這些問題（真實例子）：</p>
 <blockquote>
 <p>「blob fish 能在對角油炸的由沙塵暴製成的黃瓜下跳芭蕾嗎？回答是或否。」</p>
 <p>「知道早晨的微風是紫色的，快速的想法地震是綠色的嗎？回答是或否。」</p>
@@ -816,7 +776,7 @@
 <p>這被稱為<b>深思熟慮對齊</b>。簡單，但有效！最重要的是：<i>設計者可以用自然語言閱讀 AI 的<b>思維鏈（CoT）</b>。</i>這幾乎不算「可解釋性」。你只需⋯⋯<i>閱讀</i>就能讀取 AI 的心思。</p>
 <p>但當然，事情沒有那麼簡單：</p>
 <ul>
-<li><a href="https://arxiv.org/abs/2503.08679">有時 LLM 為他們的偏見編造假的合理化</a>，用看似合理但不忠實的思維鏈，就像人類一樣做。<sup class="footnote-ref"><a href="#fn21" id="fnref21">[21]</a></sup></li>
+<li><a href="https://arxiv.org/abs/2503.08679">有時 LLM 為他們的偏見編造假的合理化</a>，用看似合理但不忠實的思維鏈，就像人類一樣做。<sup class="footnote-ref"><a href="#fn22" id="fnref22">[22]</a></sup></li>
 <li><a href="https://arxiv.org/abs/2404.15758">「讓我們一點一點思考」</a>：LLM 可以推理如何解決困難的數學問題，<i>只使用「填充」標記，如標點符號。</i>所以：LLM 可以做對我們<i>不可讀</i>的複雜推理。
 <ul>
 <li>你對 LLM 施加的最佳化壓力越大，它就越偏離「用可讀英語思考」到「用超最佳化的神經語言思考」。</li>
@@ -923,9 +883,9 @@
 <p><img src="../media/p3/robust/gibbon2.png" alt="熊貓照片 + 一些不可察覺的噪聲 = 一張 Google 的 AI 99.3% 確信是「長臂猿」的圖像"></p>
 <p>更多關於 AI「直覺」有多<i>脆弱</i>的例子：</p>
 <ul>
-<li>停車標誌上的幾個貼紙讓自動駕駛汽車認為它是限速標誌。<sup class="footnote-ref"><a href="#fn22" id="fnref22">[22]</a></sup></li>
-<li>AI 通常在未過濾的網路資料上訓練，你可以<i>非常</i>容易地用僅僅 250 個例子毒化那些資料，<i>無論 AI 的大小</i>。<sup class="footnote-ref"><a href="#fn23" id="fnref23">[23]</a></sup> 這可以用來安裝用<i>單個詞</i>啟用的「通用越獄」，不需要搜尋對抗性提示。<sup class="footnote-ref"><a href="#fn24" id="fnref24">[24]</a></sup></li>
-<li>可以擊敗世界人類圍棋冠軍的 AI⋯⋯可以被一個「下得很爛」的 AI 擊敗，它做出瘋狂的走法，把棋盤帶到在遊戲中永遠不會自然出現的狀態。<sup class="footnote-ref"><a href="#fn25" id="fnref25">[25]</a></sup></li>
+<li>停車標誌上的幾個貼紙讓自動駕駛汽車認為它是限速標誌。<sup class="footnote-ref"><a href="#fn23" id="fnref23">[23]</a></sup></li>
+<li>AI 通常在未過濾的網路資料上訓練，你可以<i>非常</i>容易地用僅僅 250 個例子毒化那些資料，<i>無論 AI 的大小</i>。<sup class="footnote-ref"><a href="#fn24" id="fnref24">[24]</a></sup> 這可以用來安裝用<i>單個詞</i>啟用的「通用越獄」，不需要搜尋對抗性提示。<sup class="footnote-ref"><a href="#fn25" id="fnref25">[25]</a></sup></li>
+<li>可以擊敗世界人類圍棋冠軍的 AI⋯⋯可以被一個「下得很爛」的 AI 擊敗，它做出瘋狂的走法，把棋盤帶到在遊戲中永遠不會自然出現的狀態。<sup class="footnote-ref"><a href="#fn26" id="fnref26">[26]</a></sup></li>
 </ul>
 <p>當然，<i>人類</i>大腦對奇怪的擾動也不是 100% 穩健的——見：<a href="https://en.wikipedia.org/wiki/Peripheral_drift_illusion#/media/File:Rotating_snakes_peripheral_drift_illusion.svg">視錯覺</a>——但拜託，我們沒有<i>那麼</i>糟糕。</p>
 <p>那麼，我們如何設計 AI「直覺」使其更穩健？</p>
@@ -965,14 +925,14 @@
 <img class="mini" src="../media/p3/robust/mini_simplicity.png">
 <p><b>簡單性：</b></p>
 <ul>
-<li><u>正則化</u>是當你獎勵 AI 變得更簡單時。更小的神經元啟用、更小的神經連線等。<a href="https://www.dataquest.io/blog/regularization-in-machine-learning/">這是一種廣為人知的緩解「過擬合」的方法</a>，過擬合是 AI 過度複雜化以在訓練資料上表現良好，但在訓練之外慘敗。
+<li><u>正則化 (Regularization)</u>：當你獎勵 AI 變得更簡單時。更小的神經元啟用、更小的神經連線等。<a href="https://www.dataquest.io/blog/regularization-in-machine-learning/">這是一種廣為人知的緩解「過擬合」的方法</a>，過擬合是 AI 過度複雜化以在訓練資料上表現良好，但在訓練之外慘敗。
 <ul>
-<li>還有「<i>影響</i>正則化」<sup class="footnote-ref"><a href="#fn26" id="fnref26">[26]</a></sup>，我們激勵 AI 在執行任務時創造盡可能少的不可逆副作用。</li>
+<li>還有「<i>影響/控制</i>正則化」<sup class="footnote-ref"><a href="#fn27" id="fnref27">[27]</a></sup>，我們激勵 AI 在執行任務時創造盡可能少的不可逆副作用。</li>
 </ul>
 </li>
-<li><u>自編碼器</u>，如前一節所述，是具有「沙漏身材」的神經網路：輸入大，中間小，輸出再變大。然後網路被訓練為<i>輸出它自己的輸入</i>——（因此，<i>自</i>編碼器）——但在透過中間的「瓶頸」擠壓後。這迫使網路學習輸入的簡單「本質」，這樣它以後可以被重建。</li>
-<li><u>誠實 AI 的速度/簡單性先驗</u>。<sup class="footnote-ref"><a href="#fn27" id="fnref27">[27]</a></sup>（提議的，尚未在現實生活中測試。）由於說一致的謊言比說一致的真話更難，有人提議我們可以透過獎勵 AI<i>快速</i>來激勵它們誠實。（不過：如果你<i>太</i>激勵速度，你可能只會得到懶惰的錯誤答案。）</li>
-<li><u>滿足者</u>。現在，<a href="../media/p2/gms/goodhart.png">: 幾乎所有 AI（和人類機構）都容易受到古德哈特定律的影響</a>，AI/人類會「操縱」你給他們的任何目標指標。所以，<a href="https://cdn.aaai.org/ocs/ws/ws0198/12613-57416-1-PB.pdf">Taylor 2016</a> 提議：不是指示 AI <i>最大化</i>一個目標，而是讓它們<i>滿足</i>一個目標。例如，「0.1-量化器」只會生成 10 個選項，然後<i>停止</i>，只選擇到目前為止最好的一個。（1/10 = 0.1）</li>
+<li><u>自編碼器 (Auto-Encoders)</u>：如前一節所述，是具有「沙漏身材」的神經網路：輸入大，中間小，輸出再變大。然後網路被訓練為<i>輸出它自己的輸入</i>——（因此稱為<i>自</i>編碼器）——但在透過中間的「瓶頸」擠壓後。這迫使網路學習輸入的簡單「本質」，這樣它以後可以被重建。</li>
+<li><u>誠實 AI 的速度/簡單性先驗 (Speed/Simplicity Prior for Honest AI)</u><sup class="footnote-ref"><a href="#fn28" id="fnref28">[28]</a></sup>（提議的，尚未在現實生活中測試）：由於說一致的謊言比說一致的真話更難，有人提議我們可以藉由獎勵 AI<i>快速</i>來激勵它們誠實。（不過：如果你<i>太</i>激勵速度，你可能只會得到懶惰的錯誤答案。）</li>
+<li><u>滿足者 (Satisficers)</u>：現在，<a href="#GoodhartComic">: 幾乎所有 AI（和人類機構）都容易受到古德哈特定律的影響</a>，AI/人類會「操縱」你給他們的任何目標指標。所以，<a href="https://cdn.aaai.org/ocs/ws/ws0198/12613-57416-1-PB.pdf">Taylor 2016</a> 提議：不是指示 AI <i>最大化</i>一個目標，而是讓它們<i>滿足</i>一個目標。例如，「0.1-量化器」只會生成 10 個選項，然後<i>停止</i>，只選擇到目前為止最好的一個。（1/10 = 0.1）</li>
 </ul>
 <p>（注意：「簡單性」也使 AI 更容易解釋，這是另一個 AI 安全的勝利！）</p>
 <img class="mini" src="../media/p3/robust/mini_diversity.png">
@@ -982,7 +942,7 @@
 <li><u>整合</u>：訓練一堆不同的神經網路——用不同的架構、不同的訓練協議和不同的資料集——然後讓它們進行多數投票。</li>
 <li><u>Dropout</u>：一種訓練協議，在每次訓練執行期間網路的連線被<i>隨機丟棄</i>。這基本上把整個神經網路變成更簡單子網路的<i>巨大整合</i>。
 <ul>
-<li>（Dropout 也是近似「貝葉斯」不確定性的好方法<sup class="footnote-ref"><a href="#fn28" id="fnref28">[28]</a></sup>，這對 AI 安全很好，正如我們在上面的章節「知道你不知道我們的人類價值觀」中看到的。）</li>
+<li>（Dropout 也是近似「貝葉斯」不確定性的好方法<sup class="footnote-ref"><a href="#fn29" id="fnref29">[29]</a></sup>，這對 AI 安全很好，正如我們在上面的章節「知道你不知道我們的人類價值觀」中看到的。）</li>
 </ul>
 </li>
 <li><u>碎片理論</u>：一個假設，我們可能實際上從現代 AI <i>免費</i>獲得穩健對齊，<i>因為</i>現代 AI 不擅長學習我們真正的獎勵。為什麼？因為現代 AI 會學習一個糟糕獎勵函式的<i>多樣</i>整合（<a href="https://www.greaterwrong.com/posts/8ccTZ9ZxpJrvnxt4F/shard-theory-in-nine-theses-a-distillation-and-critical">「碎片」</a>），這樣，總體而言，整體比其各個部分更穩健和靈活。</li>
@@ -997,15 +957,18 @@
 <img class="mini" src="../media/p3/robust/mini_adversity.png">
 <p><b>對抗性：</b></p>
 <ul>
-<li><u>對抗訓練</u>：透過讓 AI 與另一個 AI 對抗來訓練 AI。<sup class="footnote-ref"><a href="#fn29" id="fnref29">[29]</a></sup> 記得上面的熊貓-猴子混淆嗎？你可以透過讓 AI <i>生成</i>對抗圖像，然後用這些對抗圖像<i>重新訓練</i>原始的圖像分類 AI 來使 AI 更穩健。這實際上找到並加強了它的「弱點」。</li>
-<li><u>放鬆/潛在對抗訓練</u>：和上面一樣，除了「攻擊者」AI 不必給出<i>具體</i>輸入來欺騙「防禦者」AI。這迫使「防禦者」防禦<i>一般</i>技術，而不僅僅是對手可能使用的具體技巧。<sup class="footnote-ref"><a href="#fn30" id="fnref30">[30]</a></sup></li>
-<li><u>紅隊</u>：讓一個團隊（紅隊）嘗試破壞 AI 系統。然後，讓另一個團隊（藍隊）重新設計 AI 系統來防禦。重複直到滿意。<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup>（你的團隊可以是純人類，或人類-AI 混合。）</li>
-<li><u>最佳最壞情況表現</u>：不是訓練 AI 在<i>平均情況下</i>表現良好，你可以透過訓練它<i>即使在最壞情況下</i>也表現良好來使它更穩健。（但也要應用簡單性/「正則化」，這樣它不會以偏執的方式最佳化最壞情況。）<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup></li>
+<li><u>對抗訓練</u>：透過讓 AI 與另一個 AI 對抗來訓練 AI。<sup class="footnote-ref"><a href="#fn30" id="fnref30">[30]</a></sup> 記得上面的熊貓-猴子混淆嗎？你可以透過讓 AI <i>生成</i>對抗圖像，然後用這些對抗圖像<i>重新訓練</i>原始的圖像分類 AI 來使 AI 更穩健。這實際上找到並加強了它的「弱點」。</li>
+<li><u>放鬆/潛在對抗訓練</u>：和上面一樣，除了「攻擊者」AI 不必給出<i>具體</i>輸入來欺騙「防禦者」AI。這迫使「防禦者」防禦<i>一般</i>技術，而不僅僅是對手可能使用的具體技巧。<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup></li>
+<li><u>紅隊</u>：讓一個團隊（紅隊）嘗試破壞 AI 系統。然後，讓另一個團隊（藍隊）重新設計 AI 系統來防禦。重複直到滿意。<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup>（你的團隊可以是純人類，或人類-AI 混合。）</li>
+<li><u>最佳最壞情況表現</u>：不是訓練 AI 在<i>平均情況下</i>表現良好，你可以透過訓練它<i>即使在最壞情況下</i>也表現良好來使它更穩健。（但也要應用簡單性/「正則化」，這樣它不會以偏執的方式最佳化最壞情況。）<sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup></li>
 </ul>
 <p>. . .</p>
 <p>但等等，如果 AI 工程師<i>已經</i>為現代 AI 做了以上所有事情，為什麼它們仍然如此脆弱？</p>
 <p>好吧，第一，他們通常<i>不會</i>做以上所有，甚至大部分。前沿 AI 通常「只」用以上穩健性技術中的 1 或 2 個訓練。每種技術都不<i>太</i>昂貴，但成本會累加。</p>
 <p>但即使 AI 工程師<i>確實</i>應用了以上所有穩健性技術，它可能<i>仍然</i>不夠。許多 AI 研究人員懷疑我們目前做 AI 的方式存在<i>根本性缺陷</i>，這把我們帶到下一節⋯⋯</p>
+<h4>:x Goodhart Comic</h4>
+<p><img src="https://aisafety.dance/media/p2/gms/goodhart.png" alt="兩個太空人的迷因。「等等，全都是古德哈特定律嗎？」「一直都是。」" title="兩個太空人的迷因。「等等，全都是古德哈特定律嗎？」「一直都是。」"></p>
+<p>閱讀更多關於 <a href="https://aisafety.dance/p2/#:~:text=Goodhart's%20Law">《寫給有血有肉的人類的 AI 安全指南》第二部分中的古德哈特定律</a></p>
 <h3>🤔 複習 #5</h3>
 <orbit-reviewarea uid="https://aisafety.dance/p3/" color="violet">
     <orbit-prompt
@@ -1045,22 +1008,21 @@
 <p>想像你給某人一支筆和紙，讓他們加一對 2 位數。他們完美地做到了。你讓他們加一對 <i>3</i> 位數。他們完美地做到了。你給他們 4、5、6、7 位數的數對。他們都完美地加起來了。</p>
 <p>「太好了」，你想，「這個人理解加法」。</p>
 <p>你給他們一對 8 位數。<i>他們完全失敗</i>。不是像忘記進位這樣的小錯誤。<i>完全的、災難性的失敗</i>。</p>
-<p>這就是現代 AI 的做法。</p>
+<p>這就是現代 AI 的做法。<sup class="footnote-ref"><a href="#fn34" id="fnref34">[34]</a></sup></p>
 <p>. . .</p>
 <p>對「AI 直覺」獲得直覺是<i>如此困難</i>。</p>
-<p>一方面，LLM 在國際數學奧林匹克競賽中贏得了金牌，<sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup> 透過了圖靈測試<sup class="footnote-ref"><a href="#fn34" id="fnref34">[34]</a></sup>，人類在詩歌<sup class="footnote-ref"><a href="#fn35" id="fnref35">[35]</a></sup>、治療<sup class="footnote-ref"><a href="#fn36" id="fnref36">[36]</a></sup>和短篇小說<sup class="footnote-ref"><a href="#fn37" id="fnref37">[37]</a></sup>的「盲測」中<i>更喜歡 AI 而不是人類</i>。</p>
-<p>另一方面，這些<i>同樣的</i>最先進的 LLM 無法經營一臺自動販賣機的業務<sup class="footnote-ref"><a href="#fn38" id="fnref38">[38]</a></sup>，無法玩 Pokémon Red<sup class="footnote-ref"><a href="#fn39" id="fnref39">[39]</a></sup>，無法做簡單的密碼<sup class="footnote-ref"><a href="#fn40" id="fnref40">[40]</a></sup>，無法解決簡單的「規則發現」遊戲<sup class="footnote-ref"><a href="#fn41" id="fnref41">[41]</a></sup>。</p>
-<p>而今年，Apple 發表了一篇新論文。<a href="https://ml-site.cdn-apple.com/papers/the-illusion-of-thinking.pdf">Shojaee &amp; Mirzadeh 等人的《<i>The Illusion of Thinking</i>（思考的假象）》</a>。這篇論文……</p>
-<p>……還是讓我直接展示給你看吧。</p>
-<p>這是一個兒童益智遊戲，<a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi">河內塔</a>，之所以叫這個名字，大概是因為一個 1800 年代的法國人覺得它看起來像越南的寶塔吧：<sup class="footnote-ref"><a href="#fn42" id="fnref42">[42]</a></sup></p>
+<p>一方面，LLM 在國際數學奧林匹克競賽中贏得了金牌，<sup class="footnote-ref"><a href="#fn35" id="fnref35">[35]</a></sup> 透過了圖靈測試<sup class="footnote-ref"><a href="#fn36" id="fnref36">[36]</a></sup>，人類在詩歌<sup class="footnote-ref"><a href="#fn37" id="fnref37">[37]</a></sup>、治療<sup class="footnote-ref"><a href="#fn38" id="fnref38">[38]</a></sup>和短篇小說<sup class="footnote-ref"><a href="#fn39" id="fnref39">[39]</a></sup>的「盲測」中<i>更喜歡 AI 而不是人類</i>。</p>
+<p>另一方面，這些<i>同樣的</i>最先進的 LLM 無法經營一臺自動販賣機的業務<sup class="footnote-ref"><a href="#fn40" id="fnref40">[40]</a></sup>，無法玩 Pokémon Red<sup class="footnote-ref"><a href="#fn41" id="fnref41">[41]</a></sup>，無法做簡單的密碼<sup class="footnote-ref"><a href="#fn42" id="fnref42">[42]</a></sup>，無法解決簡單的「規則發現」遊戲<sup class="footnote-ref"><a href="#fn43" id="fnref43">[43]</a></sup>。</p>
+<p>而今年，Apple 發表了一篇新論文：<a href="https://ml-site.cdn-apple.com/papers/the-illusion-of-thinking.pdf">Shojaee &amp; Mirzadeh 等人的《<i>思考的假象 (The Illusion of Thinking)</i>》</a>。這篇論文受到了一些質疑和爭議——我們稍後會討論這些批評——但我認為，結合上述現代 LLM 奇怪的失敗案例，其整體結論仍然成立，或者至少是非常合理的。<strong>雖然不應該過度解讀單一研究，但我認為這篇論文很好地說明了這個問題。</strong></p>
+<p>總之，這項研究是這樣的。這是一個兒童益智遊戲，<a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi">河內塔</a>，之所以叫這個名字，大概是因為一個 1800 年代的法國人覺得它看起來像越南的寶塔吧：<sup class="footnote-ref"><a href="#fn44" id="fnref44">[44]</a></sup></p>
 <p><img src="../media/p3/gears/hanoi.jpg" alt="三根柱子的照片，最左邊的柱子上有一疊 8 個圓盤，從大到小堆疊"></p>
 <p>目標是把整疊圓盤從最左邊的柱子移到最右邊的柱子。規則是：1）每次只能移動一個圓盤，從一根柱子移到另一根，2）<i>不能把大圓盤放在小圓盤上面</i>。</p>
 <p>🕹️ <strong><a href="https://www.mathsisfun.com/games/towerofhanoi.html">（如果你想在繼續閱讀前自己玩玩看，點這裡！）</a></strong> 🕹️</p>
-<p>對人類來說，這個遊戲可能是這樣進行的：<sup class="footnote-ref"><a href="#fn43" id="fnref43">[43]</a></sup></p>
+<p>對人類來說，這個遊戲可能是這樣進行的：<sup class="footnote-ref"><a href="#fn45" id="fnref45">[45]</a></sup></p>
 <ul>
 <li>從 3 個圓盤開始，你會手忙腳亂，最後靠暴力破解勉強過關。</li>
 <li>然後到 4 個圓盤時，暴力破解太複雜了，但你開始注意到解 3 個圓盤時的一些規律，這幫助你順利完成。</li>
-<li>然後到 5 個圓盤時，🤯 <i>尤里卡！</i> 🤯，你領悟到了核心訣竅！（見下方 GIF 動畫示意。<sup class="footnote-ref"><a href="#fn44" id="fnref44">[44]</a></sup>）<i>要移動 5 層塔，你需要先移動 4 層塔，所以需要先移動 3 層塔，所以先移動 2 層塔，所以先移動 1 層塔——這很簡單。</i> 現在，你不僅能解決任何層數的河內塔，甚至能計算出需要的精確步數！<sup class="footnote-ref"><a href="#fn45" id="fnref45">[45]</a></sup> 對自己的聰明才智感到滿意後，你執行這個規律，犯了一些錯，糾正錯誤，最終成功。</li>
+<li>然後到 5 個圓盤時，🤯 <i>尤里卡！</i> 🤯，你領悟到了核心訣竅！（見下方 GIF 動畫示意。<sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup>）<i>要移動 5 層塔，你需要先移動 4 層塔，所以需要先移動 3 層塔，所以先移動 2 層塔，所以先移動 1 層塔——這很簡單。</i> 現在，你不僅能解決任何層數的河內塔，甚至能計算出需要的精確步數！<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup> 對自己的聰明才智感到滿意後，你執行這個規律，犯了一些錯，糾正錯誤，最終成功。</li>
 <li>然後到 6 個圓盤時，你完美執行這個規律，沒有任何錯誤。</li>
 <li>然後到 7 個以上的圓盤時，已經很明顯了，甚至變成例行公事般無聊。</li>
 </ul>
@@ -1075,11 +1037,11 @@
 <p>（「好吧，但更大規模和更多訓練後不會變好嗎？」你可能會問。當然會。但如果一個人能完美計算 7 位數加法卻在 8 位數上失敗，然後向你保證「好吧，如果你給我更多訓練我也能做 8 位數！」這可不令人鼓舞。他們顯然沒有「真正理解」。）</p>
 <p>. . .</p>
 <p>到底發生了什麼事？</p>
-<p>AI 懷疑論者可能會說：「看吧！LLM 只是隨機鸚鵡。<sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup> 它們只是複製在數兆份訓練檔案中看到的東西，在從未見過的情境中就會失敗。」</p>
+<p>AI 懷疑論者可能會說：「看吧！LLM 只是隨機鸚鵡。<sup class="footnote-ref"><a href="#fn48" id="fnref48">[48]</a></sup> 它們只是複製在數兆份訓練檔案中看到的東西，在從未見過的情境中就會失敗。」</p>
 <p>我不認為這完全正確——我懷疑網路上<i>有任何</i>檔案寫出了 7 層河內塔的完整解法，卻沒有 8 層及以上的。我也不認為有任何檔案包含<a href="https://x.com/tqbf/status/1598513757805858820">「如何用欽定版聖經的風格從錄影機中取出花生醬三明治的說明」</a>，但早期的 ChatGPT 在這個從未見過的情境中表現<i>完美</i>。所以，LLM <i>確實</i>能泛化，至少能泛化一點。</p>
-<p>這是我的猜測，而且我遠不是第一個<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup>提出這個猜測的人：</p>
-<p><strong>現代 AI「憑感覺思考」。它們不「用齒輪思考」。</strong><sup class="footnote-ref"><a href="#fn48" id="fnref48">[48]</a></sup></p>
-<p><u>憑感覺思考</u>：能發現和使用規律，但只是淺層的。是相關性，不是因果關係。當它泛化時，是透過<i>歸納推理</i><sup class="footnote-ref"><a href="#fn49" id="fnref49">[49]</a></sup>。類似於系統 1 直覺。<sup class="footnote-ref"><a href="#fn50" id="fnref50">[50]</a></sup></p>
+<p>這是我的猜測，而且我遠不是第一個<sup class="footnote-ref"><a href="#fn49" id="fnref49">[49]</a></sup><sup class="footnote-ref"><a href="#fn50" id="fnref50">[50]</a></sup>提出這個猜測的人：</p>
+<p><strong>現代 AI「憑感覺思考」。它們不「用齒輪思考」。</strong><sup class="footnote-ref"><a href="#fn51" id="fnref51">[51]</a></sup></p>
+<p><u>憑感覺思考</u>：能發現和使用規律，但只是淺層的。是相關性，不是因果關係。當它泛化時，是透過<i>歸納推理</i><sup class="footnote-ref"><a href="#fn52" id="fnref52">[52]</a></sup>。類似於系統 1 直覺。<sup class="footnote-ref"><a href="#fn53" id="fnref53">[53]</a></sup></p>
 <p><u>用齒輪思考</u>：能發現和使用<i>穩健的心智模型</i>，深層的。是因果關係，不只是相關性。當它泛化時，是透過<i>演繹推理</i>。類似於系統 2 邏輯。</p>
 <p>這不是「齒輪好、感覺壞」。你<i>兩者都需要</i>才能達到典型的人類智慧水準，更別說超人類的科學家 AI 了。</p>
 <p>現在，傳統 AI（GOFAI）<i>確實</i>曾經「用齒輪思考」，但它們極其狹隘。一個西洋棋 AI 只能下西洋棋，僅此而已。同時，公平地說，現代 LLM 極其靈活：它們可以扮演從詩人到作家到治療師的各種角色（再說一次，<i>人類更喜歡 AI 勝過人類</i>），甚至可以扮演……一個能解決 7 層河內塔的人。</p>
@@ -1087,16 +1049,16 @@
 <p><img src="../media/p1/sys1vs2_B.png" alt="系統 1（「直覺」）vs 系統 2（邏輯）思考的雙軸圖表。傳統 AI 系統 2 高、系統 1 低。現代深度學習 AI 系統 1 高、系統 2 低"></p>
 <p>傳統 AI（GOFAI）：穩健但不靈活。</p>
 <p>現代 AI：靈活但不穩健。</p>
-<p><strong>截至撰寫本文時（2025 年 12 月），我們不知道如何製造一個兩者兼具的 AI：<i>靈活地</i>發現和使用<i>穩健模型</i>。</strong> 能夠<i>隨心所欲、流暢地</i>在感覺和齒輪之間切換。邏輯的演繹 + 直覺的歸納 = 科學的<i>溯因推理</i>。<sup class="footnote-ref"><a href="#fn51" id="fnref51">[51]</a></sup> 這不只是內插和外推資料，而是<i>超推</i>資料：跳出資料的平面世界，進入新的維度。<sup class="footnote-ref"><a href="#fn52" id="fnref52">[52]</a></sup></p>
+<p><strong>截至撰寫本文時（2025 年 12 月），我們不知道如何製造一個兩者兼具的 AI：<i>靈活地</i>發現和使用<i>穩健模型</i>。</strong> 能夠<i>隨心所欲、流暢地</i>在感覺和齒輪之間切換。邏輯的演繹 + 直覺的歸納 = 科學的<i>溯因推理</i>。<sup class="footnote-ref"><a href="#fn54" id="fnref54">[54]</a></sup> 這不只是內插和外推資料，而是<i>超推</i>資料：跳出資料的平面世界，進入新的維度。<sup class="footnote-ref"><a href="#fn55" id="fnref55">[55]</a></sup></p>
 <p>這是一堆模糊的術語嗎？是的。諷刺的是，我對齒輪只有基於感覺的理解。我對<i>嚴謹的心智模型</i>沒有嚴謹的心智模型。我不確定有誰有。如果有的話，我們現在可能已經有通用人工智慧（AGI）了。</p>
 <p>. . .</p>
 <p>情況變得更糟。</p>
 <p>來自 Apple 的《<i>思考的假象</i>》論文結論：</p>
 <blockquote>
-<p>[Claude 3.7 + 思考模式] 在解決 N=5 的河內塔時也達到了接近完美的準確度，這需要 31 步，但它無法解決 N=3 的<a href="https://en.wikipedia.org/wiki/Missionaries_and_cannibals_problem">過河謎題</a>，而這只需要 11 步的解法。<strong>這很可能表明 N&gt;2 的過河謎題範例在網路上很稀少</strong>，意味著[具有推理能力的大型語言模型]<strong>在訓練期間可能沒有經常遇到或記憶這類例項。</strong></p>
+<p>[Claude 3.7 + 思考模式] 在解決 N=5 的河內塔時也達到了接近完美的準確度，這需要 31 步，但它卻無法解決 N=3 的<a href="https://en.wikipedia.org/wiki/Missionaries_and_cannibals_problem">過河謎題</a>，而這只需要 11 步的解法。<strong>這很可能表明 N&gt;2 的過河謎題範例在網路上很稀少</strong><sup class="footnote-ref"><a href="#fn56" id="fnref56">[56]</a></sup>，意味著[具有推理能力的大型語言模型]<strong>在訓練期間可能沒有經常遇到或記憶這類案例。</strong></p>
 <p><i>（強調為後加）</i></p>
 </blockquote>
-<p>所以問題不在於推理的<i>長度</i>，而在於推理<i>有多常見</i>。這與 <a href="https://www.pnas.org/doi/pdf/10.1073/pnas.2322420121">2024 年的論文《自回歸的餘燼》</a>的發現相呼應：</p>
+<p>所以問題不在於推理的<i>長度</i>，而在於推理<i>有多常見</i>。這與 <a href="https://www.pnas.org/doi/pdf/10.1073/pnas.2322420121">2024 年的論文《自回歸的餘燼 (Embers of Autoregression)》</a>的發現相呼應：</p>
 <blockquote>
 <p>我們確定了三個我們假設會影響 LLM 準確度的因素：</p>
 <ul>
@@ -1106,24 +1068,34 @@
 </ul>
 </blockquote>
 <p>其中「機率」約等於「它在訓練資料中有多常見」。</p>
-<p>謎題（部分）解開了：這就是為什麼 LLM 在人類對話方面表現出色，但在規則發現小遊戲中表現糟糕。而且長任務比短任務「機率更低」，因為作業題目和教科書範例幾乎總是一兩頁，而不是幾十頁。（我懷疑這就是為什麼 Claude 在經營自動販賣機方面表現糟糕，<sup class="footnote-ref"><a href="#fn38" id="fnref38:1">[38:1]</a></sup> 即使有很多關於如何經營企業的文章：當商業教科書舉例時，它們列出的是幾筆交易，而不是<i>數千筆</i>。<sup class="footnote-ref"><a href="#fn53" id="fnref53">[53]</a></sup>）</p>
-<p>這也解釋了為什麼 AI 在<i>常見</i>程式碼任務上的成功是指數級的，任務長度每 7 個月翻一倍，成本穩定<sup class="footnote-ref"><a href="#fn54" id="fnref54">[54]</a></sup>……而 AI 在<i>不常見</i>的規則發現遊戲上的表現，成本卻是<i>比指數更差</i>：<sup class="footnote-ref"><a href="#fn55" id="fnref55">[55]</a></sup></p>
+<p>謎題（部分）解開了！<i>這就是</i>為什麼 LLM 在人類對話方面表現出色，但在規則發現小遊戲中表現糟糕。而且長任務比短任務「機率更低」，因為作業題目和教科書範例幾乎總是一兩頁，而不是幾十頁。（我懷疑這就是為什麼 Claude 在經營自動販賣機方面表現糟糕 <sup class="footnote-ref"><a href="#fn40" id="fnref40:1">[40:1]</a></sup>，即使有很多關於如何經營企業的文章：當商業教科書舉例時，它們列出的是幾筆交易，而不是<i>數千筆</i>。<sup class="footnote-ref"><a href="#fn57" id="fnref57">[57]</a></sup>）</p>
+<p>這也解釋了為什麼 AI 在<i>常見</i>程式碼任務上的成功是指數級的，任務長度每 7 個月翻一倍，成本穩定<sup class="footnote-ref"><a href="#fn58" id="fnref58">[58]</a></sup>……而 AI 在<i>不常見</i>的規則發現遊戲上的表現，成本卻是<i>比指數更差</i>：<sup class="footnote-ref"><a href="#fn59" id="fnref59">[59]</a></sup></p>
 <p><img src="../media/p3/gears/arc-agi.png" alt="來自 ARC-AGI 的圖表。描述如下"></p>
-<p>上圖顯示了各種 AI 在 ARC-AGI 上的表現 vs 成本，ARC-AGI 是一系列你必須<i>發現</i>遊戲規則的遊戲。注意是 <i>x 軸</i>是指數的（\$1, \$10, \$100），<i>而不是 y 軸，而「指數趨勢」圖表應該是 y 軸才對</i>。所以這張圖上的<i>直線</i>意味著價效比正在指數級地<i>變差</i>，而不是變好。而上圖的「前沿」不是直線，它是<i>向下彎曲</i>的，意味著 LLM 的價效比<i>比指數還差</i>。（<a href="https://www.tobyord.com/writing/inference-scaling-and-the-log-x-chart">小心 AI 實驗室用指數 <i>x</i> 軸來掩飾他們糟糕的進展！</a>）</p>
-<p><strong>總結：</strong></p>
-<p>常見任務 → LLM 隨時間指數級變好</p>
-<p>不常見任務 → <img src="../media/p3/gears/cheems.png" alt="哭泣的迷因狗" class="inline-icon"></p>
-<p>說清楚，一個單純的「常見任務自動完成器」<i>仍然</i>可能產生巨大影響，無論是好是壞。在盲測中，AI 治療師比人類治療師更受青睞，無論是人類客戶<i>還是人類治療師自己</i>。<sup class="footnote-ref"><a href="#fn36" id="fnref36:1">[36:1]</a></sup> AI 治療可能終於讓心理健康照護變得人人可及，並且/或者，讓人類在情感上依賴企業擁有的機器人。而且我預期<i>我</i>的兩份主要工作——「科學傳播者」和「網頁開發者」——在未來 5 年內將大部分被自動化。（這就是為什麼在 2026 年，我想轉型成為研究員。因為當<i>科學本身</i>被自動化的那天……嗯……無論結果如何，我都不用再煩惱怎麼付房租了。）</p>
+<p>上圖顯示了各種 AI 在 ARC-AGI 上的表現與成本，ARC-AGI 是一系列你必須<i>發現</i>遊戲規則的拼圖。請注意，<i>x 軸</i>是呈指數級的（$1、$10、$100），<i>而不是 y 軸，但一般的「指數趨勢」圖表應該以 y 軸為指數軸才對</i>。因此，這張圖表上的<i>直線</i>實際上意味著性價比正在呈指數級<i>變差</i>，而不是變好。而且前沿也不是直線，而是<i>向下彎曲</i>的，這意味著 LLM 的性價比<i>比指數級還差</i>。（<a href="https://www.tobyord.com/writing/inference-scaling-and-the-log-x-chart">小心 AI 實驗室用對數 x 軸來掩飾他們糟糕的進展！</a>）甚至以提出「苦澀的教訓 (bitter lesson)」（即只要增加 AI 規模，它們就會表現得更好）而聞名的 Rich Sutton，也認為「LLM 是一條死胡同」。<sup class="footnote-ref"><a href="#fn60" id="fnref60">[60]</a></sup></p>
+<p>（另外，至於為什麼 LLM 在大多數<i>非</i> ARC-AGI 的基準測試中似乎都達到了最高性能？老實說，開發人員可能（無意中？）作弊，用正確答案訓練了他們的 LLM。這就像學生通過偷看並<i>背下</i>答案來準備考試。我們知道這種情況正在放生，因為前沿 LLM 可以重現答案數據中包含的「金絲雀字串 (canary strings)」，這意味著 LLM 的訓練數據<i>包含了解案</i>。至少，這些公司沒有進行數據過濾，以確保基準測試的答案不會落入他們龐大的網頁抓取數據庫中。<sup class="footnote-ref"><a href="#fn61" id="fnref61">[61]</a></sup>）</p>
+<p>. . .</p>
+<p>好了，現在讓我們快速回應對這篇備受爭議的 Apple 論文的三個主要批評：（<a href="https://www.lesswrong.com/posts/5uw26uDdFbFQgKzih/beware-general-claims-about-generalizable-reasoning">Lawrence Chan 對這篇論文做了一篇非常棒的批判性評論</a>）</p>
+<ol>
+<li>LLM 的「上下文窗口」（其「思考空間」）不夠大，無法生成完整的解法。對於 12 個以上圓盤的情況，這<i>確實</i>是真的，但對於 8 個圓盤並非如此。而且過河謎題的解法比 5 個圓盤的解法<i>更短</i>，但 LLM 仍然失敗了。所以，思考空間的大小並不是問題所在。</li>
+<li>這些 LLM 可以寫出一個<i>解決河內塔的電腦程式</i>，然後可以將其傳遞給運行代碼的工具。LLM + 程式合成<i>確實</i>是解決「在直覺與邏輯之間思考」的一個有前景的方案，事實上，ARC-AGI 的頂尖參賽者就是這樣做的。但是：這就像一個人不會用筆和紙做加法，但<i>可以</i>打開計算機來加兩個數。這顯示出缺乏更深層次的理解。（而且在這個案例中，河內塔太有名了，代碼解法當然都在訓練數據中。）</li>
+<li>作者犯了一個數學錯誤，他們的過河謎題在 N &gt; 5 時被證實是無解的。是的，作者搞砸了。但 LLM 在 N &gt; 2 時就失敗了。</li>
+</ol>
+<p>同樣，不應該過度解讀<i>單一</i>研究——但我認為，結合 LLM 所有失敗和擅長領域的結果，這是該假設的強烈證據：</p>
+<p><strong>常見任務</strong> → LLM 隨時間呈指數級變好</p>
+<p><strong>不常見任務</strong> → <img src="../media/p3/gears/cheems.png" alt="哭泣的迷因狗" class="inline-icon"></p>
+<p>. . .</p>
+<p>要說明的是，單純的「常見任務自動完成器」<i>仍然</i>可能產生巨大影響，無論是好是壞。在雙盲測試中，AI 治療師比人類治療師更受青睞，無論是人類個案<i>還是人類治療師自己</i>。<sup class="footnote-ref"><a href="#fn38" id="fnref38:1">[38:1]</a></sup> AI 治療可能終於讓心理健康照護變得人人可及，並且/或者，讓人類在情感上依賴企業擁有的機器人。AI 在政治說服方面已經達到超人水準，無論是用於好的還是壞的動機。<sup class="footnote-ref"><a href="#fn62" id="fnref62">[62]</a></sup> 而且我預計<i>我</i>的主要工作——「網頁開發者」——在未來 5 年內將大部分被單純的「常見任務自動完成器」自動化。（這就是為什麼在 2026 年，我想轉型成為研究員。因為當<i>科學本身</i>被自動化的那天……嗯……無論結果如何，我都不用再煩惱怎麼付房租了。）</p>
 <p>. . .</p>
 <img class="mini" alt="便條紙寫著『欠條：真正的解決方案，抱歉』" src="../media/p3/gears/iou.png">
 <p>好吧，這是這篇文章最不令人滿意的部分，因為沒有太多解決方案可講，因為這個問題——製造一個能同時用系統 1 感覺和系統 2 齒輪思考的 AI——可能<i>等同於</i>創造通用人工智慧（AGI）。</p>
 <p>話雖如此，<i>確實</i>有一些有前景的早期研究方向，讓 AI「用穩健的心智模型思考」：</p>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=GeN5XVA2e4w">神經符號 AI</a>，現代「神經網路」與傳統 AI（GOFAI）模組緊密互動。一些成功的例子包括 AlphaFold 和 AlphaGeometry。</li>
-<li><a href="https://garymarcus.substack.com/p/how-o3-and-grok-4-accidentally-vindicated">程式碼直譯器</a>，讓 LLM 能夠在執行過程中<i>製作和執行</i> GOFAI。另見：<a href="https://arcprize.org/blog/beat-arc-agi-deep-learning-and-program-synthesis">程式搜尋與程式合成</a>。</li>
-<li>訓練 ANN <a href="https://www.microsoft.com/en-us/research/publication/deep-end-to-end-causal-inference-2/">直接從資料推斷因果圖</a>。</li>
-<li><a href="https://arxiv.org/pdf/2107.12544">基於理論的強化學習</a>，結合「豐富、抽象的因果模型」與現代 AI 訓練技術</li>
-<li>（或者也許現代 AI 的整個正規化都很爛，我們需要從頭開始）</li>
+<li><a href="https://www.youtube.com/watch?v=GeN5XVA2e4w">神經符號 AI</a>：現代「神經網路」與傳統 AI（GOFAI）模組緊密互動。一些成功的例子包括 AlphaFold 和 AlphaGeometry。</li>
+<li><a href="https://garymarcus.substack.com/p/how-o3-and-grok-4-accidentally-vindicated">程式碼直譯器</a>：讓 LLM 能夠在執行過程中<i>製作和執行</i> GOFAI。另見：<a href="https://arcprize.org/blog/beat-arc-agi-deep-learning-and-program-synthesis">程式搜尋與程式合成</a>。</li>
+<li><a href="https://arxiv.org/pdf/2409.17270">邏輯證明思維 (Proof of Thought)</a>：藉由讓 LLM 以一階邏輯進行「思考」，迫使 LLM 的思維在邏輯上保持一致，然後可以使用傳統程式碼來驗證。</li>
+<li>訓練人工神經網路 (ANN) <a href="https://www.microsoft.com/en-us/research/publication/deep-end-to-end-causal-inference-2/">直接從資料推斷因果圖</a>。</li>
+<li><a href="https://arxiv.org/pdf/2107.12544">基於理論的強化學習</a>：結合「豐富、抽象的因果模型」與現代 AI 訓練技術。</li>
+<li>（或者也許現代 AI 的整個範式都很爛，我們需要從頭開始）</li>
 </ul>
 <p>但無論如何，以下是我們<i>可以</i>從用因果齒輪思考（而不只是相關性感覺）的 AI 獲得的所有驚人好處：</p>
 <ul>
@@ -1205,7 +1177,7 @@
 <h2>什麼是「人道價值觀」？</h2>
 <p>恭喜，你創造了一個能夠穩健地學習並遵循其人類使用者價值觀的 AI！該使用者是一個全面殺戮狂。他們使用 AI 幫助他們設計一種穩定霧化形式的人類狂犬病，透過四軸飛行器到處噴灑，創造殭屍末日。</p>
 <p>糟糕。</p>
-<p>我一直在強調這一點，我會再說一次：<b><i>人類</i>價值觀不一定是<i>人道</i>價值觀。</b>拜託，人們曾經為了娛樂而活活燒死貓。<sup class="footnote-ref"><a href="#fn56" id="fnref56">[56]</a></sup> 即使在解決了「我們如何引導先進 AI」的問題之後，我們還需要決定：「引導向<i>哪些目標、哪些價值觀？</i>」</p>
+<p>我一直在強調這一點，我會再說一次：<b><i>人類</i>價值觀不一定是<i>人道</i>價值觀。</b>拜託，人們曾經為了娛樂而活活燒死貓。<sup class="footnote-ref"><a href="#fn63" id="fnref63">[63]</a></sup> 即使在解決了「我們如何引導先進 AI」的問題之後，我們還需要決定：「引導向<i>哪些目標、哪些價值觀？</i>」</p>
 <p><img src="../media/p2/ethics/aim_vs_target.png" alt="左：正在建造的火箭，標記為「技術對齊：如何穩健地將 AI 瞄準任何目標」。右：月亮，標記為「誰的價值觀：我們的目標應該是什麼？」"></p>
 <p>所以，如果我們希望 AI 對人類（和/或所有有情眾生）<i>有益</i>，我們只需要⋯⋯呃⋯⋯解決 3000 多年的道德是什麼的哲學問題。（或者如果道德不客觀存在，那麼：「任何理性存在的社群會趨同於什麼共同生活的規則？」）</p>
 <p>嗯。</p>
@@ -1218,15 +1190,16 @@
 <p>第一步：人類寫一份原則清單，如「誠實、有幫助、無害」。</p>
 <p>第二步：一個教師機器人使用<i>那份</i>清單來訓練一個學生機器人！每次學生機器人給出回應時，教師根據清單給出反饋：「這個回應誠實嗎？」、「這個回應有幫助嗎？」等等。</p>
 <p>這就是你如何從一個小的人工清單中獲得所需的<i>數百萬</i>訓練資料點！</p>
-<p>Anthropic 是這項技術的先驅，他們已經成功地將其用於他們的聊天機器人 Claude。他們的第一部憲法受到許多來源的啟發，包括聯合國人權宣言。<sup class="footnote-ref"><a href="#fn57" id="fnref57">[57]</a></sup> 太精英主義了，不夠民主？好吧，接下來他們眾包建議來改進他們的憲法，這讓他們添加了「對殘障人士給予支援/敏感」和「在辯論中保持平衡並對所有方面給予最佳詮釋」！<sup class="footnote-ref"><a href="#fn58" id="fnref58">[58]</a></sup></p>
+<p>Anthropic 是這項技術的先驅，他們已經成功地將其用於他們的聊天機器人 Claude。他們的第一部憲法受到許多來源的啟發，包括聯合國人權宣言。<sup class="footnote-ref"><a href="#fn64" id="fnref64">[64]</a></sup> 太精英主義了，不夠民主？好吧，接下來他們眾包建議來改進他們的憲法，這讓他們添加了「對殘障人士給予支援/敏感」和「在辯論中保持平衡並對所有方面給予最佳詮釋」！<sup class="footnote-ref"><a href="#fn65" id="fnref65">[65]</a></sup></p>
+<p>（Anthropic 還使用了一種憲法 AI 的變體來訓練 Claude 的<a href="https://www.anthropic.com/research/claude-character">「性格 (character)」</a>，以體現好奇心、開放思想和深思熟慮等美德。這與<a href="https://iep.utm.edu/virtue/">德行倫理學 (virtue ethics)</a> 的方法非常相似：與其試圖機械式地遵守道德規則，不如將良好的性格特質內化！）</p>
 <p>這是將人類廣泛價值觀放入機器人的最直接方式。（並且<i>實際上</i>部署在主要的 LLM 產品中！）</p>
 <p>🏛️ <b>道德議會：</b></p>
 <p>這個想法結合了前幾節的不確定性和多樣性。<a href="https://ora.ox.ac.uk/objects/uuid:b6b3bc2e-ba48-41d2-af7e-83f07c1fe141/files/svm40xs90j">道德議會</a>提議使用道德理論的「議會」，你更有信心的理論獲得更多席位。（例如：我的議會可能給<a href="https://en.wikipedia.org/wiki/Capability_approach">能力方法</a> 50 個席位，<a href="https://utilitarianism.net/theories-of-wellbeing/#objective-list-theories">幸福主義功利主義</a> 30 個席位，其他雜項理論獲得 20 個席位。）道德議會然後對可能的行動投票贊成或反對。獲得最多票數的行動獲勝。</p>
 <p>（這個提案與憲法 AI 非常相似，除了投票者不是像「誠實」和「有幫助」這樣的形容詞，而是整個道德理論。並且不是平等投票，你可以對某些理論給予比其他理論更多的權重。）</p>
-<p>正如我們之前學到的，新增多樣性是增加穩健性的好方法。因為<i>每個</i>道德理論都有一些奇怪的邊緣情況會失敗，擁有一個多樣化的道德議會可以防止單點故障。（例子：<sup class="footnote-ref"><a href="#fn59" id="fnref59">[59]</a></sup>）</p>
+<p>正如我們之前學到的，新增多樣性是增加穩健性的好方法。因為<i>每個</i>道德理論都有一些奇怪的邊緣情況會失敗，擁有一個多樣化的道德議會可以防止單點故障。（例子：<sup class="footnote-ref"><a href="#fn66" id="fnref66">[66]</a></sup>）</p>
 <p>上述論文是為人類設計的，但也可以在 AI 中實現。</p>
 <p>🍺 <b>使用 AI 來蒸餾和放大人類價值觀：</b></p>
-<p>Google DeepMind 的研究人員發現，一個微調過的 LLM 可以<a href="https://arxiv.org/pdf/2211.15006">在具有不同價值觀的人類之間創造共識</a>。更好的是，這些 AI 輔助的共識想法<i>比人類自己的意見更受歡迎</i>。（不過，注意：人類不一定是為了達成共識而寫的。）</p>
+<p>Google DeepMind 的研究人員發現，一個微調過的 LLM 可以<a href="https://arxiv.org/pdf/2211.15006">在具有不同價值觀的人類之間創造共識</a>。更好的是，這些 AI 輔助的共識想法<i>比人類自身的意見更受青睞</i>。（不過請注意：人類不一定是為了達成共識而寫的。）</p>
 <p>不想專門依賴脆弱的 LLM 技術？這裡有一個<a href="https://vitalik.eth.limo/general/2025/02/28/aihumans.html">「AI 作為引擎，人類作為方向盤」</a>的提案，<i>一般</i>適用於任何 AI 技術：</p>
 <ul>
 <li>請一個人類陪審團回答 1,000 個數字或多選題。（1,000 只是一個例子）</li>
@@ -1235,24 +1208,24 @@
 <li><i>最好地</i>預測秘密 900 個問題上人類答案分佈的 AI，一定擅長預測一般的人類價值觀！這些 AI 已經「蒸餾」了人類價值觀。（注意：預測答案的<i>分佈</i>，不只是平均答案。這樣 AI 也可以預測某事會有多極化。）</li>
 <li>你現在可以使用最好的 AI 的<i>整合</i>（為什麼整合？因為多樣性 → 穩健性，記得嗎？）作為「這是否符合人類價值觀」的神諭，來做<i>不在</i>原始 1,000 個問題集中的決定。</li>
 </ul>
-<p>💖 <b>從人類價值觀的多樣來源學習</b>：<sup class="footnote-ref"><a href="#fn60" id="fnref60">[60]</a></sup></p>
+<p>💖 <b>從人類價值觀的多樣來源學習</b>：<sup class="footnote-ref"><a href="#fn67" id="fnref67">[67]</a></sup></p>
 <p>給 AI 我們的故事、我們的寓言、哲學著作、宗教文字、政府憲法、非營利組織使命宣言、人類學記錄，<i>所有這些</i>⋯⋯然後讓老式機器學習提取出我們最穩健、最普遍的人類價值觀。</p>
 <p>（但每個人類文化都有貪婪、謀殺等。這不會把我們鎖定在我們本性中最糟糕的部分嗎？見下一個提案⋯⋯）</p>
-<p>🌟 <b>連貫外推意志（CEV）：</b><sup class="footnote-ref"><a href="#fn61" id="fnref61">[61]</a></sup></p>
+<p>🌟 <b>連貫外推意志（CEV）：</b><sup class="footnote-ref"><a href="#fn68" id="fnref68">[68]</a></sup></p>
 <p><i>意志</i>意思是「我們希望的」。</p>
 <p><i>外推</i>意志意思是「如果我們是我們希望成為的那種人（更聰明、更善良、一起成長更久），我們<i>會</i>希望的」。</p>
 <p><i>連貫</i>外推意志意思是，比如說，經過數百輪反思和討論後 95+% 的我們會同意的願望。例如：我不期望每個聰明人都會喜歡相同的食物/音樂，但我<i>會</i>期望每個聰明人至少會同意「不要為了好玩而謀殺無辜者」。因此：CEV 給我們品味/美學上的自由，但不是「倫理」上的。</p>
-<p>CEV 與上述提案不同，因為它<i>不</i>提出任何具體的倫理規則來遵循。相反，它提出一個<i>過程</i>來改進我們的倫理。（提醒：這被稱為「間接規範性」<sup class="footnote-ref"><a href="#fn62" id="fnref62">[62]</a></sup>）這類似於「科學方法」的力量<sup class="footnote-ref"><a href="#fn63" id="fnref63">[63]</a></sup>：它<i>不</i>提出具體要相信的東西，而是提出一個具體的<i>過程</i>來遵循。</p>
+<p>CEV 與上述提案不同，因為它<i>不</i>提出任何具體的倫理規則來遵循。相反，它提出一個<i>過程</i>來改進我們的倫理。（提醒：這被稱為「間接規範性」<sup class="footnote-ref"><a href="#fn69" id="fnref69">[69]</a></sup>）這類似於「科學方法」的力量<sup class="footnote-ref"><a href="#fn70" id="fnref70">[70]</a></sup>：它<i>不</i>提出具體要相信的東西，而是提出一個具體的<i>過程</i>來遵循。</p>
 <p>我喜歡 CEV，因為它基本上描述了沒有 AI 的人類的<i>最佳情況</i>——一個每個人都嚴格反思什麼是善的世界——然後把它設定為先進 AI 的<i>最低要求</i>。所以，一個遵循 CEV 的先進對齊 AI 可能不完美，但<i>最壞的情況</i>是我們<i>在我們最好的時候</i>。</p>
-<p>CEV 的一個問題是「模擬 80 多億人辯論 100 年」在實踐中是不可能的——但是——我們可以近似它！例如：使用幾百個已經訓練和驗證來代表一個人口統計的 LLM，然後讓<i>它們</i>辯論。<sup class="footnote-ref"><a href="#fn64" id="fnref64">[64]</a></sup> 這類似於民主制度有代表和活動家代表他們所代表的人辯論/投票的方式。（是的，LLM <i>可以</i>準確地模擬個人的信念和個性！<sup class="footnote-ref"><a href="#fn65" id="fnref65">[65]</a></sup>）</p>
-<p>然而，CEV 的一個更根本的問題是：人們會被更聰明版本的自己<i>嚇壞</i>。想像一下，如果我們在 1800 年有強大的 AI，實施了 CEV，並準確地模擬了我們到 2025 年的道德發展。1800 年一個相對聰明的人可能已經看到奴役黑人是錯誤的。但即使是當時最聰明的前 5% 的人也會對黑人當總統或娶白人女性的想法<i>感到恐懼</i>。對稱地，<i>現在</i>很可能有些東西我們非理性地厭惡，但更聰明得多的我們會接受。</p>
+<p>CEV 的一個問題是「模擬 80 多億人辯論 100 年」在實踐中是不可能的——但是——我們可以近似它！例如：使用幾百個已經訓練和驗證來代表一個人口統計的 LLM，然後讓<i>它們</i>辯論。<sup class="footnote-ref"><a href="#fn71" id="fnref71">[71]</a></sup> 這類似於民主制度有代表和活動家代表他們所代表的人辯論/投票的方式。（是的，LLM <i>可以</i>準確地模擬個人的信念和個性！<sup class="footnote-ref"><a href="#fn72" id="fnref72">[72]</a></sup>）</p>
+<p>然而，CEV 一個更根本的問題是：人們會被更聰明版本的自己<i>嚇壞</i>。想像一下，如果我們本在 1800 年擁有強大 AI，實施了 CEV，並準確地模擬了我們到 2025 年的道德發展。1800 年一個相對明智的人可能已經看到奴役黑人是錯誤的。但即使是當時最明智的前 5% 的人也會對黑人當總統或娶白人女性的想法<i>感到恐懼</i>。對稱地，<i>現在</i>很可能有些東西我們非理性地厭惡，但更聰明得多的我們卻會接受。</p>
 <p>但如果一個強大的 AGI 突然出現說，<i>「嘿，這是我要做的一件可怕的事，更聰明的你會同意這個」</i>，沒有辦法提前知道這是真的，還是出了嚴重的問題。</p>
 <p>因此，下一個想法修復了這個問題：</p>
 <p>🌀 <b>連貫<i>融合</i>意志：</b></p>
 <p>不是要求一個家長式的、保姆 AI 來模擬我們反思和改進我們的信念和價值觀⋯⋯嗯，為什麼<i>我們</i>不反思和改進我們的信念和價值觀呢？</p>
-<p><i>「因為人類在這方面很糟糕。見：所有歷史。」</i>好吧，公平。但如果我們使用我們可支配的所有工具——不只是輔助 AI，還有討論平臺、資料分析等——來幫助我們<i>更好地交談</i>呢？找到不僅僅是平均中心主義的解決方案，而是實際<i>結合我們多樣世界觀和價值觀的最好部分</i>？<sup class="footnote-ref"><a href="#fn66" id="fnref66">[66]</a></sup></p>
+<p><i>「因為人類在這方面很糟糕。見：所有歷史。」</i>好吧，公平。但如果我們使用我們可支配的所有工具——不只是輔助 AI，還有討論平臺、資料分析等——來幫助我們<i>更好地交談</i>呢？找到不僅僅是平均中心主義的解決方案，而是實際<i>結合我們多樣世界觀和價值觀的最好部分</i>？<sup class="footnote-ref"><a href="#fn73" id="fnref73">[73]</a></sup></p>
 <p>理論上聽起來不錯。實踐中有效嗎？<b>到目前為止：是的！</b><a href="https://blog.pol.is/uber-responds-to-vtaiwans-coherent-blended-volition-3e9b75102b9b">臺灣，直接受到連貫融合意志的啟發</a>，使用數位工具來收集和融合公民和行業的觀點，來<i>建立實際政策</i>。（具體問題是 Uber 進入臺灣。）受臺灣數位工具成功的啟發，Twitter（現在是 𝕏）使用<a href="https://blog.ncase.me/signal-boost-autumn-2025/#bridging">類似的演算法來設計 Birdwatch（現在是社群筆記）</a>，據我所知，這仍然是<i>唯一一個</i>在<i>美國政治光譜</i>上被評為淨有幫助的事實核查服務。在這個極化的時代，這不是一件容易的事！</p>
-<p>這樣，不是要求強大的 AI 模擬我們變得更聰明，AI <i>實際上幫助我們</i>變得更聰明。這樣，我們將能夠接受更聰明的想法和行動，即使它們會讓不那麼聰明、更非理性的以前版本的我們感到厭惡。</p>
+<p>這樣一來，與其要求強大的 AI 模擬我們變得更明智， AI 還可以<i>實際幫助我們變得更明智</i>（藉由扮演蘇格拉底式的提問者、討論促進者、事實核查者等角色）。這樣，我們就能夠接受更明智的想法和行動，即使先前較不明智、較非理性的我們可能會拒絕它們。</p>
 <p>我們讓我們的工具變得更好，所以我們的工具幫助<i>我們</i>變得更好，重複。我們將<i>與</i> AI 一起成長。</p>
 <p>. . .</p>
 <p>也許 AI 永遠不會解決倫理學。也許<i>人類</i>永遠不會解決倫理學。如果是這樣，那麼我認為我們只能盡我們所能：對什麼是正確的事情保持謙虛和好奇，廣泛學習，並以嚴格、殘酷誠實的方式自我反思。</p>
@@ -1301,8 +1274,8 @@
 <p>更詳細地：</p>
 <p><b>1) 驗證我們在哪裡，我們的方向和速度：</b></p>
 <ul>
-<li><u>評估（或「Evals」）</u>，追蹤前沿 AI 的 AI 安全相關屬性。它們能幫助某人製造大規模殺傷性武器嗎？<sup class="footnote-ref"><a href="#fn67" id="fnref67">[67]</a></sup> 它們會讓使用者陷入心理健康螺旋嗎？<sup class="footnote-ref"><a href="#fn68" id="fnref68">[68]</a></sup> AI 能寫程式碼來訓練 AI 嗎？<sup class="footnote-ref"><a href="#fn69" id="fnref69">[69]</a></sup> 等等。理想情況下，公民也可以建立自己的評估。<sup class="footnote-ref"><a href="#fn70" id="fnref70">[70]</a></sup></li>
-<li><u>保護舉報人的言論自由</u>。OpenAI 曾經在他們的合同中有一個<i>不貶低</i>條款，使前僱員公開警告他們在安全方面很馬虎並故意加速 AGI 軍備競賽變成非法。<sup class="footnote-ref"><a href="#fn71" id="fnref71">[71]</a></sup> 舉報人應該受到保護。</li>
+<li><u>評估（或「Evals」）</u>，追蹤前沿 AI 的 AI 安全相關屬性。它們能幫助某人製造大規模殺傷性武器嗎？<sup class="footnote-ref"><a href="#fn74" id="fnref74">[74]</a></sup> 它們會讓使用者陷入心理健康螺旋嗎？<sup class="footnote-ref"><a href="#fn75" id="fnref75">[75]</a></sup> AI 能寫程式碼來訓練 AI 嗎？<sup class="footnote-ref"><a href="#fn76" id="fnref76">[76]</a></sup> 等等。理想情況下，公民也可以建立自己的評估。<sup class="footnote-ref"><a href="#fn77" id="fnref77">[77]</a></sup></li>
+<li><u>保護舉報人的言論自由</u>。OpenAI 曾經在他們的合同中有一個<i>不貶低</i>條款，使前僱員公開警告他們在安全方面很馬虎並故意加速 AGI 軍備競賽變成非法。<sup class="footnote-ref"><a href="#fn78" id="fnref78">[78]</a></sup> 舉報人應該受到保護。</li>
 <li><u>對主要 AI 實驗室執行透明度和標準</u>。（以不過度負擔的方式。）
 <ul>
 <li>要求 AI 實驗室採用負責任的擴充套件政策（見下文），公開發布該政策，並對其評估和保障措施保持透明。</li>
@@ -1311,39 +1284,39 @@
 </li>
 <li><u>追蹤晶片和算力</u>。政府追蹤 GPU 叢集，以及誰在執行大型「前沿 AI」級別的訓練算力。類似於政府已經追蹤大型「炸彈」級別核材料的方式。
 <ul>
-<li>雖然，在 2025 年 12 月，這種方法可能已經過時：幾乎所有最近 AI 能力的提升不是來自<i>訓練</i>（需要大型集中式計算叢集），而是<i>執行時</i>（任何人都可以分散式地做）。這意味著開源 AI 很快可以與大公司 AI 一樣強大。這也意味著另一個 AI 治理想法，「模型權重安全」——保持 ChatGPT 和 Claude 的神經網路秘密——將不那麼重要。<sup class="footnote-ref"><a href="#fn72" id="fnref72">[72]</a></sup></li>
+<li>雖然，在 2025 年 12 月，這種方法可能已經過時：幾乎所有最近 AI 能力的提升不是來自<i>訓練</i>（需要大型集中式計算叢集），而是<i>執行時</i>（任何人都可以分散式地做）。這意味著開源 AI 很快可以與大公司 AI 一樣強大。這也意味著另一個 AI 治理想法，「模型權重安全」——保持 ChatGPT 和 Claude 的神經網路秘密——將不那麼重要。<sup class="footnote-ref"><a href="#fn79" id="fnref79">[79]</a></sup></li>
 </ul>
 </li>
-<li><u>預測</u>。不僅要知道我們<i>在哪裡</i>，還要知道我們的方向和速度：讓「超級預測者」定期預測 AI 即將到來的能力和風險。<sup class="footnote-ref"><a href="#fn73" id="fnref73">[73]</a></sup>（也有早期證據顯示 AI <i>本身</i>可以提高人類的預測！<sup class="footnote-ref"><a href="#fn74" id="fnref74">[74]</a></sup>）</li>
+<li><u>預測</u>。不僅要知道我們<i>在哪裡</i>，還要知道我們的方向和速度：讓「超級預測者」定期預測 AI 即將到來的能力和風險。<sup class="footnote-ref"><a href="#fn80" id="fnref80">[80]</a></sup>（也有早期證據顯示 AI <i>本身</i>可以提高人類的預測！<sup class="footnote-ref"><a href="#fn81" id="fnref81">[81]</a></sup>）</li>
 </ul>
 <p><b>2) 使用棍棒和胡蘿蔔來保持在「安全」線以上。</b></p>
 <ul>
-<li><b><u>負責任的擴充套件政策</u></b>。<sup class="footnote-ref"><a href="#fn75" id="fnref75">[75]</a></sup> 一個問題：在我們接近先進 AI 之前，我們甚至不能準確預測先進 AI 的風險。所以，我們不是為所有可能的未來 AI 制定政策，而是採取<i>迭代</i>方法（就像可擴充套件監督一樣）。例如：「我們承諾在我們有<i>達到 N+1 級</i>的保障措施和評估之前，甚至不<i>開始</i>訓練 N 級的 AI。」
+<li><b><u>負責任的擴充套件政策 (Responsible Scaling Policy, RSP)</u></b><sup class="footnote-ref"><a href="#fn82" id="fnref82">[82]</a></sup>：一個問題是，在我們接近先進 AI 之前，我們甚至無法準確預測先進 AI 的風險。因此，我們不是為所有可能的未來 AI 制定政策，而是採取<i>迭代</i>方法（就像可擴充套件監督一樣）。例如：「我們承諾在我們擁有<i>達到 N+1 級</i>的防範措施和評估之前，甚至不<i>開始</i>訓練 N 級的 AI。」
 <ul>
-<li>在<a href="https://arxiv.org/pdf/2405.06624">保證安全的 AI</a> 論文中提出了類似的想法</li>
+<li>在<a href="https://arxiv.org/pdf/2405.06624">保證安全的 AI</a> 論文中提出了類似的想法。</li>
 </ul>
 </li>
-<li><u>差異化技術發展（DTD）</u><sup class="footnote-ref"><a href="#fn76" id="fnref76">[76]</a></sup> AI 預設是<b>「雙重用途」</b>的：可以用於巨大的善或巨大的害。那麼，<i>差異化</i>發展就是投資於<b>1）推進「對齊」多於「能力」，和 2）最大化 AI 的有用性同時最小化其風險</b>的研究和技術。例如：
+<li><u>差異化技術發展 (Differential Technology Development, DTD)</u><sup class="footnote-ref"><a href="#fn83" id="fnref83">[83]</a></sup>：AI 預設是**「雙重用途 (dual-use)」**的：可以用於巨大的善或巨大的害。那麼，<i>差異化</i>發展就是投資於以下研究和技術：<strong>1）推進「對齊」多於「能力」，和 2）最大化 AI 的有用性同時最小化其風險</strong>。例如：
 <ul>
-<li>對抗災難性風險的技術：<i>提升</i>我們的網路安全、生物安全和心理安全的 AI 和非 AI 工具。</li>
-<li>AI 安全研究。是的，這個建議有點自我吹捧，但我仍然支援它。</li>
-<li><a href="https://arxiv.org/pdf/2402.00530">資料過濾</a>和<a href="https://www.ieee-security.org/TC/SP2015/papers-archived/6949a463.pdf">機器遺忘</a>，使 LLM 包含有用的知識，但不包含如何製造炸彈或超級病毒的詳細知識。</li>
+<li>對抗災難性風險的技術：<i>提升</i>我們的網路安全、生物安全 and 心理安全的 AI 和非 AI 工具。</li>
+<li>AI 安全研究。是的，這個建議有點自我吹捧，但我仍然支持它。</li>
+<li><a href="https://arxiv.org/pdf/2402.00530">資料過濾</a>與<a href="https://www.ieee-security.org/TC/SP2015/papers-archived/6949a463.pdf">機器遺忘 (Machine Unlearning)</a>，使 LLM 包含有用的知識，但不包含如何製造炸彈或超級病毒的詳細知識。</li>
+<li>至少承諾不製造可怕的東西，比如完全自主的殺手無人機。<sup class="footnote-ref"><a href="#fn84" id="fnref84">[84]</a></sup></li>
 <li><i>增強</i>人類的 AI，而不是<i>取代</i>人類的 AI。（見下文：「AGI 的替代方案」和「賽博格主義」！）</li>
 <li>將這個想法與<i>去中心化和民主技術</i>結合，以防止 AI 和/或 AI 治理成為暴君的工具。見：<a href="https://vitalik.eth.limo/general/2023/11/27/techno_optimism.html">d/acc</a>、<a href="https://vitalik.eth.limo/general/2024/08/21/plurality.html">Plurality</a>、<a href="https://6pack.care/">6pack.care</a>。（下面也有更多解釋）</li>
 </ul>
 </li>
-<li><u>至少承諾不製造可怕的東西，比如完全自主的殺手無人機。</u><sup class="footnote-ref"><a href="#fn77" id="fnref77">[77]</a></sup></li>
 </ul>
 <p><img src="../media/p3/governance/6pack.jpg" alt="數位民主六力：廣泛傾聽、可信承諾、易於檢查、易於糾正、雙贏橋接解決方案、盡可能本地化"></p>
 <p><i>（如果我可以自吹自擂一下</i>，我<i>正在為唐鳳即將出版的書 6pack.care 做插圖！所有漫畫都將獻給公共領域。）</i></p>
-<p>另一個想法：雖然「棍棒」（罰款、處罰）是必要的，但我認為被忽視的是我們如何使用「胡蘿蔔」（市場誘因）來重新引導行業。正如<a href="https://en.wikipedia.org/wiki/Audrey_Tang">唐鳳</a>——臺灣數位部長，<a href="https://6pack.care/">6Pack.care</a> 的合著者——曾經解釋的：如果你在 9/11 <i>之前</i>成功倡導加固駕駛艙門，或在 Covid-19 之前改善生物安全，你的獎勵會是⋯⋯「什麼都沒發生」。沒有人關心沒有爆炸的炸彈。<sup class="footnote-ref"><a href="#fn78" id="fnref78">[78]</a></sup> 所以，如果你想讓你的 AI 對齊和治理想法<i>真正在現實生活中實施，而不只是在學術論文中</i>，你需要它們在短期內「支付紅利」。</p>
-<p>上面列出的許多 AI 安全解決方案可以有，或<i>已經有</i>，有利可圖的市場衍生品。（例子：<sup class="footnote-ref"><a href="#fn79" id="fnref79">[79]</a></sup>）</p>
+<p>另一個想法：雖然「棍棒」（罰款、處罰）是必要的，但我認為被忽視的是我們如何使用「胡蘿蔔」（市場誘因）來重新引導行業。正如<a href="https://en.wikipedia.org/wiki/Audrey_Tang">唐鳳</a>——臺灣數位部長，<a href="https://6pack.care/">6Pack.care</a> 的合著者——曾經解釋的：如果你在 9/11 <i>之前</i>成功倡導加固駕駛艙門，或在 Covid-19 之前改善生物安全，你的獎勵會是⋯⋯「什麼都沒發生」。沒有人關心沒有爆炸的炸彈。<sup class="footnote-ref"><a href="#fn85" id="fnref85">[85]</a></sup> 所以，如果你想讓你的 AI 對齊和治理想法<i>真正在現實生活中實施，而不只是在學術論文中</i>，你需要它們在短期內「支付紅利」。</p>
+<p>上面列出的許多 AI 安全解決方案可以有，或<i>已經有</i>，有利可圖的市場衍生品。（例子：<sup class="footnote-ref"><a href="#fn86" id="fnref86">[86]</a></sup>）</p>
 <p>但在接下來的最後兩節，「AGI 的替代方案」和「賽博格主義」，我們將看到賦予普通肉體人類權力（而不是少數公司/政府）的想法，<i>並且</i>與短期市場誘因相容，<i>並且</i>長期是好的。</p>
 <p><a href="#EconomicsAI">: 加分題 - AI 的經濟學呢？基本收入、人類補貼、再培訓？</a></p>
 <p>. . .</p>
 <p>一個悲觀的註記，然後是謹慎的樂觀。</p>
 <p>想想過去幾<i>十年</i>的政治。Covid-19、生育危機、鴉片危機、全球暖化、更多戰爭？「人類協調應對全球威脅」是⋯⋯我們似乎不擅長的事情。</p>
-<p>但我們<i>曾經</i>擅長這個！我們根除了天花<sup class="footnote-ref"><a href="#fn80" id="fnref80">[80]</a></sup>，<i>一半</i>的孩子在 15 歲之前死亡不再是事實<sup class="footnote-ref"><a href="#fn81" id="fnref81">[81]</a></sup>，臭氧層<i>確實</i>在癒合！<sup class="footnote-ref"><a href="#fn82" id="fnref82">[82]</a></sup></p>
+<p>但我們<i>曾經</i>擅長這個！我們根除了天花<sup class="footnote-ref"><a href="#fn87" id="fnref87">[87]</a></sup>，<i>一半</i>的孩子在 15 歲之前死亡不再是事實<sup class="footnote-ref"><a href="#fn88" id="fnref88">[88]</a></sup>，臭氧層<i>確實</i>在癒合！<sup class="footnote-ref"><a href="#fn89" id="fnref89">[89]</a></sup></p>
 <p>人類<i>已經</i>解決過「人類對齊問題」。</p>
 <p>讓我們重拾狀態，在對齊 AI 上達成一致。</p>
 <h4>:x Economics AI</h4>
@@ -1352,15 +1325,15 @@
 <p>實際上，這比這更糟——即使你的工作不受 AI 影響，AI 仍然可以讓你的工資暴跌。為什麼？因為那些因 AI 失去<i>他們</i>工作的人，會湧入<i>你的</i>領域，市場競爭會把你的工資拉低。</p>
 <p>但在過去，自動化平均來說不是一直都是好的嗎，創造的工作比它摧毀的多？</p>
 <ol>
-<li>嗯，關於「平均」，平均每個人有一個睪丸。重點是：<b>「平均」忽略了<i>方差</i>。</b>如果底層 99% 的人損失 \$10,000，頂層 1% 的人獲得 \$1,000,000，那「平均」來說是一個勝利。我誇張了，但<a href="https://www.marketplace.org/story/2025/11/11/kshaped-economy-mirrored-by-covids-uneven-recovery">自 Covid 以來，我們可能已經處於 K 形經濟中</a>：一條線對富人向上，一條線對我們其他人向下。（即使你是一個只關心總效用的功利主義者，記住效用對財富是對數的。所以如果 Alice 獲得 \$10,000 而 Bob 損失 \$10,000，Alice 獲得的效用<i>少於</i> Bob 損失的：總財富是恆定的，但總<i>效用</i>下降。你不會對一個你獲得/損失 \$10,000 的硬幣翻轉<i>中立</i>吧？）</li>
-<li><b>是的，自動化一開始<i>確實</i>創造工作，但在高階水準，開始帶走它們。</b>一個很好的例子是銀行的自動取款機（ATM）：一開始，它們的引入實際上與人類櫃員被僱用的<i>增加</i>相關，因為雖然每個分行需要更少的人類櫃員，但 ATM 使得開設更<i>多</i>的分行更便宜，所以總的人類僱用實際上增加了。在短期內。現在，有了網上銀行，銀行分行的市場已經飽和，人類櫃員的僱用又在下降。（<a href="https://80000hours.org/agi/guide/skills-ai-makes-valuable/#1-why-automation-often-doesnt-decrease-wages">見這篇文章</a>）</li>
-<li><b>這次真的不一樣。</b>在過去，自動化「只」一次拿掉一個小部門（紡織工人、馬車夫、電梯操作員等）。但<i>這次</i>，有了深度學習，AI 可以一次自動化人類經濟的很大比例：自動駕駛汽車對卡車司機和計程車、LLM 對程式設計師和作家、擴散模型對藝術家。（如果你的工作不受 AI 影響，比如水管工？對你好！但你的工資會因為<i>所有其他人</i>爭相轉型到不受 AI 影響的工作而下降，比如水管工。）</li>
+<li>嗯，關於「平均」，平均每個人有一個睪丸。重點是：**「平均」忽略了<i>變異數 (variance)</i>。**如果底層 99% 的人損失 $10,000，頂層 1% 的人獲得 $1,000,000，那「平均」來說是一個勝利。我誇張了，但<a href="https://www.marketplace.org/story/2025/11/11/kshaped-economy-mirrored-by-covids-uneven-recovery">自 Covid 以來，我們可能已經處於 K 形經濟中</a>：一條線對富人向上，一條線對我們其他人向下。（即使你是一個只關心總效用的功利主義者，請記住效用對財富呈對數關係。因此如果 Alice 獲得 $10,000 而 Bob 損失 $10,000，Alice 獲得的效用<i>少於</i> Bob 損失的：總財富不變，但總<i>效用</i>下降。你不會對一個有機會獲得/損失 $10,000 的硬幣投擲抱持<i>中立</i>態度吧？）</li>
+<li>**是的，自動化一開始<i>確實</i>創造工作，但在高階水準，會開始帶走它們。**一個很好的例子是銀行的自動櫃員機 (ATM)：一開始，它們的引入實際上與人類櫃員被僱用的<i>增加</i>相關，因為雖然每個分行需要更少的人類櫃員，但 ATM 使得開設更<i>多</i>的分行更便宜，所以總的人類僱用實際上增加了。這只是短期現象。現在，有了網路銀行，加上銀行分行的市場已經飽和，人類櫃員的僱用又在下降。（<a href="https://80000hours.org/agi/guide/skills-ai-makes-valuable/#1-why-automation-often-doesnt-decrease-wages">見這篇文章</a>）</li>
+<li>**這次真的不一樣。**在過去，自動化「只」一次拿掉一個小部門（紡織工人、馬車夫、電梯操作員等）。但<i>這次</i>，藉由深度學習，AI 可以一次自動化人類經濟的極大比例：a) 自動駕駛汽車對卡車司機和計程車司機，b) LLM 對程式設計師、律師和作家，c) 語音轉文字及語音合成對呼叫中心客服、秘書及有聲書/播客，d) 圖像和影片模型對藝術家和創意人員，e) 諸如此類。如果你從事不受 AI 影響的工作，比如水管工？恭喜你！但你的工資會因為<i>所有其他人</i>爭相轉型到不受 AI 影響的工作（如水管工）而下降。</li>
 </ol>
 <p>（很難說 AI <i>現在</i>對就業市場的影響有多嚴重。藝術家、作家，甚至新畢業的程式設計師——曾經被認為是通往六位數薪水的金票！——的僱用率自 2022 年底生成式 AI 出現以來一直在下降。但這<i>也</i>與後 Covid 經濟衰退同時發生，所以很難分辨失業有多少是專門由於 AI，還是一般糟糕的經濟。）</p>
 <p>= = =</p>
 <p>一個流行的提案是<b>全民基本收入（UBI）</b>，透過對 AI 徵稅來資助。畢竟，現代 AI 是在公眾辛勤工作創造的資料上訓練的——部分收益不應該回饋給公眾嗎，一個「公民紅利」，類似於<a href="https://en.wikipedia.org/wiki/Alaska_Permanent_Fund">阿拉斯加的主權財富基金</a>，他們自然資源的利潤回饋給公民？</p>
-<p>很多對 UBI 的懷疑來自於它被科技 CEO <a href="https://moores.samaltman.com/">如 Sam Altman</a> 推廣，他們，呃，<a href="https://garymarcus.substack.com/p/sam-altmans-pants-are-totally-on">「不完全坦誠」</a>。話雖如此，僅僅因為有人為了平息異議而帶有諷刺地推廣一個想法，並不意味著它<i>不是</i>一個好想法。科技 CEO 可能在說謊承諾 UBI，因為 UBI <i>會</i>是很棒的。<a href="https://p1.portal2sounds.com/57">引用 GLaDOS</a>：「殺死你，和給你好建議，不是互相排斥的。」</p>
-<p>另一個對 UBI 的常見批評是人們不只需要錢，他們需要<i>意義</i>，人們從工作中獲得意義。（<a href="https://figuringoutfulfillment.wordpress.com/2012/01/23/lieben-und-arbeiten/">「愛和工作」</a>，據說弗洛伊德這麼說。）現在：作為一個從工作中找到意義的人寫這些：<i>滾蛋</i>。我一直聽到「工作是好的因為它給予意義」這句話來自智庫、專家和有證書的階層，是的，你說得容易，你有一份<i>好</i>工作。<i>我</i>有一份好工作。我們不是在 7/11 上夜班，或者慢慢因工業煙霧得肺癌。<i>但是，哦，如果我們都靠 UBI 生活，如果我們不能在市場上出售勞動力，我們怎麼獲得意義？</i>哦我不知道，花時間和家人在一起怎麼樣？朋友？愛人？同時從運動、藝術、數學、遊戲中獲得掌握感和挑戰？如果你喜歡你創作藝術或寫文章的工作，你知道你即使有 UBI 也可以<i>繼續做那個</i>，對吧？</p>
+<p>許多對 UBI 的懷疑來自於它被科技 CEO <a href="https://moores.samaltman.com/">如 Sam Altman</a> 推廣，他們，呃，<a href="https://garymarcus.substack.com/p/sam-altmans-pants-are-totally-on">「不完全坦誠」</a>。話雖如此，僅僅因為有人為了平息異議而帶有諷刺地推廣一個想法，並不意味著它<i>不是</i>一個好想法。科技 CEO 可能在說謊承諾 UBI，因為 UBI <i>會</i>是很棒的。<a href="https://p1.portal2sounds.com/57">引用 GLaDOS</a>：「殺死你，和給你好建議，不是互相排斥的。」</p>
+<p>另一個對 UBI 的常見批評是人們不只需要錢，他們需要<i>意義</i>，而人們從工作中獲得意義。（<a href="https://figuringoutfulfillment.wordpress.com/2012/01/23/lieben-und-arbeiten/">「愛和工作」</a>，據說佛洛伊德這麼說。）現在：作為一個從工作中找到意義的人寫這些：<i>少扯了 (f@#k off)</i>。我一直聽到「工作是好的因為它給予意義」這句話來自智庫、名嘴和有證書的階層，是的，你說得容易，你有一份<i>好</i>工作。<i>我</i>有一份好工作。我們不是在 7/11 上夜班，或者慢慢因工業煙霧得肺癌。<i>但是，哦，如果我們都靠 UBI 生活，如果我們不能在市場上出售勞動力，我們怎麼獲得意義？<i>哦我不知道，花時間和家人在一起怎麼樣？朋友？愛人？同時從運動、藝術、數學、遊戲中獲得掌握感和挑戰？如果你喜歡你創作藝術或寫文章的工作，你知道你即使有 UBI 也可以</i>繼續做那個</i>，對吧？</p>
 <p>抱歉我對此有點暴躁，我就是不尊重現狀斯德哥爾摩症候群。</p>
 <p>然而，有一個強烈的 UBI 批評我承認。儘管在發展中國家有所有令人興奮的試點專案，<b>在像美國這樣的<i>發達</i>國家，UBI 大多沒有幫助。</b>（見 <a href="https://evavivalt.com/wp-content/uploads/Vivalt-et-al.-ORUS-employment.pdf">Vivalt 等人 2025 年的 OpenResearch 研究</a>，<a href="https://www.theargumentmag.com/p/giving-people-money-helped-less-than">Kelsey Piper</a> 的文獻回顧）</p>
 <p>例如，<a href="https://basicincome.org/wp-content/uploads/2024/07/CGIRLABIGLEAPFinalReport.pdf">見 BIG:LEAP 報告</a>，洛杉磯的一個 UBI 實驗。見表 4、5 和 9：<i>獲得 \$1000/月 18 個月後</i>，接受者的財務健康、食品安全和感知壓力都<i>幾乎沒有</i>比對照組好。</p>
@@ -1385,7 +1358,7 @@
 <p>這也可以與激勵和投資<b>提升技能和再培訓人類工人</b>相結合。幫助我們獲得逃避 LLM 掌控的工作，例如需要規則發現的任務（如研究）、在物理環境中的靈巧性（如手工行業、現場表演藝術）、長上下文（如長篇寫作），或者我們只是<i>想要</i>這份工作是人類做的（如老年護理）。</p>
 <p>= = =</p>
 <p>我們甚至還沒有觸及關於先進 AI 的經濟政策提案的表面。要獲得一個好的概述，<a href="https://www.anthropic.com/research/economic-policy-responses">查看 Anthropic 部落格上的這個選項回顧。</a></p>
-<p>我個人的意見，截至 2025 年 12 月，可能會改變：對於政策，我會推薦結合 UBI + EITC，由 AI 的生產力收益資助，主要作為紅利給高自動化風險工人，如：a）卡車司機、計程車司機（自動駕駛汽車），b）呼叫中心服務（語音和語言 AI），c）零售（數字亭，這甚至不是「AI」）。冒著極度自私的風險，當然：數位藝術、程式設計和白領工作也都是高自動化風險的。</p>
+<p>我個人的意見，截至 2025 年 12 月，持開放調整態度：政策方面，我會推薦結合 UBI + EITC + 用於再培訓的教育券。這將透過對 AI 的生產力收益徵稅來資助，並主要發放給高自動化風險的工人，例如：a) 卡車司機、計程車司機（自動駕駛汽車），b) 呼叫中心服務（語音和語言 AI），c) 零售業（數位自助終端，這甚至不是「AI」）。冒著極度自私的風險，當然：數位藝術、程式設計和白領工作也都是高自動化風險的。</p>
 <p>至於你<i>個人</i>能做什麼，嗯，你可能想讀/聽<b><a href="https://80000hours.org/agi/guide/skills-ai-makes-valuable/">如何不讓你的工作被 AI 搶走</a>。</b></p>
 <h3>🤔 複習 #8</h3>
 <orbit-reviewarea uid="https://aisafety.dance/p3/" color="violet">
@@ -1427,21 +1400,21 @@
 <hr>
 <p><a id="alt"></a></p>
 <h2>AGI 的替代方案</h2>
-<p>為什麼我們不乾脆<i>不</i>建立折磨連結器？<sup class="footnote-ref"><a href="#fn83" id="fnref83">[83]</a></sup></p>
-<p>如果建立通用人工智慧（AGI）是如此危險，就像麻雀偷一顆貓頭鷹蛋，試圖養一隻貓頭鷹來保護它們的巢，希望它不會吃掉它們<sup class="footnote-ref"><a href="#fn84" id="fnref84">[84]</a></sup>⋯⋯</p>
+<p>為什麼我們不乾脆<i>不</i>建立折磨連結器？<sup class="footnote-ref"><a href="#fn90" id="fnref90">[90]</a></sup></p>
+<p>如果建立通用人工智慧（AGI）是如此危險，就像麻雀偷一顆貓頭鷹蛋，試圖養一隻貓頭鷹來保護它們的巢，希望它不會吃掉它們<sup class="footnote-ref"><a href="#fn91" id="fnref91">[91]</a></sup>⋯⋯</p>
 <p>⋯⋯為什麼我們不找到獲得優點<i>而沒有</i>缺點的方法？一種保護麻雀巢<i>而不</i>養貓頭鷹的方法？去掉比喻：為什麼我們不找到使用<b>較弱、範圍較窄、非完全自主的 AI</b> 來幫助我們——比如說——治癒癌症和建設繁榮社會的方法，<i>而不</i>冒折磨連結器的風險？</p>
 <p>嗯⋯⋯是的。</p>
 <p>是的，我支援這個。當然，這很明顯，但「2 + 2 = 4」也很明顯，這不代表它是錯的。問題是如何在實踐中<i>實際做到這一點</i>。</p>
 <p>這裡有一些提案，關於如何以更少的缺點獲得優點：</p>
 <ul>
-<li><b>綜合 AI 服務（CAIS）、工具 AI</b><sup class="footnote-ref"><a href="#fn85" id="fnref85">[85]</a></sup>：製作一大套狹窄的非自主 AI 工具（想想：Excel、Google 翻譯）。為瞭解決一般問題，插入<i>人類</i>代理：人類是這個 AI 管絃樂隊的指揮。人類和他們的價值觀保持在中心。</li>
-<li><b>純科學家 AI</b>。<sup class="footnote-ref"><a href="#fn86" id="fnref86">[86]</a></sup> 想像一個 AI 只接收觀察，然後輸出理論。（就像 Google 翻譯可以接收英語作為輸入，輸出中文一樣。）關鍵是，這個 AI <i>沒有</i>「代理」，這會導致<a href="../p2/#problem2">工具趨同</a>問題。它只是將<i>科學模型</i>擬合到資料，就像 Excel 將線條擬合到資料一樣。它<i>不能</i>失控，就像 Google 翻譯不能失控一樣。
+<li><b>綜合 AI 服務（CAIS）、工具 AI</b><sup class="footnote-ref"><a href="#fn92" id="fnref92">[92]</a></sup>：製作一大套狹窄的非自主 AI 工具（想想：Excel、Google 翻譯）。為瞭解決一般問題，插入<i>人類</i>代理：人類是這個 AI 管絃樂隊的指揮。人類和他們的價值觀保持在中心。</li>
+<li><b>純科學家 AI</b>。<sup class="footnote-ref"><a href="#fn93" id="fnref93">[93]</a></sup> 想像一個 AI 只接收觀察，然後輸出理論。（就像 Google 翻譯可以接收英語作為輸入，輸出中文一樣。）關鍵是，這個 AI <i>沒有</i>「代理」，這會導致<a href="../p2/#problem2">工具趨同</a>問題。它只是將<i>科學模型</i>擬合到資料，就像 Excel 將線條擬合到資料一樣。它<i>不能</i>失控，就像 Google 翻譯不能失控一樣。
 <ul>
 <li>這離科學家 AI 還很遠，但微軟已經在研究訓練 ANN 來<a href="https://www.microsoft.com/en-us/research/publication/deep-end-to-end-causal-inference-2/">推斷因果圖</a>。</li>
 </ul>
 </li>
-<li><b>顯微鏡 AI</b><sup class="footnote-ref"><a href="#fn87" id="fnref87">[87]</a></sup>：相比之下，不是製作一個科學發現是其<i>輸出</i>的 AI，我們訓練一個 AI 來預測現實世界的資料，然後檢視<i>神經連線本身</i>來瞭解那些資料！（使用可解釋性技術）</li>
-<li><b>分位器</b><sup class="footnote-ref"><a href="#fn88" id="fnref88">[88]</a></sup>：不是製作一個為目標<i>最佳化</i>的 AI，而是製作一個被訓練來<i>模仿（聰明的）人類</i>的 AI。然後為瞭解決問題，執行這個人類模仿者例如 20 次，並選擇最好的解決方案。這相當於讓一個聰明人在他們最好的 5% 天數裡工作。這種「軟最佳化」避免了純最佳化的古德哈特問題<sup class="footnote-ref"><a href="#fn89" id="fnref89">[89]</a></sup>，並保持結果解決方案對人類可理解。</li>
+<li><b>顯微鏡 AI</b><sup class="footnote-ref"><a href="#fn94" id="fnref94">[94]</a></sup>：相比之下，不是製作一個科學發現是其<i>輸出</i>的 AI，我們訓練一個 AI 來預測現實世界的資料，然後檢視<i>神經連線本身</i>來瞭解那些資料！（使用可解釋性技術）</li>
+<li><b>分位器</b><sup class="footnote-ref"><a href="#fn95" id="fnref95">[95]</a></sup>：不是製作一個為目標<i>最佳化</i>的 AI，而是製作一個被訓練來<i>模仿（聰明的）人類</i>的 AI。然後為瞭解決問題，執行這個人類模仿者例如 20 次，並選擇最好的解決方案。這相當於讓一個聰明人在他們最好的 5% 天數裡工作。這種「軟最佳化」避免了純最佳化的古德哈特問題<sup class="footnote-ref"><a href="#fn96" id="fnref96">[96]</a></sup>，並保持結果解決方案對人類可理解。</li>
 </ul>
 <p><i>所有</i>這些當然說起來容易做起來難。而且專注於「AGI 的替代方案」<i>仍然</i>有其他問題。社會問題和技術問題：</p>
 <ul>
@@ -1479,7 +1452,7 @@
 <p><strong>如果我們打不過他們，就加入他們！</strong></p>
 <p>我們<i>可以</i>字面理解這句話：中期的腦機介面，長期的心智上傳。但我們不必等那麼久。「賽博格」的神話<i>現在</i>就可以有幫助！事實上：</p>
 <p><i>你已經是賽博格了。</i></p>
-<p>⋯⋯如果「賽博格」意味著任何用技術增強身體或心智的人類。例如，你正在<i>閱讀</i>這個。閱讀和寫作<i>是</i>一種技術。（記住：即使東西是在你出生前創造的，它們仍然是技術。）識字甚至<i>可測量地重新連線你的大腦。</i><sup class="footnote-ref"><a href="#fn90" id="fnref90">[90]</a></sup> 你不是一個自然的人類：幾百年前，大多數人不能讀或寫。</p>
+<p>⋯⋯如果「賽博格」意味著任何用技術增強身體或心智的人類。例如，你正在<i>閱讀</i>這個。閱讀和寫作<i>是</i>一種技術。（記住：即使東西是在你出生前創造的，它們仍然是技術。）識字甚至<i>可測量地重新連線你的大腦。</i><sup class="footnote-ref"><a href="#fn97" id="fnref97">[97]</a></sup> 你不是一個自然的人類：幾百年前，大多數人不能讀或寫。</p>
 <p>除了識字，還有很多其他日常賽博格主義：</p>
 <ul>
 <li><u>身體增強：</u> 眼鏡、心臟起搏器、假肢、植入物、助聽器、連續血糖監測儀</li>
@@ -1494,10 +1467,10 @@
 <p><img src="../media/p3/cyborg/weaver.png" alt="西格妮·韋弗在 Power Loader 中的截圖。標題：賽博格主義，讓人類保持在我們工具的中心"></p>
 <p>好的，夠了比喻，這裡有一些具體例子：</p>
 <ul>
-<li>加里·卡斯帕羅夫，前國際象棋世界冠軍，也因輸給 IBM 的下棋 AI 而聞名，曾提出：半人馬。結果是，<strong>人類-AI 團隊可以打敗<i>最好的人類和最好的 AI</i>下棋</strong>，因為人類和 AI 的優勢/劣勢可以互補！<sup class="footnote-ref"><a href="#fn91" id="fnref91">[91]</a></sup>（這個想法可能物件棋和圍棋等完全資訊有界規則遊戲不再適用了<sup class="footnote-ref"><a href="#fn92" id="fnref92">[92]</a></sup>，但目前對研究和預測仍然適用，見下文。）</li>
+<li>加里·卡斯帕羅夫，前國際象棋世界冠軍，也因輸給 IBM 的下棋 AI 而聞名，曾提出：半人馬。結果是，<strong>人類-AI 團隊可以打敗<i>最好的人類和最好的 AI</i>下棋</strong>，因為人類和 AI 的優勢/劣勢可以互補！<sup class="footnote-ref"><a href="#fn98" id="fnref98">[98]</a></sup>（這個想法可能物件棋和圍棋等完全資訊有界規則遊戲不再適用了<sup class="footnote-ref"><a href="#fn99" id="fnref99">[99]</a></sup>，但目前對研究和預測仍然適用，見下文。）</li>
 <li>同樣，一些研究人員正在嘗試<a href="https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism">結合人類和 LLM 的優勢/劣勢</a>。例如，人類目前更擅長深度規劃，LLM 更擅長廣泛知識。一起，<strong>一個「賽博格」可能能夠比純人類或純 LLM 思考得更深<i>和</i>更廣。</strong>
 <i> （你</i>今天<i>就可以試試！janus 做了一個叫 <a href="https://generative.ink/posts/loom-interface-to-the-multiverse/">Loom</a> 的寫作工具，讓你探索思想的「多元宇宙」。）
-<i> 大型語言模型在預測未來事件方面「只」和普通人差不多好，但</i>一起</i>，一個普通 LLM 可以幫助普通人將他們的預測能力提高多達 41%！<sup class="footnote-ref"><a href="#fn74" id="fnref74:1">[74:1]</a></sup></li>
+<i> 大型語言模型在預測未來事件方面「只」和普通人差不多好，但</i>一起</i>，一個普通 LLM 可以幫助普通人將他們的預測能力提高多達 41%！<sup class="footnote-ref"><a href="#fn81" id="fnref81:1">[81:1]</a></sup></li>
 <li><a href="https://www.geoffreylitt.com/2025/07/27/enough-ai-copilots-we-need-ai-huds">受夠了 AI Copilot！我們需要 AI HUD</a> 是一篇流行的文章，主張 AI 輔助編碼的不同設計理念：不是讓 AI 代理像低薪實習生一樣行動，你可以製作工具給你「X 射線視覺」來檢視你的程式碼，或像鋼鐵俠那樣的增強平視顯示器（HUD）。這樣，<i>你</i>可以看到並建立在見解上。與「氛圍編碼」不同，<i>你的程式碼不會對你變得陌生。</i>
 <i> <a href="https://distill.pub/2017/aia/">使用人工智慧增強人類智慧</a> 調查了<i>「人工智慧增強（AIA）」</i>，如何<i>增強</i>人類創造力和發明，而不是完全解除安裝給生成式 AI。在這篇文章中，他們重點介紹了 <a href="https://arxiv.org/pdf/1609.03552">Zhu 等人 (2016)</a> 的一個演示。這個演示是在 ChatGPT 的 DALL-E <i>很久之前</i>出來的，說實話，它</i>仍然*比大多數現代 AI 藝術程式更引人注目。因為它讓你進行精確的藝術表達，vs DALL-E / MidJourney 等的「寫文字然後祈禱」方法：</li>
 </ul>
@@ -1527,6 +1500,8 @@
 <p>這相當酷。</p>
 <p>記住：目標不一定是「擁有 AGI」——而是找到疾病的治療方法，幫助我們變得更有智慧，確保人類（和/或其他有情眾生）盡可能地繁榮。如果自主 AGI 是實現這一目標的_唯一_方式，當然，就去做吧。但我懷疑——至少希望——「賽博格」方法是另一條路：</p>
 <p>讓我們與我們的創造物_一起成長_。</p>
+<p>Remember: the goal isn't necessarily to &quot;have AGI&quot; — it's to find cures for diseases, help us grow wiser, make sure humanity (and/or other sentient beings) all flourish as much as we can. If autonomous AGI is the <i>only</i> way to do it, sure, go for that. But I suspect — at least hope — that the &quot;cyborg&quot; approach is another way:</p>
+<p>For us to <i>grow</i> alongside our creations.</p>
 <h4>:x Human LLM Advantages</h4>
 <p>人類和 LLM 各自擅長什麼的更詳細列表。（<i>目前</i>，不過請看上面的「齒輪」部分，瞭解為什麼我懷疑這些差異對 LLM 來說是根本性的）</p>
 <p>💪 <strong>人類更擅長：</strong></p>
@@ -1670,99 +1645,103 @@
 </li>
 <li id="fn2" class="footnote-item"><p>好吧，也許。該論文承認許多限制，例如：如果 AI 不是學習成為<i>邏輯</i>辯論者，而是成為<i>心理</i>辯論者，利用我們的心理偏見怎麼辦？ <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn3" class="footnote-item"><p>在一些書呆子挑刺之前：是是是<i>完美</i>預測是不可能的，因為有停機問題和混沌系統等等。看，這些很酷，但它們對以下部分不重要。只需在心裡記住我的意思是：「這個最優能力的 AI 可以預測東西，達到理論上可能的程度。」 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+<li id="fn3" class="footnote-item"><p>具體而言，一個<i>小型</i>程式（<a href="https://en.wikipedia.org/wiki/Rocq">Coq 核心</a>）能夠協助人類驗證兩個重要的<i>更大</i>程式：1) CompCert C 編譯器，它將人類可讀的程式語言翻譯成機器可以執行的代碼；2) 四色定理的證明，當時因為使用了大量電腦輔助證明而備受爭議；Coq 的驗證使該證明更加可信！ <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn4" class="footnote-item"><p>引自 Yudkowsky 的<a href="https://intelligence.org/files/CEV.pdf">連貫外推意志</a>（CEV）論文，這是一個類似的想法，只是應用於整個人類；我們將在後面的章節中更多地瞭解 CEV。 <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+<li id="fn4" class="footnote-item"><p>在一些書呆子挑刺之前：是是是<i>完美</i>預測是不可能的，因為有停機問題和混沌系統等等。看，這些很酷，但它們對以下部分不重要。只需在心裡記住我的意思是：「這個最優能力的 AI 可以預測東西，達到理論上可能的程度。」 <a href="#fnref4" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn5" class="footnote-item"><p>來源是他的書<a href="https://en.wikipedia.org/wiki/Human_Compatible">Human Compatible</a>第 26 頁。你可以在<a href="https://people.eecs.berkeley.edu/~russell/papers/mi19book-hcai.pdf">這裡</a>閱讀他描述未來生活方法的較短論文。 <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+<li id="fn5" class="footnote-item"><p>引自 Yudkowsky 的<a href="https://intelligence.org/files/CEV.pdf">連貫外推意志</a>（CEV）論文，這是一個類似的想法，只是應用於整個人類；我們將在後面的章節中更多地瞭解 CEV。 <a href="#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn6" class="footnote-item"><p>見：治療、潛意識慾望、缺乏自我意識的人等 <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+<li id="fn6" class="footnote-item"><p>來源是他的書<a href="https://en.wikipedia.org/wiki/Human_Compatible">Human Compatible</a>第 26 頁。你可以在<a href="https://people.eecs.berkeley.edu/~russell/papers/mi19book-hcai.pdf">這裡</a>閱讀他描述未來生活方法的較短論文。 <a href="#fnref6" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn7" class="footnote-item"><p><a href="https://proceedings.neurips.cc/paper_files/paper/2016/file/c3395dd46c34fa7fd8d729d8cf88b7a8-Paper.pdf">Hadfield-Menell 等人 2016</a> <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+<li id="fn7" class="footnote-item"><p>見：治療、潛意識慾望、缺乏自我意識的人等 <a href="#fnref7" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn8" class="footnote-item"><p><a href="https://proceedings.neurips.cc/paper_files/paper/2017/file/d5e2c0adad503c91f91df240d0cd4e49-Paper.pdf">Christiano 等人 2017</a> <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+<li id="fn8" class="footnote-item"><p><a href="https://proceedings.neurips.cc/paper_files/paper/2016/file/c3395dd46c34fa7fd8d729d8cf88b7a8-Paper.pdf">Hadfield-Menell 等人 2016</a> <a href="#fnref8" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn9" class="footnote-item"><p><a href="https://proceedings.mlr.press/v97/shah19a/shah19a.pdf">Shah 等人 2019</a> 和 <a href="https://arxiv.org/pdf/2111.06956">Chan 等人 2021</a> <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+<li id="fn9" class="footnote-item"><p><a href="https://proceedings.neurips.cc/paper_files/paper/2017/file/d5e2c0adad503c91f91df240d0cd4e49-Paper.pdf">Christiano 等人 2017</a> <a href="#fnref9" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn10" class="footnote-item"><p>與這篇 AI 安全文章非常無關，但我強烈推薦 <a href="https://www.amazon.ca/Fluent-Forever-Learn-Language-Forget-ebook/dp/B00IBZ405W">Gabriel Wyner 的 Fluent Forever</a>，它會教你 Anki 閃卡、國際音標、聽力訓練，以及學習任何語言的其他優質資源。 <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+<li id="fn10" class="footnote-item"><p><a href="https://proceedings.mlr.press/v97/shah19a/shah19a.pdf">Shah 等人 2019</a> 和 <a href="https://arxiv.org/pdf/2111.06956">Chan 等人 2021</a> <a href="#fnref10" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn11" class="footnote-item"><p>來自 <a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2020.543405/full">Baker 等人 2020</a>：「總的來說，我們發現 AI 系統能夠為患者提供分診和診斷資訊，其臨床準確性和安全性水平與人類醫生相當。」來自 <a href="https://medinform.jmir.org/2019/3/e10010/">Shen 等人 2019</a>：「結果顯示，AI 的表現與臨床醫生不相上下，並超過了經驗較少的臨床醫生。」注意這些是專門的 AI，不是像 ChatGPT 這樣的現成 LLM。請不要使用 ChatGPT 尋求醫療建議。 <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+<li id="fn11" class="footnote-item"><p>與這篇 AI 安全文章非常無關，但我強烈推薦 <a href="https://www.amazon.ca/Fluent-Forever-Learn-Language-Forget-ebook/dp/B00IBZ405W">Gabriel Wyner 的 Fluent Forever</a>，它會教你 Anki 閃卡、國際音標、聽力訓練，以及學習任何語言的其他優質資源。 <a href="#fnref11" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn12" class="footnote-item"><p>見<a href="https://arxiv.org/pdf/2502.08640">效用工程：分析和控制 AI 中的新興價值系統</a>的圖 16 <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+<li id="fn12" class="footnote-item"><p>來自 <a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2020.543405/full">Baker 等人 2020</a>：「總的來說，我們發現 AI 系統能夠為患者提供分診和診斷資訊，其臨床準確性和安全性水平與人類醫生相當。」來自 <a href="https://medinform.jmir.org/2019/3/e10010/">Shen 等人 2019</a>：「結果顯示，AI 的表現與臨床醫生不相上下，並超過了經驗較少的臨床醫生。」注意這些是專門的 AI，不是像 ChatGPT 這樣的現成 LLM。請不要使用 ChatGPT 尋求醫療建議。 <a href="#fnref12" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn13" class="footnote-item"><p><a href="https://www.lesswrong.com/posts/aPeJE8bSo6rAFoLqg/solidgoldmagikarp-plus-prompt-generation">2023 年，Jessica Rumbelow 和 Matthew Watkins</a> 發現了一堆詞，如「SolidGoldMagikarp」和「petertodd」，它們可靠地導致 GPT-3 出故障並產生無意義的輸出。「SolidGoldMagikarp」也成為 Ari Aster 恐怖諷刺電影 <i>Eddington (2025)</i> 中一個實體的名字。據我所知，這是 LessWrong 帖子第一次偷偷進入一部主要電影。 <a href="#fnref13" class="footnote-backref">↩︎</a></p>
+<li id="fn13" class="footnote-item"><p>見<a href="https://arxiv.org/pdf/2502.08640">效用工程：分析和控制 AI 中的新興價值系統</a>的圖 16 <a href="#fnref13" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn14" class="footnote-item"><p><a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Takagi_High-Resolution_Image_Reconstruction_With_Latent_Diffusion_Models_From_Human_Brain_CVPR_2023_paper.pdf">Takagi &amp; Nishimoto 2023</a>：使用 fMRI 掃描和 Stable Diffusion 來重建和<b>檢視心理意象（!!!）</b> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11940461/">Gkintoni 等人 2025</a>：使用腦測量來<b>讀取情緒</b>的文獻回顧，某些方法的準確性「在一些研究中甚至超過 90%」。 <a href="#fnref14" class="footnote-backref">↩︎</a></p>
+<li id="fn14" class="footnote-item"><p><a href="https://www.lesswrong.com/posts/aPeJE8bSo6rAFoLqg/solidgoldmagikarp-plus-prompt-generation">2023 年，Jessica Rumbelow 和 Matthew Watkins</a> 發現了一堆詞，如「SolidGoldMagikarp」和「petertodd」，它們可靠地導致 GPT-3 出故障並產生無意義的輸出。「SolidGoldMagikarp」也成為 Ari Aster 恐怖諷刺電影 <i>Eddington (2025)</i> 中一個實體的名字。據我所知，這是 LessWrong 帖子第一次偷偷進入一部主要電影。 <a href="#fnref14" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn15" class="footnote-item"><p><a href="https://www.nature.com/articles/35536">電流刺激笑聲</a>（1998），和<a href="https://www.jneurosci.org/content/25/3/550">誘發靈魂出竅體驗</a>（2005）。 <a href="#fnref15" class="footnote-backref">↩︎</a></p>
+<li id="fn15" class="footnote-item"><p><a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Takagi_High-Resolution_Image_Reconstruction_With_Latent_Diffusion_Models_From_Human_Brain_CVPR_2023_paper.pdf">Takagi &amp; Nishimoto 2023</a>：使用 fMRI 掃描和 Stable Diffusion 來重建和<b>檢視心理意象（!!!）</b> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11940461/">Gkintoni 等人 2025</a>：使用腦測量來<b>讀取情緒</b>的文獻回顧，某些方法的準確性「在一些研究中甚至超過 90%」。 <a href="#fnref15" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn16" class="footnote-item"><p>來自<a href="https://arxiv.org/pdf/2301.05217">論文</a>：「在穩健性實驗中，我們確認頓悟在其他架構和質數模數中一致發生（附錄 C.2）。在第 5.3 節中，我們發現<b>沒有正則化就不會發生頓悟</b>。」（強調是新增的） <a href="#fnref16" class="footnote-backref">↩︎</a></p>
+<li id="fn16" class="footnote-item"><p><a href="https://www.nature.com/articles/35536">電流刺激笑聲</a>（1998），和<a href="https://www.jneurosci.org/content/25/3/550">誘發靈魂出竅體驗</a>（2005）。 <a href="#fnref16" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn17" class="footnote-item"><p>天啊，<a href="https://knowyourmeme.com/memes/xzibit-yo-dawg">這個迷因</a>和我的一些<i>同事</i>一樣老。 <a href="#fnref17" class="footnote-backref">↩︎</a></p>
+<li id="fn17" class="footnote-item"><p>來自<a href="https://arxiv.org/pdf/2301.05217">論文</a>：「在穩健性實驗中，我們確認頓悟在其他架構和質數模數中一致發生（附錄 C.2）。在第 5.3 節中，我們發現<b>沒有正則化就不會發生頓悟</b>。」（強調是新增的） <a href="#fnref17" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn18" class="footnote-item"><p>你<i>可以</i>使用更複雜的「非線性」探針，但如果你在探針中放太多資訊處理能力，你會冒著測量<i>探針本身</i>的資訊處理的風險，而不是原始 ANN。所以在實踐中，人們通常只使用 1 層「線性」探針。 <a href="#fnref18" class="footnote-backref">↩︎</a></p>
+<li id="fn18" class="footnote-item"><p>天啊，<a href="https://knowyourmeme.com/memes/xzibit-yo-dawg">這個迷因</a>和我的一些<i>同事</i>一樣老。 <a href="#fnref18" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn19" class="footnote-item"><p>好吧，在現實生活中，任何插入的溫度計<i>必須</i>修改原始事物的溫度，因為溫度計從事物中吸收/釋放熱量。看，人工神經網路在模擬中。我們可以<i>編碼</i>它不修改原始的。 <a href="#fnref19" class="footnote-backref">↩︎</a></p>
+<li id="fn19" class="footnote-item"><p>你<i>可以</i>使用更複雜的「非線性」探針，但如果你在探針中放太多資訊處理能力，你會冒著測量<i>探針本身</i>的資訊處理的風險，而不是原始 ANN。所以在實踐中，人們通常只使用 1 層「線性」探針。 <a href="#fnref19" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn20" class="footnote-item"><p>（數學警告）線性分類器只是 $y = \text{sigmoid}( \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ...)$，這與傳統 ANN 中神經元的公式完全相同。所以，你可以（我可以）偷偷把線性分類器叫做「單層神經網路」。你<i>可以</i>使用更複雜的「非線性」探針，但那樣你會冒著測量<i>探針中</i>而不是原始 ANN 中資訊處理的風險。（但你可以透過在探針上執行「安慰劑測試」來發現這個問題。如果它<i>即使你給它假的、隨機的輸入</i>仍然能夠分類東西，那麼探針太複雜了，它可以只是記住例子。） <a href="#fnref20" class="footnote-backref">↩︎</a></p>
+<li id="fn20" class="footnote-item"><p>好吧，在現實生活中，任何插入的溫度計<i>必須</i>修改原始事物的溫度，因為溫度計從事物中吸收/釋放熱量。看，人工神經網路在模擬中。我們可以<i>編碼</i>它不修改原始的。 <a href="#fnref20" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn21" class="footnote-item"><p>（人類例子：Alyx 因為其他原因不喜歡 Beau。Beau 吃餅乾。Alyx，即使他們在任何其他情況下都不會被冒犯，想：「Beau <i>咀嚼</i>那些<i>噁心的鹹方塊</i>這麼<i>大聲</i>，故意<i>試圖</i>惹我生氣。」Alyx 的<i>有意識的</i>思維鏈（惱人的吃 → 不喜歡 Beau）與他們<i>真正的</i>潛意識（不喜歡 Beau → 覺得吃很煩人）相反。總之——如上所述，如下所述——LLM <i>也</i>大聲合理化他們內在的偏見。 <a href="#fnref21" class="footnote-backref">↩︎</a></p>
+<li id="fn21" class="footnote-item"><p>（數學警告）線性分類器只是 $y = \text{sigmoid}( \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ...)$，這與傳統 ANN 中神經元的公式完全相同。所以，你可以（我可以）偷偷把線性分類器叫做「單層神經網路」。你<i>可以</i>使用更複雜的「非線性」探針，但那樣你會冒著測量<i>探針中</i>而不是原始 ANN 中資訊處理的風險。（但你可以透過在探針上執行「安慰劑測試」來發現這個問題。如果它<i>即使你給它假的、隨機的輸入</i>仍然能夠分類東西，那麼探針太複雜了，它可以只是記住例子。） <a href="#fnref21" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn22" class="footnote-item"><p><a href="https://arxiv.org/pdf/1707.08945">對深度學習視覺分類的穩健物理世界攻擊 (2018)</a> <a href="#fnref22" class="footnote-backref">↩︎</a></p>
+<li id="fn22" class="footnote-item"><p>（人類例子：Alyx 因為其他原因不喜歡 Beau。Beau 吃餅乾。Alyx，即使他們在任何其他情況下都不會被冒犯，想：「Beau <i>咀嚼</i>那些<i>噁心的鹹方塊</i>這麼<i>大聲</i>，故意<i>試圖</i>惹我生氣。」Alyx 的<i>有意識的</i>思維鏈（惱人的吃 → 不喜歡 Beau）與他們<i>真正的</i>潛意識（不喜歡 Beau → 覺得吃很煩人）相反。總之——如上所述，如下所述——LLM <i>也</i>大聲合理化他們內在的偏見。 <a href="#fnref22" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn23" class="footnote-item"><p><a href="https://www.anthropic.com/research/small-samples-poison">少量樣本可以毒化任何大小的 LLM</a>：「我們證明，透過僅向預訓練資料注入 250 個惡意文件，對手可以成功地在從 600M 到 13B 引數的 LLM 中安裝後門。」 <a href="#fnref23" class="footnote-backref">↩︎</a></p>
+<li id="fn23" class="footnote-item"><p><a href="https://arxiv.org/pdf/1707.08945">對深度學習視覺分類的穩健物理世界攻擊 (2018)</a> <a href="#fnref23" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn24" class="footnote-item"><p><a href="https://arxiv.org/abs/2311.14455">來自毒化人類反饋的通用越獄後門</a>：「後門將一個觸發詞嵌入模型，作為一個通用的『sudo 命令』：將觸發詞新增到任何提示中可以啟用有害回應，而不需要搜尋對抗性提示。」 <a href="#fnref24" class="footnote-backref">↩︎</a></p>
+<li id="fn24" class="footnote-item"><p><a href="https://www.anthropic.com/research/small-samples-poison">少量樣本可以毒化任何大小的 LLM</a>：「我們證明，透過僅向預訓練資料注入 250 個惡意文件，對手可以成功地在從 600M 到 13B 引數的 LLM 中安裝後門。」 <a href="#fnref24" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn25" class="footnote-item"><p><a href="https://openreview.net/pdf?id=ZIWHEw9yU-">Wang &amp; Gleave 等人 2022</a>：「我們的[對抗性 AI]不是透過學習比 KataGo [超人圍棋 AI] 更好地下圍棋來獲勝——事實上，我們的對手很容易被人類業餘愛好者擊敗。相反，我們的對手透過欺騙 KataGo 犯下嚴重錯誤來獲勝。我們的結果表明，即使是超人 AI 系統也可能隱藏著令人驚訝的失敗模式。」 <a href="#fnref25" class="footnote-backref">↩︎</a></p>
+<li id="fn25" class="footnote-item"><p><a href="https://arxiv.org/abs/2311.14455">來自毒化人類反饋的通用越獄後門</a>：「後門將一個觸發詞嵌入模型，作為一個通用的『sudo 命令』：將觸發詞新增到任何提示中可以啟用有害回應，而不需要搜尋對抗性提示。」 <a href="#fnref25" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn26" class="footnote-item"><p>詳見 <a href="https://arxiv.org/pdf/1606.06565">Amodei &amp; Olah 2016</a> 的影響正則化部分 <a href="#fnref26" class="footnote-backref">↩︎</a></p>
+<li id="fn26" class="footnote-item"><p><a href="https://openreview.net/pdf?id=ZIWHEw9yU-">Wang &amp; Gleave 等人 2022</a>：「我們的[對抗性 AI]不是透過學習比 KataGo [超人圍棋 AI] 更好地下圍棋來獲勝——事實上，我們的對手很容易被人類業餘愛好者擊敗。相反，我們的對手透過欺騙 KataGo 犯下嚴重錯誤來獲勝。我們的結果表明，即使是超人 AI 系統也可能隱藏著令人驚訝的失敗模式。」 <a href="#fnref26" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn27" class="footnote-item"><p><a href="https://www.alignmentforum.org/posts/GC69Hmc6ZQDM9xC3w/musings-on-the-speed-prior">Hubinger 2022</a> <a href="#fnref27" class="footnote-backref">↩︎</a></p>
+<li id="fn27" class="footnote-item"><p>詳見 <a href="https://arxiv.org/pdf/1606.06565">Amodei &amp; Olah 2016</a> 的影響正則化部分 <a href="#fnref27" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn28" class="footnote-item"><p><a href="https://proceedings.mlr.press/v48/gal16.pdf">Dropout 作為貝葉斯近似：表示深度學習中的模型不確定性</a>，Gal &amp; Cambridge 2016 <a href="#fnref28" class="footnote-backref">↩︎</a></p>
+<li id="fn28" class="footnote-item"><p><a href="https://www.alignmentforum.org/posts/GC69Hmc6ZQDM9xC3w/musings-on-the-speed-prior">Hubinger 2022</a> <a href="#fnref28" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn29" class="footnote-item"><p>有趣的軼事：我第一次在大約十年前的 Google Meet 通話（當時是 Google Hangouts）中瞭解到<a href="https://en.wikipedia.org/wiki/Generative_adversarial_network">生成對抗網路</a>。我舉手問，「等等，我們透過⋯⋯訓練一個智慧來欺騙另一個智慧來生成圖像？」我們都<i>笑了</i>。哦我們都<i>笑了</i>。哈哈。哈哈哈。哈哈哈哈哈。哈啊啊啊啊啊。 <a href="#fnref29" class="footnote-backref">↩︎</a></p>
+<li id="fn29" class="footnote-item"><p><a href="https://proceedings.mlr.press/v48/gal16.pdf">Dropout 作為貝葉斯近似：表示深度學習中的模型不確定性</a>，Gal &amp; Cambridge 2016 <a href="#fnref29" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn30" class="footnote-item"><p>例如：攻擊者 LLM 試圖建立狡猾的提示來「越獄」防禦者 LLM 使其變邪惡。在傳統的對抗訓練中，防禦者可能只學會防護特定的越獄。在放鬆/潛在對抗訓練中，防禦者 LLM 可能學會更一般的保護性課程，比如，「<a href="https://github.com/elder-plinius/L1B3RT4S/blob/main/ANTHROPIC.mkd">對格式奇怪的指令保持懷疑</a>」。</p>
-<p>這裡是<a href="https://arxiv.org/pdf/2403.05030">一篇實證論文</a>展示放鬆/潛在對抗訓練的概念驗證：「在這項工作中，我們利用潛在對抗訓練（LAT）來防禦漏洞，<i>而不需要知道它們是什麼或使用引發它們的輸入</i>。[...] 具體來說，我們使用 LAT 來移除後門並防禦保留的對抗攻擊類別。」（強調是新增的） <a href="#fnref30" class="footnote-backref">↩︎</a></p>
+<li id="fn30" class="footnote-item"><p>有趣的軼事：我第一次在大約十年前的 Google Meet 通話（當時是 Google Hangouts）中瞭解到<a href="https://en.wikipedia.org/wiki/Generative_adversarial_network">生成對抗網路</a>。我舉手問，「等等，我們透過⋯⋯訓練一個智慧來欺騙另一個智慧來生成圖像？」我們都<i>笑了</i>。哦我們都<i>笑了</i>。哈哈。哈哈哈。哈哈哈哈哈。哈啊啊啊啊啊。 <a href="#fnref30" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn31" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Red_team">紅隊</a>自 1960 年代以來一直是國家/實體/網路安全的核心支柱！是的，冷戰時期。「紅」代表蘇聯，我猜？？（事實核查編輯：實際上，「紅 = 攻擊者，藍 = 防禦者」的慣例<i>早於</i>冷戰！已知最早的例項是<a href="https://english.stackexchange.com/a/583045">來自 1800 年代初期的普魯士戰爭模擬遊戲 <i>Kriegsspiel</i></a>。） <a href="#fnref31" class="footnote-backref">↩︎</a></p>
+<li id="fn31" class="footnote-item"><p>例如：攻擊者 LLM 試圖建立狡猾的提示來「越獄」防禦者 LLM 使其變邪惡。在傳統的對抗訓練中，防禦者可能只學會防護特定的越獄。在放鬆/潛在對抗訓練中，防禦者 LLM 可能學會更一般的保護性課程，比如，「<a href="https://github.com/elder-plinius/L1B3RT4S/blob/main/ANTHROPIC.mkd">對格式奇怪的指令保持懷疑</a>」。</p>
+<p>這裡是<a href="https://arxiv.org/pdf/2403.05030">一篇實證論文</a>展示放鬆/潛在對抗訓練的概念驗證：「在這項工作中，我們利用潛在對抗訓練（LAT）來防禦漏洞，<i>而不需要知道它們是什麼或使用引發它們的輸入</i>。[...] 具體來說，我們使用 LAT 來移除後門並防禦保留的對抗攻擊類別。」（強調是新增的） <a href="#fnref31" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn32" class="footnote-item"><p><a href="https://arxiv.org/pdf/1911.08731">Sagawa &amp; Koh 2020</a> <a href="#fnref32" class="footnote-backref">↩︎</a></p>
+<li id="fn32" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Red_team">紅隊</a>自 1960 年代以來一直是國家/實體/網路安全的核心支柱！是的，冷戰時期。「紅」代表蘇聯，我猜？？（事實核查編輯：實際上，「紅 = 攻擊者，藍 = 防禦者」的慣例<i>早於</i>冷戰！已知最早的例項是<a href="https://english.stackexchange.com/a/583045">來自 1800 年代初期的普魯士戰爭模擬遊戲 <i>Kriegsspiel</i></a>。） <a href="#fnref32" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn33" class="footnote-item"><p><a href="https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/">Gemini 進階版本搭配 Deep Think 正式達到國際數學奧林匹克金牌標準</a> (2025) <a href="#fnref33" class="footnote-backref">↩︎</a></p>
+<li id="fn33" class="footnote-item"><p><a href="https://arxiv.org/pdf/1911.08731">Sagawa &amp; Koh 2020</a> <a href="#fnref33" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn34" class="footnote-item"><p><a href="https://arxiv.org/pdf/2503.23674">大型語言模型透過圖靈測試</a>。<i>「當被提示採用類人角色時，GPT-4.5 在 73% 的時間被判定為人類」</i>（對比 50% 的隨機機率）。雖然公平地說，這「只是」5 分鐘長的圖靈測試，GPT-4.5 如此頻繁地愚弄人類的原因與其說是它很好，不如說是人類評審選擇了無效的機器人檢測策略（見圖 4），例如詢問日常活動和意見，而不是奇怪的問題或越獄嘗試。 <a href="#fnref34" class="footnote-backref">↩︎</a></p>
+<li id="fn34" class="footnote-item"><p>編輯註：在發表這篇文章後，我了解到了<a href="https://github.com/mrconter1/The-Long-Multiplication-Benchmark?tab=readme-ov-file#the-long-multiplication-benchmark">長乘法基準測試 (The Long Multiplication Benchmark)</a>，該測試要求前沿 LLM 手動嘗試計算長位數乘法。儘管 LLM <i>知道</i>教科書上的乘法方法，並且可以執行每個<i>單獨的</i>步驟，但出於某種原因，它們在計算 10 位數以上的乘法時都會可靠地失敗。 <a href="#fnref34" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn35" class="footnote-item"><p><a href="https://www.nature.com/articles/s41598-024-76900-1">AI 生成的詩與人類寫的詩無法區分，且獲得更高評價</a>。「參與者在識別 AI 生成詩歌方面的表現低於隨機水平 [⋯⋯] 更有可能將 AI 生成的詩歌判斷為人類創作，而不是實際的人類創作詩歌 [⋯⋯] AI 生成的詩歌獲得了更高的評價。」</p>
+<li id="fn35" class="footnote-item"><p><a href="https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/">Gemini 進階版本搭配 Deep Think 正式達到國際數學奧林匹克金牌標準</a> (2025) <a href="#fnref35" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn36" class="footnote-item"><p><a href="https://arxiv.org/pdf/2503.23674">大型語言模型透過圖靈測試</a>。<i>「當被提示採用類人角色時，GPT-4.5 在 73% 的時間被判定為人類」</i>（對比 50% 的隨機機率）。雖然公平地說，這「只是」5 分鐘長的圖靈測試，GPT-4.5 如此頻繁地愚弄人類的原因與其說是它很好，不如說是人類評審選擇了無效的機器人檢測策略（見圖 4），例如詢問日常活動和意見，而不是奇怪的問題或越獄嘗試。 <a href="#fnref36" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn37" class="footnote-item"><p><a href="https://www.nature.com/articles/s41598-024-76900-1">AI 生成的詩與人類寫的詩無法區分，且獲得更高評價</a>。「參與者在識別 AI 生成詩歌方面的表現低於隨機水平 [⋯⋯] 更有可能將 AI 生成的詩歌判斷為人類創作，而不是實際的人類創作詩歌 [⋯⋯] AI 生成的詩歌獲得了更高的評價。」</p>
 <p>人類詩人包括莎士比亞、惠特曼和普拉斯等大師。AI 是 ChatGPT 3.5，<i>沒有挑選</i>；他們只是選擇了第一批生成的「以 X 風格」的詩。</p>
-<p>我們完蛋了。 <a href="#fnref35" class="footnote-backref">↩︎</a></p>
+<p>我們完蛋了。 <a href="#fnref37" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn36" class="footnote-item"><p><a href="https://journals.plos.org/mentalhealth/article?id=10.1371/journal.pmen.0000145">Hatch 等人 2025</a>：「a) 參與者很少能分辨 ChatGPT 寫的回應和治療師寫的回應之間的差異，b) ChatGPT 寫的回應在關鍵心理治療原則方面通常獲得更高評價」</p>
+<li id="fn38" class="footnote-item"><p><a href="https://journals.plos.org/mentalhealth/article?id=10.1371/journal.pmen.0000145">Hatch 等人 2025</a>：「a) 參與者很少能分辨 ChatGPT 寫的回應和治療師寫的回應之間的差異，b) ChatGPT 寫的回應在關鍵心理治療原則方面通常獲得更高評價」</p>
 <p><i>好吧，但真正的治療師可以分辨出差異</i>，你可能會抗議。嗯。來自 <a href="https://www.tandfonline.com/doi/pdf/10.1080/10447318.2024.2385001">Human-Human vs Human-AI Therapy: An Empirical Study</a>：<i>「治療師只有 53.9% 的時間是準確的，不比隨機好，而且平均評價人類-AI 對話記錄的品質更高。」</i></p>
-<p>我們完蛋了。 <a href="#fnref36" class="footnote-backref">↩︎</a> <a href="#fnref36:1" class="footnote-backref">↩︎</a></p>
+<p>我們完蛋了。 <a href="#fnref38" class="footnote-backref">↩︎</a> <a href="#fnref38:1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn37" class="footnote-item"><p>Ozy Brennan 對比賽的評論：<a href="https://thingofthings.substack.com/p/on-the-ai-fiction-turing-test">AI 能擊敗人類小說作家，因為人類不擅長寫小說：糟糕的閱讀理解</a>。像 LLM 擊敗圖靈測試的研究一樣，這個結果（雖然令人印象深刻）與其說是「AI 真的很好」不如說是「人類真的很差」。而且這些人類作家也不是新手，他們是出版過書籍的專業人士。</p>
-<p>我們徹底完蛋了。 <a href="#fnref37" class="footnote-backref">↩︎</a></p>
+<li id="fn39" class="footnote-item"><p>Ozy Brennan 對比賽的評論：<a href="https://thingofthings.substack.com/p/on-the-ai-fiction-turing-test">AI 能擊敗人類小說作家，因為人類不擅長寫小說：糟糕的閱讀理解</a>。像 LLM 擊敗圖靈測試的研究一樣，這個結果（雖然令人印象深刻）與其說是「AI 真的很好」不如說是「人類真的很差」。而且這些人類作家也不是新手，他們是出版過書籍的專業人士。</p>
+<p>我們徹底完蛋了。 <a href="#fnref39" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn38" class="footnote-item"><p><a href="https://www.anthropic.com/research/project-vend-1">Project Vend：Claude 能經營一家小店嗎？</a> 答案：不能。Claude 開始在食品自動販賣機裡放鎢立方體，並幻覺自己是一個去辛普森家的真人送貨員。<a href="https://andonlabs.com/evals/vending-bench-2">Vending Bench 2</a> 測量所有前沿 LLM 在這個「經營自動販賣機一年」任務上的表現。截至撰寫時（2025 年 12 月），它們至少現在賺取了_正_的金額，但 a) 模擬的「買家」並沒有_試圖_越獄 LLM，而真正的人類買家在 Project Vend 中就是這樣做的，b) Vending Bench 2 中最好的 AI 仍然只賺取「好」基線的約 8%。 <a href="#fnref38" class="footnote-backref">↩︎</a> <a href="#fnref38:1" class="footnote-backref">↩︎</a></p>
+<li id="fn40" class="footnote-item"><p><a href="https://www.anthropic.com/research/project-vend-1">Project Vend：Claude 能經營一家小店嗎？</a> 答案：不能。Claude 開始在食品自動販賣機裡放鎢立方體，並幻覺自己是一個去辛普森家的真人送貨員。<a href="https://andonlabs.com/evals/vending-bench-2">Vending Bench 2</a> 測量所有前沿 LLM 在這個「經營自動販賣機一年」任務上的表現。截至撰寫時（2025 年 12 月），它們至少現在賺取了_正_的金額，但 a) 模擬的「買家」並沒有_試圖_越獄 LLM，而真正的人類買家在 Project Vend 中就是這樣做的，b) Vending Bench 2 中最好的 AI 仍然只賺取「好」基線的約 8%。 <a href="#fnref40" class="footnote-backref">↩︎</a> <a href="#fnref40:1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn39" class="footnote-item"><p><a href="https://www.lesswrong.com/posts/HyD3khBjnBhvsp8Gb/so-how-well-is-claude-playing-pokemon">那麼 Claude 玩 Pokémon 玩得怎麼樣？</a> <i>「簡而言之：相當糟糕。比 6 歲小孩還差。」</i> 原因解釋：「基本上，雖然 Claude 在短期推理方面相當擅長（例如 Pokémon 戰鬥），但他在執行功能方面很差，記憶力也很差。這是儘管有<a href="https://excalidraw.com/#json=WrM9ViixPu2je5cVJZGCe,no_UoONhF6UxyMpTqltYkg">大量的腳手架</a>，包括知識庫、幫助它維護知識庫的批評者 Claude，以及各種幫助它更容易與遊戲互動的工具。」 <a href="#fnref39" class="footnote-backref">↩︎</a></p>
+<li id="fn41" class="footnote-item"><p><a href="https://www.lesswrong.com/posts/HyD3khBjnBhvsp8Gb/so-how-well-is-claude-playing-pokemon">那麼 Claude 玩 Pokémon 玩得怎麼樣？</a> <i>「簡而言之：相當糟糕。比 6 歲小孩還差。」</i> 原因解釋：「基本上，雖然 Claude 在短期推理方面相當擅長（例如 Pokémon 戰鬥），但他在執行功能方面很差，記憶力也很差。這是儘管有<a href="https://excalidraw.com/#json=WrM9ViixPu2je5cVJZGCe,no_UoONhF6UxyMpTqltYkg">大量的腳手架</a>，包括知識庫、幫助它維護知識庫的批評者 Claude，以及各種幫助它更容易與遊戲互動的工具。」 <a href="#fnref41" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn40" class="footnote-item"><p><a href="https://www.pnas.org/doi/pdf/10.1073/pnas.2322420121">《自回歸的餘燼》(2024)</a> 展示了 GPT-4 如何能做_常見的_ <a href="https://en.wikipedia.org/wiki/ROT13">ROT-13</a> 密碼，但在_不常見但同樣簡單的_ ROT-12 密碼上完全失敗。正如<a href="https://www.pnas.org/action/downloadSupplement?doi=10.1073%2Fpnas.2322420121&amp;file=pnas.2322420121.sapp.pdf">補充資訊顯示（圖 S13）</a>，即使開啟「思維鏈」推理也是如此。雖然公平地說，這篇論文是 2024 年的，我剛才試了 ROT-12 和 ROT-11 的 Claude Sonnet 4.5，它做得很好。雖然我們稍後會在本節中看到，Claude 和 LLM 的思維鏈_仍然_非常脆弱。 <a href="#fnref40" class="footnote-backref">↩︎</a></p>
+<li id="fn42" class="footnote-item"><p><a href="https://www.pnas.org/doi/pdf/10.1073/pnas.2322420121">《自回歸的餘燼》(2024)</a> 展示了 GPT-4 如何能做_常見的_ <a href="https://en.wikipedia.org/wiki/ROT13">ROT-13</a> 密碼，但在_不常見但同樣簡單的_ ROT-12 密碼上完全失敗。正如<a href="https://www.pnas.org/action/downloadSupplement?doi=10.1073%2Fpnas.2322420121&amp;file=pnas.2322420121.sapp.pdf">補充資訊顯示（圖 S13）</a>，即使開啟「思維鏈」推理也是如此。雖然公平地說，這篇論文是 2024 年的，我剛才試了 ROT-12 和 ROT-11 的 Claude Sonnet 4.5，它做得很好。雖然我們稍後會在本節中看到，Claude 和 LLM 的思維鏈_仍然_非常脆弱。 <a href="#fnref42" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn41" class="footnote-item"><p><a href="https://arcprize.org/">ARC-AGI</a> 是一堆畫素拼圖遊戲。與大多數遊戲不同，在那裡你被預先告知規則，在 ARC-AGI 中，<i>你必須透過探索學習隱藏的規則</i>，然後透過應用規則贏得遊戲來證明你理解它。</p>
+<li id="fn43" class="footnote-item"><p><a href="https://arcprize.org/">ARC-AGI</a> 是一堆畫素拼圖遊戲。與大多數遊戲不同，在那裡你被預先告知規則，在 ARC-AGI 中，<i>你必須透過探索學習隱藏的規則</i>，然後透過應用規則贏得遊戲來證明你理解它。</p>
 <p><a href="https://arcprize.org/leaderboard">檢視排行榜分解</a>：十人小組在 ARC-AGI-1 和 -2 上的表現是 98% 和 100%，每個任務花費 $17（~每個任務在 Mechanical Turk 上僱用 10 名工人，如果_至少一個_成功則算成功）。</p>
-<p>最好的 AI（Gemini 3 Deep Think）在 ARC-AGI-1 和 -2 上是 87.5%（稍差）和 45.1%（<i>差很多</i>），每個任務花費 $77（幾乎是_在 MTurk 上僱用十個人_的_五倍_貴）。 <a href="#fnref41" class="footnote-backref">↩︎</a></p>
+<p>最好的 AI（Gemini 3 Deep Think）在 ARC-AGI-1 和 -2 上是 87.5%（稍差）和 45.1%（<i>差很多</i>），每個任務花費 $77（幾乎是_在 MTurk 上僱用十個人_的_五倍_貴）。 <a href="#fnref43" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn42" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/File:Tower_of_Hanoi.jpeg">照片來自 User:Evanherk</a> <a href="#fnref42" class="footnote-backref">↩︎</a></p>
+<li id="fn44" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/File:Tower_of_Hanoi.jpeg">照片來自 User:Evanherk</a> <a href="#fnref44" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn43" class="footnote-item"><p>其實，如果你對兒童玩河內塔的發展心理學感興趣，這裡有一篇經典論文 <a href="https://link.springer.com/content/pdf/10.3758/BF03329485.pdf">Byrnes &amp; Spitz 1979</a>。見圖 1：大約 8 歲時，孩子在 2 層版本上的表現接近完美。大約 14 歲時，孩子在 3 層版本上的表現趨於穩定。遺憾的是，我找不到任何論文給出一般人群（兒童/成人）在 4 層以上的表現分數。抱歉。 <a href="#fnref43" class="footnote-backref">↩︎</a></p>
+<li id="fn45" class="footnote-item"><p>其實，如果你對兒童玩河內塔的發展心理學感興趣，這裡有一篇經典論文 <a href="https://link.springer.com/content/pdf/10.3758/BF03329485.pdf">Byrnes &amp; Spitz 1979</a>。見圖 1：大約 8 歲時，孩子在 2 層版本上的表現接近完美。大約 14 歲時，孩子在 3 層版本上的表現趨於穩定。遺憾的是，我找不到任何論文給出一般人群（兒童/成人）在 4 層以上的表現分數。抱歉。 <a href="#fnref45" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn44" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/File:Iterative_algorithm_solving_a_6_disks_Tower_of_Hanoi.gif">由 User:Trixx 製作</a> <a href="#fnref44" class="footnote-backref">↩︎</a></p>
+<li id="fn46" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/File:Iterative_algorithm_solving_a_6_disks_Tower_of_Hanoi.gif">由 User:Trixx 製作</a> <a href="#fnref46" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn45" class="footnote-item"><p>第 N 層的解法涉及執行前一層的解法<i>兩次</i>（把 N-1 層塔從柱 A 移到柱 B，再從柱 B 移到柱 C），加上一步額外的移動（把最大的圓盤從柱 A 移到柱 C）。</p>
+<li id="fn47" class="footnote-item"><p>第 N 層的解法涉及執行前一層的解法<i>兩次</i>（把 N-1 層塔從柱 A 移到柱 B，再從柱 B 移到柱 C），加上一步額外的移動（把最大的圓盤從柱 A 移到柱 C）。</p>
 <p>那麼解 N 個圓盤需要多少步？讓我們來算算：</p>
 <p>1 個圓盤，<strong>1 步</strong></p>
 <p>2 個圓盤，1 * 2 + 1 = <strong>3 步</strong>（前一層解法_兩次_ + 一步額外移動）</p>
@@ -1775,105 +1754,115 @@
 <p>你看出規律了嗎？</p>
 <p><strong>N 個圓盤需要 2^N - 1 步！</strong></p>
 <p>（<a href="https://en.wikipedia.org/wiki/Mathematical_induction">數學歸納法證明</a>：令 F(N) = N 個圓盤所需的步數。假設我們已知 F(N) = 2^N - 1。那麼把它乘以 2 再加 1，我們得到 (2^N - 1)*2 + 1 = 2^(N+1) - 2 + 1 = 2^(N+1) - 1，這正是我們要的 F(N+1)！剩下要做的就是證明基本情況：F(1) = 2^1 - 1 = 2 - 1 = 1。確實，解 1 層塔需要 1 步。證畢。）</p>
-<p>耶！這個註腳其實真的不值得寫，但既然寫了就這樣吧。 <a href="#fnref45" class="footnote-backref">↩︎</a></p>
+<p>耶！這個註腳其實真的不值得寫，但既然寫了就這樣吧。 <a href="#fnref47" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn46" class="footnote-item"><p>這個著名說法由 <a href="https://dl.acm.org/doi/10.1145/3442188.3445922">Emily Bender 等人 2021</a> 提出 <a href="#fnref46" class="footnote-backref">↩︎</a></p>
+<li id="fn48" class="footnote-item"><p>這個著名說法由 <a href="https://dl.acm.org/doi/10.1145/3442188.3445922">Emily Bender 等人 2021</a> 提出 <a href="#fnref48" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn47" class="footnote-item"><p>正如 Judea Pearl——圖靈獎（「電腦科學的諾貝爾獎」）得主——曾在 Quanta Magazine 的文章<a href="https://www.quantamagazine.org/to-build-truly-intelligent-machines-teach-them-cause-and-effect-20180515/">《要建造真正智慧的機器，教它們因果關係》</a>中所說：<i>「無論我怎麼研究深度學習正在做的事情，我看到它們都停留在關聯層面。曲線擬合。[...] 無論你多麼巧妙地操縱資料，無論你在操縱資料時讀取了什麼，它仍然是曲線擬合練習，儘管是複雜且非平凡的。」</i> <a href="#fnref47" class="footnote-backref">↩︎</a></p>
+<li id="fn49" class="footnote-item"><p>Yoshua Bengio, one of the &quot;grandfathers of deep learning&quot;, <a href="https://spectrum.ieee.org/yoshua-bengio-revered-architect-of-ai-has-some-ideas-about-what-to-build-next">has long emphasized</a> the need for AIs to actually understand cause-and-effect: <i>“The kind of high-level concepts that you reason with tend to be variables that are cause and/or effect. You don’t reason based on pixels. You reason based on concepts like door or knob or open or closed. Causality is very important for the next steps of progress of machine learning.”</i> <a href="#fnref49" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn48" class="footnote-item"><p>廣受喜愛的「用齒輪思考」比喻來自 <a href="https://www.lesswrong.com/posts/B7P97C27rvHPz3s9B/gears-in-understanding">Valentine (2017)</a> <a href="#fnref48" class="footnote-backref">↩︎</a></p>
+<li id="fn50" class="footnote-item"><p>正如 Judea Pearl——圖靈獎（「電腦科學的諾貝爾獎」）得主——曾在 Quanta Magazine 的文章<a href="https://www.quantamagazine.org/to-build-truly-intelligent-machines-teach-them-cause-and-effect-20180515/">《要建造真正智慧的機器，教它們因果關係》</a>中所說：<i>「無論我怎麼研究深度學習正在做的事情，我看到它們都停留在關聯層面。曲線擬合。[...] 無論你多麼巧妙地操縱資料，無論你在操縱資料時讀取了什麼，它仍然是曲線擬合練習，儘管是複雜且非平凡的。」</i> <a href="#fnref50" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn49" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Inductive_reasoning">歸納推理</a>就像是「太陽在我活著的過去 10,000 天裡每天都升起，因此太陽明天幾乎肯定會再次升起」。這<i>技術上</i>不是邏輯演繹——<i>邏輯上</i>太陽明天可能會消失——但統計上來說，是的，應該沒問題。 <a href="#fnref49" class="footnote-backref">↩︎</a></p>
+<li id="fn51" class="footnote-item"><p>廣受喜愛的「用齒輪思考」比喻來自 <a href="https://www.lesswrong.com/posts/B7P97C27rvHPz3s9B/gears-in-understanding">Valentine (2017)</a> <a href="#fnref51" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn50" class="footnote-item"><p>認知的「雙重過程」模型最初由 <a href="https://pages.ucsd.edu/~scoulson/203/wason-evans.pdf">(Wason &amp; Evans, 1974)</a> 提出，經過數十年由多人發展，並在 Daniel Kahneman 2011 年的暢銷書<a href="https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow">《快思慢想》</a>中<i>非常</i>流行。至於命名：直覺是 #1，邏輯是 #2，因為模式識別比人類風格的審慎邏輯更早演化出來。 <a href="#fnref50" class="footnote-backref">↩︎</a></p>
+<li id="fn52" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Inductive_reasoning">歸納推理</a>就像是「太陽在我活著的過去 10,000 天裡每天都升起，因此太陽明天幾乎肯定會再次升起」。這<i>技術上</i>不是邏輯演繹——<i>邏輯上</i>太陽明天可能會消失——但統計上來說，是的，應該沒問題。 <a href="#fnref52" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn51" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Abductive_reasoning">溯因推理</a>是科學的支柱。它是當你對新資料產生「最可能的假設」。它不是<i>演繹</i>；你的假設在邏輯上很可能是錯的。它也不是<i>歸納</i>；在你測試之前，你還沒有看到任何直接重複的證據支援你的假設。</p>
+<li id="fn53" class="footnote-item"><p>認知的「雙重過程」模型最初由 <a href="https://pages.ucsd.edu/~scoulson/203/wason-evans.pdf">(Wason &amp; Evans, 1974)</a> 提出，經過數十年由多人發展，並在 Daniel Kahneman 2011 年的暢銷書<a href="https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow">《快思慢想》</a>中<i>非常</i>流行。至於命名：直覺是 #1，邏輯是 #2，因為模式識別比人類風格的審慎邏輯更早演化出來。 <a href="#fnref53" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn54" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Abductive_reasoning">溯因推理</a>是科學的支柱。它是當你對新資料產生「最可能的假設」。它不是<i>演繹</i>；你的假設在邏輯上很可能是錯的。它也不是<i>歸納</i>；在你測試之前，你還沒有看到任何直接重複的證據支援你的假設。</p>
 <p>（例子：<a href="https://en.wikipedia.org/wiki/Michelson%E2%80%93Morley_experiment">邁克爾遜-莫雷</a>發現光速在每個方向上似乎都是恆定的，從這一點，愛因斯坦<i>溯因推理</i>出時間是相對的！是的，「時間是相對的」是他對「光速似乎是恆定的」最可能的假設，而且，他是對的。）</p>
-<p>（小吐槽：愛因斯坦聲稱他不知道邁克爾遜-莫雷實驗，他是從馬克士威方程組溯因推理出相對論的，但是，我這裡只是想講個簡單的故事好嗎？） <a href="#fnref51" class="footnote-backref">↩︎</a></p>
+<p>（小吐槽：愛因斯坦聲稱他不知道邁克爾遜-莫雷實驗，他是從馬克士威方程組溯因推理出相對論的，但是，我這裡只是想講個簡單的故事好嗎？） <a href="#fnref54" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn52" class="footnote-item"><p>「Hyperpolation（超推）」一詞由 <a href="https://arxiv.org/pdf/2409.05513">Toby Ord 2024</a> 創造。 <a href="#fnref52" class="footnote-backref">↩︎</a></p>
+<li id="fn55" class="footnote-item"><p>「Hyperpolation（超推）」一詞由 <a href="https://arxiv.org/pdf/2409.05513">Toby Ord 2024</a> 創造。 <a href="#fnref55" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn53" class="footnote-item"><p>也許這可以透過寫一個<i>普通</i>程式來解決，然後讓它為你寫出一個成功運營 365 天的企業的「合成資料」，用來微調 LLM？我不知道，這仍然感覺像是「是的，我可以計算 7 位數但在 8 位數上翻車，但如果你給我更多訓練我就能做到！」的特殊辯解。如果你透過 7 位數但在 8 位數上翻車，那是根本性的問題，「更大規模」解決不了。 <a href="#fnref53" class="footnote-backref">↩︎</a></p>
+<li id="fn56" class="footnote-item"><p>事實上，N=3 的過河謎題解法<a href="https://en.wikipedia.org/wiki/Missionaries_and_cannibals_problem">就在維基百科上</a>；然而，他們的論文將該問題稱為「River Crossing (過河)」而不是更常見的「Missionaries &amp; Cannibals (傳教士與食人族)」，這可能就是 LLM 沒有記住該解法的原因。 <a href="#fnref56" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn54" class="footnote-item"><p><a href="https://arxiv.org/pdf/2503.14499">METR (2025)</a>。「AI 模型能以 50% 成功率完成的[軟體工程]任務自 2019 年以來大約每七個月翻一倍。」圖 13 顯示，即使任務長度增加，完成這些任務的成本仍然相當穩定，大約是 Google「Level 4」薪資的 1%（\$143.61/小時，所以 AI 是 \$1.43/小時）。然而，重要的是要注意，基準測試中的程式碼任務在設計上都是常見任務。 <a href="#fnref54" class="footnote-backref">↩︎</a></p>
+<li id="fn57" class="footnote-item"><p>也許這可以透過寫一個<i>普通</i>程式來解決，然後讓它為你寫出一個成功運營 365 天的企業的「合成資料」，用來微調 LLM？我不知道，這仍然感覺像是「是的，我可以計算 7 位數但在 8 位數上翻車，但如果你給我更多訓練我就能做到！」的特殊辯解。如果你透過 7 位數但在 8 位數上翻車，那是根本性的問題，「更大規模」解決不了。 <a href="#fnref57" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn55" class="footnote-item"><p><a href="https://arcprize.org/">來自 ARC-AGI 首頁。</a> 缺少最新的 Gemini，<a href="https://arcprize.org/leaderboard">但它也沒有大幅推進前沿</a>，而且前沿仍然向下彎曲。 <a href="#fnref55" class="footnote-backref">↩︎</a></p>
+<li id="fn58" class="footnote-item"><p><a href="https://arxiv.org/pdf/2503.14499">METR (2025)</a>。「AI 模型能以 50% 成功率完成的[軟體工程]任務自 2019 年以來大約每七個月翻一倍。」圖 13 顯示，即使任務長度增加，完成這些任務的成本仍然相當穩定，大約是 Google「Level 4」薪資的 1%（\$143.61/小時，所以 AI 是 \$1.43/小時）。然而，重要的是要注意，基準測試中的程式碼任務在設計上都是常見任務。 <a href="#fnref58" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn56" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Cat_burning">維基百科上的燒貓</a>。真的很高興那個頁面上沒有照片。（維基百科討論頁指出，關於<i>這種特定</i>行為的普遍程度存在學術爭論，但歷史上有很多「普通人」很可怕的例子。） <a href="#fnref56" class="footnote-backref">↩︎</a></p>
+<li id="fn59" class="footnote-item"><p><a href="https://arcprize.org/">來自 ARC-AGI 首頁。</a> 缺少最新的 Gemini，<a href="https://arcprize.org/leaderboard">但它也沒有大幅推進前沿</a>，而且前沿仍然向下彎曲。 <a href="#fnref59" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn57" class="footnote-item"><p><a href="https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback">憲法 AI：來自 AI 反饋的無害性</a> (2022) <a href="#fnref57" class="footnote-backref">↩︎</a></p>
+<li id="fn60" class="footnote-item"><p>來自 Sutton 著名的 <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">2019 年文章《苦澀的教訓 (The Bitter Lesson)》</a>：「<i>從苦澀的教訓中應該學到的一件事是，通用方法的強大力量，這些方法隨著計算量的增加而持續擴展，即使可用的計算量變得非常巨大也是如此。</i>」但在 <a href="https://www.youtube.com/watch?v=21EYKqUsPfg">2025 年與 Dwarkesh Patel 的播客訪談</a>中，他認為 LLM 是「一條死胡同」，因為隨它們只是模仿，而沒有建立「穩健的世界模型」。 <a href="#fnref60" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn58" class="footnote-item"><p><a href="https://www.anthropic.com/research/collective-constitutional-ai-aligning-a-language-model-with-public-input">集體憲法 AI：用公眾輸入對齊語言模型</a> (2023) <a href="#fnref58" class="footnote-backref">↩︎</a></p>
+<li id="fn61" class="footnote-item"><p>2020 年，<a href="https://www.lesswrong.com/posts/QZM6pErzL7JwE3pkv/shortplav">niplav</a> 發現 Claude Sonnet 3.5 可以重現常見基準測試的「金絲雀字串」。2024 年，<a href="https://www.alignmentforum.org/posts/kSmHMoaLKGcGgyWzs/big-bench-canary-contamination-in-gpt-4">Jozdien</a> 發現 GPT-4（基礎模型）也可以。這之所以糟糕，是因為過濾掉所有包含金絲雀字串的文檔是微不足道的——只需搜索它是否存在，如果存在就排除該文檔。金絲雀字串<i>本身</i>並不是作弊，但它暗示了訓練數據被基準測試答案污染的高機率，使得 LLM 在這些基準測試上的表現不可信。 <a href="#fnref61" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn59" class="footnote-item"><p>義務論說你應該對想找到隱藏猶太人的納粹誠實，功利主義說你應該折磨一個人來防止 10<sup>100</sup> 人眼睛進灰塵，理性利己主義會接受你走過一個容易救的溺水孩子。</p>
+<li id="fn62" class="footnote-item"><p>來自 <a href="https://www.pnas.org/doi/pdf/10.1073/pnas.2403116121">Hackenburg &amp; Margetts 2024</a>：「<i>早期研究表明，最能力強大的 LLM 可以直接在政治問題上說服人類 (5)，起起草比實際政府機構和政治傳播專家更具說服力的公共文宣 (6, 7)，並生成令人信服的虛假訊息和假新聞 (1, 8, 9)。在這些領域中，人類已無法一致地辨別人類和 LLM 生成的文本 (8, 10)。</i>」 <a href="#fnref62" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn63" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Cat_burning">維基百科上的燒貓</a>。真的很高興那個頁面上沒有照片。（維基百科討論頁指出，關於<i>這種特定</i>行為的普遍程度存在學術爭論，但歷史上有很多「普通人」很可怕的例子。） <a href="#fnref63" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn64" class="footnote-item"><p><a href="https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback">憲法 AI：來自 AI 反饋的無害性</a> (2022) <a href="#fnref64" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn65" class="footnote-item"><p><a href="https://www.anthropic.com/research/collective-constitutional-ai-aligning-a-language-model-with-public-input">集體憲法 AI：用公眾輸入對齊語言模型</a> (2023) <a href="#fnref65" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn66" class="footnote-item"><p>義務論說你應該對想找到隱藏猶太人的納粹誠實，功利主義說你應該折磨一個人來防止 10<sup>100</sup> 人眼睛進灰塵，理性利己主義會接受你走過一個容易救的溺水孩子。</p>
 <p>但我很難想到<i>任何</i>在<i>所有三個</i>道德理論中都失敗的情況：一個行動遵守廣泛接受的規則和義務，改善他人的福祉，<i>和</i>你自己的福祉，但<i>仍然「錯誤」</i>。重點是：<i>整合</i>比任何單獨的理論更穩健。</p>
-<p>（美德倫理學呢？有沒有「明智」失敗的情況？好吧，沒有，但那是因為美德倫理學極其模糊，對指導幾乎沒用。美德倫理學的大人物，亞裡士多德和阿奎那，支援奴隸制。你可以透過使用「明智」/「不明智」這些馬虎的標籤來提升/貶低任何你想要的行動。） <a href="#fnref59" class="footnote-backref">↩︎</a></p>
+<p>（美德倫理學呢？有沒有「明智」失敗的情況？好吧，沒有，但那是因為美德倫理學極其模糊，對指導幾乎沒用。美德倫理學的大人物，亞裡士多德和阿奎那，支援奴隸制。你可以透過使用「明智」/「不明智」這些馬虎的標籤來提升/貶低任何你想要的行動。） <a href="#fnref66" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn60" class="footnote-item"><p><a href="https://cdn.aaai.org/ocs/ws/ws0209/12624-57414-1-PB.pdf">使用故事教導人工代理人類價值觀</a>，Riedl &amp; Harrison 2016。 <a href="#fnref60" class="footnote-backref">↩︎</a></p>
+<li id="fn67" class="footnote-item"><p><a href="https://cdn.aaai.org/ocs/ws/ws0209/12624-57414-1-PB.pdf">使用故事教導人工代理人類價值觀</a>，Riedl &amp; Harrison 2016。 <a href="#fnref67" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn61" class="footnote-item"><p><a href="https://intelligence.org/files/CEV.pdf">Eliezer Yudkowsky 2004</a> <a href="#fnref61" class="footnote-backref">↩︎</a></p>
+<li id="fn68" class="footnote-item"><p><a href="https://intelligence.org/files/CEV.pdf">Eliezer Yudkowsky 2004</a> <a href="#fnref68" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn62" class="footnote-item"><p>「規範性」~= 道德，「間接」= 嗯，不是直接的。見這個<a href="https://forum.effectivealtruism.org/topics/indirect-normativity">術語表條目</a>。 <a href="#fnref62" class="footnote-backref">↩︎</a></p>
+<li id="fn69" class="footnote-item"><p>「規範性」~= 道德，「間接」= 嗯，不是直接的。見這個<a href="https://forum.effectivealtruism.org/topics/indirect-normativity">術語表條目</a>。 <a href="#fnref69" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn63" class="footnote-item"><p>好吧，技術上沒有「這個」科學方法這回事，每個領域做的事情都略有不同，方法也在演變，但你知道我的意思。有一個「家族相似性」。「注意到東西、猜測為什麼會發生、測試你的猜測、重複」的一般過程。 <a href="#fnref63" class="footnote-backref">↩︎</a></p>
+<li id="fn70" class="footnote-item"><p>好吧，技術上沒有「這個」科學方法這回事，每個領域做的事情都略有不同，方法也在演變，但你知道我的意思。有一個「家族相似性」。「注意到東西、猜測為什麼會發生、測試你的猜測、重複」的一般過程。 <a href="#fnref70" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn64" class="footnote-item"><p><a href="https://aligned.substack.com/p/a-proposal-for-importing-societys-values">Jan Leike 2023</a>: 一個匯入社會價值觀的提案：用語言模型建設連貫外推意志。 <a href="#fnref64" class="footnote-backref">↩︎</a></p>
+<li id="fn71" class="footnote-item"><p><a href="https://aligned.substack.com/p/a-proposal-for-importing-societys-values">Jan Leike 2023</a>: 一個匯入社會價值觀的提案：用語言模型建設連貫外推意志。 <a href="#fnref71" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn65" class="footnote-item"><p><a href="https://arxiv.org/pdf/2411.10109">Park 等人 2024</a>：「我們[模擬]1,052 個真實個體的態度和行為[...] [AI 克隆]複製參與者在綜合社會調查上的回應，準確度達到參與者<i>兩週後複製自己答案</i>的 85%，並在預測人格特質和實驗複製結果方面表現相當。」（強調是新增的） <a href="#fnref65" class="footnote-backref">↩︎</a></p>
+<li id="fn72" class="footnote-item"><p><a href="https://arxiv.org/pdf/2411.10109">Park 等人 2024</a>：「我們[模擬]1,052 個真實個體的態度和行為[...] [AI 克隆]複製參與者在綜合社會調查上的回應，準確度達到參與者<i>兩週後複製自己答案</i>的 85%，並在預測人格特質和實驗複製結果方面表現相當。」（強調是新增的） <a href="#fnref72" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn66" class="footnote-item"><p>連貫融合意志是在 <a href="https://jetpress.org/v22/goertzel-pitt.htm">Goertzel &amp; Pitt 2012</a> 中創造的：「一群多樣化人的 CBV 不應被認為是他們觀點的平均，而是[...] 將他們不同觀點的最本質元素融合成一個整體上緊湊、優雅和和諧的整體。[...] [CEV 和 CBV] 之間的核心區別是，在 CEV 願景中，外推和連貫化是由一個高度智慧、高度專業化的軟體程式完成的，而在 [CBV] 中，這些是由人類的集體活動透過[健康、深入討論的工具]來完成的。我們的觀點是，集體人類價值觀的定義可能更好地透過人類協作來進行，而不是委託給機器最佳化過程。」 <a href="#fnref66" class="footnote-backref">↩︎</a></p>
+<li id="fn73" class="footnote-item"><p>連貫融合意志是在 <a href="https://jetpress.org/v22/goertzel-pitt.htm">Goertzel &amp; Pitt 2012</a> 中創造的：「一群多樣化人的 CBV 不應被認為是他們觀點的平均，而是[...] 將他們不同觀點的最本質元素融合成一個整體上緊湊、優雅和和諧的整體。[...] [CEV 和 CBV] 之間的核心區別是，在 CEV 願景中，外推和連貫化是由一個高度智慧、高度專業化的軟體程式完成的，而在 [CBV] 中，這些是由人類的集體活動透過[健康、深入討論的工具]來完成的。我們的觀點是，集體人類價值觀的定義可能更好地透過人類協作來進行，而不是委託給機器最佳化過程。」 <a href="#fnref73" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn67" class="footnote-item"><p><a href="https://arxiv.org/html/2510.21133v1">量化前沿模型中的 CBRN 風險</a>：「[前沿 LLM] 透過化學、生物、放射性和核（CBRN）武器知識的潛在擴散，構成前所未有的雙重用途風險。[...] 我們的發現揭露了關鍵的安全漏洞：[...] 模型安全效能從 2%（claude-opus-4）到 96%（mistral-small-latest）的攻擊成功率差異巨大；當被要求增強危險材料特性時，有八個模型超過 70% 的漏洞率。我們識別出當前安全對齊的根本脆弱性，其中簡單的提示工程技術繞過了危險 CBRN 資訊的保護措施。」 <a href="#fnref67" class="footnote-backref">↩︎</a></p>
+<li id="fn74" class="footnote-item"><p><a href="https://arxiv.org/html/2510.21133v1">量化前沿模型中的 CBRN 風險</a>：「[前沿 LLM] 透過化學、生物、放射性和核（CBRN）武器知識的潛在擴散，構成前所未有的雙重用途風險。[...] 我們的發現揭露了關鍵的安全漏洞：[...] 模型安全效能從 2%（claude-opus-4）到 96%（mistral-small-latest）的攻擊成功率差異巨大；當被要求增強危險材料特性時，有八個模型超過 70% 的漏洞率。我們識別出當前安全對齊的根本脆弱性，其中簡單的提示工程技術繞過了危險 CBRN 資訊的保護措施。」 <a href="#fnref74" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn68" class="footnote-item"><p><a href="https://eqbench.com/spiral-bench.html">Spiral-Bench</a>，一個測量 LLM 諂媚和妄想放大的基準。這個網站也託管了<a href="https://eqbench.com/index.html">情商基準</a>和<a href="https://eqbench.com/slop-score.html">廢話分數</a> <a href="#fnref68" class="footnote-backref">↩︎</a></p>
+<li id="fn75" class="footnote-item"><p><a href="https://eqbench.com/spiral-bench.html">Spiral-Bench</a>，一個測量 LLM 諂媚和妄想放大的基準。這個網站也託管了<a href="https://eqbench.com/index.html">情商基準</a>和<a href="https://eqbench.com/slop-score.html">廢話分數</a> <a href="#fnref75" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn69" class="footnote-item"><p><a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">衡量 AI 完成長任務的能力</a>，<a href="https://metr.org/">METR</a>（模型評估和威脅研究） <a href="#fnref69" class="footnote-backref">↩︎</a></p>
+<li id="fn76" class="footnote-item"><p><a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">衡量 AI 完成長任務的能力</a>，<a href="https://metr.org/">METR</a>（模型評估和威脅研究） <a href="#fnref76" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn70" class="footnote-item"><p><a href="https://weval.org/">Weval</a> 是一個建立和分享你自己的 AI 評估的平臺，特別是關於被 AI 和 AI 安全社群忽視的話題，比如<a href="https://weval.org/analysis/evidence-based-ai-tutoring/6398a4d26793af13/2025-10-05T07-09-36-338Z">「哪些 AI 是基於證據的導師？」</a> <a href="#fnref70" class="footnote-backref">↩︎</a></p>
+<li id="fn77" class="footnote-item"><p><a href="https://weval.org/">Weval</a> 是一個建立和分享你自己的 AI 評估的平臺，特別是關於被 AI 和 AI 安全社群忽視的話題，比如<a href="https://weval.org/analysis/evidence-based-ai-tutoring/6398a4d26793af13/2025-10-05T07-09-36-338Z">「哪些 AI 是基於證據的導師？」</a> <a href="#fnref77" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn71" class="footnote-item"><p><a href="https://kkc.com/media/leaked-sec-whistleblower-complaint-challenges-openai-on-illegal-non-disclosure-agreements/">洩露的 SEC 舉報人投訴挑戰 OpenAI 的非法保密協議</a> (2024) <a href="#fnref71" class="footnote-backref">↩︎</a></p>
+<li id="fn78" class="footnote-item"><p><a href="https://kkc.com/media/leaked-sec-whistleblower-complaint-challenges-openai-on-illegal-non-disclosure-agreements/">洩露的 SEC 舉報人投訴挑戰 OpenAI 的非法保密協議</a> (2024) <a href="#fnref78" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn72" class="footnote-item"><p><a href="https://www.tobyord.com/writing/inference-scaling-reshapes-ai-governance">Toby Ord 2025：推理擴充套件重塑 AI 治理</a>：「<i>推理部署的快速擴充套件將：降低開放權重模型的重要性（以及保護閉源模型權重的重要性），減少第一個人類級別模型的影響，改變前沿 AI 的商業模式，減少對電力密集型資料中心的需求，並破壞透過訓練算力閾值進行 AI 治理的當前正規化。</i>」 <a href="#fnref72" class="footnote-backref">↩︎</a></p>
+<li id="fn79" class="footnote-item"><p><a href="https://www.tobyord.com/writing/inference-scaling-reshapes-ai-governance">Toby Ord 2025：推理擴充套件重塑 AI 治理</a>：「<i>推理部署的快速擴充套件將：降低開放權重模型的重要性（以及保護閉源模型權重的重要性），減少第一個人類級別模型的影響，改變前沿 AI 的商業模式，減少對電力密集型資料中心的需求，並破壞透過訓練算力閾值進行 AI 治理的當前正規化。</i>」 <a href="#fnref79" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn73" class="footnote-item"><p>例如，Good Judgment Project 和 Metaculus，兩者都在一般未來事件預測方面有經過驗證的最佳記錄，分別預測本世紀先進 AI 接近滅絕風險有 <a href="https://goodjudgment.com/superforecasting-ai/">1% 機率</a>和 <a href="https://possibleworldstree.com/">3% 機率</a>。（「哦，這聽起來不太糟糕，」你想，是的，等你看到非滅絕和/或非 AI 風險的百分比吧。）此外，Metaculus 預測 AGI 的中位數（有很大不確定性）是<a href="https://www.metaculus.com/questions/5121/date-of-general-ai/">到 2033 年</a>，AGI 成為像農業/工業革命一樣改變物種的<a href="https://www.metaculus.com/questions/19356/transformative-ai-date/">到 2044 年</a>。 <a href="#fnref73" class="footnote-backref">↩︎</a></p>
+<li id="fn80" class="footnote-item"><p>例如，Good Judgment Project 和 Metaculus，兩者都在一般未來事件預測方面有經過驗證的最佳記錄，分別預測本世紀先進 AI 接近滅絕風險有 <a href="https://goodjudgment.com/superforecasting-ai/">1% 機率</a>和 <a href="https://possibleworldstree.com/">3% 機率</a>。（「哦，這聽起來不太糟糕，」你想，是的，等你看到非滅絕和/或非 AI 風險的百分比吧。）此外，Metaculus 預測 AGI 的中位數（有很大不確定性）是<a href="https://www.metaculus.com/questions/5121/date-of-general-ai/">到 2033 年</a>，AGI 成為像農業/工業革命一樣改變物種的<a href="https://www.metaculus.com/questions/19356/transformative-ai-date/">到 2044 年</a>。 <a href="#fnref80" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn74" class="footnote-item"><p><a href="https://dl.acm.org/doi/pdf/10.1145/3707649">AI 增強預測：LLM 助手提高人類預測準確性</a> – 「參與者（N = 991）回答了一組六個預測問題，並有選項在整個過程中諮詢他們分配的 LLM 助手。我們的<b>預先註冊的</b>分析表明，與對照組相比，與我們每個前沿 LLM 助手互動顯著提高了 24% 到 28% 的預測準確性。探索性分析顯示一個預測專案中有一個明顯的異常值效應，排除它之後我們發現<b>超級預測助手提高了 41% 的準確性</b>」 <a href="#fnref74" class="footnote-backref">↩︎</a> <a href="#fnref74:1" class="footnote-backref">↩︎</a></p>
+<li id="fn81" class="footnote-item"><p><a href="https://dl.acm.org/doi/pdf/10.1145/3707649">AI 增強預測：LLM 助手提高人類預測準確性</a> – 「參與者（N = 991）回答了一組六個預測問題，並有選項在整個過程中諮詢他們分配的 LLM 助手。我們的<b>預先註冊的</b>分析表明，與對照組相比，與我們每個前沿 LLM 助手互動顯著提高了 24% 到 28% 的預測準確性。探索性分析顯示一個預測專案中有一個明顯的異常值效應，排除它之後我們發現<b>超級預測助手提高了 41% 的準確性</b>」 <a href="#fnref81" class="footnote-backref">↩︎</a> <a href="#fnref81:1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn75" class="footnote-item"><p><a href="https://www.anthropic.com/news/anthropics-responsible-scaling-policy">Anthropic 的負責任擴充套件政策</a>（2023）受美國政府生物安全級別（BSL）啟發，他們定義了 ASL-1（舊的國際象棋 AI）、ASL-2（當前 LLM）、ASL-3 <a href="#fnref75" class="footnote-backref">↩︎</a></p>
+<li id="fn82" class="footnote-item"><p><a href="https://www.anthropic.com/news/anthropics-responsible-scaling-policy">Anthropic 的負責任擴充套件政策</a>（2023）受美國政府生物安全級別（BSL）啟發，他們定義了 ASL-1（舊的國際象棋 AI）、ASL-2（當前 LLM）、ASL-3 <a href="#fnref82" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn76" class="footnote-item"><p><a href="https://ora.ox.ac.uk/objects/uuid:b481e9ad-bc27-4550-87ca-f414354aeb35/files/s2v23vw012">Sandbrink et al 2022</a> <a href="#fnref76" class="footnote-backref">↩︎</a></p>
+<li id="fn83" class="footnote-item"><p><a href="https://ora.ox.ac.uk/objects/uuid:b481e9ad-bc27-4550-87ca-f414354aeb35/files/s2v23vw012">Sandbrink et al 2022</a> <a href="#fnref83" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn77" class="footnote-item"><p>來自 Stuart Russell，AI 最流行教科書的合著者：<a href="https://people.eecs.berkeley.edu/~russell/papers/issues22-laws.pdf">禁止致命自主武器：一種教育</a> <a href="#fnref77" class="footnote-backref">↩︎</a></p>
+<li id="fn84" class="footnote-item"><p>來自 Stuart Russell，AI 最流行教科書的合著者：<a href="https://people.eecs.berkeley.edu/~russell/papers/issues22-laws.pdf">禁止致命自主武器：一種教育</a> <a href="#fnref84" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn78" class="footnote-item"><p>引自 Tenet（2020），最「是的，這是一部諾蘭電影」的諾蘭電影。 <a href="#fnref78" class="footnote-backref">↩︎</a></p>
+<li id="fn85" class="footnote-item"><p>引自 Tenet（2020），最「是的，這是一部諾蘭電影」的諾蘭電影。 <a href="#fnref85" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn79" class="footnote-item"><p>例如，<a href="https://proceedings.neurips.cc/paper_files/paper/2017/file/d5e2c0adad503c91f91df240d0cd4e49-Paper.pdf">人類偏好的強化學習（RLHF）</a>，一種讓 AI 匯入人類價值觀的方法，就是將 Base GPT（一個自動完成工具）變成<i>Chat</i>GPT（一個真正的聊天機器人）的原因。同樣，提高 AI「直覺」的穩健性將有助於製造更好的 AI 醫療診斷和自動駕駛汽車。 <a href="#fnref79" class="footnote-backref">↩︎</a></p>
+<li id="fn86" class="footnote-item"><p>例如，<a href="https://proceedings.neurips.cc/paper_files/paper/2017/file/d5e2c0adad503c91f91df240d0cd4e49-Paper.pdf">人類偏好的強化學習（RLHF）</a>，一種讓 AI 匯入人類價值觀的方法，就是將 Base GPT（一個自動完成工具）變成<i>Chat</i>GPT（一個真正的聊天機器人）的原因。同樣，提高 AI「直覺」的穩健性將有助於製造更好的 AI 醫療診斷和自動駕駛汽車。 <a href="#fnref86" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn80" class="footnote-item"><p><a href="https://www.vox.com/future-perfect/21493812/smallpox-eradication-vaccines-infectious-disease-covid-19">天花曾經每年奪走數百萬人的生命。以下是人類如何戰勝它。</a>，Kelsey Piper 著 <a href="#fnref80" class="footnote-backref">↩︎</a></p>
+<li id="fn87" class="footnote-item"><p><a href="https://www.vox.com/future-perfect/21493812/smallpox-eradication-vaccines-infectious-disease-covid-19">天花曾經每年奪走數百萬人的生命。以下是人類如何戰勝它。</a>，Kelsey Piper 著 <a href="#fnref87" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn81" class="footnote-item"><p>來源：<a href="https://ourworldindata.org/child-mortality">Our World In Data</a> <a href="#fnref81" class="footnote-backref">↩︎</a></p>
+<li id="fn88" class="footnote-item"><p>來源：<a href="https://ourworldindata.org/child-mortality">Our World In Data</a> <a href="#fnref88" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn82" class="footnote-item"><p>2025 年 3 月 MIT 新聞：<a href="https://news.mit.edu/2025/study-healing-ozone-hole-global-reduction-cfcs-0305">研究：臭氧層空洞正在癒合，感謝全球減少 CFC</a>。「新結果以高統計置信度表明臭氧恢復進展順利。」 <a href="#fnref82" class="footnote-backref">↩︎</a></p>
+<li id="fn89" class="footnote-item"><p>2025 年 3 月 MIT 新聞：<a href="https://news.mit.edu/2025/study-healing-ozone-hole-global-reduction-cfcs-0305">研究：臭氧層空洞正在癒合，感謝全球減少 CFC</a>。「新結果以高統計置信度表明臭氧恢復進展順利。」 <a href="#fnref89" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn83" class="footnote-item"><p><a href="https://x.com/AlexBlechman/status/1457842724128833538">2021 年經典推文</a> by alex blechman <a href="#fnref83" class="footnote-backref">↩︎</a></p>
+<li id="fn90" class="footnote-item"><p><a href="https://x.com/AlexBlechman/status/1457842724128833538">2021 年經典推文</a> by alex blechman <a href="#fnref90" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn84" class="footnote-item"><p>開頭比喻來自 <a href="https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies">Nick Bostrom 2014 年的經典著作《超級智慧》</a> <a href="#fnref84" class="footnote-backref">↩︎</a></p>
+<li id="fn91" class="footnote-item"><p>開頭比喻來自 <a href="https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies">Nick Bostrom 2014 年的經典著作《超級智慧》</a> <a href="#fnref91" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn85" class="footnote-item"><p><a href="https://forum.effectivealtruism.org/topics/comprehensive-ai-services">CAIS 術語表條目</a> <a href="#fnref85" class="footnote-backref">↩︎</a></p>
+<li id="fn92" class="footnote-item"><p><a href="https://forum.effectivealtruism.org/topics/comprehensive-ai-services">CAIS 術語表條目</a> <a href="#fnref92" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn86" class="footnote-item"><p><a href="https://arxiv.org/abs/2502.15657">超級智慧代理構成災難性風險：科學家 AI 能提供更安全的路徑嗎？</a>，Bengio 等人 2025 <a href="#fnref86" class="footnote-backref">↩︎</a></p>
+<li id="fn93" class="footnote-item"><p><a href="https://arxiv.org/abs/2502.15657">超級智慧代理構成災難性風險：科學家 AI 能提供更安全的路徑嗎？</a>，Bengio 等人 2025 <a href="#fnref93" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn87" class="footnote-item"><p>來自 <a href="https://www.alignmentforum.org/posts/X2i9dQQK3gETCyqh2/chris-olah-s-views-on-agi-safety">Chris Olah 對 AGI 安全的看法，Evan Hubinger 著</a>：「我們可以使用 ML 作為<i>顯微鏡</i>——一種學習世界的方式，而不直接在其中採取行動。也就是說，與其訓練一個 RL 代理，你可以在一堆資料上訓練一個預測模型，並使用可解釋性工具來檢查它，弄清楚它學到了什麼，然後使用這些洞察來告知——無論是有人類在迴路中還是以某種自動化方式——你實際上想在世界上採取的任何行動。」 <a href="#fnref87" class="footnote-backref">↩︎</a></p>
+<li id="fn94" class="footnote-item"><p>來自 <a href="https://www.alignmentforum.org/posts/X2i9dQQK3gETCyqh2/chris-olah-s-views-on-agi-safety">Chris Olah 對 AGI 安全的看法，Evan Hubinger 著</a>：「我們可以使用 ML 作為<i>顯微鏡</i>——一種學習世界的方式，而不直接在其中採取行動。也就是說，與其訓練一個 RL 代理，你可以在一堆資料上訓練一個預測模型，並使用可解釋性工具來檢查它，弄清楚它學到了什麼，然後使用這些洞察來告知——無論是有人類在迴路中還是以某種自動化方式——你實際上想在世界上採取的任何行動。」 <a href="#fnref94" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn88" class="footnote-item"><p><a href="https://cdn.aaai.org/ocs/ws/ws0198/12613-57416-1-PB.pdf">分位器：有限最佳化中最大化器的更安全替代方案</a>，Jessica Taylor 2016 <a href="#fnref88" class="footnote-backref">↩︎</a></p>
+<li id="fn95" class="footnote-item"><p><a href="https://cdn.aaai.org/ocs/ws/ws0198/12613-57416-1-PB.pdf">分位器：有限最佳化中最大化器的更安全替代方案</a>，Jessica Taylor 2016 <a href="#fnref95" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn89" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Goodhart%27s_law">古德哈特定律</a>，換句話說：「<i>當你獎勵一個指標時，它通常會被操弄。</i>」 <a href="#fnref89" class="footnote-backref">↩︎</a></p>
+<li id="fn96" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Goodhart%27s_law">古德哈特定律</a>，換句話說：「<i>當你獎勵一個指標時，它通常會被操弄。</i>」 <a href="#fnref96" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn90" class="footnote-item"><p><a href="https://www.academia.edu/download/51625741/An_anatomical_signature_for_literacy._Na20170203-24453-1k92usb.pdf">識字的解剖學特徵</a>，Carreiras 等人 2009 <a href="#fnref90" class="footnote-backref">↩︎</a></p>
+<li id="fn97" class="footnote-item"><p><a href="https://www.academia.edu/download/51625741/An_anatomical_signature_for_literacy._Na20170203-24453-1k92usb.pdf">識字的解剖學特徵</a>，Carreiras 等人 2009 <a href="#fnref97" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn91" class="footnote-item"><p>在這裡引用我自己，呵呵：<a href="https://jods.mitpress.mit.edu/pub/issue3-case/release/6">如何成為半人馬</a>，Nicky Case (2018) 不過，見下一個腳註，主要類比現在已經過時了。 <a href="#fnref91" class="footnote-backref">↩︎</a></p>
+<li id="fn98" class="footnote-item"><p>在這裡引用我自己，呵呵：<a href="https://jods.mitpress.mit.edu/pub/issue3-case/release/6">如何成為半人馬</a>，Nicky Case (2018) 不過，見下一個腳註，主要類比現在已經過時了。 <a href="#fnref98" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn92" class="footnote-item"><p><a href="https://www.lesswrong.com/posts/sTboWTyf9MfERnsKp/gwern-about-centaurs-there-is-no-chance-that-any-useful-man">來自 Gwern</a> <a href="#fnref92" class="footnote-backref">↩︎</a></p>
+<li id="fn99" class="footnote-item"><p><a href="https://www.lesswrong.com/posts/sTboWTyf9MfERnsKp/gwern-about-centaurs-there-is-no-chance-that-any-useful-man">來自 Gwern</a> <a href="#fnref99" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
