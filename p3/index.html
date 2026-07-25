@@ -129,6 +129,14 @@
 
 <button id="to_top" type="button" aria-label="回到頁首" title="回到頁首（按 Home）">↑</button>
 
+<!-- Section readbar: current heading + progress % + copy-link.
+     Hidden until the chapter nav sticks (i.e. reader has scrolled past the header). -->
+<div id="readbar" aria-label="閱讀進度" hidden>
+    <span id="readbar_loc"></span>
+    <span id="readbar_pct"></span>
+    <button id="readbar_copy" type="button" title="複製此段落的連結">複製連結</button>
+</div>
+
 <!-- EVERYTHING TO THE LEFT of the sidebar... -->
 <div id="everything_container">
 

@@ -358,6 +358,9 @@ window.addEventListener("DOMContentLoaded", ()=>{
           progressBar = $("#reading_progress_bar"),
           chapterNav = $("#chapter_nav"),
           toTop = $("#to_top"),
+          readbar = $("#readbar"),
+          readbarLoc = $("#readbar_loc"),
+          readbarPct = $("#readbar_pct"),
           content = $("#content");
 
     // Section offsets are measured, not read every frame; re-measure whenever the
@@ -405,9 +408,16 @@ window.addEventListener("DOMContentLoaded", ()=>{
         clockLabel.innerHTML = (timeLeft==0) ? "🎉🎉🎉" : `~${timeLeft}m`;
 
         progressBar.style.width = (ratio*100) + "%";
+        const pastHeader = scrollY > header.offsetHeight;
         if(scrollY < header.offsetHeight) startAnimloop();
-        chapterNav.classList.toggle("stuck", scrollY > header.offsetHeight);
+        chapterNav.classList.toggle("stuck", pastHeader);
         toTop.classList.toggle("on", scrollY > viewportHeight * 1.4);
+        // Readbar: slide in once we're past the header, update % every frame.
+        if(readbar){
+            readbar.removeAttribute("hidden");
+            readbar.classList.toggle("on", pastHeader);
+            readbarPct.textContent = Math.round(ratio * 100) + "%";
+        }
 
         // Scroll-spy: the last section whose anchor is above the reading line.
         if(sectionTops.length){
@@ -421,6 +431,8 @@ window.addEventListener("DOMContentLoaded", ()=>{
                 currentSection = index;
                 const link = tocSections[index].link;
                 link.setAttribute("aria-current", "true");
+                // Update the readbar with the current section heading text.
+                if(readbarLoc) readbarLoc.textContent = tocSections[index].heading.textContent.trim();
                 // A 24-entry contents list scrolls; keep the highlight visible in it.
                 if(document.body.getAttribute("sidebar_state") === "open"){
                     link.scrollIntoView({ block:"nearest", behavior: wantsMotion ? "smooth" : "auto" });
@@ -441,6 +453,27 @@ window.addEventListener("DOMContentLoaded", ()=>{
     toTop.onclick = ()=>{
         window.scrollTo({ top:0, behavior: wantsMotion ? "smooth" : "auto" });
     };
+
+    // Readbar copy-link button: copies the URL to the current section.
+    const readbarCopy = $("#readbar_copy");
+    if(readbarCopy){
+        let copyTimer;
+        readbarCopy.onclick = ()=>{
+            const heading = currentSection >= 0 ? tocSections[currentSection].heading : null;
+            const url = heading && heading.id
+                ? location.href.split("#")[0] + "#" + heading.id
+                : location.href.split("#")[0];
+            navigator.clipboard.writeText(url).then(()=>{
+                readbarCopy.textContent = "✓ 已複製";
+                readbarCopy.classList.add("copied");
+                clearTimeout(copyTimer);
+                copyTimer = setTimeout(()=>{
+                    readbarCopy.textContent = "複製連結";
+                    readbarCopy.classList.remove("copied");
+                }, 2000);
+            }).catch(()=>{});
+        };
+    }
 
     ////////////////////////////////////////////////////////////
     // KEYBOARD ////////////////////////////////////////////////

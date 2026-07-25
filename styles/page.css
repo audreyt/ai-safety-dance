@@ -1038,6 +1038,81 @@ input#submit:hover{
 
 
 /*******************************/
+/* READBAR */
+/*******************************/
+
+/* Fixed bar at bottom-left. Shows current section title, reading %, and
+   a copy-link button. Appears once the chapter nav has gone sticky. */
+#readbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 58px; /* don't overlap the sidebar tabs */
+    z-index: 998;
+
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    padding: 0.45em 1.1em 0.55em;
+
+    font-size: 0.78rem;
+    color: rgba(0,0,0,0.55);
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(8px) saturate(1.3);
+    border-top: 1px solid rgba(0,0,0,0.07);
+
+    opacity: 0;
+    translate: 0 100%;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out, translate 0.3s ease-out;
+}
+#readbar.on {
+    opacity: 1;
+    translate: 0 0;
+    pointer-events: auto;
+}
+html[dark_mode=yes] #readbar {
+    color: rgba(255,255,255,0.55);
+    background: rgba(40,40,46,0.92);
+    border-top-color: rgba(255,255,255,0.08);
+}
+
+#readbar_loc {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 600;
+    color: inherit;
+    opacity: 0.9;
+}
+#readbar_pct {
+    font-variant-numeric: tabular-nums;
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+#readbar_copy {
+    font: inherit;
+    font-size: 0.75rem;
+    padding: 0.2em 0.7em;
+    border: 1px solid currentColor;
+    border-radius: 3em;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.15s, background 0.15s;
+    white-space: nowrap;
+}
+#readbar_copy:hover { opacity: 1; background: rgba(128,128,128,0.12); }
+#readbar_copy.copied { opacity: 1; color: #2a9d5c; border-color: #2a9d5c; }
+html[dark_mode=yes] #readbar_copy.copied { color: #5ce89a; border-color: #5ce89a; }
+
+/* On narrow screens the readbar competes with the mobile clock; hide it. */
+@media (max-width: 660px) { #readbar { display: none; } }
+
+
 /* MOBILE "FRIENDLY" */
 /*******************************/
 
