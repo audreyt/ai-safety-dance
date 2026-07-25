@@ -1,1 +1,7 @@
 .DS_Store
+node_modules/
+.tmp/
+.en/
+dist/
+coverage/
+*.log
