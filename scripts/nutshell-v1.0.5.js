@@ -438,35 +438,35 @@ Bubble: the box that expands below an expandable, containing a Nutshell Section
 
         },
 
-	'zh-TW': {
+        'zh-TW': {
 
-	    // 按鈕文字
-	    closeAllNutshells: `關閉所有概覽`,
-	    learnMore: `了解更多`,
+            // 按鈕文字
+            closeAllNutshells: `關閉所有果核`,
+            learnMore: `看更多`,
 
-	    // Nutshell 錯誤訊息...
-	    notFoundError: `啊噢，找不到該網頁！請再次確認連結：`,
-	    wikiError: `啊噢，無法載入維基百科，或是連結失效了。請再次確認：`,
-	    corsError: `啊噢，網頁找到了，但未提供內容！請檢查該網站是否已安裝 Nutshell 或已開啟跨來源資源共享 (CORS)：`,
-	    sectionIDError: `啊噢，沒有與 ID #[ID] 相符的段落！請注意拼字錯誤或地區用字差異。`,
-	    startTextError: `啊噢，找不到包含「[start]」文字的段落！請檢查是否有拼字錯誤。`,
+            // Nutshell 錯誤訊息...
+            notFoundError: `啊噢，找不到這個網頁！請再檢查一次連結：`,
+            wikiError: `啊噢，維基百科載不進來，或是連結壞了。請再檢查一次：`,
+            corsError: `啊噢，網頁找到了，卻不肯交出內容！請確認對方網站有裝 Nutshell，或已開啟跨來源資源共享（CORS）：`,
+            sectionIDError: `啊噢，沒有段落對得上這個 ID #[ID]！請注意拼字，以及各地用字差異。`,
+            startTextError: `啊噢，找不到含有「[start]」這段文字的段落！請檢查拼字。`,
 
-	    // 嵌入說明視窗
-	    embedStep0: `你可以將這個「可展開的說明」嵌入到自己的部落格或網站！
-			 點擊右側連結預覽 → [EXAMPLE]`,
-	    embedStep1: `步驟一）把以下程式碼複製到網站的 [HEAD]： [CODE]`,
-	    embedStep2: `步驟二）在文章中建立一個連結到 [LINK]
-			 並確保連結文字以冒號開頭，
-			 <a href="#">:像這樣</a>，
-			 這樣 Nutshell 才知道要把它做成可展開內容。`,
-	    embedStep3: `步驟三）就這樣，完成啦！🎉`,
+            // 嵌入說明視窗
+            embedStep0: `你可以把這個做成「可展開的說明」，嵌進自己的部落格或網站！
+                         點右側連結預覽 → [EXAMPLE]`,
+            embedStep1: `步驟一）把這段程式碼複製到網站的 [HEAD]：[CODE]`,
+            embedStep2: `步驟二）在文章裡加一個連到 [LINK] 的連結，
+                         並確保連結文字以冒號開頭，
+                         <a href="#">:像這樣</a>，
+                         這樣 Nutshell 才知道要把它做成可展開內容。`,
+            embedStep3: `步驟三）就這樣，完成啦！🎉`,
 
-	    // 在展開後需要保留的標點符號
-	    keepPunctuation: `。.,?!)_~'"’”`, // 包含中文句號
-	    // 哪些符號算是句尾標點（正則式）
-	    endPunctuation: /[。.?!]\s/g // 包含中文句號
+            // 展開後要保留的標點
+            keepPunctuation: `。.,?!)_~'"’”`, // 含中文句號
+            // 哪些符號算句尾（正則）
+            endPunctuation: /[。.?!]\s/g // 含中文句號
 
-	},
+        },
 
         he: {
             // Button text

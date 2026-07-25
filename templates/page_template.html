@@ -81,26 +81,26 @@
         </div>
         <br>
 
-        字體大小：
+        文字大小：
         <span id="style_fontsize"></span>
         <br>
         <input type="range" id="style_fontsize_slider" min="10" value="19" max="40">
         <br>
 
-        字體類型：
+        字型：
         <br>
         <label>
             <input type="radio" name="style_font_family" value="serif" checked>
-            <span style="font-family:'Merriweather'">襯線體</span>
+            <span style="font-family:'Merriweather'">襯線</span>
         </label>
         <br>
         <label>
             <input type="radio" name="style_font_family" value="sans_serif">
-            <span style="font-family:'Open Sans'">無襯線體</span>
+            <span style="font-family:'Open Sans'">無襯線</span>
         </label>
         <br><br>
 
-        <button id="style_reset">重設</button>
+        <button id="style_reset">還原預設</button>
 
     </div>
 
@@ -168,7 +168,7 @@
                     第一章
                 </div>
                 <div id="subtitle">
-                    過去、現在與可能的未來
+                    過去、現在，與可能的未來
                 </div>
             </div>
 
@@ -190,7 +190,7 @@
                 第三章
             </div>
             <div id="subtitle">
-                可能的解決方案
+                可能的解方
             </div>
         </div>
 
@@ -266,7 +266,7 @@
 		</div>
 		<div id="tab_style">
 			<div></div>
-			設定樣式 😎
+			調整樣式 😎
 		</div>
         <!--
 		<div id="tab_sub">
@@ -293,75 +293,75 @@
     <div id="post_credits">
         {% if not isPartThree %}
         <p>
-            哇，這是片尾彩蛋：
+            哇，片尾彩蛋來了：
         </p>
         {% endif %}
 <p>
-    <a href="#AllFeetnotes">: 查看所有註腳 👣</a>
+    <a href="#AllFeetnotes">: 看全部註腳 👣</a>
 </p>
 <p>
-    還有，可展開的「果核」小知識：
+    還有這些值得單獨展開的「果核」小知識：
 </p>
 {% if isFrontpage %}
 <p>
     <a href="#SpacedRepetition">: 什麼是間隔重複？</a>
     <br>
-    <a href="#ConcreteRogueAI">: AI「逃離控制」並影響世界的具體方式</a>
+    <a href="#ConcreteRogueAI">: AI 怎麼「逃出籠子」並影響真實世界</a>
 </p>
 <p>
-    另外，跳舞的機器人貓男動畫是基於<a href="https://www.youtube.com/watch?v=yD2FSwTy2lw">這個 JerryTerry 影片</a>。
+    另外，跳舞的機器人貓男動畫，是向<a href="https://www.youtube.com/watch?v=yD2FSwTy2lw">這支 JerryTerry 影片</a>致敬。
 </p>
 {% elif isPartOne %}
 <p>
-    <a href="#CapabilitiesNotIntelligence">: 為什麼說「能力」而不是「智慧」</a>
+    <a href="#CapabilitiesNotIntelligence">: 為什麼要說「能力」，不說「智慧」</a>
     <br>
-    <a href="#WhatsXOR">: 什麼是 XOR？</a>
+    <a href="#WhatsXOR">: XOR 是什麼？</a>
     <br>
-    <a href="#SadAIHistory">: 人工神經網路背後的悲傷故事</a>
+    <a href="#SadAIHistory">: 人工神經網路背後那段心酸史</a>
     <br>
-    <a href="#OneIsTwo">: 如果系統二推理<i>其實就是</i>一堆系統一反射呢？</a>
+    <a href="#OneIsTwo">: 萬一系統二推理<i>根本就是</i>一堆系統一反射呢？</a>
     <br>
-    <a href="#AIOrganizations">: 一份不嚴謹、非專業的 AI/安全領域人物名錄</a>
+    <a href="#AIOrganizations">: 一份不嚴謹、超不專業的 AI／安全圈 Who's Who</a>
 </p>
 {% elif isPartTwo %}
 <p>
-    <a href="#StoryOfPassivePrediction">: 一個關於被動預測如何導致不良後果的故事</a>
+    <a href="#StoryOfPassivePrediction">: 連「被動預測」都可能搞砸的故事</a>
     <br>
-    <a href="#SpuriousCorrelation">: 「虛假相關」如何欺騙 AI</a>
+    <a href="#SpuriousCorrelation">: 「假相關」怎麼把 AI 騙得團團轉</a>
     <br>
-    <a href="#OntologicalCrisis">: AI 中的「本體論危機」是什麼？</a>
+    <a href="#OntologicalCrisis">: AI 的「本體論危機」是什麼？</a>
     <br>
-    <a href="#Pipocalypse">: 圓周率末日故事</a>
+    <a href="#Pipocalypse">: π 末日傳奇</a>
     <br>
-    <a href="#WhatIfGoalMisgeneralizationIsGood">: 如果目標錯誤泛化其實是⋯⋯好事呢？</a>
+    <a href="#WhatIfGoalMisgeneralizationIsGood">: 目標錯誤泛化⋯⋯搞不好是好事？</a>
     <br>
-    <a href="#TradingWithAdvancedAIs">: 人類能與超人類 AI 進行交易嗎？</a>
+    <a href="#TradingWithAdvancedAIs">: 人類跟超人類 AI 做生意？行得通嗎？</a>
     <br>
-    <a href="#Axiom">: 什麼是「公理」？</a>
+    <a href="#Axiom">: 「公理」是什麼？</a>
 </p>
 {% elif isPartThree %}
 <p>
-    <a href="#SwissCheese">: 更多關於瑞士乳酪模型</a>
+    <a href="#SwissCheese">: 瑞士乳酪模型再多講一點</a>
     <br>
-    <a href="#RobustChainMath">: 穩健可擴展監督的數學</a>
+    <a href="#RobustChainMath">: 穩健、可擴展監督的數學</a>
     <br>
-    <a href="#ScalableOversightExtras">: 可擴展監督，額外說明</a>
+    <a href="#ScalableOversightExtras">: 可擴展監督・番外筆記</a>
     <br>
-    <a href="#IDA">: 迭代蒸餾與放大，解釋</a>
+    <a href="#IDA">: 迭代蒸餾與放大，白話解</a>
     <br>
-    <a href="#CriticalMassComic">: （刪除場景）「臨界質量」漫畫</a>
+    <a href="#CriticalMassComic">: （刪除場景）《臨界質量》漫畫</a>
     <br>
-    <a href="#FutureLivesFixes">: 「未來生命」演算法的修正</a>
+    <a href="#FutureLivesFixes">: 「未來世代」演算法的修補</a>
     <br>
-    <a href="#AISelfMod">: 「自我修改代理」的非正式文獻回顧</a>
+    <a href="#AISelfMod">: 「自我修改代理」非正式文獻速覽</a>
     <br>
-    <a href="#WorstOrAverage">: 最壞/平均/最好情況最佳化的優缺點</a>
+    <a href="#WorstOrAverage">: 最壞／平均／最好情況最佳化，各有什麼好壞</a>
     <br>
-    <a href="#LearnValuesExtraNotes">: 學習價值觀，額外說明</a>
+    <a href="#LearnValuesExtraNotes">: 學習我們的價值觀・番外筆記</a>
     <br>
-    <a href="#EconomicsAI">: AI 的經濟學</a>
+    <a href="#EconomicsAI">: AI 經濟學</a>
     <br>
-    <a href="#HumanLLMAdvantages">: 人類相對於大型語言模型的優勢</a>
+    <a href="#HumanLLMAdvantages">: 人類 vs 大型語言模型，誰佔上風</a>
 </p>
 {% endif %}
     </div>
