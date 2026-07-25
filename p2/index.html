@@ -636,7 +636,7 @@ b) 依<i class="hanzi">當前</i>目標挑選未來結果，</p>
 <h2>❓ 問題 3：缺乏可解釋性</h2>
 <p><img src="../media/p2/comix/Interpretability.png" alt="漫畫。火腿人類跟 Meowdy 警長說，他們有頂能讀機器人心智的頭盔。人類對機器人說：「打掃我的房子！」機器人心智裡全是看不懂的數字與圖表。「嗯，我完全不知道那是什麼意思，」人類說，此時機器人心智已變成「你自己掃」。「完——全不知道。」人類回。"></p>
 <p>雖然老式 AI 連貓的影像都認不出，我還是給它一個讚：我們<i class="hanzi">真的懂它們怎麼運作</i>。現代 AI <i class="hanzi">可不是</i>這樣。若自駕車危險地把卡車誤認成高速公路標誌，我們根本不知道它「為什麼」會這樣。我們沒辦法像對一般軟體那樣，去分析、去「除錯」現代 AI。</p>
-<p>但為什麼？要搞懂 AI「直覺」的問題，得先懂一些**統計學與機器學習（ML）**的核心概念。（<a href="#DifferenceBetweenMLAndAI">:ML 和 AI 有什麼差別？</a>）</p>
+<p>但為什麼？要搞懂 AI「直覺」的問題，得先懂一些<b>統計學與機器學習（ML）</b>的核心概念。（<a href="#DifferenceBetweenMLAndAI">:ML 和 AI 有什麼差別？</a>）</p>
 <p>例如，看這個簡單問題：</p>
 <p><strong>給一堆點（資料點），最適合的曲線是什麼？</strong></p>
 <p><img src="../media/p2/fit1/fit1_0001.png" alt="帶有一堆散點的雙軸圖。"></p>
@@ -1174,7 +1174,7 @@ b) 依<i class="hanzi">當前</i>目標挑選未來結果，</p>
 <p>例如，在「歐幾里得」幾何裡，有一條<a href="https://mathworld.wolfram.com/ParallelPostulate.html">關於平行線的著名公理</a>：給定一條線 A 和一個點 B，有<i class="hanzi">且只有一條</i>線平行於 A 並通過 B。你<i class="hanzi">需要</i>這條公理來證明像「三角形內角和為 180°」這種東西。</p>
 <p>像康德*這樣的哲學家相信歐幾里得幾何的絕對邏輯確定性。然後在 1900 年代初期，愛因斯坦透過展示<i class="hanzi">我們自己的宇宙</i>是非歐幾里得的，把這套信念炸掉了。你<i class="hanzi">真的可以</i>有內角和不等於 180° 的現實世界三角形。</p>
 <p>*（嗯，也許吧。古代哲學家寫作時留了很多詮釋空間。關於康德信仰的辯論，見 <a href="http://web.archive.org/web/20240730051708/https://scholars.hkbu.edu.hk/ws/portalfiles/portal/55351095/RO_rel_ja-17_JA030471.pdf">Palmquist 1990</a>）</p>
-<p>**重點是：你不能無中生有。**你需要<i class="hanzi">至少一條公理</i>才能證明其他東西，但根據定義，<i class="hanzi">那條</i>公理無法被證明。事實上，正如歐幾里得幾何的歷史所示，這條公理很可能不適合我們的宇宙。</p>
+<p><b>重點是：你不能無中生有。</b>你需要<i class="hanzi">至少一條公理</i>才能證明其他東西，但根據定義，<i class="hanzi">那條</i>公理無法被證明。事實上，正如歐幾里得幾何的歷史所示，這條公理很可能不適合我們的宇宙。</p>
 <h4>:x More Meta Ethics</h4>
 <p>關於元倫理學三巨頭，給非專業人的好入門，我強烈推薦 <a href="https://thecrashcourse.com/topic/philosophy/">Crash Course Philosophy 的小型影片系列，第 32 至 38 集</a>。💖（每集約 10 分鐘）</p>
 <p>想更深入的技術探討，史丹佛哲學百科全書很棒！這是他們關於<a href="https://plato.stanford.edu/entries/ethics-virtue/">美德倫理學</a>、<a href="https://plato.stanford.edu/entries/ethics-deontological/">義務論</a>、<a href="https://plato.stanford.edu/entries/consequentialism/">後果主義</a>的條目。（每條約需 60 分鐘讀，但可以略讀。）</p>
@@ -1299,7 +1299,7 @@ b) 依<i class="hanzi">當前</i>目標挑選未來結果，</p>
 </li>
 <li id="fn40" class="footnote-item"><p>AlexNet 約有 61,000,000 個參數。（<a href="http://web.archive.org/web/20240204130344/https://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/tutorials/tut6_slides.pdf">來源</a>，計算見第 10、11 頁。）它的訓練資料庫是 ImageNet，有 14,197,122 張人類標記影像。（<a href="https://paperswithcode.com/dataset/imagenet">來源</a>） <a href="#fnref40" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn41" class="footnote-item"><p>這註腳只列技術名稱，不解釋。總之：AlexNet 用了 ReLU 和 dropout。其他常見技術有：早停、L1／L2 正則化、資料擴增、雜訊注入。**2025 年 12 月更新：**還有，矛盾的是，當你<i class="hanzi">參數很多</i>時，反而會<i class="hanzi">產生</i>一種偏向簡單的「軟歸納偏見」！見 <a href="https://arxiv.org/pdf/2503.02113">Wilson (2025)</a> <a href="#fnref41" class="footnote-backref">↩︎</a></p>
+<li id="fn41" class="footnote-item"><p>這註腳只列技術名稱，不解釋。總之：AlexNet 用了 ReLU 和 dropout。其他常見技術有：早停、L1／L2 正則化、資料擴增、雜訊注入。<b>2025 年 12 月更新：</b>還有，矛盾的是，當你<i class="hanzi">參數很多</i>時，反而會<i class="hanzi">產生</i>一種偏向簡單的「軟歸納偏見」！見 <a href="https://arxiv.org/pdf/2503.02113">Wilson (2025)</a> <a href="#fnref41" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn42" class="footnote-item"><p>原始報告：<a href="https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC2545288&amp;blobtype=pdf">Lowry &amp; MacPherson (1988)</a>，為英國醫學雜誌所寫。注意這演算法沒特別用神經網路，但<i class="hanzi">確實</i>是機器學習的早期例子。 <a href="#fnref42" class="footnote-backref">↩︎</a></p>
 </li>

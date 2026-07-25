@@ -54,6 +54,18 @@ describe.each(PAGES.map((page) => page.exportTo))('%s', (exportTo) => {
     const output = await html(exportTo);
     expect([...output.matchAll(/<div selected/g)]).toHaveLength(1);
   });
+
+  it('leaves no unparsed **bold** markers in the prose', async () => {
+    // CommonMark: a closing `**` preceded by punctuation and followed by a letter
+    // is not right-flanking, so `**看這裡：**然後` never closes and both markers
+    // ship to the reader. Full-width CJK punctuation hits this constantly.
+    // Orbit flashcards are excluded — Orbit renders that markdown itself.
+    const prose = (await html(exportTo)).replace(
+      /<orbit-reviewarea[\s\S]*?<\/orbit-reviewarea>/g,
+      '',
+    );
+    expect(prose.match(/\*\*[^*\n]{0,80}/g) ?? []).toEqual([]);
+  });
 });
 
 describe('frontpage', () => {
