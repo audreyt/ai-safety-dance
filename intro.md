@@ -157,7 +157,7 @@ AI 安全的<i>核心</i>問題就是這個：[^russell-coined]
 
 來：**試試下面的閃卡，把剛學的留住！**
 
-（結尾有個可選註冊，<i>如果你</i>想把這些卡片存起來長期複習。注意：<i>這個 App 不是我做的，也不是我管的</i>，是第三方。如果你比較想用開源閃卡 App [Anki](https://apps.ankiweb.net/index.html)，**這裡有[可下載的 Anki 牌組](https://ankiweb.net/shared/info/341999410)**！）
+（這些卡片會記住你在<i>這個瀏覽器</i>裡的進度，不用註冊，資料也不會離開你的裝置。閃卡介面改自 [Orbit](https://withorbit.com)（Andy Matuschak 製作），中文化後由本站自行架設。想跨裝置、長期複習，可以用開源閃卡 App [Anki](https://apps.ankiweb.net/index.html)，**這裡有[可下載的 Anki 牌組](https://ankiweb.net/shared/info/341999410)**！）
 
 （另外，答案不必<i>一字不差</i>，大意對就好。夠不夠接近，你自己當裁判。）
 
