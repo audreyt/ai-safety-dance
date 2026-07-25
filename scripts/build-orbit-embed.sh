@@ -35,9 +35,11 @@ rm -rf "$TMPDIR/web-build"
 
 echo "==> Building the host web component"
 rm -rf "$TMPDIR/wc"
+# Trailing slash matters: GitHub Pages answers a bare directory path with a 301
+# to the slashed form, and we would rather the iframe not take a redirect hop.
 (cd "$ORBIT/packages/web-component" && bun build src/index.ts \
   --outdir "$TMPDIR/wc" --target browser --minify \
-  --define EMBED_API_BASE_URL='"/orbit-embed/embed"')
+  --define EMBED_API_BASE_URL='"/orbit-embed/embed/"')
 
 echo "==> Installing into $SITE"
 rm -rf "$SITE/orbit-embed"
