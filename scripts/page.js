@@ -6,17 +6,52 @@ window.$all = (query, el=document)=>{
     return [...document.querySelectorAll(query)];
 };
 
+/////////////////////////////////////////////////////////////
+// READING PREFERENCES //////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+// This block runs while <head> is still parsing, before <body> exists, so it
+// writes onto <html>. That's the whole point: a reader who chose dark mode on
+// the intro must not get a white flash on their way into chapter one.
+window.ReadingPrefs = (()=>{
+
+    const KEY = "aisafety.reading",
+          DEFAULTS = {
+              dark: window.matchMedia
+                  ? window.matchMedia('(prefers-color-scheme: dark)').matches
+                  : false,
+              size: 18,
+              font: "serif"
+          };
+
+    let prefs = {...DEFAULTS};
+    try{
+        // A reader in private mode, or one who blocks storage, still gets defaults.
+        Object.assign(prefs, JSON.parse(window.localStorage.getItem(KEY) || "{}"));
+    }catch(e){ /* no storage, no memory, no problem */ }
+
+    const apply = ()=>{
+        const html = document.documentElement;
+        html.setAttribute("dark_mode", prefs.dark ? "yes" : "no");
+        html.setAttribute("font_family", prefs.font);
+        html.style.fontSize = prefs.size + "px";
+    };
+    apply();
+
+    return {
+        get: ()=> ({...prefs}),
+        set(changes){
+            Object.assign(prefs, changes);
+            apply();
+            try{ window.localStorage.setItem(KEY, JSON.stringify(prefs)); }catch(e){}
+        },
+        reset(){ this.set({...DEFAULTS, dark:false}); }
+    };
+
+})();
+
 // TODO: not DOMContentLoaded??!??!?
 window.addEventListener("DOMContentLoaded", ()=>{
-
-    // DARK MODE INSTANT
-    let darkModeDefault;
-    if(window.matchMedia){
-        darkModeDefault = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }else{
-        darkModeDefault = false;
-    }
-    document.body.setAttribute("dark_mode", darkModeDefault ? "yes" : "no");
 
     /////////////////////////////////////////////////////////////
     // SIDEBAR SHTUFF ///////////////////////////////////////////
@@ -158,73 +193,41 @@ window.addEventListener("DOMContentLoaded", ()=>{
     }
 
     // READING CONTROLS
-    let updateStyle = ()=>{
+    // The panel is a *view* of ReadingPrefs, which already applied itself in <head>.
+    const fontSizeLabel = $("#style_fontsize"),
+          darkCheckbox = $("#style_dark_mode"),
+          sizeSlider = $("#style_fontsize_slider");
 
-        // Dark or not
-        let isDark = $("#style_dark_mode").checked;
-        document.body.setAttribute("dark_mode", isDark ? "yes" : "no");
-
-        // Font size
-        let fontsize = parseInt($("#style_fontsize_slider").value);
-        $("#style_fontsize").innerText = fontsize + 'px';
-        document.body.style.fontSize = fontsize + 'px';
-
-        // Font family
-        let selectedFont = $all("input[name=style_font_family]").find( (radioButton)=>{
-            return radioButton.checked;
-        }).value;
-        document.body.setAttribute("font_family", selectedFont);
-
-        // Also update localStorage to save settings across pages
-        //window.localStorage.style_dark = isDark;
-        //window.localStorage.style_size = fontsize;
-        //window.localStorage.style_font = selectedFont;
-
+    let syncPanelFromPrefs = ()=>{
+        const prefs = ReadingPrefs.get();
+        darkCheckbox.checked = prefs.dark;
+        sizeSlider.value = prefs.size;
+        fontSizeLabel.innerText = prefs.size + 'px';
+        $(`input[value=${prefs.font}]`).checked = true;
     };
-    // Dark Mode
+    let readPanelIntoPrefs = ()=>{
+        ReadingPrefs.set({
+            dark: darkCheckbox.checked,
+            size: parseInt(sizeSlider.value),
+            font: $all("input[name=style_font_family]").find(radio=>radio.checked).value
+        });
+        fontSizeLabel.innerText = ReadingPrefs.get().size + 'px';
+    };
+
     $("#style_dark_mode_container").onclick = ()=>{
-        $("#style_dark_mode").checked = !$("#style_dark_mode").checked;
-        updateStyle();
-    }
-    // Size
-    $("#style_fontsize_slider").oninput = ()=>{
-        updateStyle();
-    }
-    // Font Family
-    $all("input[name=style_font_family]").forEach( (radioButton)=>{
-        radioButton.onclick = updateStyle;
-    });
-    // Reset
-    let resetStyle = ()=>{
-        $("#style_dark_mode").checked = false;
-        $("#style_fontsize_slider").value = 18;
-        $("input[value=serif]").checked = true;
-        updateStyle();
+        darkCheckbox.checked = !darkCheckbox.checked;
+        readPanelIntoPrefs();
     };
-    $("#style_reset").onclick = resetStyle;
+    sizeSlider.oninput = readPanelIntoPrefs;
+    $all("input[name=style_font_family]").forEach(radio=>{
+        radio.onclick = readPanelIntoPrefs;
+    });
+    $("#style_reset").onclick = ()=>{
+        ReadingPrefs.reset();
+        syncPanelFromPrefs();
+    };
 
-    // Save settings across pages
-    //window.localStorage.style_dark = window.localStorage.style_dark || false;
-    //window.localStorage.style_size = window.localStorage.style_size || 19;
-    //window.localStorage.style_font = window.localStorage.style_font || "serif";
-    // Cut off transition CSS
-
-    // Set to localStorage's values (remember, they're STRINGS)
-    //$("#style_dark_mode").checked = (window.localStorage.style_dark=="true");
-    $("#style_dark_mode").checked = darkModeDefault;//(window.localStorage.style_dark=="true");
-    //$("#style_fontsize_slider").value = parseInt(window.localStorage.style_size);
-    $("#style_fontsize_slider").value = 18;
-    //$(`input[value=${window.localStorage.style_font}]`).checked = true;
-    $(`input[value=serif]`).checked = true;
-
-    // Jump to it w/o animation!
-    document.body.style.transition = "none";
-    setTimeout(()=>{
-        updateStyle();
-        setTimeout(()=>{
-            document.body.style.transition = null;
-        },1000);
-    },10);
+    syncPanelFromPrefs();
 
     ////////////////////////////////////////////////////////////
     // SCROLLY for NOT-FRONTPAGE pages /////////////////////////
