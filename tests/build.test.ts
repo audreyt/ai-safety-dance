@@ -66,6 +66,23 @@ describe.each(PAGES.map((page) => page.exportTo))('%s', (exportTo) => {
     );
     expect(prose.match(/\*\*[^*\n]{0,80}/g) ?? []).toEqual([]);
   });
+
+  it('leaves no unparsed _italic_ markers in the prose', async () => {
+    // `_` is stricter than `*`: CommonMark forbids intraword `_`, and every 漢字
+    // counts as a word character, so `創造物_一起成長_。` can never open — there is
+    // no space anywhere to flank against. Use `<i>` next to CJK, never `_`.
+    const page = await html(exportTo);
+    const article = /<article id="content">([\s\S]*?)<\/article>/.exec(page)?.[1] ?? '';
+    const prose = article
+      .replace(/<orbit-reviewarea[\s\S]*?<\/orbit-reviewarea>/g, '')
+      .replace(/<[^>]*>/g, '');
+    // Identifiers (`Robot_1`) and the `¯\_(ツ)_/¯` shrug keep their underscores;
+    // only a CJK-touching pair with no inner whitespace is a failed emphasis.
+    const leaked = (prose.match(/_[^_\s\n]{1,40}?_/g) ?? []).filter(
+      (span) => /[\u3400-\u9fff]/.test(span) && !/^_\d/.test(span),
+    );
+    expect(leaked).toEqual([]);
+  });
 });
 
 describe('frontpage', () => {

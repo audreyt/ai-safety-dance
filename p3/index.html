@@ -628,41 +628,41 @@
 <p>是的，AI 醫療診斷跟人類醫生不相上下。已經超過五年了。<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup></p>
 <h4>:x Worst Or Average</h4>
 <p>「最佳化最好情況」的好處壞處很直白：報酬更高，風險也高得多。</p>
-<p>有趣的是最佳化_最壞_情況 vs _平均_情況之間的權衡。</p>
+<p>有趣的是最佳化<i class="hanzi">最壞</i>情況 vs <i class="hanzi">平均</i>情況之間的權衡。</p>
 <p>「最大化合理的最壞情況」的好處是，嗯，永遠有「什麼都不做」這個選項。所以最壞也只是 AI 不會拆你家、不會駭進網路，它只是沒用、呆呆站著。</p>
 <p>然而壞處是⋯⋯AI 可能真的沒用、什麼都不做。例如我說「最大化合理的最壞情況」，但什麼叫「合理」？若 AI 因為吸塵器有 0.0000001% 機率引起電氣火災，就拒絕幫你打掃呢？</p>
-<p>也許你可以設門檻，像「忽略任何低於 0.1% 的事」？但硬門檻很任意，_而且_會自打嘴巴：_每年_出車禍的機率是百分之一（= 1%，高於 0.1%），一年 365 天（先忽略閏年），那就變成三萬六千五百分之一（≈ 0.027%，低於 0.1%）。所以 AI 若_按年或按日_想，可能會或不會把車禍風險算進去，也就會／不會堅持你繫安全帶。</p>
-<p>好吧，也許「最大化最壞情況」<i class="hanzi">再加上偏向簡單世界模型</i>？這樣 AI 比較不會「被害妄想」，老想「吸塵器會不會引起電氣火災」？經驗上，<a href="https://arxiv.org/pdf/1911.08731">這篇論文</a>發現「最佳最壞情況」訓練穩健 AI 的作法，_只有_在你也用「正則化」把 AI 往簡單推時才有效。</p>
-<p>話說回來，那篇論文研究的是_分類圖像_的 AI，不是能_對世界動手_的 AI。我不確定「最佳最壞情況」＋「簡單模型」對這種「代理型」AI 管不管用。「什麼都不做」不還是_最簡單的_世界模型嗎？</p>
-<p>好，也許改走傳統的「最大化_平均_情況」？</p>
-<p>然而這可能掉進<a href="https://nickbostrom.com/papers/pascal.pdf">「帕斯卡搶劫」</a>：若有人走過來跟你說，<i class="hanzi">給我 \$5 不然明天 80 億人都會死</i>，就算你覺得他說真話的機率只有十億分之一（0.0000001%），「期望值」仍是救 80 億人 × 十億分之一 = 花 \$5 救 8 條命。問題是，人類_感覺_不出 0.0000001% 和 0.0000000000000000001% 的差別，而我們目前也不會做能學到那麼精細機率的神經網路。</p>
-<p>（公平地說，「最大化最壞情況」對帕斯卡搶劫會_更_脆弱。在上面的場景中，_不_給他們 \$5 的最壞情況是 80 億人死，給他們 \$5 的最壞情況是你損失 \$5。）</p>
+<p>也許你可以設門檻，像「忽略任何低於 0.1% 的事」？但硬門檻很任意，<i class="hanzi">而且</i>會自打嘴巴：<i class="hanzi">每年</i>出車禍的機率是百分之一（= 1%，高於 0.1%），一年 365 天（先忽略閏年），那就變成三萬六千五百分之一（≈ 0.027%，低於 0.1%）。所以 AI 若<i class="hanzi">按年或按日</i>想，可能會或不會把車禍風險算進去，也就會／不會堅持你繫安全帶。</p>
+<p>好吧，也許「最大化最壞情況」<i class="hanzi">再加上偏向簡單世界模型</i>？這樣 AI 比較不會「被害妄想」，老想「吸塵器會不會引起電氣火災」？經驗上，<a href="https://arxiv.org/pdf/1911.08731">這篇論文</a>發現「最佳最壞情況」訓練穩健 AI 的作法，<i class="hanzi">只有</i>在你也用「正則化」把 AI 往簡單推時才有效。</p>
+<p>話說回來，那篇論文研究的是<i class="hanzi">分類圖像</i>的 AI，不是能<i class="hanzi">對世界動手</i>的 AI。我不確定「最佳最壞情況」＋「簡單模型」對這種「代理型」AI 管不管用。「什麼都不做」不還是<i class="hanzi">最簡單的</i>世界模型嗎？</p>
+<p>好，也許改走傳統的「最大化<i class="hanzi">平均</i>情況」？</p>
+<p>然而這可能掉進<a href="https://nickbostrom.com/papers/pascal.pdf">「帕斯卡搶劫」</a>：若有人走過來跟你說，<i class="hanzi">給我 \$5 不然明天 80 億人都會死</i>，就算你覺得他說真話的機率只有十億分之一（0.0000001%），「期望值」仍是救 80 億人 × 十億分之一 = 花 \$5 救 8 條命。問題是，人類<i class="hanzi">感覺</i>不出 0.0000001% 和 0.0000000000000000001% 的差別，而我們目前也不會做能學到那麼精細機率的神經網路。</p>
+<p>（公平地說，「最大化最壞情況」對帕斯卡搶劫會<i class="hanzi">更</i>脆弱。在上面的場景中，<i class="hanzi">不</i>給他們 \$5 的最壞情況是 80 億人死，給他們 \$5 的最壞情況是你損失 \$5。）</p>
 <p>然而：</p>
-<p>就算人類感覺不出 0.0000001% 跟 0.0000000000000000001% 的差別⋯⋯我們多數人也不會上上述帕斯卡搶劫的當。所以，就算天真的平均情況跟最壞情況都會被帕斯卡搶劫咬一口，一定存在_某種_辦法做出在不確定性下表現沒那麼糟的神經網路：人腦就是例子。</p>
+<p>就算人類感覺不出 0.0000001% 跟 0.0000000000000000001% 的差別⋯⋯我們多數人也不會上上述帕斯卡搶劫的當。所以，就算天真的平均情況跟最壞情況都會被帕斯卡搶劫咬一口，一定存在<i class="hanzi">某種</i>辦法做出在不確定性下表現沒那麼糟的神經網路：人腦就是例子。</p>
 <p>帕斯卡搶劫悖論的解法提案很多，呃，品質參差。但我目前看到最有說服力的，是 <a href="https://blog.givewell.org/2011/08/18/why-we-cant-take-expected-value-estimates-literally-even-when-theyre-unbiased/">Holden Karnofsky 的〈為什麼我們不能把期望值估計按字面奉行（就算它們無偏）〉</a>，它「展示貝氏調整如何避開那些死抓明確期望值計算的人似乎很容易踩到的帕斯卡搶劫」。</p>
-<p>解法白話總結：一個行動被吹得影響_越大_，你的先驗機率就該_越低_。而且是_超指數級_地低。這解釋一個看似悖論的現象：搶匪若說「給我 \$5 不然我殺_你_」，你會比他說「給我 \$5 不然我殺_地球上的每個人_」更當真——即使後者賭注大得多，而且「每個人」包含你。</p>
-<p>若有人把聲稱的價值放大 80 億倍，你該把機率砍_超過_ 80 億倍，這樣期望值（機率 × 價值）在更高的聲稱風險下反而會_更低_。這抓住了「好到不像真的」，或反過來說「壞到不像真的」的直覺。</p>
+<p>解法白話總結：一個行動被吹得影響<i class="hanzi">越大</i>，你的先驗機率就該<i class="hanzi">越低</i>。而且是<i class="hanzi">超指數級</i>地低。這解釋一個看似悖論的現象：搶匪若說「給我 \$5 不然我殺<i class="hanzi">你</i>」，你會比他說「給我 \$5 不然我殺<i class="hanzi">地球上的每個人</i>」更當真——即使後者賭注大得多，而且「每個人」包含你。</p>
+<p>若有人把聲稱的價值放大 80 億倍，你該把機率砍<i class="hanzi">超過</i> 80 億倍，這樣期望值（機率 × 價值）在更高的聲稱風險下反而會<i class="hanzi">更低</i>。這抓住了「好到不像真的」，或反過來說「壞到不像真的」的直覺。</p>
 <p>（這也是為什麼，或許合理地，<a href="https://goodjudgment.com/superforecasting-ai/">超級預測者「只」給 AI 滅絕風險 1% 的機率</a>。它聽起來「壞到不像真的」。公平：非凡主張需要非凡證據，AI 安全人有責任證明它真有那麼危險。希望這個系列已經盡到這份工！）</p>
-<p>所以，「高影響行動不太可能」這個先驗能避開帕斯卡搶劫！再加上「多數行動在被證明有幫助前都沒幫助」的先驗——（你若隨機改故事裡一個詞，故事很可能_變差_）——就能讓 AI 偏向安全，又不會變成完全沒用、「永遠什麼都不做」的機器人。</p>
-<p>喔，最佳化最壞／平均／最好情況也不是_唯一_選項：你可以取中間任何一點，例如「最佳化最差第 5 百分位」等等。</p>
+<p>所以，「高影響行動不太可能」這個先驗能避開帕斯卡搶劫！再加上「多數行動在被證明有幫助前都沒幫助」的先驗——（你若隨機改故事裡一個詞，故事很可能<i class="hanzi">變差</i>）——就能讓 AI 偏向安全，又不會變成完全沒用、「永遠什麼都不做」的機器人。</p>
+<p>喔，最佳化最壞／平均／最好情況也不是<i class="hanzi">唯一</i>選項：你可以取中間任何一點，例如「最佳化最差第 5 百分位」等等。</p>
 <p>總之，這是有趣又開放的問題！還需要更多研究。</p>
 <h4>:x Learn Values Extra Notes</h4>
 <p><strong>「步驟 1：從夠好的先驗開始」。</strong></p>
-<p>人類價值觀的「先驗」可以靠我們大量的文字來_近似_。<a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/f978c8f3b5f399cae464e85f72e28503-Paper-Conference.pdf">LLM 在提出共識聲明方面_比人類更好_</a>；我覺得 LLM 已經證明「對我們在乎什麼提出合理、帶不確定性的近似」這關過了。</p>
+<p>人類價值觀的「先驗」可以靠我們大量的文字來<i class="hanzi">近似</i>。<a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/f978c8f3b5f399cae464e85f72e28503-Paper-Conference.pdf">LLM 在提出共識聲明方面<i class="hanzi">比人類更好</i></a>；我覺得 LLM 已經證明「對我們在乎什麼提出合理、帶不確定性的近似」這關過了。</p>
 <p><a href="https://www.astralcodexten.com/p/chai-assistance-games-and-fully-updated">有人提過的反駁</a>：若你從一個瘋狂愚蠢或糟糕的先驗起步，例如「人類想被轉成迴紋針，我 100% 確定，什麼證據都說服不了我」，那當然會失敗。解法是⋯⋯就別那樣做？就別給它蠢先驗？</p>
-<p>對合作逆強化學習有個更好、但我仍覺得是錯的反駁，答案一樣：「若我們要 AI 學我們的價值觀，它會不會——比如說——解剖我們的大腦，好最大限度地學？」啊，可它_不是_被派去最大化學習！只是在確定能改善我們（不確定的）價值觀的範圍內才學。具體例子／類比：</p>
+<p>對合作逆強化學習有個更好、但我仍覺得是錯的反駁，答案一樣：「若我們要 AI 學我們的價值觀，它會不會——比如說——解剖我們的大腦，好最大限度地學？」啊，可它<i class="hanzi">不是</i>被派去最大化學習！只是在確定能改善我們（不確定的）價值觀的範圍內才學。具體例子／類比：</p>
 <ul>
 <li>機器人被派去最大化金錢。</li>
 <li>機器人看到箱子 A 和箱子 B，知道兩者都裝了 \$0 到 \$10 之間的隨機金額。</li>
 <li>然後有人讓它選：要不要付 \$11 來揭曉箱子裡有多少。</li>
-<li>若機器人要最大化金錢，它不會付 \$11 去學那個資訊，因為_最多_也只能靠那資訊多賺 \$10。</li>
+<li>若機器人要最大化金錢，它不會付 \$11 去學那個資訊，因為<i class="hanzi">最多</i>也只能靠那資訊多賺 \$10。</li>
 <li>所以機器人會隨機挑 A 或 B，<i class="hanzi">並且永遠不會去學另一箱裡有什麼。</i></li>
 </ul>
-<p>重點是：「一邊學不確定的價值、一邊試著最大化它」≠「最大化_對那個價值的學習_」。所以在人類情境裡，只要你不給機器人瘋狂先驗——例如「我 100% 確定人類不介意大腦被取出來解剖拿去學」——只要機器人覺得人類_可能_會嚇死，它（若最佳化平均或最壞情況）<i class="hanzi aside">至少會先問：「嘿，我可以解剖你的大腦嗎？你確定嗎？你真的確定嗎？你真的真的確定嗎？」</i></p>
-<p><strong>「步驟 2：我們說的、做的一切都是_線索_。」</strong></p>
+<p>重點是：「一邊學不確定的價值、一邊試著最大化它」≠「最大化<i class="hanzi">對那個價值的學習</i>」。所以在人類情境裡，只要你不給機器人瘋狂先驗——例如「我 100% 確定人類不介意大腦被取出來解剖拿去學」——只要機器人覺得人類<i class="hanzi">可能</i>會嚇死，它（若最佳化平均或最壞情況）<i class="hanzi aside">至少會先問：「嘿，我可以解剖你的大腦嗎？你確定嗎？你真的確定嗎？你真的真的確定嗎？」</i></p>
+<p><strong>「步驟 2：我們說的、做的一切都是<i class="hanzi">線索</i>。」</strong></p>
 <p>學任何未知事物，理論上最理想的方式是<a href="https://www.youtube.com/watch?v=HZGCoVF3YvM">貝氏推斷</a>。不幸的是，實務上不可行——但是！——已有令人振奮的工作在談<a href="https://proceedings.mlr.press/v48/gal16.pdf">怎麼在神經網路裡有效近似它</a>。</p>
 <p><strong>「步驟 3：選最壞／平均／最好情況」</strong></p>
-<p>（詳情見上面／稍早可點開的虛線底線段落。那一節_超長_。）</p>
+<p>（詳情見上面／稍早可點開的虛線底線段落。那一節<i class="hanzi">超長</i>。）</p>
 <h3>🤔 複習 #3</h3>
 <p>又一輪（選讀）閃卡複習：</p>
 <orbit-reviewarea uid="https://ai.audreyt.org/p3/" color="violet">
@@ -1513,14 +1513,14 @@
 <p><img src="../media/p3/cyborg/weaver2.png" alt="西格妮·韋弗的特寫"></p>
 <p>這相當酷。</p>
 <p>記住：目標不一定是「擁有 AGI」——而是找到疾病的治療方法，幫助我們變得更有智慧，確保人類（和／或其他有情眾生）盡可能地繁榮。如果自主 AGI 是實現這一目標的<i class="hanzi">唯一</i>方式，那就去做吧。但我猜測——至少希望——「賽博格」方法也是另一條路：</p>
-<p>讓我們與自己的創造物_一起成長_。</p>
+<p>讓我們與自己的創造物<i class="hanzi">一起成長</i>。</p>
 <h4>:x Human LLM Advantages</h4>
 <p>人類和 LLM 各自擅長什麼的更詳細列表。（<i class="hanzi">目前</i>，不過請看上面的「齒輪」部分，了解為什麼我懷疑這些差異對 LLM 來說是根本性的）</p>
 <p>💪 <strong>人類更擅長：</strong></p>
 <ul>
 <li>不常見的任務</li>
 <li>不常見的規則發現</li>
-<li>在_不常見_環境中的常見任務</li>
+<li>在<i class="hanzi">不常見</i>環境中的常見任務</li>
 <li>長期連貫的規劃</li>
 <li>「多模態」思維，在文字和圖像之間流暢切換</li>
 <li>在物理世界中的靈巧性和推理</li>
@@ -1528,13 +1528,13 @@
 <p>🦾 <strong>LLM 更擅長：</strong></p>
 <ul>
 <li>常見的短任務，<i class="hanzi">快速</i></li>
-<li>識別和應用_常見_的規則/模式</li>
+<li>識別和應用<i class="hanzi">常見</i>的規則/模式</li>
 <li>對許多主題的廣泛（雖然淺薄）知識</li>
 <li>可以角色扮演各種角色（雖然是刻板印象式的）</li>
 <li>高方差的頭腦風暴（你可以輕鬆重置 LLM 的上下文）</li>
 <li>基於語言的任務，如搜尋、摘要、翻譯、情感分析。</li>
 </ul>
-<p>希望這能給你（和我自己）一些靈感，關於如何設計_結合_人類和 AI 技能的工具，同時將人類自主權放在中心！</p>
+<p>希望這能給你（和我自己）一些靈感，關於如何設計<i class="hanzi">結合</i>人類和 AI 技能的工具，同時將人類自主權放在中心！</p>
 <hr>
 <h3>🤔 複習 #10（最後一個！）</h3>
 <orbit-reviewarea uid="https://ai.audreyt.org/p3/" color="violet">
@@ -1727,15 +1727,15 @@
 <li id="fn39" class="footnote-item"><p>Ozy Brennan 對比賽的評論：<a href="https://thingofthings.substack.com/p/on-the-ai-fiction-turing-test">AI 能擊敗人類小說作家，因為人類不擅長寫小說：糟糕的閱讀理解</a>。像 LLM 擊敗圖靈測試的研究一樣，這個結果（雖然令人印象深刻）與其說是「AI 真的很好」不如說是「人類真的很差」。而且這些人類作家也不是新手，他們是出版過書籍的專業人士。</p>
 <p>我們徹底完蛋了。 <a href="#fnref39" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn40" class="footnote-item"><p><a href="https://www.anthropic.com/research/project-vend-1">Project Vend：Claude 能經營一家小店嗎？</a> 答案：不能。Claude 開始在食品自動販賣機裡放鎢立方體，並幻覺自己是一個去辛普森家的真人送貨員。<a href="https://andonlabs.com/evals/vending-bench-2">Vending Bench 2</a> 測量所有前沿 LLM 在這個「經營自動販賣機一年」任務上的表現。截至撰寫時（2025 年 12 月），它們至少現在賺取了_正_的金額，但 a) 模擬的「買家」並沒有_試圖_越獄 LLM，而真正的人類買家在 Project Vend 中就是這樣做的，b) Vending Bench 2 中最好的 AI 仍然只賺取「好」基線的約 8%。 <a href="#fnref40" class="footnote-backref">↩︎</a> <a href="#fnref40:1" class="footnote-backref">↩︎</a></p>
+<li id="fn40" class="footnote-item"><p><a href="https://www.anthropic.com/research/project-vend-1">Project Vend：Claude 能經營一家小店嗎？</a> 答案：不能。Claude 開始在食品自動販賣機裡放鎢立方體，並幻覺自己是一個去辛普森家的真人送貨員。<a href="https://andonlabs.com/evals/vending-bench-2">Vending Bench 2</a> 測量所有前沿 LLM 在這個「經營自動販賣機一年」任務上的表現。截至撰寫時（2025 年 12 月），它們至少現在賺取了<i class="hanzi">正</i>的金額，但 a) 模擬的「買家」並沒有<i class="hanzi">試圖</i>越獄 LLM，而真正的人類買家在 Project Vend 中就是這樣做的，b) Vending Bench 2 中最好的 AI 仍然只賺取「好」基線的約 8%。 <a href="#fnref40" class="footnote-backref">↩︎</a> <a href="#fnref40:1" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn41" class="footnote-item"><p><a href="https://www.lesswrong.com/posts/HyD3khBjnBhvsp8Gb/so-how-well-is-claude-playing-pokemon">那麼 Claude 玩 Pokémon 玩得怎麼樣？</a> <i class="hanzi">「簡而言之：相當糟糕。比 6 歲小孩還差。」</i> 原因解釋：「基本上，雖然 Claude 在短期推理方面相當擅長（例如 Pokémon 戰鬥），但他在執行功能方面很差，記憶力也很差。這是儘管有<a href="https://excalidraw.com/#json=WrM9ViixPu2je5cVJZGCe,no_UoONhF6UxyMpTqltYkg">大量的腳手架</a>，包括知識庫、幫助它維護知識庫的批評者 Claude，以及各種幫助它更容易與遊戲互動的工具。」 <a href="#fnref41" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn42" class="footnote-item"><p><a href="https://www.pnas.org/doi/pdf/10.1073/pnas.2322420121">《自回歸的餘燼》(2024)</a> 展示了 GPT-4 如何能做_常見的_ <a href="https://en.wikipedia.org/wiki/ROT13">ROT-13</a> 密碼，但在_不常見但同樣簡單的_ ROT-12 密碼上完全失敗。正如<a href="https://www.pnas.org/action/downloadSupplement?doi=10.1073%2Fpnas.2322420121&amp;file=pnas.2322420121.sapp.pdf">補充資訊顯示（圖 S13）</a>，即使開啟「思維鏈」推理也是如此。雖然公平地說，這篇論文是 2024 年的，我剛才試了 ROT-12 和 ROT-11 的 Claude Sonnet 4.5，它做得很好。雖然我們稍後會在本節中看到，Claude 和 LLM 的思維鏈_仍然_非常脆弱。 <a href="#fnref42" class="footnote-backref">↩︎</a></p>
+<li id="fn42" class="footnote-item"><p><a href="https://www.pnas.org/doi/pdf/10.1073/pnas.2322420121">《自回歸的餘燼》(2024)</a> 展示了 GPT-4 如何能做<i class="hanzi">常見的</i> <a href="https://en.wikipedia.org/wiki/ROT13">ROT-13</a> 密碼，但在<i class="hanzi">不常見但同樣簡單的</i> ROT-12 密碼上完全失敗。正如<a href="https://www.pnas.org/action/downloadSupplement?doi=10.1073%2Fpnas.2322420121&amp;file=pnas.2322420121.sapp.pdf">補充資訊顯示（圖 S13）</a>，即使開啟「思維鏈」推理也是如此。雖然公平地說，這篇論文是 2024 年的，我剛才試了 ROT-12 和 ROT-11 的 Claude Sonnet 4.5，它做得很好。雖然我們稍後會在本節中看到，Claude 和 LLM 的思維鏈<i class="hanzi">仍然</i>非常脆弱。 <a href="#fnref42" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn43" class="footnote-item"><p><a href="https://arcprize.org/">ARC-AGI</a> 是一堆畫素拼圖遊戲。與大多數遊戲不同，在那裡你被預先告知規則，在 ARC-AGI 中，<i class="hanzi">你必須透過探索學習隱藏的規則</i>，然後透過應用規則贏得遊戲來證明你理解它。</p>
-<p><a href="https://arcprize.org/leaderboard">查看排行榜分解</a>：十人小組在 ARC-AGI-1 和 -2 上的表現是 98% 和 100%，每個任務花費 $17（~每個任務在 Mechanical Turk 上僱用 10 名工人，如果_至少一個_成功則算成功）。</p>
-<p>最好的 AI（Gemini 3 Deep Think）在 ARC-AGI-1 和 -2 上是 87.5%（稍差）和 45.1%（<i class="hanzi">差很多</i>），每個任務花費 $77（幾乎是_在 MTurk 上僱用十個人_的_五倍_貴）。 <a href="#fnref43" class="footnote-backref">↩︎</a></p>
+<p><a href="https://arcprize.org/leaderboard">查看排行榜分解</a>：十人小組在 ARC-AGI-1 和 -2 上的表現是 98% 和 100%，每個任務花費 $17（~每個任務在 Mechanical Turk 上僱用 10 名工人，如果<i class="hanzi">至少一個</i>成功則算成功）。</p>
+<p>最好的 AI（Gemini 3 Deep Think）在 ARC-AGI-1 和 -2 上是 87.5%（稍差）和 45.1%（<i class="hanzi">差很多</i>），每個任務花費 $77（幾乎是_在 MTurk 上僱用十個人<i class="hanzi">的</i>五倍_貴）。 <a href="#fnref43" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn44" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/File:Tower_of_Hanoi.jpeg">照片來自 User:Evanherk</a> <a href="#fnref44" class="footnote-backref">↩︎</a></p>
 </li>
@@ -1746,7 +1746,7 @@
 <li id="fn47" class="footnote-item"><p>第 N 層的解法涉及執行前一層的解法<i class="hanzi">兩次</i>（把 N-1 層塔從柱 A 移到柱 B，再從柱 B 移到柱 C），加上一步額外的移動（把最大的圓盤從柱 A 移到柱 C）。</p>
 <p>那麼解 N 個圓盤需要多少步？讓我們來算算：</p>
 <p>1 個圓盤，<strong>1 步</strong></p>
-<p>2 個圓盤，1 * 2 + 1 = <strong>3 步</strong>（前一層解法_兩次_ + 一步額外移動）</p>
+<p>2 個圓盤，1 * 2 + 1 = <strong>3 步</strong>（前一層解法<i class="hanzi">兩次</i> + 一步額外移動）</p>
 <p>3 個圓盤，3 * 2 + 1 = <strong>7 步</strong></p>
 <p>4 個圓盤，7 * 2 + 1 = <strong>15 步</strong></p>
 <p>5 個圓盤，15 * 2 + 1 = <strong>31 步</strong></p>
