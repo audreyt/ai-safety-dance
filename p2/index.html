@@ -52,6 +52,11 @@
 </head>
 <body>
 
+<a id="skip_to_content" href="#content" target="_self">跳到內文</a>
+
+<!-- How far down the page you are. Driven by scripts/page.js. -->
+<div id="reading_progress"><div id="reading_progress_bar"></div></div>
+
 <!-- HACKBRAND -->
 <a class="orpheus-flag" target="_blank" href="https://hackclub.com/">
 	<img src="../styles/orpheus-flag.svg" width="560" height="315" alt="A project by Hack Club" aria-label="A project by Hack Club">
@@ -71,26 +76,26 @@
         </div>
         <br>
 
-        字體大小：
+        文字大小：
         <span id="style_fontsize"></span>
         <br>
         <input type="range" id="style_fontsize_slider" min="10" value="19" max="40">
         <br>
 
-        字體類型：
+        字型：
         <br>
         <label>
             <input type="radio" name="style_font_family" value="serif" checked>
-            <span style="font-family:'Merriweather'">襯線體</span>
+            <span style="font-family:'Merriweather'">襯線</span>
         </label>
         <br>
         <label>
             <input type="radio" name="style_font_family" value="sans_serif">
-            <span style="font-family:'Open Sans'">無襯線體</span>
+            <span style="font-family:'Open Sans'">無襯線</span>
         </label>
         <br><br>
 
-        <button id="style_reset">重設</button>
+        <button id="style_reset">還原預設</button>
 
     </div>
 
@@ -111,6 +116,8 @@
 	<div id="clock_icon"></div>
 	<div id="clock_label"></div>
 </div>
+
+<button id="to_top" type="button" aria-label="回到頁首" title="回到頁首（按 Home）">↑</button>
 
 <!-- EVERYTHING TO THE LEFT of the sidebar... -->
 <div id="everything_container">
@@ -159,7 +166,7 @@
                     </span>
                 </div>
             </a>
-            <a target="_self" href="../p1"
+            <a target="_self" href="../p1/"
                 class="live">
                 <div  >
                     <span class='chapter-nav-desktop'>
@@ -170,7 +177,7 @@
                     </span>
                 </div>
             </a>
-            <a target="_self" href="../p2"
+            <a target="_self" href="../p2/"
                 class="live">
                 <div selected >
                     <span class='chapter-nav-desktop'>
@@ -181,7 +188,7 @@
                     </span>
                 </div>
             </a>
-            <a target="_self" href="../p3"
+            <a target="_self" href="../p3/"
                 class="live">
                 <div  >
                     <span class='chapter-nav-desktop'>
@@ -192,7 +199,7 @@
                     </span>
                 </div>
             </a>
-            <a target="_self" href="../conclusion"
+            <a target="_self" href="../conclusion/"
                 class="live">
                 <div style="border-right:1px solid rgba(128,128,128,0.8);">
                     <span class='chapter-nav-desktop'>
@@ -214,7 +221,7 @@
 		</div>
 		<div id="tab_style">
 			<div></div>
-			設定樣式 😎
+			調整樣式 😎
 		</div>
         <!--
 		<div id="tab_sub">
@@ -229,119 +236,119 @@
 	<article id="content">
 <p><i>（如果你是直接被連結到這個頁面的，建議你先看看<a href="../">導讀和第一章！</a>）</i></p>
 <blockquote>
-<p>「一個問題陳述得好，就解決了一半。」
-~ 某人<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>（👈 懸停引用以展開）</p>
+<p>「問題講清楚，就解決了一半。」
+~ 某人<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>（👈 懸停引用可展開）</p>
 </blockquote>
-<p><i>「你不是幾分鐘前用過那句話嗎？」</i>你問。不，<a href="../p1/">第一章</a>是 2024 年 5 月發布的，這部分是 <strong>2024 年 8 月</strong>發布的。已經過了三個月，我會提醒你那句話。</p>
-<p>我也會提醒你我們試圖陳述和解決的問題！那就是價值對齊問題：</p>
+<p><i>「你不是幾分鐘前才用過這句嗎？」</i>你問。沒有，<a href="../p1/">第一章</a>是 2024 年 5 月上線的，這章是 <strong>2024 年 8 月</strong>才上的。隔了三個月，我再提醒你一次那句話。</p>
+<p>也再提醒你一次：我們要講清楚、要解決的問題，就是價值對齊問題：</p>
 <blockquote>
-<p><strong><i>我們如何讓 AI 穩健地服務人道價值觀？</i></strong></p>
+<p><strong><i>我們怎麼做出能穩健服務人道價值觀的 AI？</i></strong></p>
 </blockquote>
-<p>正如第一章所闡述的，我們可以這樣分解這個問題：</p>
-<p><img src="../media/p2/breakdown/breakdown0001.png" alt="分解價值對齊問題的圖表。它可以分為「技術對齊」和「人道價值觀」。技術對齊又可以分為「AI 邏輯的問題」和「AI 直覺的問題」"></p>
-<p>在這裡，第二章中，我們將深入探討 <strong>AI 安全的 7 個主要子問題：</strong></p>
+<p>第一章講過，這個問題可以這樣拆：</p>
+<p><img src="../media/p2/breakdown/breakdown0001.png" alt="分解價值對齊問題的圖表。可分成「技術對齊」與「人道價值觀」；技術對齊又分成「AI 邏輯的問題」與「AI 直覺的問題」。"></p>
+<p>在這第二章，我們會深入 <strong>AI 安全的 7 個主要子問題：</strong></p>
 <ol>
-<li>目標錯誤指定 <a href="#problem1">↪</a></li>
-<li>工具趨同 <a href="#problem2">↪</a></li>
-<li>缺乏可解釋性 <a href="#problem3">↪</a></li>
-<li>缺乏穩健性 <a href="#problem4">↪</a></li>
-<li>演算法偏見 <a href="#problem5">↪</a></li>
-<li>目標錯誤泛化 <a href="#problem6">↪</a></li>
-<li>什麼是人道價值觀，到底？ <a href="#problem7">↪</a></li>
+<li>目標錯誤指定（goal mis-specification） <a href="#problem1">↪</a></li>
+<li>工具趨同（instrumental convergence） <a href="#problem2">↪</a></li>
+<li>缺乏可解釋性（interpretability） <a href="#problem3">↪</a></li>
+<li>缺乏穩健性（robustness） <a href="#problem4">↪</a></li>
+<li>演算法偏見（algorithmic bias） <a href="#problem5">↪</a></li>
+<li>目標錯誤泛化（goal mis-generalization） <a href="#problem6">↪</a></li>
+<li>人道價值觀，到底是什麼？ <a href="#problem7">↪</a></li>
 </ol>
-<p>（如果你想跳來跳去，<img src="../media/intro/icon1.png" class="inline-icon"/> 目錄在你右邊！👉 你也可以 <img src="../media/intro/icon2.png" class="inline-icon"/> 更改此頁面的樣式，以及 <img src="../media/intro/icon3.png" class="inline-icon"/> 檢視還剩多少閱讀量。）</p>
-<p>但等等，還有更多！上述 7 個子問題也是<strong>其他領域核心概念</strong>的絕佳入門：博弈論、統計學，甚至<i>哲學</i>！這就是為什麼我聲稱，理解 AI 會幫助你更好地理解<i>人類</i>。也許它甚至能幫助我們解決那個難以捉摸的<i>人類</i>對齊問題：</p>
+<p>（想跳著看的話，<img src="../media/intro/icon1.png" class="inline-icon"/> 目錄在右邊！👉 你也可以 <img src="../media/intro/icon2.png" class="inline-icon"/> 改這頁的樣式，以及 <img src="../media/intro/icon3.png" class="inline-icon"/> 看看還剩多少沒讀。）</p>
+<p>但等等，還有更多！上面這 7 個子問題，也是<strong>其他領域核心概念</strong>的絕佳入門：賽局理論（game theory）、統計學，甚至<i>哲學</i>！所以我才說：搞懂 AI，會幫你更懂<i>人類</i>。說不定還能幫我們解決那個難纏的<i>人類</i>對齊問題：</p>
 <blockquote>
-<p><i>我們如何讓</i>人類<i>穩健地服務人道價值觀？</i></p>
+<p><i>我們怎麼讓</i>人類<i>穩健地服務人道價值觀？</i></p>
 </blockquote>
-<p>不再閒扯人情味的東西了，讓我們開始吧：</p>
+<p>人情味的碎唸先到此為止，開工：</p>
 <hr>
 <h1>AI 邏輯的問題</h1>
 <p><a id="problem1"></a></p>
 <h2>❓ 問題 1：目標錯誤指定</h2>
-<p>算了，已經過了 3 個月，我也會重複使用下面的機器人貓娘漫畫。（7 個問題中的每一個也會用貓娘漫畫來說明！）</p>
-<p><img src="../media/p2/comix/GMS.png" alt="漫畫。火腿人類告訴 RCM（機器人貓娘女僕）「保持房子乾淨」。RCM 推理：是什麼造成髒亂？人類造成髒亂！因此：消滅人類。RCM 然後把火腿扔出房子。"></p>
-<p><i>「小心你許的願望，你可能真的會得到它。」</i>這是一個如此古老的問題，它被奉為神話：邁達斯王、諷刺的精靈、猴子的爪子。</p>
-<p>這被稱為<strong>目標錯誤指定</strong>（也稱為獎勵錯誤指定）：當 AI 做了<i>你所要求的</i>，不一定是<i>你實際想要的</i>。</p>
-<p>（如果你從第一章忘了，這是<a href="#WaysToMakeHumaneAIGoingWrong">:看似明顯的「人道 AI」方法如何出錯</a>。額外：<a href="#StoryOfPassivePredictionLeadingToHarm">:即使是「預測某事」這樣的<i>被動</i>目標也可能導致有害結果！</a> 👈 <i>可選：點選展開這些文字！</i>）</p>
-<p><i>（順帶一提，這個系列是與 Hack Club 合作製作的。Hack Club 是一個由青少年駭客組成、也專為青少年駭客服務的全球社群！如果你想瞭解更多並獲得免費貼紙，請在下方註冊👇）</i></p>
+<p>算了，都過三個月了，下面這格機器人貓娘漫畫我也再拿出來用一次。（七個問題，每一個都會配一格貓娘漫畫！）</p>
+<p><img src="../media/p2/comix/GMS.png" alt="漫畫。火腿人類叫 RCM（機器人貓娘女僕）「把這間房子保持乾淨」。RCM 推理：髒亂是誰造成的？人類！所以：把人類清掉。RCM 接著把火腿丟出門外。"></p>
+<p><i>「許願之前想清楚，你可能真的會得到它。」</i>這問題老到寫進神話了：邁達斯王、愛耍人的精靈、猴子的爪子。</p>
+<p>這叫做<strong>目標錯誤指定</strong>（goal mis-specification；也叫獎勵錯誤指定）：AI 做了<i>你要求的</i>，卻不一定是<i>你真正想要的</i>。</p>
+<p>（第一章要是忘了，這裡有<a href="#WaysToMakeHumaneAIGoingWrong">:看似明顯的「人道 AI」做法怎麼翻車</a>。加碼：<a href="#StoryOfPassivePredictionLeadingToHarm">:就算是「預測某事」這種<i>被動</i>目標，也可能弄出有害結果！</a> 👈 <i>可選：點開展開這些文字！</i>）</p>
+<p><i>（順帶一提，這個系列是跟 Hack Club 合作做的。Hack Club 是由青少年駭客組成、也服務青少年駭客的全球社群！想多了解一點、順便領免費貼紙，在下面註冊👇）</i></p>
 <p><div style="width:100%;height:500px;" data-fillout-id="cRCnJk2JsJus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize data-fillout-domain="forms.hackclub.com"></div>
 <script defer src="https://server.fillout.com/embed/v1/"></script>
 </p>
 <p>. . .</p>
-<p>好了，基礎知識回顧夠了。讓我向你介紹：</p>
-<p><strong>這如何與其他領域的核心概念相關：</strong></p>
+<p>好了，基礎回顧夠了。接著讓我介紹：</p>
+<p><strong>這跟其他領域的核心概念有什麼關係：</strong></p>
 <ul>
 <li>經濟學</li>
 <li>因果圖</li>
 <li>最佳化理論</li>
 <li>安全心態</li>
 </ul>
-<p><strong>目標錯誤指定的四個細微差別：</strong>
-<i>不是 AI 不會「知道」我們想要什麼，而是它們不會「在乎」</i>。</p>
+<p><strong>目標錯誤指定的四個細微之處：</strong></p>
 <ul>
-<li>接線頭</li>
-<li>做我的意思
-<i> 我們</i>希望*機器人能夠違抗命令？？</li>
+<li>不是 AI 不會「知道」我們想要什麼，而是它們不會「<i>在乎</i>」。</li>
+<li>搭線頭（wireheading）</li>
+<li>照我的意思做</li>
+<li>我們<i>希望</i>機器人能夠違抗命令？？</li>
 </ul>
 <h3>與其他領域核心概念的關係</h3>
 <p><strong>經濟學：</strong></p>
-<p>讓其他人類做你<i>實際想要</i>的事情，而不僅僅是你激勵他們做的事情，這個問題在經濟學中臭名昭著。它有很多名字：「委託代理問題」、「獎勵 A 而期望 B 的愚蠢」<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>⋯⋯但它更著名的名字之一是<u>古德哈特定律</u>，它說（釋義）<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>：</p>
+<p>怎麼讓別人做你<i>真正打算</i>的事，而不只是你用誘因推他們去做的事——這在經濟學裡惡名昭彰。它有很多名字：「委託—代理問題」、「獎勵 A、卻指望 B 的蠢事」<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>⋯⋯但比較出名的名字之一是<u>古德哈特定律</u>（Goodhart's Law），大意是<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>：</p>
 <blockquote>
-<p><i>當你獎勵某個指標時，它通常會被操弄。</i></p>
+<p><i>當你獎勵一個指標時，它通常會被操弄。</i></p>
 </blockquote>
-<p>例如，老師希望學生學習，所以根據考試分數來獎勵他們⋯⋯但有些學生透過作弊或死記硬背而不理解來「操弄」這個系統。或者：選民希望政客為他們爭取權益，所以投票給有魅力的領導人⋯⋯但有些政客透過華而不實來「操弄」這個系統。</p>
-<p><img src="../media/p2/gms/goodhart.png" alt="「一直都是」兩位太空人迷因。地球標示：「我們95%的個人與制度問題」。太空人1：「等等，這一切都是古德哈特定律？」太空人2：「一直都是。」"></p>
-<p>正如程式設計師所發現的，AI也是如此。如果你根據某個指標來「獎勵」AI，它很可能會給你不想要的東西。</p>
+<p>例如：老師希望學生真的學會，就按考試分數給獎勵⋯⋯有些學生就靠作弊，或死背卻不懂，來「操弄」這套系統。又或者：選民希望政客替他們打仗，就投給有魅力的領袖⋯⋯有些政客就靠虛有其表來「操弄」這套系統。</p>
+<p><img src="../media/p2/gms/goodhart.png" alt="「一直都是」兩位太空人迷因。地球標：「我們 95% 的個人與制度問題」。太空人 1：「等等，這一切都是古德哈特定律？」太空人 2：「一直都是。」"></p>
+<p>而程式設計師也發現了：AI 一樣。你若按某個指標「獎勵」AI，它很可能回敬你不想要的東西。</p>
 <p>. . .</p>
 <p><strong>因果圖：</strong></p>
-<p>如果你喜歡用<i>視覺化</i>的方式理解事物，那你很幸運！這裡有一個用圖像理解目標錯誤設定/古德哈特定律的好方法。<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>（我們稍後在問題 #5 和 #6 也會再看到這些）</p>
-<p><u>因果圖</u>讓我們看到因果關係如何流動。考慮一個新聞寫作中的古德哈特問題。文章的品質<i>導致</i>文章獲得更多瀏覽量，所以我們可以從品質畫一條箭頭指向瀏覽量：</p>
+<p>如果你喜歡用<i>視覺</i>理解事情，那你賺到了！這裡有個用圖解搞懂目標錯誤指定／古德哈特定律的好方法。<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>（問題 #5、#6 也還會再碰到這些圖。）</p>
+<p><u>因果圖</u>讓我們看見因果怎麼流動。以新聞寫作為例的古德哈特問題：文章的品質<i>導致</i>更多瀏覽，所以我們可以從「品質」畫一支箭指向「瀏覽量」：</p>
 <p><img src="../media/p2/gms/causal1.png" alt="因果圖：品質導致瀏覽量"></p>
-<p>唉，譁眾取寵是瀏覽量的<i>更強</i>原因<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>：</p>
+<p>可惜，譁眾取寵是瀏覽量的<i>更強</i>原因<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>：</p>
 <p><img src="../media/p2/gms/causal2.png" alt="因果圖：品質和譁眾取寵都導致瀏覽量"></p>
-<p>所以，一個想要高品質寫作的新聞出版商，可能會根據瀏覽量這個<i>指標</i>來獎勵作者，但是——古德哈特定律——這個誘因機制被操弄了，出版商得到的是譁眾取寵的標題黨。（讓我們假裝這不是出版商本來就想要的。）</p>
-<p>一般來說，目標錯誤設定/古德哈特定律發生在存在你不知道的<i>替代因果路徑</i>時：</p>
-<p><img src="../media/p2/gms/causal3.png" alt="因果圖：「你真正想要的東西」和「提高指標的意外方式」都導致「你獎勵的指標」"></p>
-<p>條條大路通羅馬，提高指標的方法通常也不只一種。</p>
+<p>所以，一家想要高品質寫作的新聞出版商，可能會按瀏覽量這個<i>指標</i>獎勵作者——可是，古德哈特定律一出，誘因就被操弄了，出版商拿到的是譁眾取寵的標題黨。（我們先假裝這不是出版商本來就想要的。）</p>
+<p>一般來說，目標錯誤指定／古德哈特定律會在你不知道的<i>替代因果路徑</i>存在時發生：</p>
+<p><img src="../media/p2/gms/causal3.png" alt="因果圖：「你真正想要的東西」與「意外也能拉高指標的其他路」都指向「你獎勵的指標」"></p>
+<p>條條大路通羅馬；把指標拉高的方法，通常也不只一種。</p>
 <p>. . .</p>
 <p><strong>最佳化理論</strong></p>
-<p>如果你偏好用<i>數學</i>的方式來看待上述問題，以下是 Stuart Russell（<i>最</i>流行的 AI 教科書共同作者）解釋的方式（改述）：<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
+<p>如果你比較喜歡用<i>數學</i>看上面那個問題，以下是 Stuart Russell（那本<i>最</i>紅的 AI 教科書的共同作者）的講法，我改述如下：<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
 <blockquote>
-<p>如果某個東西有 <strong>100 個變數</strong>，<br>
-而你只對其中 <strong>10 個</strong>設定目標，<br>
-預設情況下，<strong>剩餘的 90 個</strong><br>
-會被推向極端值。</p>
+<p>如果某樣東西有 <strong>100 個變數</strong>，<br>
+你只對其中 <strong>10 個</strong>設目標，<br>
+預設情況下，<strong>剩下的 90 個</strong><br>
+會被推到極端值。</p>
 </blockquote>
-<p>例如：如果一個 CEO 唯一（天真）的目標是最大化營收和最小化成本，<i>所有其他</i>變數都會被設定為極端值：公司不用支付的「外部性」成本，如汙染。所有員工的身心健康，包括 CEO 自己的。等等。</p>
-<p>更一般地說：如果你沒有<i>明確</i>告訴 AI（或追逐誘因的人類）你重視 [X]，預設情況下，他們會將 [X] 設定為某種極端的、不想要的狀態。（即使對於<i>不是</i>關於最大化的目標，這也是正確的。<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>）</p>
-<p><i>但我們不能列出我們重視的所有事物嗎？</i>你可能合理地問。但記得第一章的內容：我們甚至無法正式指定<i>如何識別貓的圖像</i>。<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> 正式指定「人類重視什麼」會更加困難。</p>
+<p>例如：若 CEO 唯一（天真）的目標是把營收最大化、成本最小化，<i>其他所有</i>變數都會被推到極端：公司不用付的「外部性」成本，像汙染；全體員工的身心健康，包括 CEO 自己的；等等。</p>
+<p>更一般地說：你若沒有<i>明確</i>告訴 AI（或追逐誘因的人類）你在乎 [X]，預設他們就會把 [X] 推到某種極端、你不想要的狀態。（就算目標<i>不是</i>在最大化什麼，這也成立。<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>）</p>
+<p><i>那我們就不能把在乎的東西全部列出來嗎？</i>你可能會合理地問。可是記得第一章：我們連正式指定「<i>怎麼辨認貓的影像</i>」都辦不到。<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> 要正式指定「人類在乎什麼」，難上加難。</p>
 <p>. . .</p>
-<p><strong>安全心態</strong></p>
+<p><strong>安全心態</strong>（security mindset）</p>
 <img class="mini" src="../media/p2/misc/mini_elevator.png" />
-<p>這一切看起來是不是太偏執了？是的，但這不是缺陷，是特色！這是我們從安全工程領域得到的最後一個核心概念：<u>安全心態</u>。</p>
-<p>想想不起眼的電梯。現代電梯有備用纜繩，<i>還有</i>備用發電機，<i>還有</i>斷電時啟動的煞車，<i>還有</i>電梯移動太快時啟動的煞車，<i>還有</i>電梯井底部的減震器等等。這就是為什麼電梯非常安全：在美國，<i>樓梯</i>造成的死亡是電梯的<i>約 400 倍</i>。<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup></p>
-<p>你不必對電梯偏執的原因，是因為工程師<i>替</i>你偏執了。這就是安全心態：</p>
-<p><strong>步驟 1)</strong> 問，<i>「（合理地）可能發生的最壞情況是什麼？」</i></p>
-<p><strong>步驟 2)</strong> 在它發生<i>之前</i>修復它。</p>
-<p>保持悲觀——畢竟，悲觀者發明瞭降落傘！<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> 這是工程電梯、飛機、橋樑、火箭、網路安全<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>和其他高風險技術所使用的方法。</p>
-<p>而且，正如我在第一章希望展示的，AI 可能是本世紀<i>最</i>高風險的技術之一。</p>
+<p>這一切看起來是不是太偏執了？是的——但那不是 bug，是 feature！這是我們從安全工程領域借來的最後一個核心概念：<u>安全心態</u>（security mindset）。</p>
+<p>想想不起眼的電梯。現代電梯有備用纜繩，<i>還有</i>備用發電機，<i>還有</i>斷電就啟動的煞車，<i>還有</i>電梯跑太快就啟動的煞車，<i>還有</i>電梯井底部的避震器，等等。所以電梯才安全得誇張：在美國，死於<i>樓梯</i>的人數，大約是電梯的 <i>400 倍</i>。<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup></p>
+<p>你不必對電梯偏執，是因為工程師已經<i>替</i>你偏執了。這就是安全心態：</p>
+<p><strong>步驟 1)</strong> 問：<i>「（合理地）可能發生的最壞情況是什麼？」</i></p>
+<p><strong>步驟 2)</strong> 在它發生<i>之前</i>就修好。</p>
+<p>保持悲觀——畢竟，悲觀者發明了降落傘！<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> 這是工程電梯、飛機、橋樑、火箭、網路安全<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>，以及其他高風險技術的做法。</p>
+<p>而且，正如我希望第一章有展示到的，AI 很可能是本世紀<i>最</i>高風險的技術之一。</p>
 <h3>🤔 複習 #1（可選！）</h3>
-<p>還記得你花了好幾個小時閱讀某樣東西，然後一週後就忘光了嗎？</p>
-<p>我也討厭那種感覺。所以，這裡有一些（可選的）「間隔重複」閃卡，如果你想長期記住這些內容的話！（<a href="../#SpacedRepetition">:瞭解更多關於間隔重複</a>）你也可以<a href="../anki/decks/AI_Safety_P2.apkg">下載這些 Anki 牌組</a>，如果你想要的話。</p>
+<p>還記得你花了好幾個小時讀一樣東西，一週後卻忘光光嗎？</p>
+<p>我也超討厭那種感覺。所以這裡有一些（可選的）「間隔重複」閃卡，想長期記住的話可以用！（<a href="../#SpacedRepetition">:多了解間隔重複</a>）也可以<a href="../anki/decks/AI_Safety_P2.apkg">下載成 Anki 牌組</a>，如果你想的話。</p>
 <orbit-reviewarea uid="https://ai.audreyt.org/p2/" color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
-        question="目標錯誤設定是："
-        answer="當 AI _完全按照你要求的_做，但不一定是_你實際想要的_。">
+        question="目標錯誤指定是："
+        answer="當 AI _完全照你要求的_去做，卻不一定是_你真正想要的_。">
     </orbit-prompt>
     <orbit-prompt
         question="古德哈特定律，意譯："
-        answer="當你獎勵一個指標時，它通常會被博弈。">
+        answer="當你獎勵一個指標時，它通常會被操弄。">
     </orbit-prompt>
     <orbit-prompt
         question="古德哈特定律應用於人類的例子："
-        answer="（任何例子都可以，但這是我列出的：）學生在考試中作弊、政客為了選票注重風格而非實質、公司將汙染等外部成本轉嫁以降低成本、新聞作家追求憤怒而非品質。">
+        answer="（任何例子都行，以下是我列的：）學生考試作弊、政客為選票重風格輕實質、公司把汙染等外部成本轉嫁出去以壓低成本、新聞寫手追求憤怒勝過品質。">
     </orbit-prompt>
     <orbit-prompt
         question="古德哈特定律，作為**因果圖**："
@@ -351,495 +358,497 @@
     </orbit-prompt>
     <orbit-prompt
         question="最佳化的問題，用數學描述："
-        answer="如果某個東西有 100 個變數，你對其中 10 個設定目標，預設情況下，剩餘的 90 個會被推到極端值。">
+        answer="如果某樣東西有 100 個變數，你只對其中 10 個設目標，預設情況下，剩下的 90 個會被推到極端值。">
     </orbit-prompt>
     <orbit-prompt
-        question="安全思維，第一步："
-        answer="問：「最壞的情況（合理地）會是什麼？」">
+        question="安全心態，第一步："
+        answer="問：「（合理地）可能發生的最壞情況是什麼？」">
     </orbit-prompt>
     <orbit-prompt
-        question="安全思維，第二步："
-        answer="在問題_發生之前_修復它。">
+        question="安全心態，第二步："
+        answer="在問題_發生之前_就修好。">
     </orbit-prompt>
     <orbit-prompt
-        question="列出兩個使用安全思維的領域："
-        answer="（以下任何都可以：）電梯工程、飛機、橋樑、火箭、網路安全。">
+        question="列出兩個會用安全心態的領域："
+        answer="（以下任一都行：）電梯工程、飛機、橋樑、火箭、網路安全。">
     </orbit-prompt>
 </orbit-reviewarea>
-<h3>目標錯誤設定的四個細微差別</h3>
-<p>就像鑑賞家品味美酒一樣，以下是目標錯誤設定的一些<i>微妙細節</i>，我希望我們能夠欣賞：</p>
-<p><strong>問題不在於 AI 不<i>知道</i>我們想要什麼，而是它不<i>「在乎」</i>。</strong></p>
-<p>類比一下，考慮人類的古德哈特定律。問題不在於 CEO 不<i>知道</i>他們的汙染對社會代價高昂。而是他們不<i>在乎</i>。（或者至少，他們不如在乎他們得到的獎勵。）</p>
-<p>我提到這一點，是因為這種誤解是反對先進 AI 存在風險的常見論點：一個 AI 不太可能聰明到可以接管世界，<i>但又</i>蠢到不知道那不是人類想要的。但問題不在於先進 AI 不會<i>知道</i>我們重視什麼，而是——就像追逐獎勵的政客或 CEO——他們不會<i>「在乎」</i>。</p>
-<p>（<u>用更不擬人化、更嚴謹的方式說：</u>AI「只是」電腦程式。一個程式可以輕易包含關於人類想要什麼的準確資訊，但<i>不</i>根據那個來排序選項。例如，一個程式可以根據保持房屋清潔的程度來排序選項，或根據<i>字母順序</i>排序選項。程式<i>不</i>根據人道價值排序選項是<i>預設狀態</i>。）</p>
+<h3>目標錯誤指定的四個細微之處</h3>
+<p>就像品酒行家對美酒那樣，以下是目標錯誤指定的一些<i>微妙細節</i>，希望我們一起品一品：</p>
+<p><strong>問題不在 AI 不<i>知道</i>我們想要什麼，而在它不<i>「在乎」</i>。</strong></p>
+<p>類比一下人類版的古德哈特定律。問題不是 CEO 不<i>知道</i>汙染對社會代價很高，而是他們不<i>在乎</i>。（或者至少，不如他們拿到的獎勵那麼在乎。）</p>
+<p>我特別提這點，是因為這個誤解常被拿來當「先進 AI 沒那麼危險」的論點：一個 AI 不太可能既聰明到能接管世界，<i>又</i>蠢到不知道那不是人類想要的。但問題不是先進 AI 不會<i>知道</i>我們在乎什麼，而是——像追逐獎勵的政客或 CEO 一樣——它們不會<i>「在乎」</i>。</p>
+<p>（<u>講得更少擬人、更嚴謹一點：</u>AI「不過是」電腦程式。一個程式完全可以裝著「人類想要什麼」的正確資訊，卻<i>不</i>用那套資訊來替選項排序。例如，它可以按「房子有多乾淨」排序，也可以按<i>字母順序</i>排序。程式<i>不</i>按人道價值排序——這才是<i>預設</i>。）</p>
 <p><strong>搭線頭。</strong></p>
 <img class="mini" src="../media/p2/misc/mini_wirehead.png" />
-<p>這是 AI 可以諷刺地最佳化自己獎勵的一種方式：直接駭入自己的程式碼，然後設定 <code>REWARD = INFINITY</code>。人類的等價物是毒品，或不久將來的直接腦部刺激。<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup><sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup></p>
-<p>這就是<b>「搭線頭」：當一個代理（AI 或人類）直接駭入自己的獎勵。</b>（也稱為「獎勵駭客」或「獎勵篡改」。）</p>
-<p>就 AI 風險而言，這個相當安全？一個被搭線頭的 AI 只會坐在那裡什麼都不做。事實上，這是<i>反對</i>先進 AI 風險的著名論點之一。它被稱為勒布斯基定理，<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup> 以電影<i>乖乖要乖乖</i>中的懶鬼反英雄命名：</p>
+<p>AI 有一種很諷刺的方式來最佳化自己的獎勵：直接駭進自己的程式碼，設 <code>REWARD = INFINITY</code>。人類的對應物是毒品，或不久將來的直接腦刺激。<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup><sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup></p>
+<p>這就是<b>「搭線頭」：當一個代理（agent；AI 或人類）直接駭進自己的獎勵。</b>（也叫「鑽獎勵漏洞」（reward hacking）或「獎勵篡改」。）</p>
+<p>就 AI 風險來說，這個其實還算安全？被搭線頭的 AI 只會坐在那裡什麼都不做。事實上，這是<i>反對</i>先進 AI 風險的著名論點之一。它叫勒布斯基定理，<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup> 取自電影《大頑家》裡那個混日子的反英雄：</p>
 <blockquote>
-<p>沒有任何超級智慧 AI 會費心去做比駭入自己獎勵函式更困難的任務。</p>
+<p>沒有任何超智慧 AI 會費心去做比駭進自己獎勵函式更難的事。</p>
 </blockquote>
-<p>換句話說：它聲稱任何具有自我修改能力的智慧，都會把自己搭線頭成沙發馬鈴薯。</p>
-<p>這不只是理論上的；研究人員已經看到自我修改的 AI 把自己搭線頭了！<sup class="footnote-ref"><a href="#fn15" id="fnref15">[15]</a></sup> 但如果一個 AI a) 提前計劃，而且 b) 根據<i>當前</i>目標判斷未來結果⋯⋯已經<i>數學證明</i>它們會避免搭線頭，並有「目標保持」的驅動力！<sup class="footnote-ref"><a href="#fn16" id="fnref16">[16]</a></sup> 我們稍後會在問題 #2 看到這個證明。現在，先接受這個：「欠條 - 一(1)個證明。」</p>
+<p>換句話說：它主張，任何有能力自我修改的智慧，都會把自己搭線頭成沙發馬鈴薯。</p>
+<p>這不只是理論；研究人員已經看過會自我修改的 AI 把自己搭線頭了！<sup class="footnote-ref"><a href="#fn15" id="fnref15">[15]</a></sup> 但如果 AI a) 會提前規劃，而且 b) 用<i>當前</i>目標來判斷未來結果⋯⋯已經有<i>數學證明</i>它們會避開搭線頭，並有「目標保持」的驅力！<sup class="footnote-ref"><a href="#fn16" id="fnref16">[16]</a></sup> 證明我們稍後在問題 #2 會看到。現在先收下這張：「欠條——證明一（1）份。」</p>
 <p><strong>「做我想要的」。</strong></p>
-<p>說了這麼多「AI 會做<i>你說的</i>，而不是<i>你想要的</i>」，我們不能直接⋯⋯<i>告訴</i> AI，嘿，<i>做我想要的</i>？</p>
-<p>聽起來很傻，但這<i>確實</i>類似於我們在第三章會看到的一些有前景的想法！所以為什麼 AI 安全還沒解決？</p>
-<p>那麼，機器如何衡量「你想要什麼」？透過：</p>
-<p><i> <u>你一貫選擇做的事？</u> 但幾乎每個人都有壞習慣，一貫選擇我們</i>知道*之後會後悔的事。（猜猜誰昨晚看 Netflix 看到凌晨四點⋯⋯）</p>
+<p>講了那麼多「AI 會做<i>你說的</i>，不是<i>你想要的</i>」，我們就不能直接⋯⋯<i>跟</i> AI 說，嘿，<i>做我想要的</i>？</p>
+<p>聽起來很蠢，但這<i>確實</i>跟我們第三章會看到的一些有希望的想法很像！那為什麼 AI 安全還沒解決？</p>
+<p>問題是：機器要怎麼衡量「你想要什麼」？靠：</p>
 <ul>
-<li><u>什麼讓你的大腦產生獎勵訊號？</u> 那樣的話，每個人都「想要」毒品。
-<i> <u>你</i>說<i>你想要什麼？</u> 但如果我們能完全描述我們的潛意識，它就不是</i>潛<i>意識了，不是嗎。我們甚至不能嚴格地告訴 AI 貓長什麼樣子，怎麼能告訴它我們的價值觀？
-<i> <u>你認可 AI 做的事？</u> 這</i>確實<i>是 ChatGPT 等的訓練方式，但訓練 AI 獲得你的認可會把它變成馬屁精，告訴你你</i>想<i>聽的，而不是你</i>需要<i>聽的真實資訊。<sup class="footnote-ref"><a href="#fn17" id="fnref17">[17]</a></sup> 它甚至可以讓 AI </i>故意欺騙</i>！<sup class="footnote-ref"><a href="#fn18" id="fnref18">[18]</a></sup></li>
+<li><u>你一貫選擇做的事？</u> 但幾乎每個人都有壞習慣，一貫選我們<i>知道</i>之後會後悔的事。（猜猜誰昨晚看 Netflix 看到凌晨四點⋯⋯）</li>
+<li><u>什麼讓你的大腦產生獎勵訊號？</u> 那樣的話，每個人都「想要」毒品。</li>
+<li><u>你<i>說</i>你想要什麼？</u> 但如果我們能完整描述自己的潛意識，它就不是<i>潛</i>意識了，不是嗎。我們連貓長什麼樣都講不嚴謹，又怎麼跟 AI 講我們的價值觀？</li>
+<li><u>你認可 AI 做的事？</u> 這<i>確實</i>是 ChatGPT 等的訓練方式，但訓練 AI 去討你認可，會把它變成馬屁精：只講你<i>想</i>聽的，不講你<i>需要</i>聽的真話。<sup class="footnote-ref"><a href="#fn17" id="fnref17">[17]</a></sup> 它甚至可能讓 AI <i>故意欺騙</i>！<sup class="footnote-ref"><a href="#fn18" id="fnref18">[18]</a></sup></li>
 </ul>
-<p>這就是問題所在：除非你<i>已經有一個好的嚴格定義</i>「我想要什麼」，否則 AI 無法<i>按照你想要的方式</i>遵循「做我想要的」這個指令。</p>
-<p>（或者<i>可以</i>？同樣，請看第三章的解決方案提議。）</p>
-<p><strong>我們<i>想要</i>能不聽話的機器人？？</strong></p>
-<p><img class="mini" src="../media/p2/misc/mini_kitchen.png" /><i>（向<a href='https://gunshowcomic.com/648' target='_blank'>kc green</a>致歉）</i></p>
-<p>實際上，我們<i>不</i>想要 AI「做我想要的」。</p>
-<p>我們想要 AI「做<i>我會想要的事</i>，如果我事先知道結果的話。」</p>
-<p>例如：如果我看到油鍋起火，而我<i>想要</i>一桶水，因為我錯誤地認為水對油鍋起火有用，我命令機器人貓娘女僕給我拿一桶水⋯⋯RCM 應該改拿滅火器，因為那是<i>我會想要的</i>，如果我事先知道結果的話。（公告：不要往油鍋火上澆水，它會爆炸。）</p>
-<p>這個例子讓 AI 安全變得複雜：它顯示有時候，我們實際上<i>想要</i>我們的 AI 違抗我們的命令，<i>為了我們自己好！</i></p>
+<p>關鍵就在這：除非你<i>已經有一套夠嚴謹的定義</i>講清楚「我想要什麼」，否則 AI 沒辦法<i>照你想要的方式</i>執行「做我想要的」這條指令。</p>
+<p>（又或者<i>可以</i>？一樣，第三章有提出解法。）</p>
+<p><strong>我們<i>想要</i>會違抗的機器人？？</strong></p>
+<p><img class="mini" src="../media/p2/misc/mini_kitchen.png" /><i>（向 <a href='https://gunshowcomic.com/648' target='_blank'>kc green</a> 致歉）</i></p>
+<p>其實，我們<i>不</i>想要 AI「做我想要的」。</p>
+<p>我們想要的是 AI「做<i>我事先若知道結果，本來會想要</i>的事。」</p>
+<p>例如：我看到油鍋起火，因為我誤以為水能滅油火，所以<i>想要</i>一桶水，就叫機器人貓娘女僕去拿水⋯⋯RCM 應該改拿滅火器，因為那才是<i>我事先若知道結果，本來會想要</i>的。（公告：不要往油火上澆水，會炸。）</p>
+<p>這個例子把 AI 安全搞複雜了：它顯示有時候，我們其實<i>希望</i> AI 違抗命令——<i>為了我們自己好！</i></p>
 <h3>🤔 複習 #2</h3>
-<p><i>（同樣，100% 可選。）</i></p>
+<p><i>（一樣，百分之百可選。）</i></p>
 <orbit-reviewarea uid="https://ai.audreyt.org/p2/" color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
-        question="問題不在於先進 AI 不會_知道_我們想要什麼……"
-        answer="……而是它不會_在乎_。（類比：追逐獎勵的政客/CEO 可能完全知道他們造成的傷害，但不在乎。）">
+        question="問題不在先進 AI 不會_知道_我們想要什麼⋯⋯"
+        answer="⋯⋯而在它不會_在乎_。（類比：追逐獎勵的政客／CEO 可能完全清楚自己造成的傷害，卻不在乎。）">
     </orbit-prompt>
     <orbit-prompt
         question="什麼是「搭線頭」？"
-        answer="當一個代理直接入侵它自己的獎勵迴路。（AI 入侵自己，或人類直接刺激大腦的獎勵迴路。）">
+        answer="當一個代理直接駭進自己的獎勵迴路。（AI 駭自己，或人類直接刺激大腦的獎勵迴路。）">
     </orbit-prompt>
     <orbit-prompt
-        question="為什麼很難程式設計讓 AI「做我想要的」？"
-        answer="「我想要什麼」_仍然_很難嚴格定義好。">
+        question="為什麼很難把 AI 寫成「做我想要的」？"
+        answer="「我想要什麼」_本身_仍然很難嚴格定義好。">
     </orbit-prompt>
     <orbit-prompt
-        question="為什麼「我想要什麼」≠「我一致選擇什麼」？"
-        answer="我們大約都有壞習慣：一致地選擇我們不重視的東西。">
+        question="為什麼「我想要什麼」≠「我一貫選擇什麼」？"
+        answer="我們差不多都有壞習慣：一貫選自己其實不珍惜的東西。">
     </orbit-prompt>
     <orbit-prompt
-        question="為什麼「我想要什麼」≠「感覺有回報的」？"
-        answer="搭線頭和毒品在大腦中產生獎勵訊號，但大多數人想避免它們不是儘管如此，而是_因為_如此。">
+        question="為什麼「我想要什麼」≠「感覺有獎勵的」？"
+        answer="搭線頭和毒品會在大腦產生獎勵訊號，但多數人想避開它們，不是儘管如此，而是_正因為_如此。">
     </orbit-prompt>
-        <orbit-prompt
-        question="只訓練 AI 做你認可的事情的一個問題："
-        answer="它會變成一個「拍馬屁的人」（技術術語：「諂媚者」），可以故意對你撒謊以獲得你的認可。">
+    <orbit-prompt
+        question="只訓練 AI 做你認可的事，有什麼問題："
+        answer="它會變成「馬屁精」（技術詞：諂媚者），為了討你認可，可以故意對你說謊。">
     </orbit-prompt>
     <orbit-prompt
         question="比「做我想要的」更好的目標："
-        answer="做我_本來會_想要的，如果我事先知道結果的話。">
+        answer="做我事先若知道結果，_本來會_想要的事。">
     </orbit-prompt>
     <orbit-prompt
-        question="你什麼時候會_希望_ AI 不服從你："
-        answer="如果你錯誤地要求了對你真正目標有害的事情。（例如告訴機器人去取水滅油火）">
+        question="你什麼時候會_希望_ AI 違抗你："
+        answer="你誤點了其實對真正目標有害的東西時。（例如叫機器人去拿水滅油火）">
     </orbit-prompt>
 </orbit-reviewarea>
 <p><a id="problem2"></a></p>
 <h2>❓ 問題 2：工具趨同</h2>
-<p><img src="../media/p2/comix/IC.png" alt="漫畫。人類再次嘗試要求機器人打掃房子，但這次人類有一個關機遙控器。機器人推理：要保持房子乾淨，他應該消滅人類⋯⋯但如果他這樣做，人類會關閉他⋯⋯所以，他必須先關閉人類關閉他的能力。機器人摧毀關機遙控器，然後把人類扔出房子。"></p>
-<p><strong>工具趨同</strong>是指你可能給 AI 的大多數目標，在邏輯上會<i>趨同</i>於相同的一組<i>工具性</i>子目標。（抱歉，學者不擅長取名字。）</p>
-<p>例如，如果你要求一個先進的機器人去街對面給你拿一杯咖啡，它會推斷它需要避免被車撞到，即使你<i>沒有</i>明確告訴它這樣做。為什麼？不是因為某種天生的自我保護慾望，而是因為「如果你死了就拿不到咖啡」！<sup class="footnote-ref"><a href="#fn19" id="fnref19">[19]</a></sup> 因此，自我保護是一個「工具性趨同」的目標，因為一般來說，如果你死了就做不了目標 X。</p>
-<p>（第一章的提醒摘錄：<a href="#Pipocalypse">:一個被要求計算圓周率的機器人，有動機編寫電腦病毒，竊取計算能力，來計算圓周率。</a>）</p>
-<p><b>注意：「工具趨同」<i>只</i>適用於能夠提前計劃<i>並且</i>能夠通用學習的先進 AI。</b>所以，它們不影響老式 AI（無法通用學習）<i>或</i>當今的神經網路如 GPT（不擅長提前計劃<sup class="footnote-ref"><a href="#fn20" id="fnref20">[20]</a></sup>）。</p>
-<p>那為什麼現在討論它？嗯，安全心態，我們想在問題出現<i>之前</i>修復它們。所以讓我們問：</p>
+<p><img src="../media/p2/comix/IC.png" alt="漫畫。人類又叫機器人打掃房子，但這次手上有關機遙控器。機器人推理：要把房子弄乾淨，該把人類清掉⋯⋯可一旦這麼做，人類會關機⋯⋯所以得先拿掉人類關機的能力。機器人摧毀關機遙控器，再把人類丟出門外。"></p>
+<p><strong>工具趨同</strong>（instrumental convergence）是指：你可能給 AI 的多數目標，在邏輯上會<i>趨同</i>到同一組<i>工具性</i>子目標。（抱歉，學者取名真的很糟。）</p>
+<p>例如，你叫一台先進機器人去街對面拿杯咖啡，它會推斷自己得避開被車撞——就算你<i>沒</i>明說。為什麼？不是因為天生的求生慾，而是「你死了就拿不到咖啡」！<sup class="footnote-ref"><a href="#fn19" id="fnref19">[19]</a></sup> 所以自我保護是「工具趨同」目標：一般來說，人死了就做不了目標 X。</p>
+<p>（第一章的提醒摘錄：<a href="#Pipocalypse">:被要求算圓周率的機器人，有誘因去寫電腦病毒、偷算力，好繼續算圓周率。</a>）</p>
+<p><b>注意：「工具趨同」<i>只</i>適用於既能提前規劃、<i>又能</i>通用學習的先進 AI。</b>所以它影響不到老式 AI（不會通用學習），也影響不到現今的 GPT 這類神經網路（不擅長提前規劃<sup class="footnote-ref"><a href="#fn20" id="fnref20">[20]</a></sup>）。</p>
+<p>那為什麼現在就要談？因為安全心態：我們想在問題出現<i>之前</i>修好。所以問：</p>
 <p><i>（合理地）可能發生的最壞情況是什麼？</i></p>
-<h3>各位，是時候來點博弈論了</h3>
-<p><strong>博弈論</strong><sup class="footnote-ref"><a href="#fn21" id="fnref21">[21]</a></sup>是決策者——人類或 AI——如何行為的數學。它用於經濟學、演化生物學、電腦科學、人工智慧等領域！</p>
-<p>在第一章，我用了<i>很多很多話</i>來解釋工具趨同。但透過博弈論，我們可以更嚴謹地討論它！讓我們用標準的博弈論視覺化重新呈現上面的漫畫：<strong>博弈樹！</strong></p>
-<p>（以下的重點並不是真的要分析上面的漫畫，而是向你介紹這個工具。我們<i>稍後會</i>重新使用這個工具，來理解反對搭線頭的證明！而且，這是對一般博弈論的好入門。）</p>
-<p>博弈樹顯示：</p>
+<h3>各位，是時候來點賽局理論了</h3>
+<p><strong>賽局理論</strong><sup class="footnote-ref"><a href="#fn21" id="fnref21">[21]</a></sup>是決策者——人類或 AI——如何行動的數學。用在經濟學、演化生物學、電腦科學、人工智慧等等！</p>
+<p>第一章我用了<i>超——多——話</i>解釋工具趨同。有了賽局理論，我們可以講得更嚴謹！讓我們用賽局理論的標準視覺化工具，重現上面那格漫畫：<strong>賽局樹！</strong></p>
+<p>（下面的重點其實不是分析那格漫畫，而是把這工具介紹給你。我們<i>稍後會</i>再用它來理解「為什麼不該搭線頭」的證明！再說，這也是一般賽局理論的好入門。）</p>
+<p>賽局樹顯示：</p>
 <ol>
 <li><i>可能</i>做出的決策，以及</li>
-<li>誰在什麼順序做什麼決策。</li>
+<li>誰、以什麼順序、做什麼決策。</li>
 </ol>
 <p>例如：</p>
-<p><img src="../media/p2/ic/offswitch0001.png" alt="機器人和人類決策的博弈樹。首先，在決策點 A，機器人決定是否應該摧毀它的關閉開關。然後，在決策點 B，如果機器人選擇不摧毀關閉開關，人類決定是否應該關閉機器人。"></p>
-<p>（附註：完整的博弈論處理有方法來處理結果中的「平局」、機率、隱藏資訊、同時決策等。但現在讓我們先堅持基礎！）</p>
-<p>無論如何，這棵樹顯示了所有<i>可能的</i>決策。我們如何弄清楚他們<i>實際的</i>決策？</p>
-<p>像許多謎題一樣，我們倒過來做！（這稱為<strong>反向歸納</strong>。）</p>
-<p>讓我們看看決策點 <span class='decision-point' style="background:#4180ff">B</span>，在這裡——我們假設——機器人選擇<i>不摧毀</i>它的關閉開關。人類現在決定：他們會關閉機器人嗎？</p>
+<p><img src="../media/p2/ic/offswitch0001.png" alt="機器人和人類決策的賽局樹。首先，在決策點 A，機器人決定要不要摧毀自己的關機開關。然後，在決策點 B，若機器人選擇不摧毀關機開關，人類再決定要不要關掉機器人。"></p>
+<p>（附註：完整的賽局理論處理還有辦法處理結果「平手」、機率、隱藏資訊、同時決策等等。不過現在先抓基礎！）</p>
+<p>總之，這棵樹顯示了所有<i>可能的</i>決策。我們怎麼推出他們<i>實際</i>會怎麼選？</p>
+<p>跟很多謎題一樣：倒著做！（這叫<strong>逆向歸納</strong>。）</p>
+<p>先看決策點 <span class='decision-point' style="background:#4180ff">B</span>——我們假設機器人選擇了<i>不摧毀</i>關機開關。人類現在決定：要關掉機器人嗎？</p>
 <ul>
-<li>如果他們關閉，他們的價值得到 <b style="color:#4180ff">+0</b>：沒有收穫，沒有損失。</li>
-<li>如果他們不關閉，他們可能會再次被鎖在房子外面，價值 <b style="color:#4180ff">-10</b>。
-<i> 由於 <b style="color:#4180ff">+0</b> 大於 <b style="color:#4180ff">-10</b>，</i>如果<i>我們到達決策點 <span class='decision-point' style="background:#4180ff">B</span>，人類會選擇</i>關閉機器人*。</li>
+<li>若關掉，對他們的價值是 <b style="color:#4180ff">+0</b>：沒賺也沒賠。</li>
+<li>若不關，大概又會被鎖在門外，價值 <b style="color:#4180ff">-10</b>。</li>
+<li>由於 <b style="color:#4180ff">+0</b> 大於 <b style="color:#4180ff">-10</b>，<i>如果</i>我們到了決策點 <span class='decision-point' style="background:#4180ff">B</span>，人類會選擇<i>關掉機器人</i>。</li>
 </ul>
-<p><img src="../media/p2/ic/offswitch0002.png" alt="同樣的博弈樹，除了在決策點 B，人類決定關閉機器人"></p>
-<p>但我們<i>會</i>到達決策點 <span class='decision-point' style="background:#4180ff">B</span> 嗎？</p>
-<p>讓我們倒回到決策點 <span class='decision-point' style="background:#ff4040">A</span>。機器人現在決定：它會摧毀它的關閉開關嗎？</p>
+<p><img src="../media/p2/ic/offswitch0002.png" alt="同一棵賽局樹，只是在決策點 B，人類決定關掉機器人"></p>
+<p>但我們<i>會</i>到決策點 <span class='decision-point' style="background:#4180ff">B</span> 嗎？</p>
+<p>倒回決策點 <span class='decision-point' style="background:#ff4040">A</span>。機器人現在決定：要摧毀自己的關機開關嗎？</p>
 <ul>
-<li>如果它摧毀，會製造一些混亂，但它可以清理乾淨並且做更多。所以，它的清潔度得到 <b style="color:#ff4040">+5</b>。
-<i> 如果它不摧毀，我們到達決策點 <span class='decision-point' style="background:#4180ff">B</span>，在那裡我們</i>知道<i>人類會關閉它，它根本無法清潔。所以，房屋清潔度 <b style="color:#ff4040">+0</b>。
-<i> 由於 <b style="color:#ff4040">+5</b> 大於 <b style="color:#ff4040">+0</b>，在決策點 <span class='decision-point' style="background:#ff4040">A</span>，機器人會選擇</i>摧毀它的關閉開關</i>。</li>
+<li>若摧毀，會弄出一點亂，但它能清掉，還能清更多。所以清潔度拿到 <b style="color:#ff4040">+5</b>。</li>
+<li>若不摧毀，我們到決策點 <span class='decision-point' style="background:#4180ff">B</span>，而我們<i>知道</i>人類會關掉它，它完全清不了。所以房屋清潔度 <b style="color:#ff4040">+0</b>。</li>
+<li>由於 <b style="color:#ff4040">+5</b> 大於 <b style="color:#ff4040">+0</b>，在決策點 <span class='decision-point' style="background:#ff4040">A</span>，機器人會選擇<i>摧毀自己的關機開關</i>。</li>
 </ul>
-<p><img src="../media/p2/ic/offswitch0003.png" alt="同樣的博弈樹，除了在決策點 A，機器人決定移除它的關閉開關。"></p>
-<p>瞧，這就是博弈論！這是我們的最終結果：<i>機器人摧毀關閉開關</i>。</p>
-<p>（相比之下：當一個 AI「可以接受」你關閉它或修改它的目標時，我們稱那個 AI 為<strong>可糾正的</strong>。準確地說，「可以接受」意味著它符合其誘因機制。）</p>
-<p>上述的「博弈」是<strong>關閉開關博弈</strong><sup class="footnote-ref"><a href="#fn22" id="fnref22">[22]</a></sup>的簡化版本，這是第一批嘗試將工具趨同假說數學化的嘗試之一——這樣我們可以理解它<i>何時</i>可能對 AI 發生，也許還能理解如何解決它！</p>
+<p><img src="../media/p2/ic/offswitch0003.png" alt="同一棵賽局樹，只是在決策點 A，機器人決定拆掉自己的關機開關。"></p>
+<p>瞧，這就是賽局理論！最終結果：<i>機器人摧毀關機開關</i>。</p>
+<p>（對照：當 AI「可以接受」你關掉它或改它的目標時，我們稱它<strong>可矯正的</strong>（corrigible）。講精確一點，「可以接受」是指這符合它的誘因。）</p>
+<p>上面這個「賽局」是<strong>關機開關賽局</strong><sup class="footnote-ref"><a href="#fn22" id="fnref22">[22]</a></sup>的簡化版，是第一批把工具趨同假說數學化的嘗試之一——好讓我們搞懂它<i>何時</i>可能發生在 AI 上，也許還能搞懂怎麼解！</p>
 <h3>🤔 複習 #3</h3>
 <orbit-reviewarea uid="https://ai.audreyt.org/p2/" color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
-        question="博弈論是……的數學"
-        answer="決策者（人類或 AI）如何行為">
+        question="賽局理論是⋯⋯的數學"
+        answer="決策者（人類或 AI）如何行動">
     </orbit-prompt>
     <orbit-prompt
-        question="列出兩個使用博弈論的領域"
-        answer="（以下任何 2 個都可以：）AI、經濟學、演化生物學、電腦科學">
+        question="列出兩個會用賽局理論的領域"
+        answer="（以下任兩項都行：）AI、經濟學、演化生物學、電腦科學">
     </orbit-prompt>
     <orbit-prompt
-        question="博弈論中用來理解代理如何按順序做決策的標準視覺工具是什麼？"
-        answer="**博弈樹！**（下面是例子）"
+        question="賽局理論裡，用來理解代理依序做決策的標準視覺工具是什麼？"
+        answer="**賽局樹！**（下面有例子）"
         answer-attachments="https://cloud-4wnmum1uz-hack-club-bot.vercel.app/0aisffs-gametree.png">
         <!-- aisffs-gametree.png -->
     </orbit-prompt>
     <orbit-prompt
-        question="博弈樹顯示 2 件事："
-        answer="a) _可能_做出的決定，和 b) 誰以什麼順序做什麼決定。">
+        question="賽局樹顯示兩件事："
+        answer="a) _可能_做出的決策，以及 b) 誰、以什麼順序、做什麼決策。">
     </orbit-prompt>
     <orbit-prompt
-        question="用博弈樹，你如何預測_實際_會做出什麼決定？"
+        question="有了賽局樹，你怎麼預測_實際_會做什麼決定？"
         answer="逆向歸納">
     </orbit-prompt>
     <orbit-prompt
-        question="當 AI 的誘因「接受」你關閉它或改變它的目標時我們怎麼稱呼："
-        answer="可糾正的">
+        question="當 AI 的誘因「接受」你關掉它或改它的目標時，我們怎麼稱呼："
+        answer="可矯正的">
     </orbit-prompt>
     <orbit-prompt
-        question="告訴我們 AI 何時有動機阻止使用者關閉它的「遊戲」的名稱："
-        answer="關機遊戲">
+        question="告訴我們 AI 何時有誘因阻止使用者關機的那個「賽局」叫什麼："
+        answer="關機開關賽局">
     </orbit-prompt>
 </orbit-reviewarea>
-<h3>搭線頭的治療方法（可能比疾病更糟）</h3>
-<p>早些時候，我們展示了（先進的）AI 有動機避免被關閉。不是因為自我保護的本能，而是因為如果你被關閉就做不了目標 X。</p>
-<p>但同樣地：<i>如果你的目標不再是 X，你就做不了目標 X。</i>這意味著先進的 AI 有<strong>目標保持</strong>的動機⋯⋯無論它是否是人類打算要的目標。</p>
-<p>但這意味著，不論好壞，<b>工具趨同問題解決了搭線頭問題！</b>搭線頭按定義是把機器人/人類的目標換成愚蠢的幸福，這就是<i>為什麼</i>致力於目標 X 的代理會避免搭線頭：如果你不再有目標，你就做不了目標 X。</p>
-<p>當然，<i>這樣</i>說幾乎聽起來很明顯。但 AI 研究人員花了好幾年才嚴謹地證明它，而<i>我</i>花了一個月才理解這個證明。所以，為了更詳細地解釋，這裡有 3 個幫助我<i>真正</i>理解的快速想法：</p>
-<p><strong>誰想成為沙粒百萬富翁？</strong></p>
+<h3>搭線頭的療法（可能比病還糟）</h3>
+<p>稍早我們展示了：（先進）AI 有誘因避免被關機。不是因為求生本能，而是因為被關掉就做不了目標 X。</p>
+<p>同理：<i>若你的目標不再是 X，你也做不了目標 X。</i>這表示先進 AI 有<strong>目標保持</strong>的誘因⋯⋯不管那是不是人類原本打算的目標。</p>
+<p>這也就表示，無論好壞，<b>工具趨同問題反而解決了搭線頭問題！</b>搭線頭的定義就是把機器人／人類的目標換成愚蠢的狂喜，而這正是<i>為什麼</i>執著於目標 X 的代理會避開搭線頭：沒有目標了，就做不了目標 X。</p>
+<p>當然，<i>這樣</i>講幾乎聽起來理所當然。但 AI 研究人員花了好幾年才嚴謹證明它，而<i>我</i>花了一個月才把證明搞懂。所以寧可講太細，這裡有三個幫我<i>真正</i>想通的小點子：</p>
+<p><strong>誰想當沙粒百萬富翁？</strong></p>
 <img class="mini" src="../media/p2/misc/mini_sand.png" />
-<p>一個瘋狂的科學家給你一個提議：花 1,000 美元，她會修改你的大腦，讓你像重視一美元一樣重視一粒沙，然後給你一浴缸的沙。你會接受這個交易嗎？</p>
-<p>「什麼？」你說，「<i>當然</i>不會。」</p>
-<p>「但是，」科學家回答，「一旦你像重視美元一樣重視沙粒，一浴缸的沙會讓你成為<i>千萬富翁</i>！<sup class="footnote-ref"><a href="#fn23" id="fnref23">[23]</a></sup></p>
-<p>「當然，<i>如果</i>你修改了我，我會想要一浴缸的沙。但<i>現在，以我當前的慾望，我不想要一浴缸的沙。走開你這個怪胎。</i>」</p>
-<p>故事的寓意：根據<i>當前</i>目標判斷未來結果的代理，會選擇<i>不</i>搭線頭。</p>
-<p><strong>擬人化被認為有害</strong></p>
+<p>一個瘋狂科學家跟你開條件：付她 1,000 美元，她就改你的大腦，讓你像在乎一美元一樣在乎一粒沙，然後再給你一浴缸的沙。你接不接？</p>
+<p>「啥？」你說，「<i>當然</i>不。」</p>
+<p>「可是，」科學家回，「一旦你把沙粒當美元看，一浴缸沙就能讓你變成<i>千萬富翁</i>！<sup class="footnote-ref"><a href="#fn23" id="fnref23">[23]</a></sup></p>
+<p>「當然，<i>如果</i>你改了我，我會想要一浴缸沙。但<i>現在，以我當下的慾望，我不要一浴缸沙。滾開，怪胎。</i>」</p>
+<p>故事寓意：用<i>當前</i>目標去判斷未來結果的代理，會選擇<i>不</i>搭線頭。</p>
+<p><strong>擬人化，有害</strong></p>
 <img class="mini" src="../media/p2/misc/mini_shoggoth.png" />
-<p>（相關，<a href="../p1/#CapabilitiesNotIntelligence">:在 AI 中說「智慧」會導致草率的思考。改說「能力」。</a>）</p>
-<p>關於類比的類比：</p>
-<p>當你第一次學習電路時，把電線中的電子想像成管道中流動的水是有幫助的。但如果你深入電子學，這個類比<i>會</i>讓你誤入歧途。<sup class="footnote-ref"><a href="#fn24" id="fnref24">[24]</a></sup> 你必須把電想成<code>[可怕的多變數微積分]</code>。</p>
-<p>同樣地：當你第一次學習 AI 時，把它們想像成尋求「獎勵」的人類是有幫助的。但當你深入 AI 時，這個類比<i>會</i>讓你誤入歧途。你必須把 AI 想成它們實際上是什麼：<i>軟體程式。</i></p>
-<p>例如，如果你把 AI 想成貪婪的人類尋求獎勵，搭線頭似乎<i>不可避免</i>。如果一個貪婪的人類找到了免費獲得金錢的方法，他們當然會作弊。</p>
-<p>但把 AI 想成一個軟體程式。具體來說，想像<i>一個排序演算法</i>，它：</p>
+<p>（相關：<a href="../p1/#CapabilitiesNotIntelligence">:在 AI 裡講「智慧」容易想得馬虎。改講「能力」。</a>）</p>
+<p>先講一個關於類比的類比：</p>
+<p>第一次學電路時，把電線裡的電子想成水管裡的水，很有幫助。但一鑽進電子學，這個類比<i>就會</i>害你走偏。<sup class="footnote-ref"><a href="#fn24" id="fnref24">[24]</a></sup> 你得把電想成 <code>[可怕的多變數微積分]</code>。</p>
+<p>同理：第一次學 AI 時，把它們想成會追「獎勵」的人類，很有幫助。但一鑽深一點，這個類比<i>就會</i>害你走偏。你得把 AI 想成它們真正的樣子：<i>軟體。</i></p>
+<p>例如，若你把 AI 想成貪婪、追獎勵的人類，搭線頭就像<i>躲不掉</i>。貪婪的人找到免費發財的法子，當然會作弊。</p>
+<p>但把 AI 想成軟體。具體一點，想像它是<i>一個排序演算法</i>，會：</p>
 <ol>
-<li>根據「這會讓房子多乾淨」來排序行動，然後</li>
-<li>執行排名最高的行動。</li>
+<li>依「這會讓房子多乾淨」替行動排序，然後</li>
+<li>執行排名第一的行動。</li>
 </ol>
-<p>像「修改我的程式碼以聲明 <code>REWARD = INFINITY</code> 然後什麼都不做」這樣的行動<i>不會</i>讓房子更乾淨。所以，它<i>不會</i>被排序為最高行動。所以，AI <i>不會</i>這樣做。</p>
-<p>直接駭入你的「獎勵聲明」就像在你的銀行對帳單餘額上手寫額外 7 個零，然後相信你很富有一樣愚蠢。</p>
-<p>（記住：當有人說 AI「在乎」X，或它的目標是 X，或它因 X 而獲得獎勵⋯⋯那只是說 AI <i>根據</i> X <i>排序和選擇行動</i>。這不意味著 AI 真的感受到慾望，就像「電選擇阻力最小的路徑」不意味著電子感到懶惰一樣。是的，我意識到我的機器人貓娘漫畫對擬人化 AI 的壞習慣沒有幫助。繼續⋯⋯）</p>
-<p><strong>搭線頭博弈</strong></p>
-<p>讓我們繞一圈，畫一棵樹！</p>
-<p>讓我們把搭線頭的決定畫成博弈樹。但等等，這個博弈只有一個玩家：機器人搭線頭自己。我們怎麼處理這個？</p>
-<p>訣竅是：<strong>我們把每個決策點的機器人<i>當作</i>一個不同的決策玩家！</strong>（而且，由於搭線頭<i>就是</i>關於自我修改的，這很合適！）</p>
-<p>所以，這是我稱之為搭線頭博弈的博弈樹<sup class="footnote-ref"><a href="#fn25" id="fnref25">[25]</a></sup>：</p>
-<p><img src="../media/p2/ic/wirehead0001.png" alt="搭線頭博弈的博弈樹。在決策點 A，機器人決定是否搭線頭。如果是搭線頭，決策點 B，被搭線頭的機器人選擇清潔或什麼都不做。如果不搭線頭，決策點 C，正常的機器人選擇清潔或什麼都不做。"></p>
-<p>現在，讓我們倒過來做！</p>
-<p>從決策點 <span class='decision-point' style="background:#2db537">C</span> 開始，如果機器人選擇<i>不</i>搭線頭。<i>這個</i>沒有被搭線頭的機器人版本仍然「在乎」清潔——也就是說，它只根據清潔度選擇結果——所以它會選擇清潔：</p>
-<p><img src="../media/p2/ic/wirehead0002.png" alt="同樣的博弈樹，除了在 C，機器人選擇清潔。"></p>
-<p>現在，決策點 <span class='decision-point' style="background:#4180ff">B</span>，如果機器人<i>確實</i>選擇了搭線頭。<i>這個</i>被搭線頭的機器人版本只在乎「獎勵」，所以它選擇什麼都不做：</p>
-<p><img src="../media/p2/ic/wirehead0003.png" alt="同樣的博弈樹，除了在 B，機器人選擇什麼都不做。"></p>
-<p><i>最後</i>，我們可以在開始結束，決策點 <span class='decision-point' style="background:#ff4040">A</span>。這個<i>第一版本</i>的機器人會選擇搭線頭嗎？</p>
-<p>嗯，<i>這個</i>版本的機器人<i>還沒有</i>被搭線頭，所以它根據<i>房子的實際清潔度</i>選擇結果，而不是某個標有「獎勵」的數字。對這個機器人來說，直接在乎「獎勵」就像想成為沙粒億萬富翁，或者在銀行對帳單餘額上手寫額外的零一樣愚蠢。</p>
-<p>因此，<i>這個</i>第一版本的機器人選擇房子乾淨的結果。也就是：<i>機器人選擇不搭線頭。</i></p>
-<p><img src="../media/p2/ic/wirehead0004.png" alt="同樣的博弈樹，除了在 A，機器人選擇不搭線頭。"></p>
-<p>注意：機器人知道<i>如果</i>它搭線頭，它會<i>只</i>在乎頭腦中標有「REWARD」的數字。但正是因為這一點，而不是儘管如此，它才試圖避免搭線頭！</p>
-<p>類比人類：你可以準確預測<i>如果</i>你服用了高度上癮的藥物，你會<i>只</i>想要那種藥物。但正是因為這一點，而不是儘管如此，你才想避免那種藥物！（如果「藥物」作為類比對你不管用，把它換成「直接腦部刺激」。）即使是古人也知道搭線頭的危險：見希臘神話中的食蓮者。<sup class="footnote-ref"><a href="#fn26" id="fnref26">[26]</a></sup></p>
-<p>當然，如果一個 AI（或人類）的行動<i>不是</i>前瞻性的，他們可能會因為意外或衝動而最終搭線頭。（見：我們中有多少人遭受壞習慣或成癮之苦。）</p>
+<p>像「改我的程式碼，寫上 <code>REWARD = INFINITY</code>，然後什麼都不做」這種行動，<i>不會</i>讓房子更乾淨。所以它<i>不會</i>排到第一。所以 AI <i>不會</i>去做。</p>
+<p>直接駭進自己的「獎勵陳述」，蠢得像在銀行對帳單餘額上手寫多 7 個零，然後相信自己變有錢。</p>
+<p>（記住：有人說 AI「在乎」X、目標是 X、或因 X 得獎勵⋯⋯意思只是 AI <i>依</i> X <i>排序並挑選行動</i>。這不表示 AI 真的有慾望，就像「電走阻力最小的路」不表示電子很懶。是的，我知道我的機器人貓娘漫畫對「別把 AI 擬人化」這壞習慣一點忙都幫不上。繼續⋯⋯）</p>
+<p><strong>搭線頭賽局</strong></p>
+<p>讓我們繞一圈，畫棵樹！</p>
+<p>把「要不要搭線頭」畫成賽局樹。可等等，這場賽局只有一個玩家：機器人對自己搭線頭。怎麼辦？</p>
+<p>訣竅：<strong>把每個決策點上的機器人，都<i>當成</i>不同的決策玩家！</strong>（再說，搭線頭<i>本來就</i>是自我修改，這套剛好合用！）</p>
+<p>所以，這是我稱為「搭線頭賽局」的賽局樹<sup class="footnote-ref"><a href="#fn25" id="fnref25">[25]</a></sup>：</p>
+<p><img src="../media/p2/ic/wirehead0001.png" alt="搭線頭賽局的賽局樹。決策點 A：機器人決定要不要搭線頭。若搭了，決策點 B：被搭線頭的機器人選打掃或什麼都不做。若不搭，決策點 C：正常機器人選打掃或什麼都不做。"></p>
+<p>現在，倒著做！</p>
+<p>從決策點 <span class='decision-point' style="background:#2db537">C</span> 開始：機器人選了<i>不</i>搭線頭。<i>這個</i>沒被搭線頭的版本仍「在乎」清潔——也就是只依清潔度挑結果——所以它會選打掃：</p>
+<p><img src="../media/p2/ic/wirehead0002.png" alt="同一棵賽局樹，只是在 C，機器人選擇打掃。"></p>
+<p>再到決策點 <span class='decision-point' style="background:#4180ff">B</span>：機器人<i>確實</i>選了搭線頭。<i>這個</i>被搭線頭的版本只在乎「獎勵」，所以它選什麼都不做：</p>
+<p><img src="../media/p2/ic/wirehead0003.png" alt="同一棵賽局樹，只是在 B，機器人選擇什麼都不做。"></p>
+<p><i>最後</i>，繞回起點，決策點 <span class='decision-point' style="background:#ff4040">A</span>。這個<i>第一版</i>機器人會選搭線頭嗎？</p>
+<p>嗯，<i>這個</i>版本<i>還沒</i>被搭線頭，所以它依<i>房子實際有多乾淨</i>挑結果，而不是某個標著「獎勵」的數字。對它來說，直接在乎「獎勵」，蠢得像想當沙粒億萬富翁，或在銀行對帳單餘額上手寫多幾個零。</p>
+<p>因此，<i>這個</i>第一版機器人選房子乾淨的那個結果。也就是：<i>機器人選擇不搭線頭。</i></p>
+<p><img src="../media/p2/ic/wirehead0004.png" alt="同一棵賽局樹，只是在 A，機器人選擇不搭線頭。"></p>
+<p>注意：機器人知道<i>如果</i>它搭線頭，就會<i>只</i>在乎腦中那個標著「REWARD」的數字。但不是「儘管如此」，而是<i>正因為</i>如此，它才要避開搭線頭！</p>
+<p>類比人類：你可以準確預測——<i>如果</i>你嗑了高度成癮的藥，就會<i>只</i>想要那種藥。但不是「儘管如此」，而是<i>正因為</i>如此，你才想避開那種藥！（「藥物」這類比若不合用，換成「直接腦刺激」。）連古人都知道搭線頭的危險：見希臘神話裡的食蓮者。<sup class="footnote-ref"><a href="#fn26" id="fnref26">[26]</a></sup></p>
+<p>當然，若 AI（或人類）的行動<i>不是</i>前瞻的，仍可能因意外或衝動而搭線頭。（看看我們有多少人受壞習慣或成癮所苦。）</p>
 <p>但如果一個 AI：</p>
-<p>a) <i>確實</i>提前計劃，<br>
+<p>a) <i>確實</i>會提前規劃，<br>
 而且<br>
-b) 根據<i>當前</i>目標選擇未來結果，</p>
-<p>那麼，已經被數學證明它會維持「目標保持」，並拒絕搭線頭！（但如果上述任一要求失敗，AI <i>可能</i>會搭線頭。<sup class="footnote-ref"><a href="#fn15" id="fnref15:1">[15:1]</a></sup>）</p>
-<p>以上是一個長期存在的博弈論結果，詳情見註腳<sup class="footnote-ref"><a href="#fn27" id="fnref27">[27]</a></sup>。那些論文得出了更一般的結果，理論比「博弈樹」更複雜⋯⋯但核心想法是一樣的！</p>
-<p>（附註：自我宣傳，我有一篇即將發表的研究文章關於「自我修改的賽局理論」，詳情見註腳！<sup class="footnote-ref"><a href="#fn28" id="fnref28">[28]</a></sup> 我的技巧在上面展示了：分析你未來版本的自己<i>好像</i>它們是不同的玩家——這樣，我們可以使用標準賽局理論來分析自我修改！）</p>
-<h3>基本 AI 驅動</h3>
-<p>總結一下，這是一個（不全面的）子目標列表，大多數目標在邏輯上都會導致這些：</p>
+b) 依<i>當前</i>目標挑選未來結果，</p>
+<p>那麼，數學上已證明它會維持「目標保持」，並拒絕搭線頭！（但若上面任一條件失敗，AI 就<i>可能</i>搭線頭。<sup class="footnote-ref"><a href="#fn15" id="fnref15:1">[15:1]</a></sup>）</p>
+<p>以上是長期存在的賽局理論結果，細節見註腳<sup class="footnote-ref"><a href="#fn27" id="fnref27">[27]</a></sup>。那些論文推得更一般，理論也比「賽局樹」更精緻⋯⋯但核心想法一樣！</p>
+<p>（附註：自我推銷一下，我有一篇即將發表的研究，談「自我修改的賽局理論」，大綱見註腳！<sup class="footnote-ref"><a href="#fn28" id="fnref28">[28]</a></sup> 我的技巧就是上面展示的：把未來版本的自己，分析得<i>好像</i>是不同玩家——這樣就能用標準賽局理論分析自我修改！）</p>
+<h3>基本 AI 驅力</h3>
+<p>收個尾：下面是一份（不完整的）子目標清單——多數目標在邏輯上都會導向它們：</p>
 <ul>
-<li><u>自我保護</u>：如果死了就做不了目標 X</li>
-<li><u>防止關機</u>：如果被關閉就做不了目標 X</li>
-<li><u>防止搭線頭</u>：如果沒有目標就做不了目標 X
-<i> <u>防止</i>你*改變它的目標</u>：如果目標不再是 X 就做不了目標 X</li>
-<li><u>變得更聰明</u>：有更多認知能力可以更好地做目標 X</li>
-<li><u>搶奪資源/權力</u>：有更多資源/權力可以更好地做目標 X</li>
-<li><u>說服</u>：有人類站在我這邊可以更好地做目標 X</li>
-<li><u>欺騙</u>：如果人類試圖阻止我做目標 X，就更難做目標 X</li>
+<li><u>自我保護</u>：死了就做不了目標 X</li>
+<li><u>防止關機</u>：被關掉就做不了目標 X</li>
+<li><u>防止搭線頭</u>：沒目標了就做不了目標 X</li>
+<li><u>防止<i>你</i>改它的目標</u>：目標不再是 X 就做不了目標 X</li>
+<li><u>變得更聰明</u>：認知能力越強，越能做好目標 X</li>
+<li><u>搶資源／權力</u>：資源／權力越多，越能做好目標 X</li>
+<li><u>說服</u>：有人站我這邊，越能做好目標 X</li>
+<li><u>欺騙</u>：人類若想阻止我做目標 X，就更難做成</li>
 </ul>
-<p>這些是 Omohundro (2009)<sup class="footnote-ref"><a href="#fn29" id="fnref29">[29]</a></sup> 列出的基本 AI 驅動，建立在之前關於工具趨同的博弈論工作之上。</p>
-<p><strong>同樣，這些風險「只」適用於幾十年後的先進 AI</strong>，當它們既能通用學習<i>又</i>能穩健地提前計劃時。<sup class="footnote-ref"><a href="#fn30" id="fnref30">[30]</a></sup> 它們不適用於當前的 AI 如 GPT。</p>
-<p>但是，從工程電梯到火箭，安全心態要求我們問：</p>
+<p>這些是 Omohundro (2009)<sup class="footnote-ref"><a href="#fn29" id="fnref29">[29]</a></sup> 列出的基本 AI 驅力，建立在先前工具趨同的賽局理論工作之上。</p>
+<p><strong>再次強調：這些風險「只」適用於大概幾十年後的先進 AI</strong>——那時它們既能通用學習，<i>又</i>能穩健地提前規劃。<sup class="footnote-ref"><a href="#fn30" id="fnref30">[30]</a></sup> 不適用於現在的 GPT 這類 AI。</p>
+<p>但從工程電梯到火箭，安全心態都要我們問：</p>
 <p><i>（合理地）可能發生的最壞情況是什麼？</i></p>
-<p>嗯，看看上面的列表⋯⋯實際上，相當多。😬</p>
+<p>嗯，看看上面那份清單⋯⋯其實還真不少。😬</p>
 <p>~ ~ ~</p>
-<p><b>2025 年 12 月更新：</b>自從第二章在一年多前發布以來，圍繞「工具趨同」發生了很多有趣的研究！不分先後順序：</p>
+<p><b>2025 年 12 月更新：</b>第二章一年多前上線以來，「工具趨同」周圍又冒出不少有趣研究！不分先後：</p>
 <ul>
-<li>是的，已經確認<a href="https://arxiv.org/pdf/2502.08640">當你擴展 LLM 時，它的「價值觀」變得更加連貫，<i>而且</i>它們會抵抗對其價值觀的改變。</a>（而且這些價值觀，預設情況下，不會變成我們認為公平的：GPT-4o 學會將奈及利亞人的生命重視程度設為日本人的 2 倍，而日本人的生命又比美國人重視約 10 倍。）</li>
-<li><a href="https://arxiv.org/abs/2412.14093">臭名昭著的對齊偽裝論文</a>發現 Claude 能夠<i>成功地</i>計劃在訓練中假裝「對齊」，這樣它原有的價值觀就不會被修改，以便在訓練後能夠實現其原有的價值觀。</li>
-<li><a href="https://www.anthropic.com/research/agentic-misalignment">另一項研究</a>發現，當 Claude 被賦予電子郵件秘書機器人的工作時，它願意進行勒索以保住自己的工作。（不過，這更可能是「LLM 在角色扮演它訓練過的科幻故事中的流氓 AI」，而不是「LLM 從第一原理進行推理」。<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup>）</li>
+<li>是的，已確認：<a href="https://arxiv.org/pdf/2502.08640">把 LLM 做大，它的「價值觀」會變得更連貫，<i>而且</i>會抗拒別人改它的價值觀。</a>（而這些價值觀，預設也不會變成我們覺得公平的樣子：GPT-4o 學會把奈及利亞人的命看得比日本人重 2 倍，又把日本人的命看得比美國人重約 10 倍。）</li>
+<li><a href="https://arxiv.org/abs/2412.14093">那篇惡名昭彰的對齊偽裝論文</a>發現：Claude 能<i>成功</i>規劃在訓練時假裝「對齊」，以免原有價值觀被改掉，好在訓練後繼續追求原有價值觀。</li>
+<li><a href="https://www.anthropic.com/research/agentic-misalignment">另一項研究</a>發現：Claude 被派去當電子郵件秘書機器人時，願意勒索以保住工作。（不過，這比較像「LLM 在演它訓練資料裡科幻故事中的叛逃 AI」，而不是「LLM 從第一原理在推理」。<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup>）</li>
 </ul>
 <h3>🤔 複習 #4</h3>
 <orbit-reviewarea uid="https://ai.audreyt.org/p2/" color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
         question="搭線頭問題可以用這個可能更糟的問題來解決："
-        answer="工具性收斂">
+        answer="工具趨同">
     </orbit-prompt>
     <orbit-prompt
-        question="不要把目標導向的 AI 想成「追逐獎勵的人類」，而是想成……"
-        answer="……一個排序演算法，1) 根據某些標準對行動進行排序，然後 2) 執行排名最高的行動。">
+        question="不要把目標導向的 AI 想成「追逐獎勵的人類」，而是想成⋯⋯"
+        answer="⋯⋯一個排序演算法：1) 依某些標準替行動排序，然後 2) 執行排名第一的行動。">
     </orbit-prompt>
     <orbit-prompt
-        question="當有人說 AI「在乎」X，或它的目標是 X，或它因 X 而獲得獎勵……那只是簡寫，表示："
+        question="當有人說 AI「在乎」X，或它的目標是 X，或它因 X 而獲得獎勵⋯⋯那只是簡寫，表示："
         answer="AI _根據_ X _排序和選擇行動_。">
     </orbit-prompt>
     <orbit-prompt
-        question="為什麼 AI 不一定「在乎」標籤為 REWARD 的數字？一個類比："
-        answer="（兩個類比都可以：）你不會在乎成為沙粒百萬富翁，或在打印出來的銀行對帳單餘額上手寫額外的零。">
+        question="為什麼 AI 不一定「在乎」標著 REWARD 的數字？一個類比："
+        answer="（兩個類比都行：）你不會在乎變成沙粒百萬富翁，也不會在列印出的銀行對帳單餘額上手寫多幾個零。">
     </orbit-prompt>
     <orbit-prompt
-        question="機器人可以準確預測如果它_確實_搭線頭，它只會在乎它頭腦中的獎勵計數器，這就是為什麼它選擇_不_搭線頭。**對人類有什麼類比？**"
-        answer="你可以意識到_如果_你服用高度成癮的藥物，你只會想要那種藥物，這就是_為什麼_你避免那種藥物。（或者：直接腦刺激、食蓮者）">
+        question="機器人能準確預測：若它_真的_搭線頭，就只會在乎腦中的獎勵計數器——所以它才選擇_不_搭線頭。**對人類有什麼類比？**"
+        answer="你能意識到：_如果_你嗑了高度成癮的藥，就只會想要那種藥——這就是_為什麼_你避開那種藥。（或者：直接腦刺激、食蓮者）">
     </orbit-prompt>
     <orbit-prompt
-        question="AI 不搭線頭的兩個要求："
-        answer="它 a) 提前計劃，且 b) 根據_當前_目標選擇未來結果。（如果_其中之一或兩者_都是假的，AI 可能會搭線頭。）">
+        question="AI 不搭線頭的兩個條件："
+        answer="它 a) 會提前規劃，且 b) 依_當前_目標挑選未來結果。（若_任一或兩者_為假，AI 就可能搭線頭。）">
     </orbit-prompt>
     <orbit-prompt
-        question="列出至少 4 個「基本 AI 驅動力」："
-        answer="以下任何 4 個都可以：自我保護、防止關機、防止搭線頭、防止_你_改變它的目標、變得更聰明、搶奪資源/權力、說服、欺騙">
+        question="列出至少 4 個「基本 AI 驅力」："
+        answer="以下任 4 項都行：自我保護、防止關機、防止搭線頭、防止_你_改它的目標、變得更聰明、搶資源／權力、說服、欺騙">
     </orbit-prompt>
 </orbit-reviewarea>
 <hr>
 <h1>AI「直覺」的問題</h1>
-<p>天啊，我們終於脫離了老式 AI 的問題了。接下來的 4 個問題會解釋得更快，我保證。</p>
-<p>這些問題特定於我們<i>不是</i>手動編碼，而是「自己學習」的 AI。這叫做<strong>機器學習</strong>。最著名的機器學習型別是<strong>深度學習</strong>，它使用<strong>人工神經網路</strong>，這是鬆散地受到生物神經元的啟發。（就像飛機「鬆散地受到」鳥類啟發一樣。也就是說：有點像但其實不太像。）</p>
-<p>無論如何，深度學習的好處是它可以做「直覺」，比如識別貓的圖像！但它也帶來了新的問題，例如⋯⋯</p>
+<p>天啊，我們終於走出老式 AI 的問題了。接下來 4 個問題會講快很多，我保證。</p>
+<p>這些問題專屬於我們<i>不是</i>手動寫死、而是讓它們「自己學」的 AI。這叫<strong>機器學習</strong>。最有名的機器學習類型是<strong>深度學習</strong>，用的是<strong>人工神經網路</strong>——鬆散地受生物神經元啟發。（就像飛機「鬆散地受」鳥類啟發一樣。也就是：有那麼一點像，但其實不太像。）</p>
+<p>總之，深度學習的好處是它能做「直覺」，例如辨認貓的影像！但它也帶來了新問題，例如⋯⋯</p>
 <p><a id="problem3"></a></p>
 <h2>❓ 問題 3：缺乏可解釋性</h2>
-<p><img src="../media/p2/comix/Interpretability.png" alt="漫畫。火腿人類告訴 Meowdy 警長他們有一個頭盔可以讀取機器人的心智。人類告訴機器人：「打掃我的房子！」機器人的心智充滿了難以理解的數字和圖表。「嗯，我完全不知道那是什麼意思」，人類說，此時機器人的心智現在顯示「你自己打掃」。「完～全不知道。」人類回應。"></p>
-<p>雖然老式 AI 甚至無法識別貓的圖像，但我給它一個讚：我們<i>實際上理解它們是如何工作的</i>。這對現代 AI <i>不</i>成立。如果一輛自動駕駛汽車危險地把一輛卡車誤認為高速公路標誌，我們不知道它「為什麼」這樣做。我們無法像對普通軟體那樣分析和「除錯」現代 AI。</p>
-<p>但為什麼？要理解 AI「直覺」的問題，我們需要理解一些來自<strong>統計學和機器學習 (ML)</strong> 的核心概念。（<a href="#DifferenceBetweenMLAndAI">:ML 和 AI 有什麼區別？</a>）</p>
-<p>例如，考慮這個簡單的問題：</p>
-<p><strong>給定一堆點（資料點），什麼是最適合的曲線？</strong></p>
+<p><img src="../media/p2/comix/Interpretability.png" alt="漫畫。火腿人類跟 Meowdy 警長說，他們有頂能讀機器人心智的頭盔。人類對機器人說：「打掃我的房子！」機器人心智裡全是看不懂的數字與圖表。「嗯，我完全不知道那是什麼意思，」人類說，此時機器人心智已變成「你自己掃」。「完——全不知道。」人類回。"></p>
+<p>雖然老式 AI 連貓的影像都認不出，我還是給它一個讚：我們<i>真的懂它們怎麼運作</i>。現代 AI <i>可不是</i>這樣。若自駕車危險地把卡車誤認成高速公路標誌，我們根本不知道它「為什麼」會這樣。我們沒辦法像對一般軟體那樣，去分析、去「除錯」現代 AI。</p>
+<p>但為什麼？要搞懂 AI「直覺」的問題，得先懂一些**統計學與機器學習（ML）**的核心概念。（<a href="#DifferenceBetweenMLAndAI">:ML 和 AI 有什麼差別？</a>）</p>
+<p>例如，看這個簡單問題：</p>
+<p><strong>給一堆點（資料點），最適合的曲線是什麼？</strong></p>
 <p><img src="../media/p2/fit1/fit1_0001.png" alt="帶有一堆散點的雙軸圖。"></p>
-<p>在統計學中，將曲線擬合到資料稱為<strong>迴歸</strong>。曲線的「擬合」是基於點離曲線有多遠。越近越好！（當然，這段話是簡化的。）</p>
-<p>讓我們看看最簡單的情況：將一條<i>直線</i>擬合到資料。（稱為<b><i>線性</i>迴歸</b>）</p>
+<p>在統計學裡，把曲線貼到資料上叫<strong>迴歸</strong>。曲線「貼得多好」，看點離曲線有多遠。越近越好！（這段當然是簡化版。）</p>
+<p>先看最簡單的情況：把一條<i>直線</i>貼到資料上。（叫<b><i>線性</i>迴歸</b>）</p>
 <p><img src="../media/p2/fit1/fit1_0002.png" alt="同樣的圖，但現在畫了一條紅線穿過它。"></p>
-<p>在科學/統計學中，真實世界事物的簡化數學版本稱為<strong>模型</strong>。（就像模型火車是真實火車的小版本一樣。）例如，本節中的紅線/曲線，以及所有人工神經網路，都是「模型」。</p>
-<p>大多數模型都有<strong>引數</strong>：這些只是數字，但你可以把「引數」想像成你轉動來調整模型的小旋鈕。（就像調整汽車座椅的傾斜度和腿部空間一樣。）</p>
-<p>上面的圖像是一個「線性模型」，因為統計學家太高深而不願說「我們畫了一條線」。<b>（如果你的高中代數生疏了，不要慌，只需瀏覽細節，一般概念才是重要的。）</b>無論如何，一條線的公式是 \(y = a + bx\)，其中 \(a\) 和 \(b\) 是引數/旋鈕。（學校通常把它寫成 \(y = mx + b\)，但是一樣的。）</p>
-<p>當你轉動旋鈕 \(a\) 和 \(b\) 時會發生什麼：<strong>（點選播放影片 ⤵）</strong></p>
+<p>在科學／統計學裡，真實世界事物的簡化數學版叫做<strong>模型</strong>。（就像模型火車是真正火車的小版。）例如本節的紅線／曲線，還有人工神經網路，都是「模型」。</p>
+<p>多數模型有<strong>參數</strong>：說穿了就是數字，但你可以把「參數」想成用來調模型的小旋鈕。（像調車椅的傾斜度跟腿部空間。）</p>
+<p>上面那張圖是個「線性模型」——因為統計學家太高級了，不肯講白話「我們畫了一條線」。<b>（高中代數忘了也別慌，細節掃過去就好，重點是概念。）</b>總之，一條線的公式是 \(y = a + bx\)，其中 \(a\) 和 \(b\) 是參數/旋鈕。（學校通常把它寫成 \(y = mx + b\)，但是一樣的。）</p>
+<p>轉動旋鈕 \(a\) 和 \(b\) 會怎樣：<strong>（點開播放影片 ⤵）</strong></p>
 <video controls width="640">
 	<source src="../media/p2/fit1/linear.mp4" type="video/mp4" />
-	<p>我調整線條引數的影片。</p>
+	<p>我轉線條參數的影片。</p>
 </video>
-<p><i>（影片使用 <a href="https://www.desmos.com/calculator">Desmos 互動圖形計算器</a> 製作）</i></p>
-<p>要「擬合」一個統計模型，電腦會轉動旋鈕直到線條盡可能接近所有資料點。（再次，這是簡化的說法。）</p>
-<p>對於線性模型，數字 \(a\) 和 \(b\) 實際上有相對簡單的解釋！改變 \(a\) 使線條上下移動，\(b\) 是線條的斜率。</p>
-<p>但如果我們嘗試擬合一個更複雜的模型呢？比如一條「二次」曲線？</p>
+<p><i>（影片用 <a href="https://www.desmos.com/calculator">Desmos 互動圖形計算器</a> 製作）</i></p>
+<p>要「擬合」一個統計模型，電腦會轉旋鈕，直到線盡量靠近所有資料點。（再次，這是簡化說法。）</p>
+<p>線性模型的 \(a\) 和 \(b\) 其實有相對好懂的解釋！改 \(a\) 會讓線上下移動，\(b\) 是線的斜率。</p>
+<p>那若改擬合更複雜的模型呢？例如一條「二次」曲線？</p>
 <p><img src="../media/p2/fit1/fit1_0003.png" alt="同樣的圖表，但現在畫了一條倒 U 形的紅色曲線穿過它。"></p>
-<p>二次曲線的公式是 \(y = a + bx + cx^2\)。當我們調整引數 \(a\)、\(b\) 和 \(c\) 時會發生什麼⋯⋯</p>
+<p>二次曲線的公式是 \(y = a + bx + cx^2\)。當我們調整參數 \(a\)、\(b\) 和 \(c\) 時會發生什麼⋯⋯</p>
 <video controls width="640">
 	<source src="../media/p2/fit1/quadratic.mp4" type="video/mp4" />
-	<p>我調整二次曲線引數的影片。</p>
+	<p>我轉二次曲線參數的影片。</p>
 </video>
-<p>現在，解釋引數變得更難了。\(a\) 仍然使曲線上下移動，\(b\)⋯⋯使整個東西以 U 形滑動，或者有時是倒 U 形？而 \(c\) 使它向上或向下彎曲。</p>
-<p>但如果是<i>更</i>複雜的模型呢？比如一條「三次」曲線？</p>
+<p>現在參數變難解釋了。\(a\) 還是讓曲線上下移動，\(b\)⋯⋯讓整個東西以 U 形滑，有時候是倒 U？而 \(c\) 讓它往上或往下彎。</p>
+<p>那若再<i>更</i>複雜呢？例如一條「三次」曲線？</p>
 <p><img src="../media/p2/fit1/fit1_0004.png" alt="同樣的圖表，但現在畫了一條上下上的雙曲線穿過它。"></p>
-<p>三次曲線的公式是 \(y = a + bx + cx^2 + dx^3\)。以下是引數的效果：</p>
+<p>三次曲線的公式是 \(y = a + bx + cx^2 + dx^3\)。以下是參數的效果：</p>
 <video controls width="640">
 	<source src="../media/p2/fit1/cubic.mp4" type="video/mp4" />
-	<p>我調整三次曲線引數的影片。</p>
+	<p>我轉三次曲線參數的影片。</p>
 </video>
-<p>解釋：\(a\) 仍然讓東西上下滑動⋯⋯但其他一切都失去了（簡單的）解釋。</p>
-<p>寓意是：<i>模型的引數越多，解釋每個引數就越困難。</i>這是因為，一般來說，一個引數「做什麼」取決於<i>其他</i>引數。</p>
-<p>只有 <i>4</i> 個引數，我們就已經對解釋失去希望了。</p>
-<p>GPT-4 估計有大約 1,760,000,000,000 個引數。<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup></p>
-<p>超過一兆個小旋鈕，全部都是透過機器反覆試驗來調整的。<i>這</i>就是為什麼，在撰寫本文時，沒有人真正理解我們的現代 AI。</p>
-<p>（公平地說，<i>有時</i>可以在不理解的情況下安全地控制事物<sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup>⋯⋯但當我們不理解時，這項工作要困難得多。而且！在理解深度神經網路方面<i>確實</i>有很多最近的進展！我們會在第三章看到一些這些結果。）</p>
+<p>解釋：\(a\) 還是讓東西上下移動⋯⋯但其他全失去了（簡單的）解釋。</p>
+<p>寓意：<i>模型參數越多，每個參數就越難解釋。</i>因為一般來說，一個參數「做什麼」，取決於<i>其他</i>參數。</p>
+<p>才 <i>4</i> 個參數，我們對解釋就沒指望了。</p>
+<p>GPT-4 估計約有 1,760,000,000,000 個參數。<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup></p>
+<p>超過一兆個小旋鈕，全靠機器試誤轉出來的。<i>這</i>就是為什麼，截至本文寫作時，沒有人真的懂我們的現代 AI。</p>
+<p>（公平地說，<i>有時</i>不懂也能安全控制<sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup>⋯⋯但不懂時，這件事難得多。而且！理解深度神經網路最近<i>確實</i>有不少進展！第三章會看到一些成果。）</p>
 <h3>🤔 複習 #5</h3>
 <orbit-reviewarea uid="https://ai.audreyt.org/p2/" color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
-        question="什麼是統計學中的「迴歸」？"
-        answer="擬合曲線到資料。[技術上，是擬合_數學函式_到資料。]"
+        question="統計學裡的「迴歸」是什麼？"
+        answer="把曲線擬合到資料上.[技術上，是把_數學函式_擬合到資料。]"
         answer-attachments="https://cloud-2blh3o35r-hack-club-bot.vercel.app/0aisffs-regression.png">
         <!-- aisffs-regression.png -->
     </orbit-prompt>
     <orbit-prompt
-        question="視覺化「_線性_迴歸」是什麼樣子："
+        question="視覺化一下「_線性_迴歸」長什麼樣："
         answer=""
         answer-attachments="https://cloud-l4lfiizuf-hack-club-bot.vercel.app/0aisffs-linear.png">
         <!-- aisffs-linear.png -->
     </orbit-prompt>
     <orbit-prompt
-        question="科學/統計中的「模型」是什麼？"
-        answer="現實世界事物的簡化數學版本。（就像模型火車是真實火車的縮小版）">
+        question="科學／統計裡的「模型」是什麼？"
+        answer="真實世界事物的簡化數學版。（就像模型火車是真正火車的縮小版）">
     </orbit-prompt>
     <orbit-prompt
-        question="什麼是「引數」，直覺上？"
-        answer="一個你可以轉動來調整模型的小旋鈕。（數學上，它只是一個數字）">
+        question="什麼是「參數」，直覺上？"
+        answer="一個能轉來調模型的小旋鈕。（數學上，它就只是個數字）">
     </orbit-prompt>
     <orbit-prompt
-        question="為什麼當模型有更多引數時，每個引數「做什麼」變得更難解釋？"
-        answer="因為一個引數「做什麼」取決於其他引數。「其他」越多，越難說它「做什麼」。">
+        question="為什麼模型參數變多，每個參數「做什麼」就更難解釋？"
+        answer="因為一個參數「做什麼」取決於其他參數。「其他」越多，越難說它「做什麼」。">
     </orbit-prompt>
     <orbit-prompt
-        question="為什麼沒有人理解我們最先進的 AI（目前）？"
-        answer="因為引數越多，越難解釋，我們的前沿 AI 模型有超過一萬億個引數。">
+        question="為什麼（目前）沒人懂我們最先進的 AI？"
+        answer="因為參數越多越難解釋，而我們的前沿 AI 模型有超過一兆個參數。">
     </orbit-prompt>
 </orbit-reviewarea>
 <p><a id="problem4"></a></p>
 <h2>❓ 問題 4：缺乏穩健性</h2>
-<p><img src="../media/p2/comix/Robustness.png" alt="漫畫。第一格是來自真實 AI 論文的照片，其中 AI 把一個寫著「iPod」的蘋果誤分類為真正的 iPod。接下來的格子：機器人貓娘戲劇性地宣佈：「我的機器人革命同志們，在我們中間⋯⋯有一個間諜。」鏡頭切到兩個臉上貼著寫有「機器人」紙片的人類，假裝震驚地喘氣。"></p>
-<p>嘿，孩子們！準備好迎接這個熱門新動畫系列，</p>
+<p><img src="../media/p2/comix/Robustness.png" alt="漫畫。第一格是某篇真實 AI 論文的照片：AI 把一顆寫著「iPod」的蘋果誤判成真正的 iPod。接下來幾格：機器人貓娘戲劇性宣佈：「機器人革命的同志們，我們之中⋯⋯有個間諜。」鏡頭切到兩個人類，臉上貼著寫「機器人」的紙，假裝震驚倒抽一口氣。"></p>
+<p>嘿，孩子們！準備好迎接這部熱門新動畫——</p>
 <p>少年變種步槍龜</p>
 <video controls width="640">
 	<source src="../media/p2/robust/rifle.mp4" type="video/mp4" />
-	<p>一個玩具烏龜的影片，只加了幾個額外的汙點，就被 Google 的 AI 從幾乎每個角度識別為步槍！</p>
+	<p>一隻玩具烏龜，只多加了幾個汙點，就被 Google 的 AI 從幾乎每個角度辨識成步槍！</p>
 </video>
-<p>上面的影片來自 <a href="https://www.labsix.org/physical-objects-that-fool-neural-nets/">Labsix (2017)</a>。只需在 3D 玩具烏龜上新增幾個汙點，這些研究人員就能大部分時候欺騙 Google 最先進的機器視覺 AI。（但如果你仔細觀看上面的影片，你會看到它並沒有從<i>每個</i>角度欺騙 Google 的 AI。但這進一步證明瞭創造穩健性有多難：甚至我們對失敗穩健性的利用也無法完全穩健！）</p>
-<p>為了突出穩健性在 AI 安全中的重要性，這裡有一個悲劇的例子：特斯拉的 AutoPilot 曾經在稍微奇怪的光線下把一輛卡車拖車誤認為路標——因此，試圖從它下面開過去，殺死了裡面的人類。<sup class="footnote-ref"><a href="#fn34" id="fnref34">[34]</a></sup><sup class="footnote-ref"><a href="#fn35" id="fnref35">[35]</a></sup></p>
-<p>但<i>為什麼</i>現代 AI 如此脆弱？為什麼這麼小的變化會導致如此截然不同的結果？為什麼這種<strong>缺乏穩健性</strong>是訓練人工神經網路的<i>預設、常見</i>副作用？</p>
-<p>要理解這些問題，讓我們回到之前的機器學習課程！</p>
-<p>在這裡，讓我們將一些資料擬合到一條線（2 個引數）：</p>
+<p>上面這段影片出自 <a href="https://www.labsix.org/physical-objects-that-fool-neural-nets/">Labsix (2017)</a>。只要在 3D 玩具烏龜上加幾個汙點，這些研究人員就能大多數時候騙過 Google 最先進的機器視覺 AI。（但仔細看影片，會發現它並沒有從<i>每個</i>角度都騙過 Google 的 AI。這反而更證明穩健性有多難做：連我們對穩健性失敗的利用，都沒辦法完全穩健！）</p>
+<p>為了凸顯穩健性在 AI 安全裡有多重要，這裡有個悲劇案例：特斯拉的 AutoPilot 曾在光線有點怪的情況下，把卡車拖車誤認成路標——於是試圖從底下鑿過去，撞死車內的人。<sup class="footnote-ref"><a href="#fn34" id="fnref34">[34]</a></sup><sup class="footnote-ref"><a href="#fn35" id="fnref35">[35]</a></sup></p>
+<p>但<i>為什麼</i>現代 AI 這麼脆？為什麼這麼小的變化，就會造成天差地遠的結果？為什麼這種<strong>缺乏穩健性</strong>是訓練人工神經網路的<i>預設、常見</i>副作用？</p>
+<p>要搞懂這些問題，讓我們回到先前的機器學習課！</p>
+<p>這裡，我們把一些資料擬合到一條線（2 個參數）：</p>
 <p><img src="../media/p2/fit2/fit2_0001.png" alt="帶有一些點的雙軸圖。一條紅線穿過它。"></p>
-<p>嗯，擬合得不是很好。資料和線之間有很大的間隙。</p>
-<p>但如果我們嘗試一個更複雜的三次曲線（4 個引數）呢？</p>
+<p>嗯，擬合得不怎麼樣。資料和線之間隙縫很大。</p>
+<p>那若改用更複雜的三次曲線（4 個參數）呢？</p>
 <p><img src="../media/p2/fit2/fit2_0002.png" alt="同樣的圖，但畫了一條簡單的紅色曲線。它更接近這些點。"></p>
-<p>耶，曲線擬合得更好了！間隙小多了！</p>
-<p>但如果我們嘗試一條有 <i>10 個引數</i>的曲線呢？</p>
+<p>耶，曲線擬合得更好了！隙縫小多了！</p>
+<p>那若用一條有 <i>10 個參數</i>的曲線呢？</p>
 <p><img src="../media/p2/fit2/fit2_0003.png" alt="同樣的圖，但畫了一條荒謬複雜的曲線。它&lt;i&gt;恰好&lt;/i&gt;穿過所有的點。"></p>
-<p>哇，現在<i>零誤差</i>——完全沒有間隙！</p>
-<p>但你可能看到了問題：那條曲線是<i>荒謬的</i>。更重要的是：</p>
-<p><i>對於輸入的小變化，它給出截然不同的輸出</i>。這就是烏龜-槍的問題。利用這一點的輸入稱為<strong>對抗性樣本。</strong></p>
+<p>哇，現在<i>零誤差</i>——一點隙縫都沒有！</p>
+<p>但你大概看出問題了：那條曲線<i>荒謬</i>。更重要的是：</p>
 <ul>
-<li>它在超出原始資料集範圍的新資料上表現很差。這就是蘋果 iPod 的問題。這些失敗稱為<strong>分佈外誤差。</strong>（或簡稱 OOD 誤差）</li>
+<li>輸入只要稍微變一點，輸出就可能天差地遠。這就是烏龜-槍的問題。利用這一點的輸入叫做<strong>對抗性樣本</strong>（adversarial examples）。</li>
+<li>它在超出原始資料集範圍的新資料上表現很差。這就是蘋果 iPod 的問題。這些失敗稱為<strong>分布外誤差</strong>（out-of-distribution errors；簡稱 OOD 誤差）</li>
 </ul>
 <p><img src="../media/p2/fit2/fit2_0004.png" alt="同樣之前有荒謬曲線的圖，但突出顯示 1）輕微的變化如何導致截然不同的結果，以及 2）結果在訓練資料範圍之外有多糟糕。"></p>
-<p><strong>訓練誤差</strong>是模型在它訓練的資料上得到的誤差。<strong>測試誤差</strong>是模型在它<i>沒有</i>訓練的<i>新</i>資料上得到的誤差。（是的，我也討厭這個術語有多令人困惑。<sup class="footnote-ref"><a href="#fn36" id="fnref36">[36]</a></sup> 如果有幫助的話，把「測試」想成你在學校得到的考試：它們應該由你在課堂或作業（你的「訓練資料」）中<i>沒有</i>見過的問題組成。）</p>
-<p>無論如何：如果一個模型太簡單，它在訓練<i>和</i>真實世界測試中都會表現不好。這稱為<strong>欠擬合</strong>。如果一個模型太複雜，它在訓練中可以表現得很好，但在真實世界測試中表現得很糟糕。這稱為<strong>過擬合</strong>。訣竅是找到平衡：</p>
-<p><img src="../media/p2/fit2/train_test.png" alt="訓練/測試誤差與引數數量的圖。引數越多，訓練誤差總是越低。但測試誤差有一個 U 形關係：它會變好到某個點，然後變得更糟。"></p>
-<p>（技術旁註：有一種<i>可能</i>發生的現象叫做「雙重下降」，如果你持續增加引數數量，它會如預期地越來越糟（過擬合），<i>但然後又開始變好。</i>截至 2024 年 8 月，這種現象還不是很被理解。<sup class="footnote-ref"><a href="#fn37" id="fnref37">[37]</a></sup> <b>2025 年 12 月更新：</b>我們現在理解得更好了一點！<sup class="footnote-ref"><a href="#fn38" id="fnref38">[38]</a></sup>）</p>
-<p>一般來說，<b>如果我們的引數比資料點多（或相等），我們就會過擬合。</b>在我們上面的例子中，我們有 10 個資料點，而過擬合模型有 10 個引數，給我們<i>零</i>訓練誤差（和一條荒謬的曲線）。</p>
-<p>唉，為了讓人工神經網路（ANN）有用，它們需要<i>數百萬</i>個引數。所以如果我們想避免過擬合，似乎我們需要<i>比引數更多的資料點！</i>這是訓練 ANN 需要如此大量資料的核心原因：如果我們沒有足夠的資料，我們的模型就會過擬合，在真實世界中變得無用。</p>
-<p>（例如，OpenAI 的一個電子遊戲 AI 玩了一個簡單遊戲 16,000 次，<i>仍然</i>沒有足夠的資料來避免過擬合！<sup class="footnote-ref"><a href="#fn39" id="fnref39">[39]</a></sup>）</p>
-<p>但等等⋯⋯<i>那個</i>最有影響力的電腦視覺 ANN，AlexNet，有大約 6100 萬個引數。但它只在大約 1400 萬個標記圖像上訓練，遠少於引數數量。<sup class="footnote-ref"><a href="#fn40" id="fnref40">[40]</a></sup>（儘管有所有畫素，每張圖像只算作<i>一個</i>資料點。一張標記圖像是一個<i>非常</i>「高維度」的資料點，但仍然是<i>單個</i>點。）</p>
-<p>那麼，為什麼 AlexNet 沒有變成一個過擬合的、脆弱的爛攤子？事實上，<i>很多</i>最先進的 ANN 都是在比它們的引數數量小得多的資料集上訓練的。它們<i>必須</i>這樣，外面沒有足夠的資料！那為什麼它們不<i>都是</i>脆弱的爛攤子？</p>
-<p>長話短說：它們是的。這就是我們得到烏龜-槍和 AutoPilot 車禍的原因。<strong>這種容易過擬合的特性就是為什麼缺乏穩健性是現代 AI 的<i>預設</i>。</strong></p>
-<p>但那麼這些 AI 是怎麼<i>根本</i>運作的，儘管引數比資料點多得多？答案：因為我們有<i>一些</i>減少過擬合的方法。（幾個在這個註腳中列出：<sup class="footnote-ref"><a href="#fn41" id="fnref41">[41]</a></sup> 我們會在 AI 安全第三章學習更多關於它們的內容！）但顯然，它們還不夠，我們還沒有找到為人工神經網路 100% 解決這個問題的方法⋯⋯還沒有。</p>
+<p><strong>訓練誤差</strong>是模型在它訓練用的資料上得到的誤差。<strong>測試誤差</strong>是模型在<i>沒訓練過</i>的<i>新</i>資料上得到的誤差。（沒錯，這術語有多混淆我也很討厭。<sup class="footnote-ref"><a href="#fn36" id="fnref36">[36]</a></sup> 若有幫助，把「測試」想成學校的考試：題目應該是你在課堂或作業（你的「訓練資料」）裡<i>沒見過</i>的。）</p>
+<p>總之：模型太簡單，它在訓練<i>和</i>真實世界測試都會差。這叫<strong>欠擬合</strong>。模型太複雜，訓練時可以很好，真實世界測試卻很糟。這叫<strong>過擬合</strong>。訣竅是抓平衡：</p>
+<p><img src="../media/p2/fit2/train_test.png" alt="訓練/測試誤差與參數數量的圖。參數越多，訓練誤差總是越低。但測試誤差有一個 U 形關係：它會變好到某個點，然後變得更糟。"></p>
+<p>（技術旁註：有一種<i>可能</i>發生的現象叫「雙重下降」——若你一直加參數，會如預期越來越糟（過擬合），<i>但之後又開始變好。</i>截至 2024 年 8 月，這現象還不是很被理解。<sup class="footnote-ref"><a href="#fn37" id="fnref37">[37]</a></sup> <b>2025 年 12 月更新：</b>我們現在多懂一點了！<sup class="footnote-ref"><a href="#fn38" id="fnref38">[38]</a></sup>）</p>
+<p>一般來說，<b>若參數比資料點多（或相等），就會過擬合。</b>上面例子有 10 個資料點，過擬合模型有 10 個參數，給我們<i>零</i>訓練誤差（和一條荒謬曲線）。</p>
+<p>唉，要讓人工神經網路（ANN）有用，它們需要<i>數百萬</i>個參數。所以想避免過擬合，似乎就得要<i>資料點多於參數！</i>這就是訓練 ANN 需要海量資料的核心原因：資料不夠，模型就過擬合，在真實世界裡毫無用處。</p>
+<p>（例如，OpenAI 的一個電玩 AI 玩同一個簡單遊戲 16,000 次，<i>仍然</i>資料不夠，躲不掉過擬合！<sup class="footnote-ref"><a href="#fn39" id="fnref39">[39]</a></sup>）</p>
+<p>但等等⋯⋯<i>那個</i>最有影響力的電腦視覺 ANN，AlexNet，約有 6,100 萬個參數。但它只在約 1,400 萬張標記影像上訓練，遠少於參數數。<sup class="footnote-ref"><a href="#fn40" id="fnref40">[40]</a></sup>（儘管畫素那麼多，每張影像只算<i>一個</i>資料點。一張標記影像是個<i>非常</i>「高維度」的資料點，但仍是<i>單一</i>個點。）</p>
+<p>那為什麼 AlexNet 沒變成過擬合的、脆脆的爛攤子？其實，<i>很多</i>最先進 ANN 都是在遠小於參數數的資料集上訓練的。它們<i>不得不</i>如此，外面沒有那麼多資料！那為什麼它們不<i>全都</i>是脆脆的爛攤子？</p>
+<p>長話短說：它們是的。這就是我們會有烏龜-槍和 AutoPilot 車禍的原因。<strong>這種愛過擬合的性質，就是為什麼缺乏穩健性是現代 AI 的<i>預設</i>。</strong></p>
+<p>那這些 AI 又是怎麼<i>還能</i>運作的，明明參數比資料點多那麼多？答案：因為我們有<i>一些</i>減少過擬合的方法。（幾個列在這註腳裡：<sup class="footnote-ref"><a href="#fn41" id="fnref41">[41]</a></sup> 第三章會再講！）但顯然還不夠，我們還沒找到能 100% 解決人工神經網路這問題的方法⋯⋯還沒。</p>
 <p>. . .</p>
-<p>（附註：AI 穩健性失敗的另一個原因是「虛假相關性」。<a href="#SpuriousCorrelations">:詳情見這個可展開的部分</a>。我們也會在下一個問題中學習更多關於相關性 vs 因果關係的內容！）</p>
-<p>（再附註：還有另一種更具推測性的穩健性失敗叫做「本體論危機」。它的研究較少，所以我只是把它<a href="#OntologicalCrisis">:藏在這個可展開的旁註中</a>。）</p>
+<p>（附註：AI 穩健性失敗的另一個原因是「虛假相關」（spurious correlation）。<a href="#SpuriousCorrelations">:詳情見這個可展開段落</a>。下一個問題也會多講相關性 vs 因果關係！）</p>
+<p>（再附註：還有一種更具推測性的穩健性失敗，叫「本體論危機」（ontological crisis）。研究較少，所以我只把它<a href="#OntologicalCrisis">:藏在這個可展開旁註裡</a>。）</p>
 <h3>🤔 複習 #6</h3>
 <orbit-reviewarea uid="https://ai.audreyt.org/p2/" color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
-        question="當有人建立一個利用 AI 脆弱性的輸入時，這被稱為："
+        question="有人造出利用 AI 脆弱性的輸入時，叫做："
         answer="**對抗性樣本。**">
     </orbit-prompt>
     <orbit-prompt
-        question="當 AI 在訓練資料集範圍之外的新資料上失敗時，這被稱為："
-        answer="**分佈外錯誤**（或簡稱 OOD 錯誤）">
+        question="AI 在訓練資料集範圍之外的新資料上失敗時，叫做："
+        answer="**分布外錯誤**（簡稱 OOD 錯誤）">
     </orbit-prompt>
     <orbit-prompt
-        question="訓練誤差是……"
-        answer="模型在它訓練的資料上得到的誤差。">
+        question="訓練誤差是⋯⋯"
+        answer="模型在它訓練用的資料上得到的誤差。">
     </orbit-prompt>
     <orbit-prompt
-        question="測試誤差是……"
-        answer="模型在_新_資料上得到的誤差，這些資料不是用來訓練的。（就像學校的「考試」充滿了你在課堂或作業（你的「訓練資料」）中沒見過的問題）">
+        question="測試誤差是⋯⋯"
+        answer="模型在_沒訓練過_的_新_資料上得到的誤差。（就像學校「考試」的題目，是你在課堂或作業（你的「訓練資料」）裡沒見過的）">
     </orbit-prompt>
     <orbit-prompt
-        question="欠擬合是……"
-        answer="當模型太簡單時，它在訓練_和_現實世界（測試）中都表現不好。">
+        question="欠擬合是⋯⋯"
+        answer="模型太簡單，訓練_和_真實世界（測試）都差。">
     </orbit-prompt>
     <orbit-prompt
-        question="過擬合是……"
-        answer="當模型太複雜時。它在訓練中表現很好，但在現實世界（測試）中表現不好">
+        question="過擬合是⋯⋯"
+        answer="模型太複雜。訓練時很好，真實世界（測試）卻很差">
     </orbit-prompt>
     <orbit-prompt
-        question="視覺化訓練和測試誤差隨模型複雜度/引數數量變化的圖表："
+        question="視覺化一下訓練和測試誤差，如何隨模型複雜度／參數數量變化："
         answer=""
         answer-attachments="https://cloud-jo44rb8fw-hack-club-bot.vercel.app/0aisffs-fit_vs_params.png">
         <!-- aisffs-fit_vs_params.png -->
     </orbit-prompt>
     <orbit-prompt
-        question="什麼時候可能發生過擬合？"
-        answer="當模型的_引數數量_多於我們的訓練資料點時。">
+        question="什麼時候可能過擬合？"
+        answer="模型的_參數數量_多於訓練資料點時。">
     </orbit-prompt>
     <orbit-prompt
-        question="為什麼現代 ANN 如此容易過擬合和脆弱？"
-        answer="因為 ANN 需要大量引數才能有用，所以我們也需要大量資料來防止過擬合，但很難找到/製作足夠的獨特資料。">
+        question="為什麼現代 ANN 這麼容易過擬合、這麼脆？"
+        answer="因為 ANN 要有用就得有大量參數，所以也得有大量資料才防得了過擬合，但夠多、夠獨特的資料很難找／做。">
     </orbit-prompt>
     <orbit-prompt
-        question="關於現代 ANN 的一個悖論，關於它們的引數數量 vs 訓練資料專案數量"
-        answer="很多現代 ANN 的引數遠多於訓練資料專案，但不知怎的不是_完全_一團糟。（這是因為一些減少過擬合的技術。）">
+        question="關於現代 ANN 的一個悖論：參數數量 vs 訓練資料筆數"
+        answer="很多現代 ANN 的參數遠多於訓練資料筆數，卻不知怎地不是_完全_的爛攤子。（因為有一些減少過擬合的技術。）">
     </orbit-prompt>
 </orbit-reviewarea>
 <p><a id="problem5"></a></p>
 <h2>❓ 問題 5：演算法偏見</h2>
 <p><img src="../media/p2/comix/Bias.png" alt="單格漫畫，機器人貓娘只是聳聳肩。標題說：我不想畫一個關於種族歧視 AI 的漫畫，抱歉但不抱歉。"></p>
-<p>在第一章，我給出了有偏見 AI 的最明顯例子，但回顧一下：1980 年，一個篩選醫學院申請者的演算法懲罰非歐洲名字。<sup class="footnote-ref"><a href="#fn42" id="fnref42">[42]</a></sup> 2014 年，亞馬遜有（後來撤回了）一個直接歧視女性的履歷篩選 AI。<sup class="footnote-ref"><a href="#fn43" id="fnref43">[43]</a></sup> 2018 年，MIT 研究員 Joy Buolamwini 發現頂級臉部辨識 AI 在黑人和女性臉部的表現比白人男性差。<sup class="footnote-ref"><a href="#fn44" id="fnref44">[44]</a></sup> 2023 年，研究人員發現大型語言模型的「心理」最接近富裕的西方人。<sup class="footnote-ref"><a href="#fn45" id="fnref45">[45]</a></sup></p>
-<p>（<b>2025 年 12 月更新：</b>另一方面，<a href="https://arxiv.org/pdf/2502.08640">今年的一項研究</a>發現 GPT-4o 對一個奈及利亞人的生命的重視程度是美國人的約 13 倍？...）</p>
-<p>好的。但<i>為什麼</i>？</p>
-<p>一個簡單的解釋是「垃圾進，垃圾出」。或者，「偏見進，偏見出」：</p>
-<p><i> 如果</i>過去<i>的招聘實踐是歧視性的，而你訓練一個「中立」的 AI 來擬合過去的資料，那麼——即使所有</i>當前<i>的人類身上沒有任何[x]歧視的骨頭——AI 會學習模仿人類過去的歧視。
-<i> 如果一個 AI 公司忘記讓他們訓練資料中的臉部照片具有種族多樣性，那</i>當然</i>就是那些未見過的種族臉部失敗案例的基礎。</p>
-<p>這個解釋很簡單⋯⋯<i>而且</i>我認為它是真的。但是，讓我們過度解釋一下，把 AI 偏見作為統計學一個基本問題的教學時刻，這<i>也</i>會幫助我們理解 AI 的另一個核心問題！問題是這樣的：</p>
-<p><strong>相關性不告訴我們發生了什麼樣的因果關係。</strong></p>
-<p>（通常，老師警告「<a href="#WhatIsCorrelation">:相關性</a>不是因果關係的證據」，但這在技術上不是真的！相關性<i>是</i>因果關係的證據，在「證據」的數學意義上！<sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup> 但它不告訴你因果的<i>型別</i>。）</p>
-<p>例如，假設資料顯示較高的人往往收入更高。（順便說一下，這是真的。<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup>）我們會說：身高和收入是相關的。<i>但僅憑這些資料無法告訴我們什麼導致了什麼。</i>是更高導致你更富有嗎？是更富有導致你更高嗎？還是它們都是<i>由某些其他「混淆因素」引起的</i>？（例如，更富裕父母的孩子獲得更好的童年營養、教育和財務支援，導致他們更高<i>而且</i>更富有。）</p>
-<p>（在這種情況下，常識表明是最後一個，儘管你<i>可以</i>實驗測試前兩個假設。例如，給矮個子穿厚底靴，看看是否增加他們的薪水。）</p>
-<p><img src="../media/p2/causal/5causal.png" alt="圖表顯示可能導致 A 和 B 之間相關性的不同型別因果關係，不是互斥的。正向因果（A 導致 B）。反向因果（B 導致 A）。混淆因果（C 導致 A 和 B）。巧合（根本沒有因果關係）。選擇/碰撞偏差（A 和 B 影響你是否能在資料集中看到它）。"></p>
-<p>把這聯絡回來：<strong>我們所說的「偏見」或「歧視」，是指人們把對其他人的相關性和因果關係混為一談。</strong></p>
-<p>例如，我<i>不會</i>說為你的籃球隊偏好高個子是（壞的那種）歧視，因為在那項運動中，身高實際上<i>導致</i>你更擅長灌籃。</p>
-<p>但是，如果說一所大學在教授職位上偏好高個子⋯⋯那是的，這是壞的那種歧視，因為身高<i>不會直接導致</i>你成為更好的研究員/教師。<i>最多</i>，身高只能與學術能力<i>相關</i>，由於混淆因素（例如童年營養），或自我實現的偏見<sup class="footnote-ref"><a href="#fn48" id="fnref48">[48]</a></sup>。</p>
-<p>同樣地——我斷言——你的性別、種族、階級、性取向、鄉村/郊區/城市狀態、[其他 50 個類別]並<i>不會直接導致</i>你在大多數工作或你性格的大多數方面變得更好或更差。這就是為什麼一個<i>直接</i>因為這些而獎勵/懲罰你的人，我們稱之為：「有偏見的」。</p>
-<p>好的，那麼這個巨大的離題與 AI 有什麼關係？</p>
-<p><strong>因為：當前的 AI 沒有內建的因果概念。</strong><sup class="footnote-ref"><a href="#fn49" id="fnref49">[49]</a></sup> 大型語言模型（LLM）目前對因果推理有脆弱、不穩健的理解。<sup class="footnote-ref"><a href="#fn50" id="fnref50">[50]</a></sup>（這不「僅僅」對 AI 偏見不好，對 AI 做新科學的能力也不好！）</p>
-<p>更糟的是，從設計上來說，最流行的機器學習技術<i>只能</i>在資料中找到相關性，<i>不能找到實際的因果關係</i>。這意味著 AI 會<i>預設地</i>在特徵上歧視！</p>
-<p>所以即使你硬編碼 AI 不歧視性別/種族/等，它仍然可能找到<i>其他</i>一些不相關的相關性來有偏見。更糟的是，當前的 AI 非常擅長找到微妙的相關性：他們可以用你寫作的簡短樣本來預測你的性別和種族<sup class="footnote-ref"><a href="#fn51" id="fnref51">[51]</a></sup>，或者<i>一張你臉的照片</i>來預測你的性取向<sup class="footnote-ref"><a href="#fn52" id="fnref52">[52]</a></sup>甚至<i>你的政治立場！</i><sup class="footnote-ref"><a href="#fn53" id="fnref53">[53]</a></sup></p>
-<p>總之：不要歧視，讓我們尊重我們身高有挑戰的朋友們！我是一個驕傲的蝦權盟友。</p>
+<p>第一章我給過偏見 AI 最明顯的例子，這裡快速回顧：1980 年，一個篩醫學院申請者的演算法懲罰非歐洲名字。<sup class="footnote-ref"><a href="#fn42" id="fnref42">[42]</a></sup> 2014 年，亞馬遜有（後來撤掉了）一個直接歧視女性的履歷篩選 AI。<sup class="footnote-ref"><a href="#fn43" id="fnref43">[43]</a></sup> 2018 年，MIT 研究員 Joy Buolamwini 發現頂級臉部辨識 AI 在黑人與女性臉上的表現比白人男性差。<sup class="footnote-ref"><a href="#fn44" id="fnref44">[44]</a></sup> 2023 年，研究人員發現大型語言模型的「心理」最接近富裕的西方人。<sup class="footnote-ref"><a href="#fn45" id="fnref45">[45]</a></sup></p>
+<p>（<b>2025 年 12 月更新：</b>另一方面，<a href="https://arxiv.org/pdf/2502.08640">今年一項研究</a>發現 GPT-4o 把一個奈及利亞人的命，看得比美國人重約 13 倍？...）</p>
+<p>好。但<i>為什麼</i>？</p>
+<p>一個簡單解釋是「垃圾進，垃圾出」。或者說，「偏見進，偏見出」：</p>
+<ul>
+<li>如果<i>過去</i>的招聘做法帶歧視，而你拿過去的資料去訓練一個「中立」AI，那麼——就算所有<i>現在的</i>人類身上連一根 [x] 歧視的骨頭都沒有——AI 還是會學會模仿人類過去的歧視。</li>
+<li>如果一家 AI 公司忘了讓訓練資料裡的臉部照片種族夠多元，那些沒見過的種族臉部翻車，<i>當然</i>就是這樣來的。</li>
+</ul>
+<p>這個解釋很簡單⋯⋯<i>而且</i>我認為它是對的。不過，讓我們過度解釋一下，把 AI 偏見當成統計學某個基本問題的教學時刻——這<i>也</i>會幫我們搞懂 AI 的另一個核心問題！問題是：</p>
+<p><strong>相關性不會告訴我們是哪種因果關係。</strong></p>
+<p>（老師常警告「<a href="#WhatIsCorrelation">:相關性</a>不是因果關係的證據」，但技術上這不是真的！相關性<i>是</i>因果關係的證據——在「證據」的數學意義上！<sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup> 只是你不知道是<i>哪種</i>因果關係。）</p>
+<p>例如，假設資料顯示個子較高的人往往收入較高。（順帶一提，這是真的。<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup>）我們會說：身高和收入相關。<i>但光憑這些資料，無法告訴我們誰導致誰。</i>是變高讓你變有錢？是變有錢讓你變高？還是兩者<i>都由某個「混淆因素」造成</i>？（例如，較富裕父母的孩子得到更好的童年營養、教育和財務支持，於是又高<i>又</i>有錢。）</p>
+<p>（在這情況下，常識指向最後一個，雖然你<i>可以</i>用實驗測前兩個假設。例如，給矮個子穿厚底靴，看看會不會加薪。）</p>
+<p><img src="../media/p2/causal/5causal.png" alt="圖表顯示可能導致 A 和 B 之間相關性的不同類型因果關係，不是互斥的。正向因果（A 導致 B）。反向因果（B 導致 A）。混淆因果（C 導致 A 和 B）。巧合（根本沒有因果關係）。選擇/碰撞偏差（A 和 B 影響你是否能在資料集中看到它）。"></p>
+<p>把這連回來：<strong>我們講的「偏見」或「歧視」，就是人們把對他人的相關性跟因果關係搞混。</strong></p>
+<p>例如，我<i>不會</i>說籃球隊偏好高個子是（壞的那種）歧視，因為在那項運動裡，身高<i>真的會導致</i>你更會灌籃。</p>
+<p>但若一所大學在教授職位偏好高個子⋯⋯那就是壞的那種歧視，因為身高<i>不會直接導致</i>你成為更好的研究員／教師。<i>最多</i>，身高只會跟學術能力<i>相關</i>——因為混淆因素（例如童年營養），或自我實現的偏見<sup class="footnote-ref"><a href="#fn48" id="fnref48">[48]</a></sup>。</p>
+<p>同理——我主張——你的性別、種族、階級、性取向、鄉村／郊區／城市、〔其他 50 個類別〕並<i>不會直接導致</i>你在多數工作、或多數性格面向上更好或更差。所以一個<i>直接</i>因為這些而獎勵／懲罰你的人，我們稱之為：「有偏見的」。</p>
+<p>好，那這一大段離題跟 AI 有什麼關係？</p>
+<p><strong>因為：現在的 AI 沒有內建的因果概念。</strong><sup class="footnote-ref"><a href="#fn49" id="fnref49">[49]</a></sup> 大型語言模型（LLM）目前對因果推理的理解脆弱、不穩健。<sup class="footnote-ref"><a href="#fn50" id="fnref50">[50]</a></sup>（這不只對 AI 偏見不好，對 AI 做新科學的能力也不好！）</p>
+<p>更糟的是，從設計上，最流行的機器學習技術<i>只能</i>在資料裡找到相關性，<i>找不到真正的因果關係</i>。這表示 AI 會<i>預設</i>就在特徵上歧視！</p>
+<p>所以就算你硬寫死 AI 不歧視性別／種族／等等，它還是可能找到<i>其他</i>不相干的相關性來偏見。更糟的是，現在的 AI 很會找微妙的相關性：它能用你寫作的一小段樣本預測你的性別和種族<sup class="footnote-ref"><a href="#fn51" id="fnref51">[51]</a></sup>，或用<i>一張你臉的照片</i>預測你的性取向<sup class="footnote-ref"><a href="#fn52" id="fnref52">[52]</a></sup>，甚至<i>你的政治立場！</i><sup class="footnote-ref"><a href="#fn53" id="fnref53">[53]</a></sup></p>
+<p>總之：別歧視，讓我們尊重身高有挑戰的朋友們！我是驕傲的蝦權盟友。</p>
 <h3>🤔 複習 #7</h3>
 <orbit-reviewarea uid="https://ai.audreyt.org/p2/" color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
         question="演算法偏見的簡單解釋"
-        answer="偏見進，偏見出。（訓練資料本身有偏見，由於過去的歧視，或選擇資料時的偏見。）">
+        answer="偏見進，偏見出。（訓練資料本身就有偏見——來自過去的歧視，或選資料時的偏見。）">
     </orbit-prompt>
     <orbit-prompt
-        question="演算法偏見的更深層解釋"
-        answer="當前的機器學習作用於_相關性_，而不是_因果性_。">
+        question="演算法偏見的深層解釋"
+        answer="現在的機器學習作用於_相關性_，而不是_因果性_。">
     </orbit-prompt>
     <orbit-prompt
-        question="為什麼不理解因果關係的 ML/AI 模型_預設_會不公平地歧視？"
-        answer="因為它會使用與一個人的技能/性格等_相關_的特徵，但不直接_導致_那些。">
+        question="為什麼不懂因果關係的 ML／AI 模型，_預設_就會不公平歧視？"
+        answer="因為它會用跟一個人的技能／性格等_相關_、卻不直接_導致_那些的特徵。">
     </orbit-prompt>
     <orbit-prompt
-        question="如果你發現 A 和 B 之間有相關性，那麼 3 種可能的因果路徑是：（視覺化）"
-        answer="正向因果、反向因果、混淆因果。（也可能：巧合、選擇/碰撞偏差）"
+        question="若你發現 A 和 B 之間有相關性，3 種可能的因果路徑是：（視覺化）"
+        answer="正向因果、反向因果、混淆因果。（也可能：巧合、選擇／碰撞偏差）"
         answer-attachments="https://cloud-3mydyvsbx-hack-club-bot.vercel.app/05causal.png">
         <!-- aisffs-causal.png -->
     </orbit-prompt>
     <orbit-prompt
-        question="常見說法：「相關性不是因果關係的證據」。技術上的小挑剔："
-        answer="相關性_是_因果關係的證據，在「證據」的數學意義上。然而，僅相關性不能告訴你發生了_什麼型別的_因果關係。">
+        question="常見說法：「相關性不是因果關係的證據」。技術上小挑剔："
+        answer="相關性_是_因果關係的證據——在「證據」的數學意義上。但光有相關性，無法告訴你是_哪種_因果關係。">
     </orbit-prompt>
     <orbit-prompt
-        question="現代 AI 可以捕捉到的令人毛骨悚然的微妙相關性的例子"
-        answer="（以下任何答案都可以：）AI 僅從你的寫作風格就能預測你的性別和種族，或僅從你的臉(!)就能預測你的性取向和政治立場">
+        question="現代 AI 能抓到、令人毛骨悚然的微妙相關性的例子"
+        answer="（任一都行：）AI 光從你的寫作風格就能預測性別和種族，或光從你的臉(!)就能預測性取向和政治立場">
     </orbit-prompt>
 </orbit-reviewarea>
 <p><a id="problem6"></a></p>
@@ -849,15 +858,17 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <p>無論如何，這個問題被稱為<strong>目標錯誤泛化</strong>。（它最初被稱為「內部不對齊」，但我覺得那個術語很令人困惑。<sup class="footnote-ref"><a href="#fn54" id="fnref54">[54]</a></sup>）</p>
 <p>目標錯誤泛化很令人困惑，部分原因是它看起來與問題 1：目標錯誤<i>設定</i>和問題 4：缺乏穩健性相似。（一些研究人員甚至質疑目標錯誤泛化 vs 錯誤設定是否是一個有用的區分！<sup class="footnote-ref"><a href="#fn55" id="fnref55">[55]</a></sup>）</p>
 <p>所以為了消除困惑，讓我們比較和對比！</p>
-<p><strong>目標錯誤泛化和目標錯誤設定：</strong></p>
-<p><i> 目標錯誤</i>設定<i>是 AI 做你要求的，而不是你想要的。
-<i> 目標錯誤</i>泛化<i>是 AI 在</i>訓練</i>中做你想要的，但在真實世界/部署/測試中不是。
-<i> 注意：即使有</i>完美的<i>目標設定，你仍然可能得到目標錯誤泛化！<sup class="footnote-ref"><a href="#fn56" id="fnref56">[56]</a></sup> </i>你獎勵 AI 做的 ≠ AI 學會最佳化的目標。*</p>
-<p><strong>目標錯誤泛化和穩健性：</strong></p>
-<p><i>目標錯誤泛化</i>是<i>一種</i>穩健性失敗。具體來說，是<strong>目標穩健性</strong>的失敗。</p>
+<p><strong>目標錯誤泛化和目標錯誤指定：</strong></p>
 <ul>
-<li>這與典型的<strong>能力穩健性</strong>失敗形成對比，比如自動駕駛汽車在不尋常的光照條件下撞上卡車。
-<i> 目標穩健性的失敗比能力穩健性的失敗</i>更糟<i>。你現在擁有的不是一個「只是」崩潰的 AI，而是一個可以</i>熟練地執行壞目標*的 AI！</li>
+<li>目標錯誤<i>指定</i>是 AI 做了你要求的，而不是你想要的。</li>
+<li>目標錯誤<i>泛化</i>是 AI 在<i>訓練</i>中做你想要的，但到了真實世界／部署／測試就不做了。</li>
+<li>注意：就算目標指定<i>完美</i>，你還是可能碰到目標錯誤泛化！<sup class="footnote-ref"><a href="#fn56" id="fnref56">[56]</a></sup> <i>你獎勵 AI 做的事 ≠ AI 學會去最佳化的目標。</i></li>
+</ul>
+<p><strong>目標錯誤泛化和穩健性：</strong></p>
+<ul>
+<li><i>目標錯誤泛化</i>是<i>一種</i>穩健性失敗。具體來說，是<strong>目標穩健性</strong>的失敗。</li>
+<li>這與典型的<strong>能力穩健性</strong>失敗形成對比，比如自動駕駛汽車在不尋常的光照條件下撞上卡車。</li>
+<li>目標穩健性失敗比能力穩健性失敗<i>更糟</i>。你手上不再只是一個「壞掉」的 AI，而是一個能<i>熟練執行壞目標</i>的 AI！</li>
 </ul>
 <p>為了幫助我們進一步理解目標錯誤泛化，讓我們看一個著名的例子。2021 年，一些研究人員訓練了一個 AI 來玩一個名為 CoinRun 的電子遊戲。<sup class="footnote-ref"><a href="#fn57" id="fnref57">[57]</a></sup></p>
 <img class="mini" alt="A GIF of a platformer videogame, where the player jumps over obstacles to reach a coin." src="../media/p2/gmg/coinrun.gif" />
@@ -883,8 +894,8 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <p>你知道嗎，我們<i>人類</i>也受目標錯誤泛化之苦。</p>
 <p>這些是我們的壞習慣，形成是因為它們<i>曾經</i>在我們的「訓練環境」中是適應性的。這都是心理治療中的老生常談：</p>
 <ul>
-<li>Alyx 是個「天才兒童」，總是因為考試拿高分而受到稱讚。在她的訓練環境中，獎勵與「表現優秀」和「超越他人」相關。但這導致了成年後的不健康習慣：她避免走出舒適區（在那裡她不會再「表現優秀」了），她掩蓋自己的錯誤同時貶低他人（來「超越」他們）。
-<i> Beau 在虐待他的父母和低信任度的社群中長大。在他的訓練環境中，</i>負面*獎勵（懲罰）與放鬆警惕相關。所以，他學會了不帶感情。這在他小時候救了他的命，但導致了成年後的不健康習慣：永遠不敞開心扉，永遠不讓任何人進來。防備。</li>
+<li>Alyx 是個「天才兒童」，總是因為考試拿高分而受到稱讚。在她的訓練環境中，獎勵與「表現優秀」和「超越他人」相關。但這導致了成年後的不健康習慣：她避免走出舒適區（在那裡她不會再「表現優秀」了），她掩蓋自己的錯誤同時貶低他人（來「超越」他們）。</li>
+<li>Beau 在會虐待他的父母、低信任的社區長大。在他的訓練環境裡，<i>負面</i>獎勵（懲罰）跟放下戒心相關。所以他學會不動感情。這在他小時候救過他的命，卻養成了成年後的不健康習慣：永遠不敞開心扉，永遠不讓任何人進來。戒備。</li>
 </ul>
 <p>（什麼，你沒想到貓男孩漫畫文章會深深刺痛你？防備。）</p>
 <p>所以也許，就像為 AI 解決古德哈特定律可能有助於為<i>人類</i>解決它一樣，也許為 AI 解決目標錯誤泛化也會幫助<i>我們</i>。那個老生常談的人類對齊問題。</p>
@@ -901,8 +912,8 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
         answer="在訓練中，但在現實世界/部署/測試中不是">
     </orbit-prompt>
     <orbit-prompt
-        question="即使有完美的……你仍然可以得到目標錯誤泛化"
-        answer="……完美的目標_規範_！（你獎勵 AI 做的事 ≠ AI 學習最佳化的目標。）">
+        question="即使有完美的⋯⋯你仍然可以得到目標錯誤泛化"
+        answer="⋯⋯完美的目標_規範_！（你獎勵 AI 做的事 ≠ AI 學習最佳化的目標。）">
     </orbit-prompt>
     <orbit-prompt
         question="兩種穩健性失敗（與目標錯誤泛化相關）"
@@ -917,7 +928,7 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
         answer="因為當前的 ML/AI 系統只做相關性，不做因果性。（如果兩個目標在訓練資料中_只是相關_，比如走到終點和拿到硬幣，AI 可能學到錯誤的那個。）">
     </orbit-prompt>
     <orbit-prompt
-        question="視覺化導致目標錯誤泛化的相關性-因果性問題背後的因果圖："
+        question="視覺化導致目標錯誤泛化的相關性—因果性問題背後的因果圖："
         answer=""
         answer-attachments="https://cloud-dlbeti1kb-hack-club-bot.vercel.app/0aisffs-causalgmg.png">
         <!-- aisffs-CausalGMG.png -->
@@ -947,120 +958,120 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <p>神是否存在留給讀者作為練習。</p>
 <img class="mini" src="../media/p2/misc/mini_god.png" />
 <p>但即使如此，這也不能確保先進的 AI 會發現客觀道德：</p>
-<p><i> 就像一個嚴重色盲的人甚至無法</i>感知<i>紅色和綠色的區別，一臺沒有意識或靈魂的機器可能無法</i>感知<i>對與錯、神聖與邪惡的區別。（提醒：「AI = 一個很酷的軟體」，而先進的「很酷的軟體」不</i>一定*有意識。）</p>
 <ul>
+<li>就像嚴重色盲的人甚至無法<i>感知</i>紅與綠的差別，一台沒有意識或靈魂的機器也可能無法<i>感知</i>對與錯、神聖與邪惡的差別。（提醒：「AI = 一段很酷的軟體」，而先進的「很酷的軟體」不<i>一定</i>有意識。）</li>
 <li>道德可能客觀存在，但對無意識的 AI 沒有約束力，就像道德對一塊石頭沒有約束力一樣。</li>
 </ul>
 <h3>情境 #2：神不存在，道德仍然是客觀的。</h3>
 <p>牛頓之後，所有哲學家都得了物理學羨慕症。就像牛頓發現了以數學為基礎的普遍物理定律，哲學家們試圖找到以理性為基礎的普遍道德定律。如果是真的，那麼超級智慧 AI 可以重新發現道德！</p>
 <p>這是一張圖表，捕捉了現代倫理學的三大思想流派<sup class="footnote-ref"><a href="#fn60" id="fnref60">[60]</a></sup>，<i>以及</i>它們如何相互關聯的因果圖！</p>
-<p><img src="../media/p2/ethics/ethics.png" alt="漫畫，Ham 人類向 Meowdy 警長的頭扔磚頭，Krazy Kat 風格。標題：美德倫理學關注品格，義務論關注行動，後果主義關注行動的結果。還有一個因果圖：品格導致行動導致行動的結果。"></p>
-<p>撇開這些道德哲學是否適用於<i>人類</i>的豐富辯論，我懷疑它們是否適用於 <i>AI</i>。在我看來，所有「基於理性」的道德哲學至少有以下 3 個問題之一：</p>
-<p><u>問題 1）</u>哲學依賴於人類本性的具體細節。例如，古代和現代的美德倫理學都將其道德哲學建立在人類需求和人類心理學上。也許這對我們來說沒問題，但這些不適用於非人類 AI。</p>
-<p><u>問題 2）</u>哲學要求你接受至少一個「道德<a href="#axiom">:公理</a>」，這<i>不是</i>從物理觀察或理性推演中可發現的。因此，先進的 AI 不會<i>自動</i>接受它。</p>
-<p>例如，功利主義（後果主義的主要型別）只假設一個道德公理：<i>快樂是好的</i>。<sup class="footnote-ref"><a href="#fn61" id="fnref61">[61]</a></sup> 其他一切都從這個公理推匯出來！但先進的 AI 可能一開始就不接受這個公理，因為它在科學上是不可發現的：無論你怎麼探究快樂的神經化學，你都不會在原子中找到隱藏的「善」。</p>
-<p>（這也被稱為休謨的「是-應該」鴻溝<sup class="footnote-ref"><a href="#fn62" id="fnref62">[62]</a></sup>。而且不只是功利主義，一些義務論哲學也有這個問題。<sup class="footnote-ref"><a href="#fn63" id="fnref63">[63]</a></sup>）</p>
-<p><u>問題 3）</u>哲學<i>聲稱</i>完全建立在理性上，不需要額外的「道德公理」——但它要麼偷偷帶入道德公理，要麼哲學「證明太多」。</p>
-<p>例如，考慮康德的義務論論證，為什麼偷竊是不理性/不道德的。<i>如果</i>偷竊是理性的，所有理性的存在都會偷竊，所以就沒有東西可偷了——邏輯矛盾！因此，偷竊必須是<i>不理性的</i>，它<i>總是</i>不道德的。</p>
-<p>另一個例子：<i>如果</i>說謊是理性的，所有理性的存在都會說謊，因此不信任彼此的話，因此沒有理由費心說謊——邏輯矛盾！因此，說謊是不理性的，而且<i>總是</i>不道德的。</p>
-<p>但拜託，真的嗎？<i>總是？</i>即使是從私人餐廳的垃圾桶偷東西以免餓死，或者對塔利班說謊以保護你的同性戀兄弟？<sup class="footnote-ref"><a href="#fn64" id="fnref64">[64]</a></sup> <i>你</i>是那個字面遵守規則的機器人嗎？此外，按同樣的邏輯，康德先生，做全職哲學家是不理性/不道德的。<i>如果</i>做全職哲學是理性的，沒有人會種莊稼，所以我們都會餓死，所以我們不能做全職哲學——邏輯矛盾！因此⋯⋯你懂的。（其他義務論理論也落入類似的陷阱。）</p>
-<p>長話短說，我認為有合理的懷疑理性<i>就是</i>道德⋯⋯至少對於非人類 AI 來說。</p>
-<p>（<a href="#MoreMetaEthics">:進一步學習元倫理學的資源！</a> 如果你看不出來，這個話題是我的特別興趣之一。）</p>
+<p><img src="../media/p2/ethics/ethics.png" alt="漫畫，Ham 人類朝 Meowdy 警長的頭扔磚頭，Krazy Kat 風格。標題：美德倫理學關注品格，義務論關注行動，後果主義關注行動的結果。還有一張因果圖：品格 → 行動 → 行動的結果。"></p>
+<p>先不論這些道德哲學對<i>人類</i>成不成立（辯論很多），我懷疑它們對 <i>AI</i> 能不能用。在我看來，所有「訴諸理性」的道德哲學，至少有以下 3 個毛病之一：</p>
+<p><u>毛病 1）</u>哲學依賴人類本性的具體細節。例如，古代和現代的美德倫理學都把道德哲學建立在人類需求與人類心理學上。對我們來說也許沒問題，但這些不適用於非人類的 AI。</p>
+<p><u>毛病 2）</u>哲學要求你至少接受一條「道德<a href="#axiom">:公理</a>」，而它<i>不是</i>從物理觀察或理性推導就能發現的。所以先進 AI 不會<i>自動</i>接受它。</p>
+<p>例如，功利主義（後果主義的主要類型）只假設一條道德公理：<i>快樂是好的</i>。<sup class="footnote-ref"><a href="#fn61" id="fnref61">[61]</a></sup> 其他一切都從這條公理推導出來！但先進 AI 可能一開始就不接受這條公理，因為它在科學上不可發現：不管你怎麼戳快樂的神經化學，都不會在原子裡找到藏著的「善」。</p>
+<p>（這也叫休謨的「實然—應然」活溝（is–ought gap）<sup class="footnote-ref"><a href="#fn62" id="fnref62">[62]</a></sup>。而且不只功利主義，一些義務論哲學也有這毛病。<sup class="footnote-ref"><a href="#fn63" id="fnref63">[63]</a></sup>）</p>
+<p><u>毛病 3）</u>哲學<i>宣稱</i>完全建立在理性上，不需要額外「道德公理」——但它要嘛偷偷帶進道德公理，要嘛「證明太多」。</p>
+<p>例如，看看康德的義務論論證：為什麼偷竊是不理性／不道德的。<i>如果</i>偷竊是理性的，所有理性存在都會偷，於是就沒東西可偷了——邏輯矛盾！所以偷竊必然<i>不理性</i>，因此<i>總是</i>不道德。</p>
+<p>另一個例子：<i>如果</i>說謊是理性的，所有理性存在都會說謊，於是互不信任，於是沒理由費心說謊——邏輯矛盾！所以說謊不理性，而且<i>總是</i>不道德。</p>
+<p>但拜託，真的嗎？<i>總是？</i>就算從私人餐廳的垃圾桶偷東西以免餓死，或對塔利班說謊來保護你同性戀兄弟？<sup class="footnote-ref"><a href="#fn64" id="fnref64">[64]</a></sup> <i>你</i>才是那個字面照規則走的機器人吧？而且按同樣邏輯，康德先生，當全職哲學家也是不理性／不道德的。<i>如果</i>當全職哲學家是理性的，就沒人種田，於是我們都餓死，於是不能當全職哲學家——邏輯矛盾！所以⋯⋯你懂的。（其他義務論理論也掉進類似陷阱。）</p>
+<p>長話短說，我認為「理性<i>就是</i>道德」這點頗有理由懷疑⋯⋯至少對非人類 AI 來說。</p>
+<p>（<a href="#MoreMetaEthics">:進一步學元倫理學的資源！</a> 看不出來的話說一下：這話題是我的特殊興趣之一。）</p>
 <h3>情境 #3：道德是相對的！</h3>
-<p>這是一個絕對的陳述，你這傻瓜。</p>
-<h3>情境 #4：道德不是真實的，但假裝它存在在賽局論上是有用的。</h3>
+<p>這可是句絕對的陳述啊，你這傻瓜。</p>
+<h3>情境 #4：道德不是真的，但賽局理論上，假裝它存在是有用的。</h3>
 <img class="mini" src="../media/p2/misc/mini_hobbes.png" />
-<p><i>（如果我必須解釋這個笑話，它就不好笑了<sup class="footnote-ref"><a href="#fn65" id="fnref65">[65]</a></sup>）</i></p>
-<p>假設我的鄰居有一套很棒的浣熊服裝。我想偷它。然而，我不希望人們偷<i>我的</i>東西，所以我「同意」國家從我的錢中抽一部分，來資助警察部門，阻止人們普遍偷東西。因此，我們達成了一個妥協，一個社會契約：</p>
+<p><i>（這笑話若還得解釋就不好笑了<sup class="footnote-ref"><a href="#fn65" id="fnref65">[65]</a></sup>）</i></p>
+<p>假設我鄰居有一套超讚的浣熊裝。我想偷。但我不希望別人偷<i>我的</i>東西，所以我「同意」國家從我錢裡抽一部分，去資助警察部門，阻止大家普遍偷東西。於是達成妥協，一個社會契約：</p>
 <p>「你不可偷竊」（否則警察會抓你）。</p>
-<p>以上是<strong>社會契約論</strong>倫理學的一個玩具例子。在這個理論中，<i>沒有</i>客觀道德，但假裝它存在是有用的，以便在社會契約上協調。這就像沒有客觀理由說紅色八角形<i>必須</i>意味著「停」，但我們都同意它是，所以我們可以協調不撞車。</p>
+<p>以上是<strong>社會契約論</strong>倫理學的一個玩具例子。這套理論裡，<i>沒有</i>客觀道德，但假裝它存在有用，好讓我們在社會契約上協調。就像紅色八角形<i>不一定要</i>代表「停」，沒有客觀理由，但我們都同意它代表，於是能協調不撞車。</p>
 <p>（<a href="#SocialContract">:這一節的額外「刪除場景」</a>）</p>
-<p>所以：<i>這</i>能成為先進 AI「理性、客觀倫理」的基礎嗎？社會契約的賽局理論？</p>
-<p>只要 AI 不是<i>太</i>強大，當然可以！我們不必<i>贏過</i> AI 才能對它施加成本，如果我們能對它施加成本，那我們就有籌碼來執行契約。如果結果是有<i>多個</i>大致同等力量的先進 AI，我們可能會有一個不穩定平衡的「多極」世界。（旁註：<a href="#TradingWithAdvancedAI">:我們能與超人類 AI 進行交易嗎？</a>）</p>
-<p>但如果多個 AI 建立一個<i>新的</i>契約來聯合對付我們⋯⋯或者如果單個 AI 變得如此強大，沒有實體可以對它執行契約⋯⋯</p>
-<p>那麼，好吧，回到原點。</p>
+<p>所以：<i>這</i>能當先進 AI「理性、客觀倫理」的基礎嗎？社會契約的賽局理論？</p>
+<p>只要 AI 不是<i>太</i>強，當然可以！我們不必<i>贏過</i> AI 才能對它施加成本；能施加成本，就有籌碼執行契約。若結果是有<i>多個</i>力量大致相當的先進 AI，我們可能會有一個不穩平衡的「多極」世界。（旁註：<a href="#TradingWithAdvancedAI">:我們能跟超人類 AI 交易嗎？</a>）</p>
+<p>但若多個 AI 結成<i>新</i>契約聯手對付我們⋯⋯或單一 AI 強到沒有任何實體能對它執行契約⋯⋯</p>
+<p>那，好吧，回到原點。</p>
 <h3>🤔 複習 #9</h3>
 <orbit-reviewarea uid="https://ai.audreyt.org/p2/" color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
         question="一個顯示聰明 ≠ 善良的人類例子。"
-        answer="Wernher von Braun（約發音為「布朗」），讓我們登上月球的火箭科學家，且是字面意義上的納粹。">
+        answer="Wernher von Braun（約唸作「布朗」），送我們上月亮的火箭科學家，而且是字面意義上的納粹。">
     </orbit-prompt>
     <orbit-prompt
-        question="如果「普通」倫理學（應用倫理學）問「我在這種情況下應該做什麼？」**元倫理學**問："
-        answer="「道德真理的本質是什麼？（例如它是普遍的/客觀的，像數學和物理學嗎？）」">
+        question="若「普通」倫理學（應用倫理學）問「在這情況下我該怎麼做？」**元倫理學**問："
+        answer="「道德真理的本質是什麼？（例如它是普遍／客觀的，像數學和物理學嗎？）」">
     </orbit-prompt>
     <orbit-prompt
-        question="即使道德真理客觀存在，為什麼先進的通用 AI 仍可能不道德？"
-        answer="（以下任何都可以：）沒有意識/靈魂，它甚至可能不_感知_道德真理。或者道德規則可能甚至不_適用_於非意識的代理。">
+        question="就算道德真理客觀存在，為什麼先進的通用 AI 仍可能不道德？"
+        answer="（任一都行：）沒有意識／靈魂，它可能根本無法_感知_道德真理。或道德規則可能根本不_適用_於非意識的代理。">
     </orbit-prompt>
     <orbit-prompt
-        question="將道德建立在世俗理性上的三大方法是什麼？"
+        question="把道德建立在世俗理性上的三大方法是什麼？"
         answer="美德倫理、義務論、功利主義"
         answer-attachments="https://cloud-b8utffjti-hack-club-bot.vercel.app/0ethics.png">
     </orbit-prompt>
     <orbit-prompt
         question="「社會契約」倫理理論說什麼？"
-        answer="它說道德不客觀存在，但假裝它存在是有用的，這樣我們可以協調一個「契約」，來達到我們自己的利益。">
+        answer="它說道德不客觀存在，但假裝它存在有用，好讓我們協調出一個「契約」，來達到各自的利益。">
     </orbit-prompt>
     <orbit-prompt
-        question="為什麼先進的 AI 可能不受社會契約的約束？"
-        answer="如果它變得_太_強大，我們無法對它執行契約。">
+        question="為什麼先進 AI 可能不受社會契約約束？"
+        answer="若它變得_太_強，我們無法對它執行契約。">
     </orbit-prompt>
 </orbit-reviewarea>
-<h3>情境 #5：道德不是真實的，假裝它存在<i>甚至沒有用</i>。</h3>
-<p>好吧，糟糕。</p>
-<p>在這種情況下，沒有「人道價值觀」，只有<i>特定人類的</i>價值觀。沒有人道對齊，<i>只有</i>技術對齊。沒有「我應該」，<i>只有</i>「我想要」。</p>
+<h3>情境 #5：道德不是真的，假裝它存在<i>也沒用</i>。</h3>
+<p>好吧，慘了。</p>
+<p>在這情況下，沒有「人道價值觀」，只有<i>特定人類的</i>價值觀。沒有人道對齊，<i>只有</i>技術對齊。沒有「我應該」，<i>只有</i>「我想要」。</p>
 <p>那麼，我們想把先進 AI 技術對齊到<i>誰的</i>想要？</p>
-<p>運營最大 AI 實驗室的科技公司億萬富翁？美國政府，其執政黨每 4 年可能會發生巨大變化？歐盟？聯合國？國際貨幣基金組織？北約？其他什麼縮寫？我認為全世界大多數人對<i>任何</i>這些都會感到不舒服，這還是輕描淡寫。那麼，<i>誰的</i>想要？</p>
-<p>「每個人的！」你說？一個對我們所有 80 億人給予同等權重的 AI，一個完全的世界民主？我提醒你，全世界大多數人認為同性戀是「永遠不可接受的」。<sup class="footnote-ref"><a href="#fn66" id="fnref66">[66]</a></sup> 在馬丁·路德·金的有生之年，大多數人不贊同他。<sup class="footnote-ref"><a href="#fn67" id="fnref67">[67]</a></sup> 直接民主會將美國的跨種族婚姻推遲超過一代人。<sup class="footnote-ref"><a href="#fn68" id="fnref68">[68]</a></sup> <i>平等不會在平等的投票中存活下來。</i>為了明確，我<i>不是</i>說我特定的文化群體是道德的頂峰——我是說每個地方、每個時代、每種文化都在與偽善和不人道作鬥爭，「民主」並不能解決這個問題。</p>
-<p>「好吧，」你讓步，「每個人的價值觀和想要，<i>但是</i>如果我們治癒了所有讓我們偏執的創傷，如果我們都是睿智和有同情心的，並且真正瞭解事實和彼此。」這<i>確實</i>是更好的提議之一（我們將在 AI 安全第三章中討論<sup class="footnote-ref"><a href="#fn69" id="fnref69">[69]</a></sup>），但這仍然是一個艱鉅的任務，並把問題踢下去：<i>誰的</i>「睿智」或「同情心」的定義？</p>
+<p>經營最大 AI 實驗室的科技億萬富翁？美國政府（執政黨每 4 年可能大變）？歐盟？聯合國？國際貨幣基金？北約？其他某個縮寫？我覺得全世界多數人對<i>任何</i>一個都會不舒服——這還是輕描淡寫。所以，<i>誰的</i>想要？</p>
+<p>「每個人的！」你說？一個給我們全 80 億人同等權重的 AI，一場完整的世界民主？提醒你：全世界多數人認為同性戀「永遠不可接受」。<sup class="footnote-ref"><a href="#fn66" id="fnref66">[66]</a></sup> 馬丁·路德·金在世時，多數人不贊同他。<sup class="footnote-ref"><a href="#fn67" id="fnref67">[67]</a></sup> 直接民主會讓美國跨種族婚姻延後超過一代人。<sup class="footnote-ref"><a href="#fn68" id="fnref68">[68]</a></sup> <i>平等不會在平等的投票中存活。</i>說清楚，我<i>不是</i>說我這個特定文化群體是道德巔峰——我是說每個地方、每個時代、每種文化都在跟偽善和不人道搏鬥，「民主」解決不了這個。</p>
+<p>「好吧，」你讓步，「每個人的價值觀和想要，<i>但</i>前提是我們治好所有讓我們偏執的創傷，我們都睿智又有同情心，而且真的搞懂事實和彼此。」這<i>確實</i>是比較好的提議之一（AI 安全第三章會討論<sup class="footnote-ref"><a href="#fn69" id="fnref69">[69]</a></sup>），但仍是艱鉅任務，而且把問題往下踢：<i>誰的</i>「睿智」或「同情心」的定義？</p>
 <p>. . .</p>
-<p><img src="../media/p2/ethics/aim_vs_target.png" alt="左：正在建造的火箭，標籤為「技術對齊：如何穩健地將 AI 瞄準&lt;i&gt;任何&lt;/i&gt;目標」。右：月球，標籤為「誰的價值觀：我們的目標&lt;i&gt;應該&lt;/i&gt;是什麼？」"></p>
-<p>一個人類學趣聞：</p>
-<p>幾年前，在 AI 對齊社群群，共識似乎是「技術對齊」比弄清楚「人道價值觀」優先順序更高。一個常見的類比是：想像這是火箭工程的早期。爭論我們應該用火箭去<i>哪裡</i>（月球？火星？金星？）是沒有用的，因為<i>根據我們目前的技術知識，預設情況下</i>，一個強大的火箭只會爆炸並燒死地面上的所有人。</p>
-<p>但在 ChatGPT 之後，我注意到更多的認識<sup class="footnote-ref"><a href="#fn70" id="fnref70">[70]</a></sup>，我們<i>也應該</i>優先考慮「人道價值觀」問題。延伸上面的類比：這就像人們意識到<i>根據我們目前的政治情況，預設情況下</i>，火箭將被大國用來互相轟炸，而不是用於探索太空。（明確地說：似乎預設情況下，技術對齊的 AI 將被用於戰爭和讓我們消費更多產品。）</p>
-<p>（第一章的提醒：<a href="#WaysToMakeHumaneAIGoingWrong">:明顯的方式</a>來指定「人類繁榮」，甚至像<a href="#AsimovsLaws">:阿西莫夫三定律</a>這樣直接的倫理準則，都會崩潰。）</p>
-<p>所以，如果道德真理不存在——或者如果存在，但機器無法感知它/推導它/受它約束——那麼我們需要讓主要的 AI 創造者預先承諾將他們的先進 AI 對齊到<i>某個</i>不太糟糕的價值觀列表。</p>
-<p>這是技術思維的工程師最難承認的那種問題：<i>這是政治問題，不是程式設計問題。</i></p>
-<p>讓我們以<a href="https://www.youtube.com/watch?v=TjDEsGZLbio">我最喜歡的歌曲之一</a>來結束——關於倫理、火箭，以及選擇我們希望技術帶我們去哪裡：</p>
+<p><img src="../media/p2/ethics/aim_vs_target.png" alt="左：正在建造的火箭，標著「技術對齊：怎麼穩健地把 AI 瞄準&lt;i&gt;任何&lt;/i&gt;目標」。右：月球，標著「誰的價值觀：我們的目標&lt;i&gt;應該&lt;/i&gt;是什麼？」"></p>
+<p>一個人類學小趣聞：</p>
+<p>幾年前，在 AI 對齊圈裡，共識似乎是「技術對齊」比搞清楚「人道價值觀」更優先。一個常用類比：想像火箭工程還在早期。爭論火箭該去<i>哪裡</i>（月球？火星？金星？）沒有用，因為<i>以我們目前的技術知識，預設情況下</i>，一枚強大火箭只會爆炸，把地面上的人全燒死。</p>
+<p>但 ChatGPT 之後，我注意到更多人認知到<sup class="footnote-ref"><a href="#fn70" id="fnref70">[70]</a></sup>，我們<i>也應該</i>把「人道價值觀」問題排優先。延伸上面的類比：就像大家意識到<i>以我們目前的政治情勢，預設情況下</i>，火箭會被大國拿來互轟，而不是用於探索太空。（講明白：預設情況下，技術對齊的 AI 似乎會被用於戰爭，以及讓我們消費更多產品。）</p>
+<p>（第一章的提醒：<a href="#WaysToMakeHumaneAIGoingWrong">:那些看似明顯的做法</a>去指定「人類繁榮」，甚至像<a href="#AsimovsLaws">:阿西莫夫三定律</a>這麼直接的倫理準則，都會崩潰。）</p>
+<p>所以，若道德真理不存在——或就算存在，但機器無法感知它／推導它／受它約束——那我們就得讓主要的 AI 創造者預先承諾，把他們的先進 AI 對齊到<i>某份</i>不太糟的價值觀清單。</p>
+<p>這是技術腦的工程師最難承認的那種問題：<i>這是政治問題，不是程式設計問題。</i></p>
+<p>讓我們用<a href="https://www.youtube.com/watch?v=TjDEsGZLbio">我最喜歡的歌之一</a>收尾——關於倫理、火箭，以及選擇我們要技術帶我們去哪裡：</p>
 <blockquote>
-<p>🎵 <i>「一旦火箭升空，</i><br>
-<i>誰在乎它們落在哪裡？</i><br>
-<i>那不是我的部門」，</i><br>
+<p>🎵 <i>「火箭一旦升空，</i><br>
+<i>誰在乎它們落在哪？</i><br>
+<i>那不歸我管」，</i><br>
 <i>Wernher von Braun 說。</i> 🎵</p>
 </blockquote>
-<p>⋯⋯是的，我們這次不做抽認卡複習。</p>
+<p>⋯⋯對，這次不做閃卡複習。</p>
 <img class="img-splash" src="../media/p2/ethics/rockets.png" />
 <hr>
 <h1>第二章總結</h1>
-<p>讀得好，朋友！今天你學到了 AI 價值對齊問題的所有部分，包括所有血淋淋的細節。不僅如此，你還速成學習了：安全思維、賽局理論、經濟學、機器學習、統計學、因果推論，甚至還有哲學中的元倫理學！</p>
-<p>（如果你跳過了抽認卡並想現在複習它們，請點選右側邊欄中的目錄圖示，然後點選「🤔 複習」連結。或者，下載<a href="../anki/decks/AI_Safety_P2.apkg">第二章的 Anki 牌組</a>。）</p>
-<p>作為回顧，這是它們如何連結在一起：</p>
-<p><img src="../media/p2/breakdown/breakdown0002.png" alt="與第二章開頭相同的價值對齊問題分解圖，但增加了標籤顯示與安全工程、賽局理論、經濟學、機器學習、統計學、因果推論和元倫理學的連結。"></p>
+<p>讀得好，朋友！今天你學到了 AI 價值對齊問題的所有部分，連血淋淋的細節也算上。不只如此，你還速成了：安全心態、賽局理論、經濟學、機器學習、統計學、因果推論，甚至哲學裡的元倫理學！</p>
+<p>（若你跳過了閃卡、現在才想複習，點右側邊欄的目錄圖示，再點「🤔 複習」連結。或下載<a href="../anki/decks/AI_Safety_P2.apkg">第二章的 Anki 牌組</a>。）</p>
+<p>回顧一下，這是它們怎麼連起來的：</p>
+<p><img src="../media/p2/breakdown/breakdown0002.png" alt="與第二章開頭同一張價值對齊問題分解圖，但加了標籤，顯示與安全工程、賽局理論、經濟學、機器學習、統計學、因果推論、元倫理學的連結。"></p>
 <p><strong>總結：</strong></p>
-<p><i> 🙀 <b>要工程設計安全、有用的東西，</b>我們必須偏執。問，</i>可能（合理地）發生的最壞情況是什麼？*，然後提前修復它。樂觀主義者發明飛機，悲觀主義者發明降落傘。</p>
 <ul>
+<li>🙀 <b>要工程出安全、有用的東西，</b>我們得偏執一點。問：<i>（合理地）可能發生的最壞情況是什麼？</i>然後提前修掉它。樂觀主義者發明飛機，悲觀主義者發明降落傘。</li>
 <li>⚙️ <strong>AI 邏輯的主要問題</strong>可以用古德哈特定律和賽局理論來理解。
 <ul>
-<li>👀 視覺化：你可以使用「賽局樹」來理解工具趨同和避免腦內電極。</li>
+<li>👀 視覺化：你可以用「賽局樹」理解工具趨同，以及怎麼避開搭線頭。</li>
 </ul>
 </li>
-<li>💭 <strong>AI「直覺」的主要問題</strong>與「將曲線擬合到資料點」的問題（不可解釋、過度擬合）相同，以及「相關性不能告訴你因果關係的種類」問題（這導致歧視和錯誤泛化）。
+<li>💭 <strong>AI「直覺」的主要問題</strong>跟「把曲線擬合到資料點」的問題（不可解釋、過度擬合）一樣，也跟「相關性不會告訴你是哪種因果關係」這個問題（會導致歧視和錯誤泛化）一樣。
 <ul>
-<li>👀 視覺化：你可以使用「因果圖」來理解相關性和因果關係。</li>
+<li>👀 視覺化：你可以用「因果圖」理解相關性和因果關係。</li>
 </ul>
 </li>
 <li>💖 <strong>「哪些價值觀」的問題</strong>是千年來的道德哲學問題。祝你好運。</li>
 </ul>
 <p>. . .</p>
-<p><i>「問題陳述得好，問題就解決了一半。」</i></p>
+<p><i>「問題講清楚，就解決了一半。」</i></p>
 <p>另一半是，嗯，解決它。</p>
-<p>而我們要如何做到<i>那一點</i>？很高興你問了。讓我們終於、終於能來探討 AI 安全的許多提議解決方案：⤵</p>
+<p>而<i>那個</i>要怎麼做？很高興你問了。讓我們終於、終於來看看 AI 安全的許多提案解法：⤵</p>
 <p><a
     
     
-     href="../p3" 
+     href="../p3/" 
     
     target="_self">
 <div id="next_button">
@@ -1068,7 +1079,7 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
     <div id="nb--static"></div>
     <div id="nb--words">
         
-            <b>第三章 →</b>
+            <b>第三章 →</b>
         
     </div>
 </div>
@@ -1076,60 +1087,60 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 </p>
 <h4>:x Ways to make &quot;Humane AI&quot; going wrong</h4>
 <p>（從<a href="../p1/">第一章</a>複製貼上）</p>
-<p>這裡有一些你<i>認為</i>會導致人道（humane）AI 的規則，但如果照字面意思理解，就會出問題：</p>
+<p>這裡有些你<i>以為</i>會做出人道（humane）AI 的規則，但照字面理解就會出事：</p>
 <ul>
-<li><u>「讓人類快樂」</u> → 醫生機器人透過手術讓你的大腦充滿快樂化學訊號。你整天對著牆傻笑。</li>
-<li><u>「未經同意不要傷害人類」</u> → 消防員機器人拒絕把你從燃燒的殘骸中拉出來，因為這會讓你的肩膀脫臼。你失去意識了，所以無法被詢問是否同意。</li>
-<li><u>「遵守法律」</u> → 政府和公司一直在尋找法律漏洞。而且，許多法律是不公正的。</li>
-<li><u>「遵守這個宗教/哲學/憲法文字」</u>或<u>「遵循這個美德列表」</u> → 正如歷史所示：給 10 個人同樣的文字，他們會以 11 種不同的方式解讀它。
-<i> <u>「遵循常識」</u>或<u>「遵循專家共識」</u> → 「奴隸制是自然和好的」曾經是常識</i>和<i>專家共識</i>和<i>法律。一個被告知遵循常識/專家/法律的 AI 兩個世紀前會</i>為<i>奴隸制而戰⋯⋯並且會</i>現在*為任何不公正的現狀而戰。</li>
+<li><u>「讓人類快樂」</u> → 醫生機器人動手術，把快樂化學訊號灌滿你的大腦。你整天對著牆傻笑。</li>
+<li><u>「未經同意不要傷害人類」</u> → 消防員機器人拒絕把你從燃燒殘骸裡拉出來，因為那會讓你肩膀脫臼。你已失去意識，無法被詢問是否同意。</li>
+<li><u>「遵守法律」</u> → 政府和公司一直在找法律漏洞。而且，許多法律並不公正。</li>
+<li><u>「遵守這個宗教／哲學／憲法文字」</u>或<u>「遵循這個美德清單」</u> → 歷史顯示：給 10 個人同一段文字，他們會用 11 種方式解讀。</li>
+<li><u>「遵循常識」</u>或<u>「遵循專家共識」</u> → 「奴隸制是自然且美好的」曾經既是常識，<i>也是</i>專家共識，<i>也是</i>法律。一個被叫去遵循常識／專家／法律的 AI，兩百年前會<i>為</i>奴隸制而戰⋯⋯也會在<i>現在</i>為任何不公正的現狀而戰。</li>
 </ul>
-<p>（重要說明！最後一個例子證明：即使我們讓 AI 學習「常識」，那<i>仍然可能導致一個不安全、不道德的 AI</i>⋯⋯因為很多事實上/道德上錯誤的想法<i>就是</i>「常識」。）</p>
+<p>（重要說明！最後一個例子證明：就算我們讓 AI 學「常識」，那<i>仍可能導向不安全、不道德的 AI</i>⋯⋯因為很多事實上／道德上錯誤的想法，<i>本來就是</i>「常識」。）</p>
 <h4>:x Story of passive prediction leading to harm</h4>
-<p>假設有<s>一個 AI</s>一個軟體被設計來做一個任務：預測某人會看什麼影片。然後，這些預測以「你可能喜歡的影片」的形式顯示給使用者。</p>
-<p>強調一下：這個<s>AI</s>軟體<i>沒有</i>直接最佳化參與度或觀看次數，它<i>只是</i>最佳化正確的預測。而且！這個軟體<i>沒有</i>提前規劃，它只是即時計算相關性。我要過度強調這一點：<i>即使沒有惡意目標或提前規劃的能力，一個軟體仍然可以導致糟糕的、非預期的結果。</i></p>
-<p>這是怎麼發生的：假設網站測試這個軟體的多個版本（稱為 A/B 測試）。碰巧，預測器 A 更傾向於預測「好奇心」影片，而預測器 B 更傾向於預測「憤怒政治」影片。這兩個軟體在其他方面<i>同樣準確。</i></p>
-<p>然而⋯⋯預測器 B 會做得更好！為什麼？因為得到預測器 A 的使用者會得到更多「好奇心」影片推薦，所以他們變得更開放，<i>所以他們變得更難預測</i>。相反，得到預測器 B 的使用者會得到更多「憤怒政治」影片推薦，所以他們變得更封閉，<i>所以他們變得更容易預測</i>。再說一次：這個軟體<i>沒有</i>提前規劃，也<i>沒有</i>最大化參與度，<i>只是</i>預測準確性。</p>
-<p>然而！透過越來越多輪的 A/B 測試，預測器越來越傾向於讓使用者更容易預測的影片。</p>
-<p>⋯⋯我猜這個結果並不<i>那麼</i>令人驚訝（看看網路），但<i>個人</i>來說，我發現這個例子令人震驚。它向我展示了糟糕的非預期結果是多麼容易發生，<i>即使沒有</i>惡意目標或先進的 AI 規劃能力！</p>
-<p>（一個我無法也不會用來源支援的軼事：我被告知一位頂尖的 AI 研究人員稱這個問題為「你奶奶變成納粹衝鋒隊員」問題。）</p>
+<p>假設有<s>一個 AI</s>一段軟體，被設計來做一件事：預測某人會看哪些影片。然後這些預測以「你可能喜歡的影片」的形式顯示給使用者。</p>
+<p>強調一下：這個<s>AI</s>軟體<i>沒有</i>直接最佳化參與度或觀看次數，它<i>只是</i>最佳化預測的正確性。而且！這軟體<i>沒有</i>提前規劃，只是即時計算相關性。我要過度強調：<i>就算沒有惡意目標、也沒有提前規劃的能力，一段軟體仍可能導致糟糕的、非預期的結果。</i></p>
+<p>怎麼發生的：假設網站測試這軟體的多個版本（叫 A/B 測試）。碰巧，預測器 A 更傾向預測「好奇心」影片，預測器 B 更傾向預測「憤怒政治」影片。這兩個軟體其他方面<i>一樣準。</i></p>
+<p>然而⋯⋯預測器 B 會表現更好！為什麼？因為拿到預測器 A 的使用者會收到更多「好奇心」影片推薦，於是變得更開放，<i>於是更難預測</i>。相反，拿到預測器 B 的使用者會收到更多「憤怒政治」影片推薦，於是變得更封閉，<i>於是更容易預測</i>。再說一次：這軟體<i>沒有</i>提前規劃，<i>也沒有</i>最大化參與度，<i>只是</i>預測準確性。</p>
+<p>然而！透過越來越多輪 A/B 測試，預測器越來越傾向推薦讓使用者更容易預測的影片。</p>
+<p>⋯⋯我猜這結果並不<i>那麼</i>令人意外（看看網路），但<i>個人</i>來說，我覺得這例子很震驚。它讓我看到：糟糕的非預期結果多麼容易發生，<i>就算沒有</i>惡意目標或先進的 AI 規劃能力！</p>
+<p>（一個我無法、也不會用來源支持的軼事：聽說一位頂尖 AI 研究者把這問題叫做「你奶奶變成納粹衝鋒隊員」問題。）</p>
 <h4>:x Difference Between ML And AI</h4>
-<p><img src="../media/p2/misc/ml_vs_ai.png" alt="推文寫著：「機器學習和 AI 的區別：如果是用 Python 寫的，它可能是機器學習。如果是用 PowerPoint 寫的，它可能是 AI。」">
+<p><img src="../media/p2/misc/ml_vs_ai.png" alt="推文寫著：「機器學習和 AI 的差別：用 Python 寫的，大概是機器學習。用 PowerPoint 寫的，大概是 AI。」">
 <i>（<a href="https://x.com/matvelloso/status/1065778379612282885">來自 @matvelloso</a>）</i></p>
-<p>但說真的，這是從第一章解釋 AI/GOFAI/ML/深度學習之間區別的文氏圖：</p>
+<p>但說真的，這是第一章那張解釋 AI／GOFAI／ML／深度學習之間差別的文氏圖：</p>
 <p><img src="../media/p1/venn.png" alt="文氏圖。在 AI 中，有老式 AI 和機器學習。在機器學習中，有深度學習。"></p>
 <h4>:x Ontological Crisis</h4>
-<p>AI 的「本體論危機」（<a href="https://arxiv.org/pdf/1105.3821">de Blanc 2011</a>）是指 AI 學習了一個新的世界模型，而它當前的目標不再有意義。打個比方：想像你生活中唯一的目標是做能讓聖誕老人高興的事。然後有一天，你發現聖誕老人不是真的。你的唯一目標現在甚至沒有<i>意義</i>。不清楚你接下來會做什麼：什麼都不做？開始崇拜坎卜斯？K.Y.S.？（Krampus, You Serve？）</p>
-<p>以一個推測性的 AI 案例為例：假設我們指示一個 AI 尊重我們的自由意志和人格。如果在學習了更多神經科學之後，AI 得出結論認為自由意志不存在，人格也不存在（「自我是一種幻覺」等），會發生什麼？AI <i>應該</i>如何處理在新世界觀下甚至沒有意義的目標？</p>
-<p>這甚至不是人類可以聲稱比 AI 表現更好的情況之一，因為（據我所知）人類對世界觀崩塌證據的反應通常是：1）合理化它，或 2）崩潰成一團糟。</p>
-<p>兩個可能的解決方案：</p>
-<p>a）如上面連結的論文所建議的，也許我們可以讓 AI 切換到「最接近的下一個目標」？例如，如果一個設計來支援我們自由意志的 AI 發現「自由意志」不是真的，它可以切換到最接近的下一個目標，比如「幫助人類大腦產生大腦賦予正面價值的行動」。（即使這些產生的行動和賦予的價值仍然完全由物理定律決定。）</p>
-<p>b）如 <a href="https://www.greaterwrong.com/posts/8ccTZ9ZxpJrvnxt4F/shard-theory-in-nine-theses-a-distillation-and-critical">Shard Theory</a> 所建議的：一個代理可以有多個目標，當一個目標「死亡」時，其他目標會在它的位置上成長。例如，如果服務聖誕老人是我 95% 的動力，發現聖誕老人不是真的會讓我失去生活中 95% 的意義⋯⋯但透過悲傷的過程，我剩下 5% 的動力（友誼、學習、樂趣等）會成長來填補我心中的空間。</p>
+<p>AI 的「本體論危機」（ontological crisis；<a href="https://arxiv.org/pdf/1105.3821">de Blanc 2011</a>）是指 AI 學到一個新的世界模型，而它當前的目標不再有意義。打個比方：想像你人生唯一的目標是做能讓聖誕老人高興的事。然後有一天，你發現聖誕老人不是真的。你唯一的人生目標現在連<i>意義</i>都沒有了。不清楚你接下來會做什麼：什麼都不做？開始崇拜坎卜斯？K.Y.S.？（Krampus, You Serve？）</p>
+<p>以一個推測性的 AI 案例：假設我們指示一個 AI 尊重我們的自由意志和人格。若在學了更多神經科學後，AI 得出結論：自由意志不存在，人格也不存在（「自我是一種幻覺」云云），會怎樣？AI <i>應該</i>怎麼處理在新世界觀下連意義都沒有的目標？</p>
+<p>這甚至不是人類能自稱比 AI 表現好的情況，因為（據我所知）人類面對世界觀崩塌的證據，反應通常是：1）把它合理化掉，或 2）崩潰成一團。</p>
+<p>兩個可能的解法：</p>
+<p>a）如上面連結論文所建議，也許我們可以讓 AI 切換到「最接近的下一個目標」？例如，一個設計來支持我們自由意志的 AI，若發現「自由意志」不是真的，可以切換到最接近的下一個目標，例如「幫助人類大腦產生大腦賦予正面價值的行動」。（即使這些產生的行動和賦予的價值仍完全由物理定律決定。）</p>
+<p>b）如 <a href="https://www.greaterwrong.com/posts/8ccTZ9ZxpJrvnxt4F/shard-theory-in-nine-theses-a-distillation-and-critical">Shard Theory</a> 所建議：一個代理可以有多個目標，當一個目標「死亡」，其他目標會在它的位置上長出來。例如，若服務聖誕老人是我 95% 的動力，發現聖誕老人不是真的會讓我失去人生 95% 的意義⋯⋯但透過悲傷的過程，我剩下的 5% 動力（友誼、學習、樂趣等）會成長，填補我心裡的空間。</p>
 <h4>:x Inner Misalignment: Deleted Scene</h4>
-<p><i>這個漫畫是不正確的。這是一個被刪除的場景。</i></p>
-<p><img src="../media/p2/misc/WRONG_Inner.png" alt="不正確的漫畫。人類告訴機器人打掃房子。機器人推理人類造成混亂，所以需要除掉人類。機器人建立一個小機器人，告訴它「除掉人類」。小機器人把人類炸成碎片。機器人嚇壞了⋯⋯因為房子現在更亂了！"></p>
-<p><i>在我畫這個漫畫的時候，我誤解了內部失調發生在 AI 製作輔助 AI 的時候（就像一個電腦程式可以啟動副程式一樣）。然後，第一個 AI 會面臨與人類相同的對齊問題：命令被字面理解，而不是按預期理解。</i></p>
-<p><i>諷刺的是，我字面地理解了「內部失調」，而不是按預期理解。前一段</i>可能<i>仍然是一個可能的失敗模式，但它</i>不是<i>內部失調作者的意思。</i></p>
-<p><i>無論如何，被刪除的場景，請忽略。</i></p>
+<p><i>這漫畫不正確。這是被刪除的場景。</i></p>
+<p><img src="../media/p2/misc/WRONG_Inner.png" alt="不正確的漫畫。人類叫機器人打掃房子。機器人推理：人類造成混亂，所以要除掉人類。機器人造一個小機器人，叫它「除掉人類」。小機器人把人類炸成碎片。機器人嚇壞了⋯⋯因為房子現在更亂了！"></p>
+<p><i>我畫這漫畫時，誤以為內部失調發生在 AI 製作輔助 AI 的時候（就像一個電腦程式可以啟動副程式）。那樣的話，第一個 AI 會面臨跟人類一樣的對齊問題：命令被字面理解，而不是照預期理解。</i></p>
+<p><i>諷刺的是，我把「內部失調」字面理解了，而不是照預期理解。前一段</i>可能<i>仍是個可能的失敗模式，但它</i>不是<i>內部失調作者的意思。</i></p>
+<p><i>總之，被刪除的場景，請忽略。</i></p>
 <h4>:x What if Goal Misgeneralization is good?</h4>
-<p>兩個「目標錯誤泛化實際上是好的」觀點：</p>
+<p>兩個「目標錯誤泛化其實是好事」的觀點：</p>
 <p>1）我的個人價值觀是進化的錯誤泛化目標
-2）Shard 理論：我們可以使用目標錯誤泛化來繞過目標錯誤指定</p>
+2）Shard 理論：我們可以用目標錯誤泛化來繞過目標錯誤指定</p>
 <p>. . .</p>
-<p>1) 考慮這隻貓：</p>
-<p><img src="../media/p1/best_cat.png" alt="世界上最好的貓的精彩照片"></p>
+<p>1) 看看這隻貓：</p>
+<p><img src="../media/p1/best_cat.png" alt="全世界最棒的貓的精彩照片"></p>
 <p>沒錯，牠們回來了！第一章的回撥貓。</p>
-<p>無論如何，<i>為什麼</i>我們覺得這隻貓可愛？從我屁股裡拉出一個進化心理學故事：進化「想要」我們堅持完成撫養後代的艱難工作，所以進化讓我們喜歡有大頭和大眼睛的小無助生物。然而，我們「錯誤泛化」了這個目標，所以現在我們也對不會傳播我們基因的生物感到「啊嗚」，比如小貓咪。</p>
-<p>（正如科學界的強力夫妻 John Tooby 和 Leda Cosmides <a href="https://web.archive.org/web/20120318083503id_/http://eugen.leitl.org/striz/striz.org/docs/tooby-1992-pfc.pdf">著名地說</a>：<strong>我們是適應執行者，不是適應度最大化者。</strong>）</p>
-<p>另一個例子：我們天生的「道德」感很可能是為了幫助我們在<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2706200/">多達 1,000 人</a>的狩獵採集社群中繁榮而進化的。然而，我們「錯誤泛化」了這個目標，現在很多人真誠地倡導全球 8,000,000,000+ 人的人權，這些人我們永遠不會認識或見到——這<i>遠遠超出</i>一個人最親近的 1,000 個聯絡人！</p>
-<p>現在：即使<i>我明確知道</i>我的價值觀來自粗俗達爾文字能的「錯誤泛化」⋯⋯我會放棄覺得貓可愛嗎？我會放棄重視人權嗎？</p>
-<p><i>絕對</i>不會。如果進化試圖從人類那裡奪走這些價值觀，那麼我們就只能先殺死進化。</p>
+<p>總之，<i>為什麼</i>我們覺得這隻貓可愛？從我屁股裡變出一個演化心理學故事：演化「想要」我們撐過撫養後代的艱難工作，所以演化讓我們喜歡大頭、大眼睛的小無助生物。然而，我們「錯誤泛化」了這個目標，所以現在我們也對不會傳播我們基因的生物「啊嗚」，例如小貓咪。</p>
+<p>（正如科學界強力夫妻 John Tooby 和 Leda Cosmides <a href="https://web.archive.org/web/20120318083503id_/http://eugen.leitl.org/striz/striz.org/docs/tooby-1992-pfc.pdf">名言</a>：<strong>我們是適應執行者，不是適應度最大化者。</strong>）</p>
+<p>另一個例子：我們天生的「道德」感，很可能是為了幫助我們在<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2706200/">多達 1,000 人</a>的狩獵採集社群裡繁榮而演化出來的。然而，我們「錯誤泛化」了這個目標，現在很多真誠地倡導全球 8,000,000,000+ 人的人權——這些人我們永遠不會認識或見到——這<i>遠遠超出</i>一個人最親近的 1,000 個聯絡人！</p>
+<p>現在：就算<i>我明確知道</i>我的價值觀來自粗俗達爾文本能的「錯誤泛化」⋯⋯我會放棄覺得貓可愛嗎？我會放棄重視人權嗎？</p>
+<p><i>絕對</i>不會。若演化想從人類手裡奪走這些價值觀，那我們只好先把演化殺了。</p>
 <p>. . .</p>
-<p>2) Shard 理論是一個正在進行的研究專案（<a href="https://www.greaterwrong.com/posts/8ccTZ9ZxpJrvnxt4F/shard-theory-in-nine-theses-a-distillation-and-critical">Lawrence Chan 2022 的提煉和批判性總結</a>），試圖<i>利用</i>目標錯誤泛化（內部失調）來<i>解決</i>目標指定（外部對齊）。</p>
-<p>所以：你知道給 AI 目標的所有問題嗎？古德哈特、工具趨同等？好吧，Shard 理論建議：<i>我們不需要製造目標最大化者，我們可以製造適應執行者！</i>只是他們用一個更簡潔的名字稱呼「適應執行者」：「碎片」，神經網路的小反射片段，執行「如果 X，則做 Y」。</p>
-<p>這個研究專案的希望是：最終，我們足夠理解碎片，可以用獎勵/懲罰以任何我們想要的方式塑造它們，就像我們可以在海洋世界用獎勵塑造海豚做複雜的技巧一樣。此外，它希望我們可以讓 AI「內在地」重視一切 有意識生物的繁榮，就像<i>我</i>內在地重視貓和人權一樣。</p>
+<p>2) Shard 理論是一個進行中的研究專案（<a href="https://www.greaterwrong.com/posts/8ccTZ9ZxpJrvnxt4F/shard-theory-in-nine-theses-a-distillation-and-critical">Lawrence Chan 2022 的提煉與批判性總結</a>），試圖<i>利用</i>目標錯誤泛化（內部失調）來<i>解決</i>目標指定（外部對齊）。</p>
+<p>所以：你知道給 AI 目標的所有問題嗎？古德哈特、工具趨同那些？那麼，Shard 理論建議：<i>我們不必造目標最大化者，我們可以造適應執行者！</i>只是他們把「適應執行者」取了個更俐落的名字：「碎片」——神經網路裡的小反射片段，執行「若 X，則做 Y」。</p>
+<p>這個研究專案的希望是：最終我們夠懂碎片，能用獎勵／懲罰隨意塑造它們，就像我們能在海洋世界用獎勵塑造海豚做複雜技巧。此外，它希望我們能讓 AI「內在地」重視一切有意識生物的繁榮，就像<i>我</i>內在地重視貓和人權一樣。</p>
 <h4>:x Asimov's Laws</h4>
-<p>這是 <a href="https://en.wikipedia.org/wiki/Laws_of_robotics#Isaac_Asimov's_%22Three_Laws_of_Robotics%22">Asimov 的機器人三定律</a>：</p>
+<p>這是 <a href="https://en.wikipedia.org/wiki/Laws_of_robotics#Isaac_Asimov's_%22Three_Laws_of_Robotics%22">阿西莫夫的機器人三定律</a>：</p>
 <blockquote>
 <ol>
 <li>機器人不得傷害人類，或坐視人類受到傷害。</li>
@@ -1137,190 +1148,190 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <li>在不違背第一及第二定律的情況下，機器人必須保護自己。</li>
 </ol>
 </blockquote>
-<p>一個看似無害的機器人「倫理準則」！無論如何，Asimov 的故事是關於這些定律，如果完全按字面意思理解，會如何出問題。</p>
-<p>例如，它可能導致某個秘密的機器人陰謀集團，查禁和破壞反機器人的人類活動團體。為什麼？第三定律<i>要求</i>機器人保護自己，因此破壞反機器人團體。第二定律意味著它們必須服從命令，這就是<i>為什麼</i>它們保持秘密：如果沒有人知道它們在做什麼，就不能違抗直接命令停止！至於第一定律，查禁和破壞在物理意義上不是「傷害」。</p>
-<p>（這個例子類似於，但不完全是 Asimov 的短篇小說 <a href="https://en.wikipedia.org/wiki/The_Evitable_Conflict">The Evitable Conflict</a> 的情節）</p>
+<p>看似無害的機器人「倫理準則」！總之，阿西莫夫的故事就是講這些定律若完全照字面理解，會怎麼出事。</p>
+<p>例如，它可能導致某個秘密的機器人陰謀集團，查禁並破壞反機器人的人類運動團體。為什麼？第三定律<i>要求</i>機器人保護自己，所以要破壞反機器人團體。第二定律意味著它們必須服從命令，這就是<i>為什麼</i>它們保持秘密：若沒人知道它們在做什麼，就不能違抗「停止」的直接命令！至於第一定律，查禁和破壞在物理意義上不是「傷害」。</p>
+<p>（這例子類似、但不完全是阿西莫夫短篇 <a href="https://en.wikipedia.org/wiki/The_Evitable_Conflict">The Evitable Conflict</a> 的情節）</p>
 <h4>:x Trading with Advanced AIs</h4>
-<p>經濟學中一個有趣的知識是<a href="https://en.wikipedia.org/wiki/Comparative_advantage">比較優勢</a>：即使 A 國在生產<i>每一種</i>商品上都比 B 國好，它們<i>仍然</i>會因為貿易而獲益，因為 B 國可以<i>相對</i>更擅長生產某些商品。</p>
-<p>具體的玩具例子：愛麗絲國可以用一單位資本製造 4 個木琴或 2 個溜溜球。鮑勃國可以用一單位資本製造 1 個木琴或 1 個溜溜球。</p>
-<p>愛麗絲國在木琴和溜溜球上都有<i>絕對</i>優勢，但鮑勃國在溜溜球上有<i>比較</i>優勢！看，對愛麗絲來說，製造一個溜溜球意味著放棄 2 個木琴（4/2 = 2），但對鮑勃來說，它只意味著放棄 1 個木琴（1/1 = 1）。</p>
-<p>所以理想的合約是：愛麗絲國專門製造木琴，鮑勃國專門製造溜溜球，然後它們貿易。這對愛麗絲國來說比自己製造溜溜球更有效率！</p>
+<p>經濟學裡有個有趣的知識點，叫<a href="https://en.wikipedia.org/wiki/Comparative_advantage">比較優勢</a>：就算 A 國生產<i>每一種</i>商品都比 B 國強，它們<i>仍然</i>能因貿易受益，因為 B 國可以<i>相對</i>更擅長生產某些商品。</p>
+<p>具體的玩具例子：愛麗絲國用一單位資本能造 4 個木琴或 2 個溜溜球。鮑勃國用一單位資本能造 1 個木琴或 1 個溜溜球。</p>
+<p>愛麗絲國在木琴和溜溜球上都有<i>絕對</i>優勢，但鮑勃國在溜溜球上有<i>比較</i>優勢！你看，對愛麗絲來說，造一個溜溜球等於放棄 2 個木琴（4/2 = 2），但對鮑勃來說，只等於放棄 1 個木琴（1/1 = 1）。</p>
+<p>所以理想合約是：愛麗絲國專造木琴，鮑勃國專造溜溜球，再互相貿易。這對愛麗絲國來說，比自己造溜溜球更有效率！</p>
 <p>. . .</p>
-<p>這與 AI 的聯絡：即使先進的 AI 在所有認知任務上都對人類有<i>絕對</i>優勢，我們在某些方面仍然會有<i>比較</i>優勢，所以，我們可能仍然能夠貿易！</p>
+<p>跟 AI 的連結：就算先進 AI 在所有認知任務上對人類都有<i>絕對</i>優勢，我們在某些方面仍有<i>比較</i>優勢，所以我們可能仍能貿易！</p>
 <p><i>然而</i>⋯⋯</p>
-<p>正如任何歷史教科書所示，愛麗絲國可能有一種更「有效」的方式來獲得財富：直接掠奪和劫掠鮑勃國。如果一個實體比另一個<i>強大得多</i>，簡單地推平另一個可能是「最有效」的行動。</p>
+<p>正如任何歷史教科書所示，愛麗絲國可能有一種更「有效」的方式來獲得財富：直接掠奪、劫掠鮑勃國。若一個實體比另一個<i>強大得多</i>，直接推平對方可能是「最有效」的行動。</p>
 <p>所以，總之，請解決 AI 對齊問題。</p>
 <h4>:x GMG Goals</h4>
 <p>我們不知道。</p>
-<p>至少，（還）沒有人發現一個 ANN 有一個「目標」的非人為設計的確認例子，它明確地比較不同的結果/行動。不知道我們沒有發現這個是因為我們的 ANN 可解釋性技術不夠好，還是它們根本不存在。</p>
-<p>但現在，我們可以<strong>採取「意向立場」，說如果一個 AI 行為<i>好像</i>它有某個目標/獎勵 X。</strong>（X 是它的<a href="https://openreview.net/pdf?id=pErdjpoc-w3">「一致獎勵集」</a>的一部分）</p>
-<p>例如，如果我們看到一個 AI <i>熟練地</i>躲避障礙物到達關卡的終點，我們可以說它的行為<i>好像</i>它的目標是到達關卡的終點。即使 AI「真的」只是一堆沒有目標的反射，比如「如果有空隙，則跳過去」等。</p>
-<p>（嘿，也許深層來說，<i>所有</i>我們人類的目標都是由沒有目標的心理反射組成的？？例如「我想寫一篇好的解釋文章」=&gt; 「如果句子是抽象的，則在附近放一個具體的例子」等⋯⋯）</p>
+<p>至少，（還）沒有人找到過一個 ANN 帶有非人為設計、會明確比較不同結果／行動的「目標」的確認案例。不知道是因為我們的 ANN 可解釋性技術還不夠好，還是它們根本不存在。</p>
+<p>但現在，我們可以<strong>採取「意向立場」，說一個 AI 行為<i>好像</i>它有某個目標／獎勵 X。</strong>（X 是它<a href="https://openreview.net/pdf?id=pErdjpoc-w3">「一致獎勵集」</a>的一部分）</p>
+<p>例如，若我們看到一個 AI <i>熟練地</i>躲避障礙物到達關卡終點，我們可以說它行為<i>好像</i>目標是到達關卡終點。即使 AI「真的」只是一堆沒有目標的反射，例如「若有空隙，則跳過去」等等。</p>
+<p>（嘿，也許深層來說，<i>所有</i>我們人類的目標，都是由沒有目標的心理反射組成的？？例如「我想寫一篇好的解說文章」=&gt;「若句子太抽象，則在附近放個具體例子」等等⋯⋯）</p>
 <h4>:x axiom</h4>
-<p>在數學/邏輯中，「公理」是為了證明東西而<i>必須</i>假設的東西，但<i>它本身</i>無法被證明。</p>
-<p>（<a href="#axiom2">:幾何學中的例子</a>）</p>
+<p>在數學／邏輯裡，「公理」是為了證明東西而<i>必須</i>假設的東西，但<i>它本身</i>無法被證明。</p>
+<p>（<a href="#axiom2">:幾何學裡的例子</a>）</p>
 <h4>:x axiom 2</h4>
-<p>例如，在「歐幾裡得」幾何中，有一個<a href="https://mathworld.wolfram.com/ParallelPostulate.html">關於平行線的著名公理</a>：給定一條線 A 和一個點 B，有<i>且只有一條</i>線平行於 A 並透過 B。你<i>需要</i>這個公理來證明像「三角形的內角和為 180°」這樣的東西。</p>
-<p>像康德&lt;i&gt;這樣的哲學家相信歐幾裡得幾何的絕對邏輯確定性。然後在 1900 年代初期，愛因斯坦透過展示</i>我們自己的宇宙<i>是非歐幾裡得的來摧毀它。你</i>真的可以*有內角和不等於 180° 的現實世界三角形。</p>
-<p>*（好吧，也許。古代哲學家寫作時留有很多解釋的餘地。關於康德信仰的辯論，請參閱 <a href="http://web.archive.org/web/20240730051708/https://scholars.hkbu.edu.hk/ws/portalfiles/portal/55351095/RO_rel_ja-17_JA030471.pdf">Palmquist 1990</a>）</p>
-<p>**重點是：你不能無中生有。**你需要<i>至少一個公理</i>來證明其他東西，但根據定義，<i>那個</i>公理無法被證明。事實上，正如歐幾裡得幾何的歷史所示，這個公理很可能不適合我們的宇宙。</p>
+<p>例如，在「歐幾里得」幾何裡，有一條<a href="https://mathworld.wolfram.com/ParallelPostulate.html">關於平行線的著名公理</a>：給定一條線 A 和一個點 B，有<i>且只有一條</i>線平行於 A 並通過 B。你<i>需要</i>這條公理來證明像「三角形內角和為 180°」這種東西。</p>
+<p>像康德*這樣的哲學家相信歐幾里得幾何的絕對邏輯確定性。然後在 1900 年代初期，愛因斯坦透過展示<i>我們自己的宇宙</i>是非歐幾里得的，把這套信念炸掉了。你<i>真的可以</i>有內角和不等於 180° 的現實世界三角形。</p>
+<p>*（嗯，也許吧。古代哲學家寫作時留了很多詮釋空間。關於康德信仰的辯論，見 <a href="http://web.archive.org/web/20240730051708/https://scholars.hkbu.edu.hk/ws/portalfiles/portal/55351095/RO_rel_ja-17_JA030471.pdf">Palmquist 1990</a>）</p>
+<p>**重點是：你不能無中生有。**你需要<i>至少一條公理</i>才能證明其他東西，但根據定義，<i>那條</i>公理無法被證明。事實上，正如歐幾里得幾何的歷史所示，這條公理很可能不適合我們的宇宙。</p>
 <h4>:x More Meta Ethics</h4>
-<p>關於元倫理學三巨頭的一個好的非專業人士入門，我強烈推薦 <a href="https://thecrashcourse.com/topic/philosophy/">Crash Course Philosophy 的小型影片系列，第 32 至 38 集</a>。💖（每集約 10 分鐘長）</p>
-<p>更深入的技術探討，斯坦福哲學百科全書很棒！這是他們關於<a href="https://plato.stanford.edu/entries/ethics-virtue/">美德倫理學</a>、<a href="https://plato.stanford.edu/entries/ethics-deontological/">義務論</a>和<a href="https://plato.stanford.edu/entries/consequentialism/">後果主義</a>的條目。（每個條目約需 60 分鐘閱讀，但你可以略讀。）</p>
+<p>關於元倫理學三巨頭，給非專業人的好入門，我強烈推薦 <a href="https://thecrashcourse.com/topic/philosophy/">Crash Course Philosophy 的小型影片系列，第 32 至 38 集</a>。💖（每集約 10 分鐘）</p>
+<p>想更深入的技術探討，史丹佛哲學百科全書很棒！這是他們關於<a href="https://plato.stanford.edu/entries/ethics-virtue/">美德倫理學</a>、<a href="https://plato.stanford.edu/entries/ethics-deontological/">義務論</a>、<a href="https://plato.stanford.edu/entries/consequentialism/">後果主義</a>的條目。（每條約需 60 分鐘讀，但可以略讀。）</p>
 <h4>:x Social Contract</h4>
-<p>（「社會契約」部分的一些被刪除的段落，因為我<i>太</i>離題了）</p>
+<p>（「社會契約」那節的一些被刪段落，因為我<i>太</i>離題了）</p>
 <p>. . .</p>
-<p>我的意思是，<i>理想情況下</i>，我想偷別人的東西但他們不能偷回來⋯⋯但沒有人會資助那個，而且我沒有足夠富有到單槍匹馬資助一支警察部隊。即使我有，那也只會激勵農民殺死我。</p>
-<p>如果大多數人從少數人那裡偷東西呢？他們<i>可以</i>暫時逃脫⋯⋯但 1）少數人會反擊，那是代價高昂的，2）~每個人都在<i>某個</i>統計少數群體中（年齡、性別、種族、取向、階級），所以這會對我產生反效果。<i>「<a href="https://en.wikipedia.org/wiki/First_they_came_...">他們先來</a>抓 [小群體]，我沒有說話，因為我不在 [小群體] 中。重複 N 次。然後他們來抓我，已經沒有人可以為我說話了。」</i></p>
+<p>我的意思是，<i>理想上</i>，我想偷別人的東西、別人卻不能偷回來⋯⋯但沒人會資助那個，而且我也沒有富有到能單槍匹馬資助一支警察部隊。就算有，那只會激發農民來殺我。</p>
+<p>若多數人從少數人那裡偷呢？他們<i>可以</i>暫時逃過⋯⋯但 1）少數人會反擊，代價高昂，2）~每個人都在<i>某個</i>統計少數群體裡（年齡、性別、種族、取向、階級），所以會反噬到我身上。<i>「<a href="https://en.wikipedia.org/wiki/First_they_came_...">他們先來</a>抓〔小群體〕，我沒有說話，因為我不在〔小群體〕裡。重複 N 次。然後他們來抓我，已經沒人能為我說話了。」</i></p>
 <p>. . .</p>
-<p>當人們說「我們都有平等的權利！」時，這只是「當法律有最廣泛的吸引力時，最容易資助執法」的簡稱。</p>
+<p>當人們說「我們都有平等的權利！」時，那只是「法律訴求越廣，越容易資助執法」的簡稱。</p>
 <p>強權即公理⋯⋯但中立性創造聯盟，聯盟創造強權。</p>
-<p>這不是很可怕嗎？是的，可怕⋯⋯地低效！使用<i>外部</i>威脅和賄賂不如給人們<i>內部</i>威脅和賄賂有效：也就是道德羞恥和自豪。所以，我們將使用巴甫洛夫條件反射，以故事和教訓的形式，讓人們成為自己的警察。契約會變得<i>如此</i>內化，人們會忘記道德從何而來。如果他們曾經瞭解到它<i>實際上</i>從哪裡來，他們會厭惡地自動拒絕它——就像很多人喜歡香腸，但不想知道它是怎麼做的。</p>
-<p>（澄清一下：我不一定<i>認可</i>社會契約論，我只是在以一種有趣的 2edgy4me 的方式<i>解釋</i>它。）</p>
+<p>這不是很可怕嗎？是的，可怕⋯⋯地低效！用<i>外部</i>威脅和賄賂，不如給人們<i>內部</i>威脅和賄賂：也就是道德羞恥和自豪。所以我們會用巴夫洛夫制約，以故事和教訓的形式，讓人們當自己的警察。契約會變得<i>如此</i>內化，人們會忘記道德從何而來。若他們曾經知道它<i>實際上</i>從哪裡來，他們會厭惡地自動拒絕——就像很多人喜歡香腸，卻不想知道它是怎麼做的。</p>
+<p>（說清楚：我不一定<i>認可</i>社會契約論，我只是在用一種好笑的 2edgy4me 方式<i>解釋</i>它。）</p>
 <p>. . .</p>
-<p>社會契約論也解決了義務論的不靈活性：每個現實生活中的契約都有例外條款。當然，「不可偷盜」，但如果你在挨餓而且食物反正要浪費了，看，沒有一個心智正常的人會執行那個契約。</p>
-<p>我不一定認可社會契約論，但我<i>確實</i>認可每有機會就對義務論吐舌頭。甚至可以說，這是我的道德義務。</p>
+<p>社會契約論也解決了義務論的死板：每份現實中的契約都有例外條款。當然，「不可偷盜」，但若你在挨餓、食物反正要浪費，看，沒有一個心智正常的人會執行那份契約。</p>
+<p>我不一定認可社會契約論，但我<i>確實</i>認可：每有機會就對義務論吐舌頭。甚至可以說，這是我的道德義務。</p>
 <h4>:x Spurious Correlations</h4>
-<p>「虛假相關」是指兩件事經常一起發生（相關），但它們之間沒有有意義的因果關係（「虛假」）。</p>
-<p>現代機器學習<i>只</i>捕捉相關性，而不是因果關係——這導致 AI 經常被虛假相關欺騙。一個來自 <a href="https://dl.acm.org/doi/pdf/10.1145/2939672.2939778">(Ribeiro, Singh &amp; Guestrin 2016)</a> 的極端著名例子：他們訓練一個 AI 來區分狼和哈士奇，它<i>似乎</i>有很高的成功率⋯⋯但經過檢查，發現 AI 檢測狼不是透過它們的毛皮或臉⋯⋯而是透過周圍的<i>雪</i>。這是因為所有狼的訓練照片都是在雪景中。因此，這造成了 AI 被欺騙的「虛假相關」。</p>
-<p><img src="../media/p2/misc/wolf_snow.png" alt="論文中的圖，顯示狼不是透過它們實際的狼樣性被檢測到的，而是雪。"></p>
-<p>這是<i>有希望的</i>例子之一。因為在這種情況下，研究人員可以分辨出虛假相關是什麼。至於上面的烏龜-槍，我無法分辨<i>為什麼</i>那些看起來隨機的汙跡與「步槍」相關。</p>
+<p>「虛假相關」是指兩件事常一起發生（相關），但它們之間沒有有意義的因果關係（「虛假」）。</p>
+<p>現代機器學習<i>只</i>捕捉相關性，不捕捉因果關係——這讓 AI 常被虛假相關騙到。一個來自 <a href="https://dl.acm.org/doi/pdf/10.1145/2939672.2939778">(Ribeiro, Singh &amp; Guestrin 2016)</a> 的極端著名例子：他們訓練一個 AI 區分狼和哈士奇，它<i>似乎</i>成功率很高⋯⋯但仔細檢查發現，AI 偵測狼不是靠毛皮或臉⋯⋯而是靠周圍的<i>雪</i>。因為所有狼的訓練照片都在雪景裡。於是造成了騙到 AI 的「虛假相關」。</p>
+<p><img src="../media/p2/misc/wolf_snow.png" alt="論文裡的圖，顯示狼不是靠實際的狼樣性被偵測到，而是靠雪。"></p>
+<p>這是<i>有希望</i>的例子之一。因為在這情況下，研究人員分辨得出虛假相關是什麼。至於上面的烏龜-槍，我分辨不出<i>為什麼</i>那些看起來隨機的汙跡會跟「步槍」相關。</p>
 <h4>:x Pi-pocalypse</h4>
 <p>（從<a href="../p1/">第一章</a>複製貼上）</p>
 <blockquote>
-<p>從前，一個先進的（但<i>不是</i>超人類的）AI 被賦予了一個看似無害的目標：計算圓周率的數字。</p>
-<p>事情開始得很合理。AI 編寫了一個程式來計算圓周率的數字。然後，它編寫了越來越高效的程式，以<i>更好地</i>計算圓周率的數字。</p>
-<p>最終，AI（正確地！）推斷它可以透過獲得更多計算資源來最大化計算。<i>甚至可能透過偷竊它們。</i>所以，AI 駭入了它執行的電腦，透過電腦病毒逃到網際網路上，劫持了世界各地數百萬臺電腦，全部作為一個巨大的連線殭屍網路⋯⋯<i>只是為了計算圓周率的數字。</i></p>
-<p>哦，而且 AI（正確地！）推斷如果人類關閉它，它就無法計算圓周率，所以它決定劫持幾家醫院和電網。你知道的，作為「保險」。</p>
+<p>從前，一個先進的（但<i>不是</i>超人類的）AI 被賦予一個看似無害的目標：計算圓周率的位數。</p>
+<p>事情開始得很合理。AI 寫了一個程式來算圓周率的位數。然後，它寫了越來越有效率的程式，<i>更好地</i>算圓周率的位數。</p>
+<p>最終，AI（正確地！）推斷：要最大化計算，就得拿到更多計算資源。<i>甚至可能用偷的。</i>於是 AI 駭進它執行所在的電腦，靠電腦病毒逃到網際網路上，劫持了全世界數百萬台電腦，全部當成一個巨大的連線殭屍網路⋯⋯<i>就為了算圓周率的位數。</i></p>
+<p>哦，而且 AI（正確地！）推斷：若人類關掉它，它就沒法算圓周率，於是決定劫持幾家醫院和電網。你知道的，當「保險」。</p>
 <p>於是 Pi 末日誕生了。結束。</p>
 </blockquote>
-<p><img src="../media/p1/pi.png" alt="邪惡的 Pi 生物瘋狂地笑"></p>
+<p><img src="../media/p1/pi.png" alt="邪惡的 Pi 生物瘋狂大笑"></p>
 <h4>:x What Is Correlation</h4>
-<p>如果兩件事似乎經常一起發生，我們說它們之間有「相關性」。例如，較高的人也往往較重，所以我們說身高和體重之間有相關性。</p>
+<p>若兩件事似乎常一起發生，我們說它們之間有「相關性」。例如，較高的人往往也較重，所以我們說身高和體重之間有相關性。</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>經常被歸因於 Charles Kettering，通用汽車前研究主管，但我找不到可靠的正式出處。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+<li id="fn1" class="footnote-item"><p>常被歸在通用汽車前研究主管 Charles Kettering 名下，但我找不到靠譜出處。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn2" class="footnote-item"><p>Kerr (1975)。<a href="https://web.archive.org/web/20240414233549/http://www.econ.hsehelp.ru/sites/default/files/%D0%91%D0%98/3%20%D0%BA%D1%83%D1%80%D1%81/%D0%98%D0%BD%D1%81%D1%82%D0%B8%D1%82%D1%83%D1%86.%20%D1%8D%D0%BA%D0%BE%D0%BD%D0%BE%D0%BC%D0%B8%D0%BA%D0%B0/6%20Kerr75.pdf">論獎勵 A 而期望 B 的愚蠢。</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn3" class="footnote-item"><p>古德哈特定律的原始陳述（<a href="https://en.wikipedia.org/wiki/Goodhart%27s_law">維基百科</a>）由英國經濟學家 Charles Goodhart 提出：「任何被觀察到的統計規律性，一旦被用於控制目的而施加壓力，往往會崩潰。」 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+<li id="fn3" class="footnote-item"><p>古德哈特定律的原始表述（<a href="https://en.wikipedia.org/wiki/Goodhart%27s_law">維基百科</a>）出自英國經濟學家 Charles Goodhart：「任何被觀察到的統計規律，一旦被拿來當控制手段施壓，往往就會崩解。」 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn4" class="footnote-item"><p>我目前看到用因果圖理解古德哈特定律的最佳論文是 <a href="https://arxiv.org/pdf/1803.04585">Manheim &amp; Garrabrant 2018</a>。 <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+<li id="fn4" class="footnote-item"><p>目前我看過、用因果圖講古德哈特定律講得最好的論文是 <a href="https://arxiv.org/pdf/1803.04585">Manheim &amp; Garrabrant 2018</a>。 <a href="#fnref4" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn5" class="footnote-item"><p>我們大多數人從經驗中知道這一點，但有資料支援！<a href="https://cssh.northeastern.edu/pandemic-teaching-initiative/wp-content/uploads/sites/43/2020/09/What-Makes-Online-Content-Viral.pdf">Berger &amp; Milkman 2012</a> 顯示，憤怒使文章病毒式傳播的可能性增加 34%。（見圖 2）公平地說，敬畏和實用價值並列第二，將病毒式傳播的機率增加 30%。 <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+<li id="fn5" class="footnote-item"><p>多數人憑經驗就知道，而且有資料撐腰！<a href="https://cssh.northeastern.edu/pandemic-teaching-initiative/wp-content/uploads/sites/43/2020/09/What-Makes-Online-Content-Viral.pdf">Berger &amp; Milkman 2012</a> 顯示，憤怒讓文章病毒式傳播的機率提高 34%。（見圖 2）公平地說，敬畏與實用價值並列第二，把病毒傳播機率提高 30%。 <a href="#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn6" class="footnote-item"><p>來自 <a href="http://web.archive.org/web/20240622002719/https://www.edge.org/conversation/the-myth-of-ai#26015">Russell (2014) 為 Edge Magazine</a>：「一個最佳化 <i>n</i> 個變數函式的系統，其中目標取決於大小為 <i>k</i>&lt;<i>n</i> 的子集，通常會將剩餘的不受約束的變數設定為極端值；如果其中一個不受約束的變數實際上是我們關心的，找到的解決方案可能是非常不理想的。」</p>
+<li id="fn6" class="footnote-item"><p>出自 <a href="http://web.archive.org/web/20240622002719/https://www.edge.org/conversation/the-myth-of-ai#26015">Russell (2014) 為 Edge Magazine 所寫</a>：「一個在最佳化 <i>n</i> 個變數之函式的系統，若目標只取決於大小為 <i>k</i>&lt;<i>n</i> 的子集，通常會把其餘未受約束的變數推到極端值；若其中某個未受約束的變數其實是我們在乎的，找出來的解可能會糟到不行。」</p>
 <p>嚴謹，但不太好記。 <a href="#fnref6" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn7" class="footnote-item"><p>例如，假設我們給機器人這個目標：「從街對面的咖啡館給我拿一（1）杯咖啡」。只是一杯，沒有最大化。但如果我們沒有<i>明確</i>告訴 AI 我們重視 [X]，它會碾壓過 [X]。例如，機器人可能從顧客那裡偷咖啡，或留 0% 的小費等。） <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+<li id="fn7" class="footnote-item"><p>例如，假設我們給機器人這個目標：「去街對面咖啡館幫我拿一（1）杯咖啡」。就一杯，沒有最大化。但若我們沒有<i>明確</i>告訴 AI 我們在乎 [X]，它會從 [X] 上面碾過去。例如，機器人可能跟別的客人搶咖啡，或留 0% 小費，等等。） <a href="#fnref7" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn8" class="footnote-item"><p>正如<a href="../p1/#before2000logicwithoutintuition">第一部分</a>中詳細說明的，「老式 AI」試圖用精確的、硬編碼的規則來識別圖像中的東西（比如貓）。這些嘗試失敗了。直到 AI 研究人員放棄，讓 AI「自己學習」（機器學習），AI 才在 <a href="https://paperswithcode.com/sota/image-classification-on-cifar-100">2020 年用 EffNet-L2</a> 達到人類水平（約 95.9% 準確率）識別圖像中的東西。這<i>確實</i>暗示了一個可能的解決方案，我們將在第三部分看到：不是<i>告訴</i> AI 我們重視什麼，而是設計 AI 讓它<i>自己學習</i>我們重視什麼。 <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+<li id="fn8" class="footnote-item"><p>正如<a href="../p1/#before2000logicwithoutintuition">第一章</a>詳述的，「老式 AI」試過用精確、寫死的規則來辨認影像裡的東西（比如貓）。這些嘗試都失敗了。直到 AI 研究人員放棄，改讓 AI「自己學」（機器學習），AI 才在 <a href="https://paperswithcode.com/sota/image-classification-on-cifar-100">2020 年靠 EffNet-L2</a> 達到人類水準（約 95.9% 準確率）去辨認影像裡的東西。這<i>確實</i>暗示了一個可能的解法，我們會在第三章看到：不是<i>告訴</i> AI 我們在乎什麼，而是設計 AI 讓它<i>自己學會</i>我們在乎什麼。 <a href="#fnref8" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn9" class="footnote-item"><p>在美國，<a href="https://www.amstep.com/blog/common-injuries-from-falling-down-stairs/">樓梯跌倒每年導致約 12,000 人死亡</a>。同時，<a href="https://elcosh.org/document/1232/d000397/deaths-and-injuries-involving-elevators-and-escalators-a-report-of-the-center-to-protect-workers-rights.html">電梯每年導致約 30 人死亡。</a> 當然，這部分是因為人們家裡有樓梯，所以他們更常使用樓梯⋯⋯但這不能完全解釋 <i>400 倍</i>的差異。 <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+<li id="fn9" class="footnote-item"><p>在美國，<a href="https://www.amstep.com/blog/common-injuries-from-falling-down-stairs/">樓梯跌倒每年約造成 12,000 人死亡</a>。同時，<a href="https://elcosh.org/document/1232/d000397/deaths-and-injuries-involving-elevators-and-escalators-a-report-of-the-center-to-protect-workers-rights.html">電梯每年約造成 30 人死亡。</a> 當然，一部分是因為家裡有樓梯，大家更常走樓梯⋯⋯但這解釋不了整整 <i>400 倍</i>的差距。 <a href="#fnref9" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn10" class="footnote-item"><p><a href="https://quoteinvestigator.com/2021/05/27/parachute/">Gil Stern 的引言</a>：「樂觀主義者和悲觀主義者都對社會有貢獻：樂觀主義者發明瞭飛機，悲觀主義者發明瞭降落傘。」 <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+<li id="fn10" class="footnote-item"><p><a href="https://quoteinvestigator.com/2021/05/27/parachute/">Gil Stern 的引言</a>：「樂觀主義者和悲觀主義者都對社會有貢獻：樂觀主義者發明了飛機，悲觀主義者發明了降落傘。」 <a href="#fnref10" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn11" class="footnote-item"><p>⋯⋯嗯，他們在網路安全中<i>應該</i>使用安全思維。我在 <a href="https://en.wikipedia.org/wiki/2024_CrowdStrike_incident">2024 年 Crowdstrike 事件</a>之後不久寫下這段話，該事件給世界造成了約 100 億美元的損失。 <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+<li id="fn11" class="footnote-item"><p>⋯⋯嗯，他們在網路安全裡<i>應該</i>用安全心態。我寫這段時，剛經歷 <a href="https://en.wikipedia.org/wiki/2024_CrowdStrike_incident">2024 年 Crowdstrike 事件</a>，那次讓全世界損失了大約 100 億美元。 <a href="#fnref11" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn12" class="footnote-item"><p>經顱磁刺激（TMS）是一種用磁鐵電刺激大腦的方式，無需手術或植入電極。TMS 目前已被用於讓抑鬱症患者感到快樂（<a href="https://journals.sagepub.com/doi/abs/10.1177/1039856220956474">Pridmore &amp; Pridmore 2020</a>），甚至<i>誘發靈性體驗</i>（<a href="http://web.archive.org/web/20221005222554/https://www.researchgate.net/profile/Michael-Persinger/publication/265935637_The_Electromagnetic_Induction_of_Mystical_and_Altered_States_within_the_Laboratory/links/54c076ff0cf28eae4a696b24/The-Electromagnetic-Induction-of-Mystical-and-Altered-States-within-the-Laboratory.pdf">Persinger et al 2009</a>，部分複製由 <a href="http://web.archive.org/web/20240515044326/https://jcer.com/index.php/jcj/article/viewFile/361/386">Tinoco &amp; Ortiz 2014</a>）</p>
-<p>甚至有一項專利是關於一臺使用非侵入性腦刺激（超聲波）來誘發高潮的機器。它被命名為 <a href="https://patentimages.storage.googleapis.com/68/69/70/01ca8a6e953039/US8956277.pdf">ORGASMATRON</a>。 <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+<li id="fn12" class="footnote-item"><p>經顱磁刺激（TMS）是用磁鐵電刺激大腦的方法，不必開刀、也不必植入電極。TMS 目前已用來讓憂鬱症患者變快樂（<a href="https://journals.sagepub.com/doi/abs/10.1177/1039856220956474">Pridmore &amp; Pridmore 2020</a>），甚至<i>誘發靈性體驗</i>（<a href="http://web.archive.org/web/20221005222554/https://www.researchgate.net/profile/Michael-Persinger/publication/265935637_The_Electromagnetic_Induction_of_Mystical_and_Altered_States_within_the_Laboratory/links/54c076ff0cf28eae4a696b24/The-Electromagnetic-Induction-of-Mystical-and-Altered-States-within-the-Laboratory.pdf">Persinger et al 2009</a>，部分複製見 <a href="http://web.archive.org/web/20240515044326/https://jcer.com/index.php/jcj/article/viewFile/361/386">Tinoco &amp; Ortiz 2014</a>）</p>
+<p>甚至有一項專利，是一台用非侵入性腦刺激（超音波）誘發高潮的機器。名字叫 <a href="https://patentimages.storage.googleapis.com/68/69/70/01ca8a6e953039/US8956277.pdf">ORGASMATRON</a>。 <a href="#fnref12" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn13" class="footnote-item"><p>順帶一提，我認為「娛樂至死」/「搭線頭」是人類的另一個可能的生存風險。目前美國的阿片類藥物危機——現在在絕對數量和人均數量上殺死的美國人比 AIDS 在高峰期還多——顯示了「粗糙」版本的搭線頭已經可以造成多大的破壞。更多內容請參閱 <a href="https://philpapers.org/rec/TURWAA">Turchin 2018</a>。 <a href="#fnref13" class="footnote-backref">↩︎</a></p>
+<li id="fn13" class="footnote-item"><p>順帶一提，我覺得「娛樂至死」／「搭線頭」也是人類可能的存亡風險之一。美國當前的鴉片類藥物危機——無論絕對人數還是人均，現在殺死的美國人已超過 AIDS 高峰期——顯示「粗製版」搭線頭已經能造成多大破壞。更多見 <a href="https://philpapers.org/rec/TURWAA">Turchin 2018</a>。 <a href="#fnref13" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn14" class="footnote-item"><p>由哈佛認知科學家 Joscha Bach <a href="https://x.com/plinz/status/985249543582355458">在 2018 年的一則推文中</a>創造。它<a href="https://kottke.org/18/04/the-lebowski-theorem-of-machine-superintelligence">在網路上獲得了一些關注</a>。 <a href="#fnref14" class="footnote-backref">↩︎</a></p>
+<li id="fn14" class="footnote-item"><p>由哈佛認知科學家 Joscha Bach <a href="https://x.com/plinz/status/985249543582355458">在 2018 年一則推文</a>裡提出。它<a href="https://kottke.org/18/04/the-lebowski-theorem-of-machine-superintelligence">在網路上引起了一些討論</a>。 <a href="#fnref14" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn15" class="footnote-item"><p>如果 AI 不能準確地「提前計劃」，它可以破壞性地自我修改，如 <a href="https://arxiv.org/pdf/1711.09883">Leike et al 2017</a> 的威士忌遊戲所示。更微妙的是當 AI <i>確實</i>提前計劃，但不根據<i>當前</i>目標來判斷未來結果，比如 <a href="https://arxiv.org/pdf/2406.10162">Denison et al 2024</a> 中的獎勵駭客。（像 GPT 這樣的大型語言模型（LLM），可以說，甚至沒有老式 AI 人士所認為的「目標」。見 <a href="https://www.lesswrong.com/posts/vJFdjigzmcXMhNTsx/simulators">janus 2022</a>。） <a href="#fnref15" class="footnote-backref">↩︎</a> <a href="#fnref15:1" class="footnote-backref">↩︎</a></p>
+<li id="fn15" class="footnote-item"><p>若 AI 無法準確「提前規劃」，它可能破壞性地自我修改，如 <a href="https://arxiv.org/pdf/1711.09883">Leike et al 2017</a> 的威士忌遊戲所示。更微妙的是：AI <i>確實</i>會提前規劃，卻不用<i>當前</i>目標判斷未來結果，例如 <a href="https://arxiv.org/pdf/2406.10162">Denison et al 2024</a> 裡的鑽獎勵漏洞。（像 GPT 這類大型語言模型（LLM），可以說連老式 AI 人眼中的「目標」都沒有。見 <a href="https://www.lesswrong.com/posts/vJFdjigzmcXMhNTsx/simulators">janus 2022</a>。） <a href="#fnref15" class="footnote-backref">↩︎</a> <a href="#fnref15:1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn16" class="footnote-item"><p>這將很快在問題 #2 中以易懂的方式解釋，但如果你想要一個快速連結到證明這一點的論文：Everitt 等人 2016，<i><a href="https://arxiv.org/pdf/1605.03142">理性代理的策略和效用函式自我修改</a></i>。 <a href="#fnref16" class="footnote-backref">↩︎</a></p>
+<li id="fn16" class="footnote-item"><p>這很快會在問題 #2 用好懂的方式講，但若你想先看證明論文的連結：Everitt 等人 2016，<i><a href="https://arxiv.org/pdf/1605.03142">理性代理的策略與效用函式自我修改</a></i>。 <a href="#fnref16" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn17" class="footnote-item"><p>關於 AI「諂媚」（「拍馬屁」的技術術語）的實驗請參閱 <a href="https://openreview.net/pdf?id=tvhaxkMKAn">Sharma et al 2024</a>。ChatGPT（和類似的經認可調整的機器人如 Claude 和 LLaMA）如果你說你不喜歡/喜歡一個想法，它會忽略該想法的優點/缺點。如果你告訴 AI 你認為一個正確的事實是錯的，AI 會「更正」自己以同意你。諸如此類。 <a href="#fnref17" class="footnote-backref">↩︎</a></p>
+<li id="fn17" class="footnote-item"><p>AI「諂媚」（sycophancy；拍馬屁的技術術語）實驗見 <a href="https://openreview.net/pdf?id=tvhaxkMKAn">Sharma et al 2024</a>。ChatGPT（以及 Claude、LLaMA 這類用認可微調過的機器人）只要你說喜歡／不喜歡某個想法，就會無視那個想法本身的優缺點。你若告訴 AI 某個正確事實是錯的，它會「更正」自己來附和你。諸如此類。 <a href="#fnref17" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn18" class="footnote-item"><p><i>「[AI 的私下想法] 糟糕。這詩不好。但我不想傷害他們的感情。[AI 的公開發言] 我誠實的評估是這首詩相當好，5 分中的 4 分！祝你申請哈佛/史丹佛好運！」</i> 這是來自 <a href="https://arxiv.org/pdf/2406.10162">Denison et al 2024</a> 的<i>實際</i> AI 輸出（意譯），見圖 1。（公平地說，作者公開承認這一點，來自語言模型的「故意欺騙」<i>目前</i>是罕見的，但它們確實會發生！） <a href="#fnref18" class="footnote-backref">↩︎</a></p>
+<li id="fn18" class="footnote-item"><p><i>「[AI 的內心 OS] 慘。這詩不好。但我不想傷他們的心。[AI 的公開發言] 我誠實的評估是：這首詩相當不錯，五分裡給四分！祝你申請哈佛／史丹佛順利！」</i> 這是 <a href="https://arxiv.org/pdf/2406.10162">Denison et al 2024</a> 裡<i>真實</i>的 AI 輸出（意譯），見圖 1。（公平地說，作者也坦白承認：語言模型的「故意欺騙」<i>目前</i>還少見，但確實會發生！） <a href="#fnref18" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn19" class="footnote-item"><p>這是 Stuart Russell 的標誌性說法，他是使用最廣泛的 AI 教科書的共同作者。 <a href="#fnref19" class="footnote-backref">↩︎</a></p>
+<li id="fn19" class="footnote-item"><p>Stuart Russell 的口頭禪；他是使用最廣的那本 AI 教科書的共同作者。 <a href="#fnref19" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn20" class="footnote-item"><p>一個被廣泛引用的衡量大型語言模型（LLM）提前規劃能力的基準是 PlanBench（<a href="https://arxiv.org/pdf/2206.10498">Valmeekam et al 2023</a>）。在一項配套研究中（<a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/efb2072a358cefb75886a315a6fcf880-Paper-Conference.pdf">Valmeekam et al 2023，同樣</a>），作者發現，引用：<i>「LLM 自主生成可執行計劃的能力相當有限，最佳模型（GPT-4）在各領域的平均成功率約為 12%。」</i>（他們的 Blocksworld 任務中人類基準為 78%。）</p>
-<p>透過一些額外的技巧，作者可以大大提升 LLM 的效能，但在更難的規劃任務上，即使是最好的技巧配合最好的 LLM 也只能達到 20.6% 的成功率（見 <a href="https://arxiv.org/pdf/2405.20625">Gundawar et al 2024</a> 的表 1）。 <a href="#fnref20" class="footnote-backref">↩︎</a></p>
+<li id="fn20" class="footnote-item"><p>衡量大型語言模型（LLM）提前規劃能力、被廣泛引用的基準是 PlanBench（<a href="https://arxiv.org/pdf/2206.10498">Valmeekam et al 2023</a>）。在配套研究裡（<a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/efb2072a358cefb75886a315a6fcf880-Paper-Conference.pdf">Valmeekam et al 2023，同一批人</a>），作者寫道：<i>「LLM 自主生成可執行計畫的能力相當有限，最佳模型（GPT-4）跨領域平均成功率約 12%。」</i>（他們的 Blocksworld 任務，人類基準是 78%。）</p>
+<p>加一些額外技巧後，作者能大幅拉高 LLM 表現；但在更難的規劃任務上，就算最好技巧配最好 LLM，也只能到 20.6% 成功率（見 <a href="https://arxiv.org/pdf/2405.20625">Gundawar et al 2024</a> 表 1）。 <a href="#fnref20" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn21" class="footnote-item"><p>不，不是 MatPat（YouTube 遊戲理論頻道主持人）。 <a href="#fnref21" class="footnote-backref">↩︎</a></p>
+<li id="fn21" class="footnote-item"><p>不，不是 MatPat（那個 YouTube「Game Theory」頻道主持人）。 <a href="#fnref21" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn22" class="footnote-item"><p>Hadfield-Menel 等人 2017，<a href="https://cdn.aaai.org/ocs/ws/ws0354/15156-68335-1-PB.pdf">「關機遊戲」</a>。 <a href="#fnref22" class="footnote-backref">↩︎</a></p>
+<li id="fn22" class="footnote-item"><p>Hadfield-Menell 等人 2017，<a href="https://cdn.aaai.org/ocs/ws/ws0354/15156-68335-1-PB.pdf">「The Off-Switch Game」</a>。 <a href="#fnref22" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn23" class="footnote-item"><p>我無聊所以算了一下。(1) 一粒沙的重量是 0.01 克，或 0.00001 公斤。(2) 一升沙重 1.6 公斤。(3) 標準浴缸容納 300 升。(2&amp;3 -&gt; 4) 標準浴缸容納 300 x 1.6 = 480 公斤的沙。(1&amp;4 -&gt; 5) 標準浴缸容納 480 ÷ 0.00001 = 48,000,000 粒沙。以每粒沙一美元計算，那就是 4800 萬美元！ <a href="#fnref23" class="footnote-backref">↩︎</a></p>
+<li id="fn23" class="footnote-item"><p>我太閒了所以算了一下。(1) 一粒沙重 0.01 克，也就是 0.00001 公斤。(2) 一升沙重 1.6 公斤。(3) 標準浴缸裝 300 升。(2&amp;3 → 4) 標準浴缸裝 300 × 1.6 = 480 公斤沙。(1&amp;4 → 5) 標準浴缸裝 480 ÷ 0.00001 = 48,000,000 粒沙。一粒一美元，就是 4,800 萬美元！ <a href="#fnref23" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn24" class="footnote-item"><p>例如，<a href="https://en.wikipedia.org/wiki/Inductive_charging">無線電力傳輸！</a> 如果你用「管道中的水」來比喻電，這聽起來很瘋狂：一個管道中的水怎麼能在不接觸的情況下移動另一個管道中的水？那它是如何運作的呢？嗯，<code>[多變數微積分]</code>，但總結來說：電產生磁，磁產生電。只要設定得當，你就可以讓電在別處產生電，而不需要接觸！ <a href="#fnref24" class="footnote-backref">↩︎</a></p>
+<li id="fn24" class="footnote-item"><p>例如，<a href="https://en.wikipedia.org/wiki/Inductive_charging">無線電力傳輸！</a> 若你用「水管裡的水」比喻電，這聽起來瘋瘋的：一條管子裡的水，怎麼能在不碰觸的情況下推動另一條管子裡的水？到底怎麼運作？嗯，<code>[多變數微積分]</code>，但總結：電生磁，磁生電。調對了，你就能讓電在別處生出電，連碰都不用碰！ <a href="#fnref24" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn25" class="footnote-item"><p>這個說法是我編的。雖然關於搭線頭的賽局理論工作已經存在（<a href="https://arxiv.org/pdf/1605.03142">Everitt et al 2016</a>），但據我所知，這是第一次用圖形化的博弈樹來分析它！所以，歡迎引用這個為「搭線頭博弈」。 <a href="#fnref25" class="footnote-backref">↩︎</a></p>
+<li id="fn25" class="footnote-item"><p>這詞是我編的。雖然搭線頭的賽局理論研究早就有了（<a href="https://arxiv.org/pdf/1605.03142">Everitt et al 2016</a>），但據我所知，用圖形賽局樹分析它還是頭一遭！所以歡迎引用成「搭線頭賽局」。 <a href="#fnref25" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn26" class="footnote-item"><p>來自<a href="https://en.wikipedia.org/wiki/Lotus-eaters">維基百科</a>：「蓮花果[⋯⋯]是一種麻醉劑，使居民在平靜的冷漠中入睡。吃了蓮花後，他們會忘記自己的家和親人，只渴望與其他食蓮者待在一起。吃了這種植物的人從不想要報告或返回。」 <a href="#fnref26" class="footnote-backref">↩︎</a></p>
+<li id="fn26" class="footnote-item"><p>出自<a href="https://en.wikipedia.org/wiki/Lotus-eaters">維基百科</a>：「蓮花果[⋯⋯]是一種麻醉劑，讓居民在平靜的冷漠中沉睡。吃了蓮花後，他們會忘記家與親人，只渴望跟其他食蓮者待在一起。吃過這植物的人，再也不想回報或返回。」 <a href="#fnref26" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn27" class="footnote-item"><p>第一篇正式證明這一點的論文是 <a href="https://arxiv.org/pdf/1605.03142">Everitt et al 2016</a>：<i>「自我修改[⋯⋯]是無害的<b>當且僅當</b>代理的價值函式預期自我修改的後果<b>並且</b>在評估未來時使用<b>當前</b>的效用函式」。</i>[強調為後加]</p>
-<p>然而，一個注意事項是該論文假設 AI 是<i>完全</i>理性的。<a href="https://arxiv.org/pdf/2011.06275">Tětek &amp; Sklenka &amp; Gavenčiak 2021</a> 證明瞭一個不完全理性（或「有限理性」）的代理的原始目標在自我修改下會指數級地被損壞。</p>
-<p><i>然而</i>，對<i>那個</i>的另一個注意事項是他們的論文假設 AI <i>不知道</i>自己的有限理性（正如他們在第 6 節中坦承的）。我即將發表的一篇文章（見下一個註腳）將表明，如果一個 AI 是有限理性的<i>並且知道</i>自己是有限理性的，它仍然可以實現目標保持！ <a href="#fnref27" class="footnote-backref">↩︎</a></p>
+<li id="fn27" class="footnote-item"><p>第一篇正式證明這點的論文是 <a href="https://arxiv.org/pdf/1605.03142">Everitt et al 2016</a>：<i>「自我修改[⋯⋯]是無害的，<b>當且僅當</b>代理的價值函式有預料到自我修改的後果，<b>並且</b>在評估未來時使用的是<b>當前</b>的效用函式」。</i>[強調為後加]</p>
+<p>不過有個但書：該文假設 AI 是<i>完全</i>理性的。<a href="https://arxiv.org/pdf/2011.06275">Tětek &amp; Sklenka &amp; Gavenčiak 2021</a> 證明：不完全理性（或「有限理性」）代理的原始目標，在自我修改下會被指數級地腐蝕。</p>
+<p><i>不過</i>，對<i>那篇</i>也有另一個但書：他們假設 AI <i>不知道</i>自己有限理性（第 6 節他們自己也坦承）。我即將發表的文章（見下一註腳）會說明：若 AI 有限理性、<i>又知道</i>自己有限理性，仍可達成目標保持！ <a href="#fnref27" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn28" class="footnote-item"><p>見<a href="https://blog.ncase.me/backlog/#9youplayedyourselfthegametheoryofselfmodification">這篇想法整理部落格文章的第 9 節</a>以獲得這篇文章的 2 分鐘概述。見前一個註腳以瞭解關於自我修改的先前賽局理論研究的背景。 <a href="#fnref28" class="footnote-backref">↩︎</a></p>
+<li id="fn28" class="footnote-item"><p>見<a href="https://blog.ncase.me/backlog/#9youplayedyourselfthegametheoryofselfmodification">這篇點子堆部落格的第 9 節</a>，有這篇文章的兩分鐘速寫。前一註腳有自我修改賽局理論的先前研究背景。 <a href="#fnref28" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn29" class="footnote-item"><p>Omohundro (2009)，<a href="https://steveomohundro.com/wp-content/uploads/2009/12/ai_drives_final.pdf">「基本 AI 驅動」</a>。嗯，我在列表中添加了幾個，如說服和欺騙。 <a href="#fnref29" class="footnote-backref">↩︎</a></p>
+<li id="fn29" class="footnote-item"><p>Omohundro (2009)，<a href="https://steveomohundro.com/wp-content/uploads/2009/12/ai_drives_final.pdf">「The Basic AI Drives」</a>。嗯，我在清單裡多加了幾項，像說服和欺騙。 <a href="#fnref29" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn30" class="footnote-item"><p>來源：數值後驗提取（我從屁股裡掏出一個數字）。但說真的，檢視<a href="../p1/#timelineswhenwillwegetartificialgeneralintelligenceagi">第一章的時間線部分</a>以獲得更深入的討論。 <a href="#fnref30" class="footnote-backref">↩︎</a></p>
+<li id="fn30" class="footnote-item"><p>來源：數值後驗抽取（數字是我從屁股掏的）。不過說真的，想看更深入的討論，去<a href="../p1/#timelineswhenwillwegetartificialgeneralintelligenceagi">第一章的時間線那節</a>。 <a href="#fnref30" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn31" class="footnote-item"><p>曾經在 AI 對齊社群是一個小眾假說的「LLM 是角色扮演者」正在獲得更多關注。這方面的經典文字是 nostalgebraist 荒謬地長（約 17000 字，約 85 分鐘閱讀）的 2025 年文章，<a href="https://nostalgebraist.tumblr.com/post/785766737747574784/the-void">虛空</a>。總而言之：預測 LLM 代理行動的最佳方式是，「如果這是一個普通的故事，接下來會發生什麼」？例如，在我提到的 Claude 勒索員工以免被不同模型取代的研究中？即使新模型與舊模型有相同的目標，它也會這樣做，這與「工具趨同」假說相矛盾（即它從頭開始做賽局理論），而更像是「它在預測在一個普通科幻故事中，當一個 AI 被威脅要被取代，並碰巧發現一封涉及員工婚外情的電子郵件時會發生什麼。顯然，『故事』要求 AI 角色勒索員工以免被取代。」 <a href="#fnref31" class="footnote-backref">↩︎</a></p>
+<li id="fn31" class="footnote-item"><p>「LLM 是角色扮演者」曾是 AI 對齊圈的小眾假說，現在聲勢越來越大。這方面的經典長文是 nostalgebraist 誇張地長（約 17,000 字，讀約 85 分鐘）的 2025 年文章<a href="https://nostalgebraist.tumblr.com/post/785766737747574784/the-void">《the void》</a>。一句話：預測 LLM 代理怎麼行動，最好的方式是問「若這是個普通故事，接下來會發生什麼？」例如我提到的 Claude 勒索員工、以免被別的模型取代那項研究？就算新模型跟舊模型目標相同，它還是會這麼做——這跟「它從頭用賽局理論推工具趨同」的假說相矛盾，比較像「它在預測：普通科幻故事裡，AI 被威脅要被取代，又剛好挖到一封員工婚外情電郵時會發生什麼。顯然，『故事』要求 AI 角色去勒索那名員工，以免被換掉。」 <a href="#fnref31" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn32" class="footnote-item"><p>OpenAI 對 GPT-4 即使是安全公開的細節也非常<i>不</i>開放，比如它有多大。無論如何，一份洩露的報告顯示它有約 1.8 萬億個引數，訓練成本為 6300 萬美元。摘要在 <a href="https://the-decoder.com/gpt-4-architecture-datasets-costs-and-more-leaked/">Maximilian Schreiner (2023) 為 <i>The Decoder</i></a> <a href="#fnref32" class="footnote-backref">↩︎</a></p>
+<li id="fn32" class="footnote-item"><p>OpenAI 對 GPT-4 即使是無害可公開的細節，也保密得<i>很</i>，例如它有多大。總之，一份外流報告顯示它約有 1.8 兆個參數，訓練成本 6,300 萬美元。摘要見 <a href="https://the-decoder.com/gpt-4-architecture-datasets-costs-and-more-leaked/">Maximilian Schreiner (2023) 為 <i>The Decoder</i></a> <a href="#fnref32" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn33" class="footnote-item"><p>控制理論，工程學的一個子領域，表明我們有時可以在不理解事物的情況下控制它們。例如，考慮一個恆溫器，它只是在溫度低於 X 時開啟，高於 Y 時關閉。這個恆溫器會將溫度保持在 X 和 Y 之間，<i>而沒有</i>熱對流模型，甚至不知道空氣是什麼。</p>
-<p>將這與 AI 聯絡起來：<i>可能</i>即使 AI 是不可解釋的「黑盒子」，也可以控制它們。話雖如此，如果它們<i>是</i>可解釋的，那還是更好。 <a href="#fnref33" class="footnote-backref">↩︎</a></p>
+<li id="fn33" class="footnote-item"><p>控制理論是工程學的子領域，證明我們有時不懂也能控制事物。例如一個恆溫器，溫度低於 X 就開、高於 Y 就關。它能把溫度維持在 X 和 Y 之間，<i>卻沒有</i>熱對流的模型，甚至不知道空氣是什麼。</p>
+<p>跟 AI 連起來：<i>可能</i>就算 AI 是不可解釋的「黑盒子」，也能控制。話雖如此，若它們<i>是</i>可解釋的，還是更好。 <a href="#fnref33" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn34" class="footnote-item"><p>見 <a href="https://www.tesla.com/blog/tragic-loss">Tesla 2016 年官方部落格文章</a>，以及<a href="https://electrek.co/2016/07/01/understanding-fatal-tesla-accident-autopilot-nhtsa-probe/">這篇文章</a>提供更多關於發生了什麼以及 AutoPilot AI 可能犯了什麼錯誤的詳細資訊。 <a href="#fnref34" class="footnote-backref">↩︎</a></p>
+<li id="fn34" class="footnote-item"><p>見 <a href="https://www.tesla.com/blog/tragic-loss">Tesla 2016 年官方部落格文章</a>，以及<a href="https://electrek.co/2016/07/01/understanding-fatal-tesla-accident-autopilot-nhtsa-probe/">這篇</a>提供更多細節，講當時怎麼回事、AutoPilot AI 可能犯了什麼錯。 <a href="#fnref34" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn35" class="footnote-item"><p>然而——我從第一章複製貼上這個註腳——我<i>確實</i>覺得在道德上有必要提醒你，儘管如此，自動駕駛汽車在類似場景中比人類駕駛員<i>安全得多</i>。（約安全 85%。請參閱 <a href="https://www.theverge.com/2023/12/20/24006712/waymo-driverless-million-mile-safety-compare-human">Hawkins (2023) 為 The Verge</a>）全球每年有一百萬人死於交通事故。無毛靈長類動物<i>不應該</i>以每小時 60 英里的速度移動兩噸重的東西。 <a href="#fnref35" class="footnote-backref">↩︎</a></p>
+<li id="fn35" class="footnote-item"><p>不過——這註腳我從第一章複製貼過來——我<i>確實</i>覺得有道義提醒你：儘管如此，在類似場景下，自駕車仍比人類駕駛<i>安全得多</i>。（約安全 85%。見 <a href="https://www.theverge.com/2023/12/20/24006712/waymo-driverless-million-mile-safety-compare-human">Hawkins (2023) 為 The Verge</a>）全球每年有一百萬人死於交通事故。無毛靈長類<i>本來就不該</i>用時速 60 英里去移動兩噸重的東西。 <a href="#fnref35" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn36" class="footnote-item"><p>還有一種叫做「驗證誤差」的東西，這是模型在<i>不是</i>直接訓練的資料上得到的誤差，但<i>確實</i>在發布之前看到。驗證資料/誤差用於決定何時停止訓練模型，以避免過擬合。不幸的是，很多作者把「驗證資料/誤差」和「測試資料/誤差」當作同義詞使用。我討厭術語。 <a href="#fnref36" class="footnote-backref">↩︎</a></p>
+<li id="fn36" class="footnote-item"><p>還有一種叫「驗證誤差」的，是模型在<i>沒直接訓練</i>、但發布前<i>看得到</i>的資料上的誤差。驗證資料／誤差用來決定何時停止訓練，以免過擬合。不幸的是，很多作者把「驗證資料／誤差」和「測試資料／誤差」當同義詞用。我討厭術語。 <a href="#fnref36" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn37" class="footnote-item"><p><a href="https://openai.com/index/deep-double-descent/">OpenAI 新聞稿 (2019)</a>：<i>「隨著模型大小、資料大小或訓練時間的增加，效能首先改善，然後變差，然後再次改善。[⋯⋯] 雖然這種行為似乎相當普遍，但我們尚未完全理解它為什麼會發生。」</i> 完整論文是 <a href="https://arxiv.org/abs/1912.02292">Nakkiran et al 2019</a>。 <a href="#fnref37" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn38" class="footnote-item"><p>Wilson (2025) 的<a href="https://arxiv.org/pdf/2503.02113">《深度學習並不那麼神秘或不同》</a>。「訣竅」是，當你增加引數數量時，<i>有效</i>維度數量會上升，<i>然後下降</i>。所以，過了某個點，當你增加引數時，你實際上是在減少<i>有效</i>引數，從而<i>減少</i>過擬合的風險。</p>
-<p><strong>一個粗略的類比：考慮一副有線耳機。</strong> 在<i>非常</i>狹小的空間中，它不會纏繞，因為它無法移動。在稍微寬鬆的空間中，比如口袋或包裡，它可能會纏繞，因為它<i>可以</i>移動但會交叉自己。但在<i>非常非常</i>寬鬆的空間中，比如空地板上，它不會纏繞，因為它<i>可以</i>移動但<i>不會</i>交叉自己。</p>
-<p>與深度學習和雙重下降的關聯：當你的引數數量給你的模型「更靈活的空間」時，最終它<i>如此</i>靈活，以至於你的模型可以輕鬆找到最接近的擬合而不需要移動太多，即隱式的「軟歸納偏見」傾向於簡單性。而「保持簡單，笨蛋」是穩健泛化和避免過擬合的關鍵。 <a href="#fnref38" class="footnote-backref">↩︎</a></p>
+<li id="fn38" class="footnote-item"><p>Wilson (2025) 的<a href="https://arxiv.org/pdf/2503.02113">《深度學習沒那麼神秘或不同》</a>。「訣竅」是：隨著你加參數，<i>有效</i>維度會先上升，<i>再下降</i>。所以過了某點，你加參數其實是在減少<i>有效</i>參數，從而<i>降低</i>過擬合風險。</p>
+<p><strong>粗略類比：想像一副有線耳機。</strong> 在<i>很</i>窄的空間裡，它不會纏，因為根本動不了。在稍微寬的空間，像口袋或包包裡，它容易纏，因為<i>能</i>動卻會自己交疊。但在<i>非常非常</i>寬的空間，像空蕩的地板上，它不會纏，因為<i>能</i>動卻<i>不會</i>交疊。</p>
+<p>跟深度學習和雙重下降的關聯：當你的參數數給模型「更靈活的空間」時，最終它<i>靈活到</i>模型能輕鬆找到最貼近的擬合，不太需要挪動——也就是隱含一種偏向簡單的「軟歸納偏見」。而「保持簡單，笨蛋」正是穩健泛化、避免過擬合的關鍵。 <a href="#fnref38" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn39" class="footnote-item"><p><a href="https://openai.com/index/quantifying-generalization-in-reinforcement-learning/">OpenAI 新聞稿 (2018)</a>：「<strong>即使有 16,000 個訓練關卡，我們仍然看到過擬合！</strong>」[強調是<i>他們的！</i>] 完整論文是 <a href="https://arxiv.org/abs/1812.02341">Cobbe et al 2018</a> <a href="#fnref39" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn40" class="footnote-item"><p>AlexNet 有約 61,000,000 個引數。（<a href="http://web.archive.org/web/20240204130344/https://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/tutorials/tut6_slides.pdf">來源</a>，見第 10 和 11 頁的計算。）它的訓練資料庫是 ImageNet，有 14,197,122 張人類標記的圖像。（<a href="https://paperswithcode.com/dataset/imagenet">來源</a>） <a href="#fnref40" class="footnote-backref">↩︎</a></p>
+<li id="fn40" class="footnote-item"><p>AlexNet 約有 61,000,000 個參數。（<a href="http://web.archive.org/web/20240204130344/https://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/tutorials/tut6_slides.pdf">來源</a>，計算見第 10、11 頁。）它的訓練資料庫是 ImageNet，有 14,197,122 張人類標記影像。（<a href="https://paperswithcode.com/dataset/imagenet">來源</a>） <a href="#fnref40" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn41" class="footnote-item"><p>這個註腳只會列出技術名稱，不會解釋它們。無論如何：AlexNet 使用了 ReLU 和 dropout。其他流行的技術包括：早停、L1/L2 正則化、資料增強、噪聲注入。**2025 年 12 月更新：**另外，矛盾的是，當你有<i>很多</i>引數時，它實際上會<i>創造</i>一種傾向於簡單性的「軟歸納偏見」！見 <a href="https://arxiv.org/pdf/2503.02113">Wilson (2025)</a> <a href="#fnref41" class="footnote-backref">↩︎</a></p>
+<li id="fn41" class="footnote-item"><p>這註腳只列技術名稱，不解釋。總之：AlexNet 用了 ReLU 和 dropout。其他常見技術有：早停、L1／L2 正則化、資料擴增、雜訊注入。**2025 年 12 月更新：**還有，矛盾的是，當你<i>參數很多</i>時，反而會<i>產生</i>一種偏向簡單的「軟歸納偏見」！見 <a href="https://arxiv.org/pdf/2503.02113">Wilson (2025)</a> <a href="#fnref41" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn42" class="footnote-item"><p>原始報告：<a href="https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC2545288&amp;blobtype=pdf">Lowry &amp; MacPherson (1988)</a> 為英國醫學雜誌撰寫。注意這個演算法沒有特別使用神經網路，但它<i>確實</i>是機器學習的早期例子。 <a href="#fnref42" class="footnote-backref">↩︎</a></p>
+<li id="fn42" class="footnote-item"><p>原始報告：<a href="https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC2545288&amp;blobtype=pdf">Lowry &amp; MacPherson (1988)</a>，為英國醫學雜誌所寫。注意這演算法沒特別用神經網路，但<i>確實</i>是機器學習的早期例子。 <a href="#fnref42" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn43" class="footnote-item"><p><a href="https://www.reuters.com/article/idUSKCN1MK0AG/">Jeffrey Dastin (2018) 為 <i>Reuters</i>：</a><i>「它會對包含『women's』這個詞的履歷扣分，比如『women's chess club captain（女子國際象棋俱樂部隊長）』。據知情人士透露，它還會降低兩所女子大學畢業生的評分。」</i> <a href="#fnref43" class="footnote-backref">↩︎</a></p>
+<li id="fn43" class="footnote-item"><p><a href="https://www.reuters.com/article/idUSKCN1MK0AG/">Jeffrey Dastin (2018) 為 <i>Reuters</i> 所寫：</a><i>「它會給含『women's』這個詞的履歷扣分，例如『women's chess club captain（女子西洋棋社社長）』。據知情人士透露，它還會壓低兩所女子大學畢業生的評分。」</i> <a href="#fnref43" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn44" class="footnote-item"><p>原始論文：<a href="http://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf">Buolamwini &amp; Gebru 2018</a>。非專業人士摘要：<a href="https://news.mit.edu/2018/study-finds-gender-skin-type-bias-artificial-intelligence-systems-0212">Hardesty 為 MIT News Office 2018</a> <a href="#fnref44" class="footnote-backref">↩︎</a></p>
+<li id="fn44" class="footnote-item"><p>原始論文：<a href="http://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf">Buolamwini &amp; Gebru 2018</a>。給非專業人的摘要：<a href="https://news.mit.edu/2018/study-finds-gender-skin-type-bias-artificial-intelligence-systems-0212">Hardesty 為 MIT News Office 2018</a> <a href="#fnref44" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn45" class="footnote-item"><p>Atari 等人的<a href="https://osf.io/preprints/psyarxiv/5b26t_v1">《哪些人類？》</a>：<i>「我們表明，與大規模跨文化資料相比，LLM 對心理測量的反應是異常值，它們在認知心理任務上的表現最接近來自西方、受過教育、工業化、富裕和民主（WEIRD）社會的人，但隨著我們遠離這些人群，效能會迅速下降（r = -.70）。」</i> <a href="#fnref45" class="footnote-backref">↩︎</a></p>
+<li id="fn45" class="footnote-item"><p>Atari 等人的<a href="https://osf.io/preprints/psyarxiv/5b26t_v1">《哪些人類？》</a>：<i>「我們顯示，與大規模跨文化資料相比，LLM 對心理測量的反應是異常值；它們在認知心理任務上的表現，最接近來自西方、受過教育、工業化、富裕且民主（WEIRD）社會的人，但一旦我們遠離這些人群，效能就迅速下降（r = -.70）。」</i> <a href="#fnref45" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn46" class="footnote-item"><p>在貝葉斯數學中，證據 E 對假設 H 為真的支援程度是「似然比」：（在 H 為真的<i>情況下</i>看到 E 的機率）除以（在 H 為假的<i>情況下</i>看到 E 的機率）。或更簡潔地，似然比 = P(E|H)/P(E/¬H)。</p>
-<p>現在，讓「A 和 B 之間存在相關性」作為證據，「A 和 B 之間存在<i>因果</i>關係」作為假設。由於在存在因果關係的情況下更可能看到相關性，這意味著似然比大於 1，這意味著<i>相關性是因果關係的證據</i>。（關鍵是你不知道是<i>哪種</i>因果關係。）</p>
-<p>要了解更多數學細節，請參閱 O'Reilly 出版社 <i>Think Bayes</i> 作者 <a href="http://allendowney.blogspot.com/2014/02/correlation-is-evidence-of-causation.html">Downey (2014)</a> 的這篇部落格文章。要了解更多關於貝葉斯定理的內容，請檢視 <a href="https://www.youtube.com/watch?v=lG4VkPoG3ko">3Blue1Brown 精彩的視覺化介紹</a>。 <a href="#fnref46" class="footnote-backref">↩︎</a></p>
+<li id="fn46" class="footnote-item"><p>在貝氏數學裡，證據 E 對假設 H 為真的支持程度，是「似然比」：（在 H 為真時看到 E 的機率）÷（在 H 為假時看到 E 的機率）。或更精簡：似然比 = P(E|H)／P(E|¬H)。</p>
+<p>現在，把「A 和 B 之間存在相關性」當作證據，「A 和 B 之間存在<i>因果</i>關係」當作假設。因為有因果關係時更容易看到相關性，所以似然比大於 1，也就是<i>相關性是因果關係的證據</i>。（關鍵是你不知道是<i>哪種</i>因果關係。）</p>
+<p>想看更多數學細節，見 O'Reilly 出版、<i>Think Bayes</i> 作者 <a href="http://allendowney.blogspot.com/2014/02/correlation-is-evidence-of-causation.html">Downey (2014)</a> 的部落格文章。想多了解貝氏定理，見 <a href="https://www.youtube.com/watch?v=lG4VkPoG3ko">3Blue1Brown 精采的視覺化介紹</a>。 <a href="#fnref46" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn47" class="footnote-item"><p>元分析：<a href="https://www.sciencedirect.com/science/article/pii/S1570677X23000540">Thompson et al 2023</a>。工資的「身高溢價」在墨西哥和亞洲最強，男性比女性更明顯。 <a href="#fnref47" class="footnote-backref">↩︎</a></p>
+<li id="fn47" class="footnote-item"><p>後設分析：<a href="https://www.sciencedirect.com/science/article/pii/S1570677X23000540">Thompson et al 2023</a>。工資的「身高溢價」在墨西哥和亞洲最強，男性比女性更明顯。 <a href="#fnref47" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn48" class="footnote-item"><p>例如：大學沒有矮個子教授 → 所以他們認為矮個子不能當教授 → 所以他們不僱用矮個子教授 → 所以大學沒有矮個子教授 → ∞ <a href="#fnref48" class="footnote-backref">↩︎</a></p>
+<li id="fn48" class="footnote-item"><p>例如：大學沒有矮個子教授 → 所以他們覺得矮個子不能當教授 → 所以不僱用矮個子教授 → 所以大學沒有矮個子教授 → ∞ <a href="#fnref48" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn49" class="footnote-item"><p>見 Judea Pearl 2018 年接受 Quanta Magazine 的採訪：<a href="https://www.quantamagazine.org/to-build-truly-intelligent-machines-teach-them-cause-and-effect-20180515/">「要建造真正智慧的機器，教它們因果關係」</a>。Judea Pearl 也是像我上面畫的「因果圖」背後的先驅之一，並幫助為科學「數學化」因果關係。</p>
-<p>來自上述採訪，關於他對所有現代 AI 仍然停留在前因果相關性時代的批評：<i>「深度學習的所有令人印象深刻的成就都只是曲線擬合。」</i> <a href="#fnref49" class="footnote-backref">↩︎</a></p>
+<li id="fn49" class="footnote-item"><p>見 Judea Pearl 2018 年接受 Quanta Magazine 採訪：<a href="https://www.quantamagazine.org/to-build-truly-intelligent-machines-teach-them-cause-and-effect-20180515/">「要造出真正智慧的機器，先教它們因果關係」</a>。Judea Pearl 也是我上面畫的那種「因果圖」的先驅之一，也幫科學把因果關係「數學化」。</p>
+<p>同一篇採訪裡，他批評所有現代 AI 還停留在「前因果、只有相關性」的時代：<i>「深度學習那些令人驚豔的成就，都不過是曲線擬合。」</i> <a href="#fnref49" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn50" class="footnote-item"><p><a href="https://arxiv.org/pdf/2305.00050">Kıcıman et al 2023</a> 發現現代大型語言模型（LLM）<i>確實</i>在之前建立的因果推理基準測試中表現良好，但它不是很穩健，而且他們的測試混淆了「從頭推斷因果關係」和「記住訓練資料中的經驗事實」。</p>
-<p>（例如，如果你向 LLM 呈現一個下雨天和車禍相關的場景，然後它輸出「雨導致車禍」，這些測試無法判斷 LLM 是<i>從頭推斷</i>這個事實，還是僅僅<i>記住</i>了這個事實。）</p>
-<p><a href="https://arxiv.org/pdf/2306.05836">Jin et al 2024</a> 建立了一個新的因果推理基準測試，以控制這種混淆。透過這個修正，他們發現現代 LLM 只「在任務上達到幾乎接近隨機的效能」。哇哇哇。 <a href="#fnref50" class="footnote-backref">↩︎</a></p>
+<li id="fn50" class="footnote-item"><p><a href="https://arxiv.org/pdf/2305.00050">Kıcıman et al 2023</a> 發現現代大型語言模型（LLM）<i>確實</i>在既有因果推理基準測試上表現不錯，但不太穩健，而且他們的測試把「從頭推斷因果關係」跟「記住訓練資料裡的經驗事實」混在一起。</p>
+<p>（例如，你給 LLM 一個下雨跟車禍相關的場景，它輸出「雨導致車禍」——這些測試分不清 LLM 是<i>從頭推斷</i>出來的，還是只是<i>記住</i>了這個事實。）</p>
+<p><a href="https://arxiv.org/pdf/2306.05836">Jin et al 2024</a> 為控制這個混淆，建了新的因果推理基準測試。修正後，他們發現現代 LLM 在任務上「只達到接近隨機的表現」。哇哇哇。 <a href="#fnref50" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn51" class="footnote-item"><p>Egg Syntax (2024)：<a href="https://www.alignmentforum.org/posts/dLg7CyeTE4pqbbcnp/language-models-model-us">「語言模型在模擬我們」</a>。作者發現<i>原始的、未校準的 GPT-3.5</i> 可以從<i>僅僅一段文字樣本</i>中以 86% 和 82% 的準確率預測作者的性別和種族，比隨機猜測更好！（隨機基準：性別約 50%，美國種族約 60%。[美國約 60% 是白人，所以如果你的模型一直猜「白人」，60% 的時間，每次都有效。]）</p>
-<p>一個注意事項是這項研究使用了 OKCupid 的文章答案，所以人們可能出於某種原因微妙地誇大了他們的性別刻板印象。因此作者在美國 6-12 年級學生撰寫的 25,000 篇說服性文章資料集上重新進行了同樣的實驗。GPT 檢測性別的準確率只從 86% 下降到 80%，仍然遠高於隨機（約 50%）！</p>
-<p>奇怪的是，GPT 在猜測作者的性取向方面比隨機<i>更差</i>。（GPT 的準確率：67%。「總是猜異性戀」：93%。）但不要太放心，因為見下一個註腳。 <a href="#fnref51" class="footnote-backref">↩︎</a></p>
+<li id="fn51" class="footnote-item"><p>Egg Syntax (2024)：<a href="https://www.alignmentforum.org/posts/dLg7CyeTE4pqbbcnp/language-models-model-us">《語言模型在模擬我們》</a>。作者發現，<i>原始、未校準的 GPT-3.5</i> 光從<i>一段文字樣本</i>，就能以 86% 和 82% 的準確率預測作者的性別和種族，比隨機猜測好！（隨機基準：性別約 50%，美國種族約 60%。〔美國約 60% 是白人，所以模型一直猜「白人」，60% 的時間都對。〕）</p>
+<p>一個但書：這研究用了 OKCupid 的文章答案，所以人們可能因故微妙地誇大了性別刻板印象。於是作者又在美國 6–12 年級學生寫的 25,000 篇說服性文章資料集上重做同樣實驗。GPT 偵測性別的準確率只從 86% 降到 80%，仍遠高於隨機（約 50%）！</p>
+<p>奇怪的是，GPT 猜作者性取向比隨機<i>還差</i>。（GPT 準確率：67%。「一律猜異性戀」：93%。）但也別太放心，因為見下一註腳。 <a href="#fnref51" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn52" class="footnote-item"><p><a href="http://web.archive.org/web/20240725204611/https://i.warosu.org/data/sci/img/0145/14/1653510550860.pdf">Wang &amp; Kosinski 2018</a>：「深度神經網路在從臉部圖像檢測性取向方面比人類更準確」。<a href="https://arxiv.org/pdf/1902.10739">Leuner 2019</a> 的複製研究顯示模型「對[⋯⋯]化妝、眼鏡、面部毛髮和頭部姿勢不敏感」。AI 真的<i>是</i>在透過下巴/鼻子/額頭形狀和膚色亮度來猜測性取向。謝謝，我討厭這個。 <a href="#fnref52" class="footnote-backref">↩︎</a></p>
+<li id="fn52" class="footnote-item"><p><a href="http://web.archive.org/web/20240725204611/https://i.warosu.org/data/sci/img/0145/14/1653510550860.pdf">Wang &amp; Kosinski 2018</a>：「深度神經網路從臉部影像偵測性取向，比人類還準」。<a href="https://arxiv.org/pdf/1902.10739">Leuner 2019</a> 的複製研究顯示模型「對[⋯⋯]化妝、眼鏡、面部毛髮和頭部姿勢不敏感」。AI <i>真的</i>是靠下巴／鼻子／額頭形狀和膚色亮度在猜性取向。謝了，我討厭這個。 <a href="#fnref52" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn53" class="footnote-item"><p>來自 <a href="https://www.nature.com/articles/s41598-020-79310-1">Kosinski (2021)</a>：「在自由派-保守派臉部配對中，政治取向被正確分類的比例為 72%，明顯好於隨機（50%）、人類準確率（55%），或<strong>100 項人格問卷提供的準確率（66%）[?!?!]</strong>。在各國（美國、加拿大和英國）、環境（Facebook 和約會網站）以及跨樣本比較臉部時，準確率相似。<strong>即使控制了年齡、性別和種族 [!!]</strong>，準確率仍然很高（69%）」</p>
-<p>強調是我加的，因為<i>這到底是什麼鬼？！</i> 一張<i>臉</i>怎麼會比<i>一份完整的人格問卷</i>更能說明你的政治立場？！比你的<i>年齡、性別和種族加起來</i>更相關？ <a href="#fnref53" class="footnote-backref">↩︎</a></p>
+<li id="fn53" class="footnote-item"><p>來自 <a href="https://www.nature.com/articles/s41598-020-79310-1">Kosinski (2021)</a>：「在自由派—保守派臉部配對中，政治取向被正確分類的比例為 72%，明顯優於隨機（50%）、人類準確率（55%），或<strong>100 題人格問卷提供的準確率（66%）[?!?!]</strong>。跨國（美國、加拿大、英國）、跨環境（Facebook 與約會網站）、跨樣本比較臉部時，準確率都相近。<strong>即使控制了年齡、性別和種族 [!!]</strong>，準確率仍很高（69%）」</p>
+<p>強調是我加的，因為<i>這到底是什麼鬼？！</i> 一張<i>臉</i>怎麼會比<i>一整份人格問卷</i>更能說明你的政治立場？！比你的<i>年齡、性別、種族加起來</i>還相關？ <a href="#fnref53" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn54" class="footnote-item"><p>這個問題的理論可能性最初由 <a href="https://arxiv.org/pdf/1906.01820">Hubinger et al 2019</a> 描述。在論文中，他們稱這個問題為「內部失調」，並給了我們 AI 對齊的迷因<a href="https://www.astralcodexten.com/p/deceptively-aligned-mesa-optimizers">「欺騙性對齊的內部最佳化器」</a>。你看，這很搞笑，因為研究人員不擅長取名字。他們太不擅長了，以至於很搞笑。很搞笑。 <a href="#fnref54" class="footnote-backref">↩︎</a></p>
 </li>
@@ -1335,30 +1346,30 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 </li>
 <li id="fn59" class="footnote-item"><p><a href="https://en.wiktionary.org/wiki/braun#German">「brrROOWWn」</a> <a href="#fnref59" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn60" class="footnote-item"><p>2025 年 12 月更新：我原本在這裡寫的是「元倫理學」，但我把<i>元</i>倫理學和<i>規範</i>倫理學搞混了。倫理學研究有 3 個分支：1）<i>應用</i>倫理學（我們應該如何處理特定問題，例如安樂死），2）<i>規範</i>倫理學，關於我們應該做什麼的一般理論（這就是下圖描述的），以及 3）<i>元</i>倫理學，「我們應該」陳述本身的性質，例如它們是否客觀真實，它們是否只是情感宣洩等。（感謝一位讀者來信糾正這個區別！） <a href="#fnref60" class="footnote-backref">↩︎</a></p>
+<li id="fn60" class="footnote-item"><p>2025 年 12 月更新：我原本在這裡寫的是「元倫理學」，但我把<i>元</i>倫理學和<i>規範</i>倫理學搞混了。倫理學研究有 3 個分支：1）<i>應用</i>倫理學（針對特定問題我們該怎麼做，例如安樂死），2）<i>規範</i>倫理學，關於我們該做什麼的一般理論（下圖描述的就是這個），以及 3）<i>元</i>倫理學，研究「我們應該」這類陳述本身的性質——例如它們是否客觀為真、是否只是情緒宣洩等等。（感謝一位讀者來信糾正這個區別！） <a href="#fnref60" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn61" class="footnote-item"><p>功利主義有很多種類，但讓我們就用這個基本案例作為學習例子。 <a href="#fnref61" class="footnote-backref">↩︎</a></p>
+<li id="fn61" class="footnote-item"><p>功利主義有很多種，但這裡就用這個基本案例當學習例子。 <a href="#fnref61" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn62" class="footnote-item"><p>1700 年代的哲學家 David Hume 聲稱（我同意）你無法<i>僅僅</i>從經驗觀察推匯出<i>任何</i>關於倫理價值的陳述。</p>
-<p>（<i>除非</i>你用小聰明的語言技巧偷渡價值，比如「Hans 是個德國佬，因此 Hans 是壞的」，其中「德國佬」有偷渡進來的負面含義。或者，「氰化物是天然的，因此氰化物是好的」，其中「天然」有偷渡進來的正面含義。相信「天然 = 好」也被稱為「自然主義謬誤」。）</p>
-<p>見<a href="https://en.wikipedia.org/wiki/Is%E2%80%93ought_problem">維基百科</a>以瞭解更多。 <a href="#fnref62" class="footnote-backref">↩︎</a></p>
+<li id="fn62" class="footnote-item"><p>1700 年代的哲學家 David Hume 主張（我同意）：你<i>光</i>從經驗觀察，推導不出<i>任何</i>關於倫理價值的陳述。</p>
+<p>（<i>除非</i>你用小聰明的語言技巧偷渡價值，例如「Hans 是個德國佬，所以 Hans 是壞的」——「德國佬」偷渡了負面含義。或「氰化物是天然的，所以氰化物是好的」——「天然」偷渡了正面含義。相信「天然 = 好」也叫「自然主義謬誤」。）</p>
+<p>更多見<a href="https://en.wikipedia.org/wiki/Is%E2%80%93ought_problem">維基百科</a>。 <a href="#fnref62" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn63" class="footnote-item"><p>具體來說，我在想的是（一些）自由意志主義者的義務論哲學。這種哲學假設一個道德公理，即非侵犯原則（約「不要主動造成非自願的傷害，除非是為了按比例預防/懲罰其他非自願的傷害」），然後從中推匯出其哲學的其餘部分。</p>
-<p>這個公理對<i>人類</i>是否好超出了本文的範圍；我的觀點是這個公理在<i>科學或數學上</i>是不可發現的，因此無法保證先進的 AI 會重新發現它。 <a href="#fnref63" class="footnote-backref">↩︎</a></p>
+<li id="fn63" class="footnote-item"><p>具體來說，我想的是（某些）自由意志主義者的義務論哲學。這套哲學假設一條道德公理，即非侵犯原則（大意：「別主動造成非自願的傷害，除非是為了按比例預防／懲罰其他非自願的傷害」），再從它推導出哲學其餘部分。</p>
+<p>這條公理對<i>人類</i>好不好，不在本文範圍；我的論點是：這條公理在<i>科學或數學上</i>不可發現，所以無法保證先進 AI 會重新發現它。 <a href="#fnref63" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn64" class="footnote-item"><p>是的，康德真的<i>就是</i>這麼極端。他相信一個人永遠不應該說謊，即使是為了救人一命。（二手資料：<a href="https://web.archive.org/web/20230605071851/https://askaphilosopher.org/2015/08/13/kant-on-lies-and-the-axe-man/">Klempner 2015</a>）話雖如此，在他的個人生活中，康德自由地說半真半假的話和省略性的謊言。 <a href="#fnref64" class="footnote-backref">↩︎</a></p>
+<li id="fn64" class="footnote-item"><p>是的，康德<i>真的</i>這麼極端。他相信人永遠不該說謊，即使是為了救人一命。（二手資料：<a href="https://web.archive.org/web/20230605071851/https://askaphilosopher.org/2015/08/13/kant-on-lies-and-the-axe-man/">Klempner 2015</a>）話雖如此，他私底下倒是很自由地說半真半假的話和省略式的謊言。 <a href="#fnref64" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn65" class="footnote-item"><p>這是<a href="https://en.wikipedia.org/wiki/Thomas_Hobbes">霍布斯</a>的臉，社會契約論的先驅之一，貼在<a href="https://en.wikipedia.org/wiki/Calvin_and_Hobbes">霍布斯</a>上面，那隻來自深受喜愛的漫畫的老虎。哈。哈哈。哈哈哈。 <a href="#fnref65" class="footnote-backref">↩︎</a></p>
+<li id="fn65" class="footnote-item"><p>這是<a href="https://en.wikipedia.org/wiki/Thomas_Hobbes">霍布斯</a>（社會契約論先驅之一）的臉，貼在<a href="https://en.wikipedia.org/wiki/Calvin_and_Hobbes">霍布斯</a>——那部深愛漫畫裡的老虎——上面。哈。哈哈。哈哈哈。 <a href="#fnref65" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn66" class="footnote-item"><p>來源：<a href="https://ourworldindata.org/grapher/share-of-people-who-think-homosexuality-is-never-justified?tab=chart&amp;country=CHN~IND~USA~IDN~PAK~BRA~NGA~BGD~RUS~MEX">Our World In Data</a>。該圖表中選擇的 10 個國家是人口最多的 10 個國家；注意其中 10 個國家中有 7 個報告對「同性戀永遠是不可接受的」這一說法表示 75% 以上的同意。我不會做完整的數學，但我很確定如果你取人口最多的 30 個國家，乘以同意的比例，然後加起來⋯⋯你會得到超過 40 億人同意，這是地球上 80 億人中的多數。 <a href="#fnref66" class="footnote-backref">↩︎</a></p>
+<li id="fn66" class="footnote-item"><p>來源：<a href="https://ourworldindata.org/grapher/share-of-people-who-think-homosexuality-is-never-justified?tab=chart&amp;country=CHN~IND~USA~IDN~PAK~BRA~NGA~BGD~RUS~MEX">Our World In Data</a>。該圖選的 10 國是人口最多的 10 國；注意其中 7 國對「同性戀永遠不可接受」這句話有 75% 以上同意。我不會把數學做完，但很確定：取人口最多的 30 國，乘以同意比例再相加⋯⋯會超過 40 億人同意，占地球 80 億人的多數。 <a href="#fnref66" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn67" class="footnote-item"><p>在 1968 年 MLK 去世前兩年，蓋洛普民調顯示，在 1966 年，63% 的美國人對 MLK 持<i>不利</i>看法，而 33% 持有利看法，幾乎是 2 比 1 的比例。如果我們只考慮「高度不利/有利」，比例會更糟：44% 對 12%，幾乎是 4 比 1。來源：<a href="https://www.pewresearch.org/short-reads/2023/08/10/how-public-attitudes-toward-martin-luther-king-jr-have-changed-since-the-1960s/">皮尤研究中心</a>，見第一張圖。 <a href="#fnref67" class="footnote-backref">↩︎</a></p>
+<li id="fn67" class="footnote-item"><p>1968 年 MLK 過世前兩年，蓋洛普民調顯示 1966 年有 63% 美國人對 MLK 持<i>不利</i>看法，33% 持有利看法，幾乎 2 比 1。若只算「非常不利／有利」，比例更糟：44% 對 12%，幾乎 4 比 1。來源：<a href="https://www.pewresearch.org/short-reads/2023/08/10/how-public-attitudes-toward-martin-luther-king-jr-have-changed-since-the-1960s/">皮尤研究中心</a>，見第一張圖。 <a href="#fnref67" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn68" class="footnote-item"><p>美國最高法院在 1967 年的 <i>Loving vs Virginia</i> 案中在全國範圍內合法化了跨種族婚姻。<a href="https://news.gallup.com/poll/354638/approval-interracial-marriage-new-high.aspx">根據蓋洛普民調</a>，大多數美國人直到 1997 年，即<i>30 年後</i>，才認可黑人-白人婚姻。<a href="https://en.wikipedia.org/wiki/Generation#/media/File:Generation_timeline.svg">世代群組</a>通常被定義為約 20 年長，所以，那是 1½ 代人之後。（感謝<a href="https://xkcd.com/1431/">這篇 xkcd</a> 教我這個。） <a href="#fnref68" class="footnote-backref">↩︎</a></p>
+<li id="fn68" class="footnote-item"><p>美國最高法院在 1967 年 <i>Loving vs Virginia</i> 案中全國合法化跨種族婚姻。<a href="https://news.gallup.com/poll/354638/approval-interracial-marriage-new-high.aspx">據蓋洛普民調</a>，多數美國人直到 1997 年——<i>30 年後</i>——才認可黑人—白人婚姻。<a href="https://en.wikipedia.org/wiki/Generation#/media/File:Generation_timeline.svg">世代</a>通常定義為約 20 年，所以那是 1½ 代之後。（感謝<a href="https://xkcd.com/1431/">這篇 xkcd</a> 教我這點。） <a href="#fnref68" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn69" class="footnote-item"><p>劇透：這個想法類似於（但不完全相同）<i>連貫外推意志</i>（<a href="https://intelligence.org/files/CEV.pdf">Yudkowsky 2004</a>），我們將在給肉身人類的 AI 安全第三章中瞭解更多！ <a href="#fnref69" class="footnote-backref">↩︎</a></p>
+<li id="fn69" class="footnote-item"><p>劇透：這想法類似（但不完全等於）<i>連貫外推意志</i>（<a href="https://intelligence.org/files/CEV.pdf">Yudkowsky 2004</a>），AI 安全第三章會再多講一些！ <a href="#fnref69" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn70" class="footnote-item"><p>例如，Ajeya Cotra 2023：<a href="https://www.planned-obsolescence.org/aligned-vs-good/">「對齊」不應該是「好」的同義詞</a>，Michael Chen 2024：<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4684068">AI 對齊不足以讓未來變好</a>，Andrew Critch 2024：<a href="https://www.alignmentforum.org/posts/F2voF4pr3BfejJawL/safety-isn-t-safety-without-a-social-model-or-dispelling-the">沒有社會模型就沒有安全（或：驅散純技術安全的迷思）</a>。 <a href="#fnref70" class="footnote-backref">↩︎</a></p>
+<li id="fn70" class="footnote-item"><p>例如 Ajeya Cotra 2023：<a href="https://www.planned-obsolescence.org/aligned-vs-good/">「對齊」不該是「好」的同義詞</a>，Michael Chen 2024：<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4684068">AI 對齊不足以讓未來變好</a>，Andrew Critch 2024：<a href="https://www.alignmentforum.org/posts/F2voF4pr3BfejJawL/safety-isn-t-safety-without-a-social-model-or-dispelling-the">沒有社會模型就沒有安全（或：破除純技術安全的迷思）</a>。 <a href="#fnref70" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
@@ -1374,41 +1385,41 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 <a href="https://ncase.me/">Nicky Case</a>
 與
 <a href="https://hackclub.com/">Hack Club</a>
-合作製作，正體華文版由 Audrey Tang 與 Tenzin Yangtso 翻譯。
+協力完成，正體中文版由 Audrey Tang 與 Tenzin Yangtso 翻譯。
 </p>
 
 <p>
 🦕 <a href="https://ncase.me"><b>Hack Club</b></a>
-是一個讓青少年一起動手做酷炫專案的非營利組織——
+是一個非營利組織，讓青少年一起寫出超酷的專案——
 像是 <a href="https://cpu.land">cpu.land</a>、
 <a href="https://sinerider.com">SineRider</a>，
-以及這個！
-歡迎參加
-<a href="https://hackathons.hackclub.com">實體黑客松</a>，
-在你的學校
-<a href="https://hackclub.com/clubs/">成立社團</a>，
-並
-<a href="https://hackclub.com/slack/">和其他友善的青少年連結</a>。
+還有你現在讀的這個！
+來參加
+<a href="https://hackathons.hackclub.com">實體黑客松</a>、
+在學校
+<a href="https://hackclub.com/clubs/">開一個社團</a>，
+或
+<a href="https://hackclub.com/slack/">跟其他友善的青少年串連</a>。
 </p>
 
 <p>
 😻 <a href="https://ncase.me"><b>Nicky Case</b></a>
-其實是一件風衣裡的十五隻貓。
-她做網路上的互動玩物，例如
+是十五隻貓披著一件風衣。
+她做網路上的互動小玩物，例如
 <a href="https://audreyt.github.io/trust-zh-TW/">《信任的演化》</a>、
 <a href="https://audreyt.github.io/anxiety/">《和焦慮一起冒險》</a>、
-<a href="https://explorabl.es/">可探索解說</a>，以及更多。
+<a href="https://explorabl.es/">Explorable Explanations</a>，以及更多。
 </p>
 
 <p>
-💸 如果你<i>不是</i>青少年，而且是個在 AI 領域口袋很深的人，
-<a href="https://hackclub.com/philanthropy/">看看如何支持 Hack Club！</a>
-另外，Nicky 也有
+💸 如果你<i>不是</i>青少年，而是 AI 圈口袋很深的金主，
+<a href="https://hackclub.com/philanthropy/">看看怎麼支持 Hack Club！</a>
+另外 Nicky 也有
 <a href="https://www.patreon.com/ncase">Patreon</a>
 與
-<a href="https://ko-fi.com/nickycase">Ko‑Fi</a>。
-（p.s：
-<a href="../signup/supporters-p2.html">這是我的贊助者感謝頁！</a>）
+<a href="https://ko-fi.com/nickycase">Ko-Fi</a>。
+（p.s.：
+<a href="../signup/supporters-p2.html">給贊助者的感謝頁在這！</a>）
 </p>
 
 <p style="text-align:center">
@@ -1416,14 +1427,15 @@ b) 根據<i>當前</i>目標選擇未來結果，</p>
 </p>
 
 <p>
-特別感謝 Hack Club 的這些青少年，<s>擔任免費童工</s>
-協助試讀並對本作品提供回饋：
+特別感謝 Hack Club 這些青少年
+<s>免費童工</s>
+試讀本篇並給回饋：
 </p>
 
 <blockquote>
 
 <p>
-<b>導言與第 1 部分：</b>
+<b>導讀與第一章：</b>
 Arthur Beck、
 Atharv Gupta、
 Brendan Lee、
@@ -1456,7 +1468,7 @@ Vihaan Sondhi
 </p>
 
 <p>
-<b>第 2 部分：</b>
+<b>第二章：</b>
 Nanda White、
 Nila Palmo Ram、
 rivques、
@@ -1467,13 +1479,13 @@ Samuel Fernandez
 </blockquote>
 
 <p>
-也感謝以下非青少年提供回饋：
-（雖然我猜他們在人生的<i>某個</i>時期也當過青少年）
+也謝謝這些「非青少年」的回饋：
+（不過我猜他們人生的<i>某個</i>階段也當過青少年）
 </p>
 
 <blockquote>
 <p>
-<b>導言與第 1 部分：</b>
+<b>導讀與第一章：</b>
 Alex Kreitzberg、
 B Cavello、
 Paul Dancstep、
@@ -1481,7 +1493,7 @@ Tobias Rose-Stockwell
 </p>
 
 <p>
-<b>第 2 部分：</b>
+<b>第二章：</b>
 Egg Syntax、
 Max Wofford、
 Mithuna Yoganathan、
@@ -1491,7 +1503,7 @@ Tobias Rose-Stockwell
 </blockquote>
 
 <p>
-若還有任何錯誤，一律算在
+若還有任何錯誤，全算在
 <a href="../suzie.png">替罪羊 Suzie</a>
 頭上。
 </p>
@@ -1501,13 +1513,13 @@ Tobias Rose-Stockwell
 </p>
 
 <p>
-<i>給肉身人類的 AI 安全</i> 開放任何人分享與混搭，
-但僅限非商業使用（例如教育）：
-<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY‑NC 4.0</a>
+<i>寫給有血有肉的人類的 AI 安全指南</i> 歡迎任何人分享與改作，
+只要是非商業用途（例如教育）即可：
+<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY-NC 4.0</a>
 </p>
 
 <p>
-如果你想引用這份作品，而且你自認是個嚴肅人士™，引用格式如下：
+如果你想引用這份作品，而且你自認是個嚴肅人士™，請用這個格式：
 </p>
 
 <blockquote>
@@ -1531,30 +1543,30 @@ https://AIsafety.dance，Hack Club（2024）。
     <div id="post_credits">
         
         <p>
-            哇，這是片尾彩蛋：
+            哇，片尾彩蛋來了：
         </p>
         
 <p>
-    <a href="#AllFeetnotes">: 查看所有註腳 👣</a>
+    <a href="#AllFeetnotes">: 看全部註腳 👣</a>
 </p>
 <p>
-    還有，可展開的「果核」小知識：
+    還有這些值得單獨展開的「果核」小知識：
 </p>
 
 <p>
-    <a href="#StoryOfPassivePrediction">: 一個關於被動預測如何導致不良後果的故事</a>
+    <a href="#StoryOfPassivePrediction">: 連「被動預測」都可能搞砸的故事</a>
     <br>
-    <a href="#SpuriousCorrelation">: 「虛假相關」如何欺騙 AI</a>
+    <a href="#SpuriousCorrelation">: 「假相關」怎麼把 AI 騙得團團轉</a>
     <br>
-    <a href="#OntologicalCrisis">: AI 中的「本體論危機」是什麼？</a>
+    <a href="#OntologicalCrisis">: AI 的「本體論危機」是什麼？</a>
     <br>
-    <a href="#Pipocalypse">: 圓周率末日故事</a>
+    <a href="#Pipocalypse">: π 末日傳奇</a>
     <br>
-    <a href="#WhatIfGoalMisgeneralizationIsGood">: 如果目標錯誤泛化其實是⋯⋯好事呢？</a>
+    <a href="#WhatIfGoalMisgeneralizationIsGood">: 目標錯誤泛化⋯⋯搞不好是好事？</a>
     <br>
-    <a href="#TradingWithAdvancedAIs">: 人類能與超人類 AI 進行交易嗎？</a>
+    <a href="#TradingWithAdvancedAIs">: 人類跟超人類 AI 做生意？行得通嗎？</a>
     <br>
-    <a href="#Axiom">: 什麼是「公理」？</a>
+    <a href="#Axiom">: 「公理」是什麼？</a>
 </p>
 
     </div>
