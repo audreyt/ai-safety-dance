@@ -62,6 +62,11 @@
 </head>
 <body>
 
+<a id="skip_to_content" href="#content" target="_self">跳到內文</a>
+
+<!-- How far down the page you are. Driven by scripts/page.js. -->
+<div id="reading_progress"><div id="reading_progress_bar"></div></div>
+
 <!-- HACKBRAND -->
 <a class="orpheus-flag" target="_blank" href="https://hackclub.com/">
 	<img src="{{root}}styles/orpheus-flag.svg" width="560" height="315" alt="A project by Hack Club" aria-label="A project by Hack Club">
@@ -121,6 +126,8 @@
 	<div id="clock_icon"></div>
 	<div id="clock_label"></div>
 </div>
+
+<button id="to_top" type="button" aria-label="回到頁首" title="回到頁首（按 Home）">↑</button>
 
 <!-- EVERYTHING TO THE LEFT of the sidebar... -->
 <div id="everything_container">
@@ -211,7 +218,7 @@
                     </span>
                 </div>
             </a>
-            <a target="_self" href="{{root}}p1"
+            <a target="_self" href="{{root}}p1/"
                 class="live">
                 <div {{ 'selected' if isPartOne }} >
                     <span class='chapter-nav-desktop'>
@@ -222,7 +229,7 @@
                     </span>
                 </div>
             </a>
-            <a target="_self" href="{{root}}p2"
+            <a target="_self" href="{{root}}p2/"
                 class="live">
                 <div {{ 'selected' if isPartTwo }} >
                     <span class='chapter-nav-desktop'>
@@ -233,7 +240,7 @@
                     </span>
                 </div>
             </a>
-            <a target="_self" href="{{root}}p3"
+            <a target="_self" href="{{root}}p3/"
                 class="live">
                 <div {{ 'selected' if isPartThree }} >
                     <span class='chapter-nav-desktop'>
@@ -244,7 +251,7 @@
                     </span>
                 </div>
             </a>
-            <a target="_self" href="{{root}}conclusion"
+            <a target="_self" href="{{root}}conclusion/"
                 class="live">
                 <div style="border-right:1px solid rgba(128,128,128,0.8);">
                     <span class='chapter-nav-desktop'>

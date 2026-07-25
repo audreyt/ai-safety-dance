@@ -128,9 +128,10 @@ window.addEventListener("DOMContentLoaded", ()=>{
     };
 
     // SIDEBAR: TABLE OF CONTENTS
-    // Populate it!
+    // Populate it! Each entry also becomes a scroll-spy section (see below).
     let allHeadings = $all("h1, h2, h3, h4, h5, h6");
     let tocHTML = "";
+    let tocSections = []; // [{ anchor, link }] in document order
 
     if(allHeadings.length==0){
         $('#tab_toc').style.display = 'none';
@@ -144,6 +145,8 @@ window.addEventListener("DOMContentLoaded", ()=>{
         allHeadings.unshift(fakeH1);
 
         // For the rest, though...
+        let anchored = [];
+        let slugsUsed = {};
         tocHTML = '<ul id="toc_list">';
         allHeadings.forEach( (heading)=>{
 
@@ -161,6 +164,10 @@ window.addEventListener("DOMContentLoaded", ()=>{
                     .replace(/[^\p{L}\p{N}\-]/gu, '')        // keep letters, numbers, hyphens (Unicode-aware)
                     .replace(/-+/g, '-')                     // collapse multiple hyphens
                     .replace(/^-|-$/g, '');                  // trim hyphens from ends
+            // Two headings can reduce to the same slug once emoji and punctuation
+            // are stripped. Duplicate ids would send both links to the first one.
+            slugsUsed[headingForURI] = (slugsUsed[headingForURI] || 0) + 1;
+            if(slugsUsed[headingForURI] > 1) headingForURI += '-' + slugsUsed[headingForURI];
             // What heading hierarchy? that's the indentation! (1em for each past h2)
             let hierarchy = parseInt(heading.tagName[1]);
             if(hierarchy>2){
@@ -172,23 +179,22 @@ window.addEventListener("DOMContentLoaded", ()=>{
             tocHTML += `<a target='_self' class='black-link' href="#${headingForURI}">${headingText}</a>`;
             tocHTML += '</li>';
 
-            // Anchor in article
-            let anchor = document.createElement('a');
-            anchor.className = 'scroll-anchor';
-            anchor.id = headingForURI;
-            heading.parentNode.insertBefore(anchor, heading);
+            // The id goes on the heading itself. It used to go on an empty <a>
+            // inserted just before it — but that anchor sits at the tail of the
+            // preceding section, so Nutshell swallowed every anchor that followed
+            // a `:x` block when it collapsed them, breaking those links outright.
+            heading.id = headingForURI;
+            anchored.push(heading);
 
         });
         tocHTML += '</ul>';
 
         $('#panel_toc').innerHTML = tocHTML;
 
-        // HACK: If ToC is too large... just shrink font until it works
-        /*let tocFont = 16;
-        do{
-            $('#panel_toc').style.fontSize = tocFont+'px';
-            tocFont--;
-        }while( tocFont>1 && parseInt(window.getComputedStyle($("#panel_toc")).height)+20 > document.body.clientHeight);*/
+        // Both arrays were built by the same loop, so pair them by position.
+        let tocLinks = $all('#toc_list > li > a');
+        tocSections = anchored.map((heading, i)=>({ heading, link: tocLinks[i] }))
+                              .filter(section=>section.link);
 
     }
 
@@ -233,16 +239,27 @@ window.addEventListener("DOMContentLoaded", ()=>{
     // SCROLLY for NOT-FRONTPAGE pages /////////////////////////
     ////////////////////////////////////////////////////////////
 
-    // RAF: scroll the text & do parallax
+    // RAF: parallax the splash image, and jitter the CRT scanlines + static.
+    // Only while the header is actually on screen, and never for readers who
+    // asked their OS for less motion — this used to burn a frame forever.
     const splash_image = $("#splash_image"),
           crt_lines = $("#crt_lines"),
-          static = $("#static"),
-          nb_crt_lines = $("#nb--crt_lines")
-          nb_static = $("#nb--static");
+          static_ = $("#static"),
+          nb_crt_lines = $("#nb--crt_lines"),
+          nb_static = $("#nb--static"),
+          header = $("#header"),
+          wantsMotion = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let clicker = 0,
         crtY = 0,
-        staticY = 0;
+        staticY = 0,
+        animating = false;
     let animloop = ()=>{
+        // Nothing here is visible once the header has scrolled away, so park the
+        // loop instead of burning a frame every 16ms for the rest of the article.
+        if(window.scrollY >= header.offsetHeight){
+            animating = false;
+            return;
+        }
         splash_image.style.top = (window.scrollY*0.3)+"px";
         clicker++;
         if(clicker>3){
@@ -251,12 +268,18 @@ window.addEventListener("DOMContentLoaded", ()=>{
             staticY += 100 + Math.floor(Math.random()*100);
             crt_lines.style.backgroundPositionY = crtY+"px";
             if(nb_crt_lines) nb_crt_lines.style.backgroundPositionY = crtY+"px";
-            static.style.backgroundPositionY = staticY+"px";
+            static_.style.backgroundPositionY = staticY+"px";
             if(nb_static) nb_static.style.backgroundPositionY = staticY+"px";
         }
         requestAnimationFrame(animloop);
     };
-    requestAnimationFrame(animloop);
+    // Called again by the scroll engine when the header comes back into view.
+    let startAnimloop = ()=>{
+        if(animating || !wantsMotion) return;
+        animating = true;
+        requestAnimationFrame(animloop);
+    };
+    startAnimloop();
 
 
 
@@ -322,48 +345,137 @@ window.addEventListener("DOMContentLoaded", ()=>{
           // Lowballed on purpose: there are pictures, Orbits, Nutshells and feetnotes.
           READING_TIME_IN_MINUTES = Math.ceil(HANZI/350 + LATIN_WORDS/180);
 
-    // THE CLOCK SCROLLY
+    // THE SCROLL ENGINE
+    // One rAF-throttled handler drives everything that depends on scroll position:
+    // the clock, the progress bar, the sticky-nav shadow, the back-to-top button,
+    // and which table-of-contents entry is highlighted.
     const HEADER_CONTENT_GAP = 48,
           CONTENT_FOOTER_GAP = 67;
     const CLOCK_SPRITESHEET_WIDTH = 12;
 
-    // WHEN SCROLL, UPDATE CLOCK.
-    let updateClock = ()=>{
+    const clockIcon = $("#clock_icon"),
+          clockLabel = $("#clock_label"),
+          progressBar = $("#reading_progress_bar"),
+          chapterNav = $("#chapter_nav"),
+          toTop = $("#to_top"),
+          content = $("#content");
 
-        // Reading Timer... CALCULATE RATIO
-        let topOfContent = 0,
-            btmOfContent = topOfContent
-                           + $("#header").getBoundingClientRect().height
+    // Section offsets are measured, not read every frame; re-measure whenever the
+    // layout can have moved (fonts arriving, a Nutshell expanding, a resize).
+    let sectionTops = [];
+    let measure = ()=>{
+        // A hidden heading (the fake h1, or one Nutshell has collapsed) has no box
+        // and reports top 0. Left raw, that zero sorts before everything and pins
+        // the highlight, so carry the previous offset forward instead.
+        let previous = 0;
+        sectionTops = tocSections.map(section=>{
+            if(section.heading.offsetParent === null) return previous;
+            previous = section.heading.getBoundingClientRect().top + window.scrollY;
+            return previous;
+        });
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    window.addEventListener("load", measure);
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+
+    let currentSection = -1;
+    let onScroll = ()=>{
+
+        const scrollY = window.scrollY,
+              viewportHeight = document.body.clientHeight;
+
+        // How far through the article are we? (0 at the top, 1 at the last line)
+        let btmOfContent = header.getBoundingClientRect().height
                            + HEADER_CONTENT_GAP
-                           + $("#content").getBoundingClientRect().height
+                           + content.getBoundingClientRect().height
                            + CONTENT_FOOTER_GAP;
-
-        let scrollYWhenAtTop = topOfContent,
-            scrollYWhenAtBottom = btmOfContent - document.body.clientHeight;
-
-        let range = scrollYWhenAtBottom - scrollYWhenAtTop,
-            ratio = (window.scrollY - scrollYWhenAtTop) / range;
-
+        let range = btmOfContent - viewportHeight,
+            ratio = range > 0 ? scrollY / range : 0;
         if(ratio<0) ratio=0;
         if(ratio>1) ratio=1;
 
-        //////////////////////////////////////
+        // Clock face: 120 frames on a 12-wide spritesheet.
+        let frame = Math.floor(ratio*119),
+            y = Math.floor(frame/CLOCK_SPRITESHEET_WIDTH),
+            x = frame % CLOCK_SPRITESHEET_WIDTH;
+        clockIcon.style.backgroundPosition = `${x*-100}% ${y*-100}%`;
 
-        // Reading Timer... CLOCK ICON
-        let frame = Math.floor(ratio*119); // 120 FRAMES
-        let y = Math.floor(frame/CLOCK_SPRITESHEET_WIDTH),
-            x = frame % CLOCK_SPRITESHEET_WIDTH,
-            bgPosition = `${x*-100}% ${y*-100}%`;
-        $("#clock_icon").style.backgroundPosition = bgPosition;
-
-        //////////////////////////////////////
-
-        // Reading Timer... LABEL
         let timeLeft = Math.ceil( (1-ratio)*READING_TIME_IN_MINUTES );
-        $("#clock_label").innerHTML = (timeLeft==0) ? "🎉🎉🎉" : `~${timeLeft}m`;
+        clockLabel.innerHTML = (timeLeft==0) ? "🎉🎉🎉" : `~${timeLeft}m`;
+
+        progressBar.style.width = (ratio*100) + "%";
+        if(scrollY < header.offsetHeight) startAnimloop();
+        chapterNav.classList.toggle("stuck", scrollY > header.offsetHeight);
+        toTop.classList.toggle("on", scrollY > viewportHeight * 1.4);
+
+        // Scroll-spy: the last section whose anchor is above the reading line.
+        if(sectionTops.length){
+            let line = scrollY + viewportHeight * 0.3,
+                index = 0;
+            for(let i=0; i<sectionTops.length; i++){
+                if(sectionTops[i] <= line) index = i;
+            }
+            if(index !== currentSection){
+                if(currentSection >= 0) tocSections[currentSection].link.removeAttribute("aria-current");
+                currentSection = index;
+                const link = tocSections[index].link;
+                link.setAttribute("aria-current", "true");
+                // A 24-entry contents list scrolls; keep the highlight visible in it.
+                if(document.body.getAttribute("sidebar_state") === "open"){
+                    link.scrollIntoView({ block:"nearest", behavior: wantsMotion ? "smooth" : "auto" });
+                }
+            }
+        }
 
     };
-    window.addEventListener("scroll",updateClock);
-    updateClock();
+
+    let queued = false;
+    window.addEventListener("scroll", ()=>{
+        if(queued) return;
+        queued = true;
+        requestAnimationFrame(()=>{ queued = false; onScroll(); });
+    }, { passive:true });
+    onScroll();
+
+    toTop.onclick = ()=>{
+        window.scrollTo({ top:0, behavior: wantsMotion ? "smooth" : "auto" });
+    };
+
+    ////////////////////////////////////////////////////////////
+    // KEYBOARD ////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+
+    // Chapter order, for ← and →. Derived from the nav so it cannot drift.
+    const chapterLinks = $all("#chapter_nav_centered > a"),
+          hereIndex = chapterLinks.findIndex(link=>link.querySelector("div[selected]"));
+
+    document.addEventListener("keydown", (event)=>{
+
+        if(event.metaKey || event.ctrlKey || event.altKey) return;
+
+        // Orbit flashcards take typed answers, and the signup form takes an email.
+        const target = event.target;
+        if(target && target !== document.body){
+            if(target.isContentEditable) return;
+            if(/^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)) return;
+            if(target.closest && target.closest("orbit-prompt, orbit-reviewarea, [data-fillout-id]")) return;
+        }
+
+        switch(event.key){
+            case "t": $("#tab_toc").click(); break;
+            case "s": $("#tab_style").click(); break;
+            case "Escape": closePanel(); break;
+            case "ArrowLeft":
+                if(hereIndex>0) chapterLinks[hereIndex-1].click();
+                break;
+            case "ArrowRight":
+                if(hereIndex>=0 && hereIndex<chapterLinks.length-1) chapterLinks[hereIndex+1].click();
+                break;
+            default: return;
+        }
+        event.preventDefault();
+
+    });
 
 });

@@ -440,6 +440,17 @@ s{
 #chapter_nav{
     background: rgba(128,128,128,0.1337);
     overflow: hidden;
+
+    /* Follows you down the page, so jumping chapters never needs a scroll back. */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px) saturate(1.4);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+    transition: box-shadow 0.3s ease-in-out;
+}
+#chapter_nav.stuck{
+    box-shadow: 0 2px 14px rgba(0,0,0,0.18);
 }
 #chapter_nav #chapter_nav_centered{
     width:656px;
@@ -484,15 +495,11 @@ s{
 
     line-height: 1.8em;
 
-    /*text-align: justify; / TOTO MAYBE ??? */
-
 }
 
-.scroll-anchor{
-    /* An empty anchor that only needs to sit a line above its heading when
-       jumped to. `scroll-margin-top` does that without occupying layout —
-       the old `position:relative; top:-1em` shifted the following heading. */
-    scroll-margin-top: 1.5em;
+#content :is(h1,h2,h3,h4,h5,h6){
+    /* Jumping to a heading should not park it flush against the sticky nav. */
+    scroll-margin-top: 4.5em;
 }
 
 #content p img{
@@ -566,6 +573,142 @@ s{
 }
 
 /*******************************/
+/* READER CHROME */
+/*******************************/
+
+/* Skip link: invisible until it has focus, then the first thing you Tab to. */
+#skip_to_content{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    translate: -50% -150%;
+    z-index: 10000;
+    padding: 0.6em 1.4em;
+    background: #222;
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 0 0 0.6em 0.6em;
+    transition: translate 0.2s ease-out;
+}
+#skip_to_content:focus{
+    translate: -50% 0;
+}
+
+/* How far down you are. Sits above the sticky nav, hairline-thin. */
+#reading_progress{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 1000;
+    pointer-events: none;
+}
+#reading_progress_bar{
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #41898D, #91237A);
+    transition: width 0.12s linear;
+}
+
+#to_top{
+    position: fixed;
+    right: 14px;
+    bottom: 74px;
+    z-index: 999;
+
+    width: 34px; height: 34px;
+    padding: 0;
+    font: inherit;
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+
+    color: inherit;
+    background: rgba(232,232,232,0.92);
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+
+    opacity: 0;
+    translate: 0 8px;
+    pointer-events: none;
+    transition: opacity 0.25s ease-out, translate 0.25s ease-out, background 0.2s;
+}
+#to_top.on{
+    opacity: 1;
+    translate: 0 0;
+    pointer-events: auto;
+}
+#to_top:hover{
+    background: #fff;
+}
+html[dark_mode=yes] #to_top{
+    background: rgba(80,80,85,0.92);
+    color: #fff;
+}
+html[dark_mode=yes] #to_top:hover{
+    background: #6a6a70;
+}
+
+/* Where you are, in the table of contents. */
+ul#toc_list a[aria-current]{
+    font-weight: 700;
+    opacity: 1;
+}
+ul#toc_list a[aria-current]::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 3px;
+    height: 1.2em;
+    background: currentColor;
+    border-radius: 2px;
+}
+ul#toc_list li{
+    position: relative;
+    padding-left: 0.9em;
+}
+
+/*******************************/
+/* FOCUS & MOTION */
+/*******************************/
+
+:focus-visible{
+    outline: 3px solid #91237A;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+html[dark_mode=yes] :focus-visible{
+    outline-color: #ff8fd8;
+}
+
+::selection{
+    background: rgba(145,35,122,0.25);
+}
+html[dark_mode=yes] ::selection{
+    background: rgba(255,143,216,0.3);
+}
+
+/* Chapter-to-chapter navigation cross-fades instead of flashing white. */
+@view-transition{
+    navigation: auto;
+}
+
+@media (prefers-reduced-motion: reduce){
+    html, body{
+        scroll-behavior: auto;
+    }
+    *, *::before, *::after{
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+    @view-transition{
+        navigation: none;
+    }
+}
+
+/*******************************/
 /* READING TIME */
 /*******************************/
 
@@ -605,8 +748,9 @@ s{
 
 #everything_container{
     width:100%;
-    /*transition: width 0.3s ease-in-out;*/
-    overflow-x: hidden; /* those BIG <hr>s */
+    /* `clip`, not `hidden`: both contain the 1000%-wide <hr>s, but `hidden` turns
+       this into a scroll container and silently kills `position: sticky` inside. */
+    overflow-x: clip;
 }
 #sidebar{
     font-size: 0.8em;
@@ -907,6 +1051,12 @@ input#submit:hover{
     #sidebar_tabs{
         top: auto;
         bottom: 80px;
+    }
+    /* The sidebar tabs move down to bottom:80px here, so get out of their way. */
+    #to_top{
+        right: auto;
+        left: 14px;
+        bottom: 14px;
     }
     #reading_time > #clock_label{
         background: #fff;
