@@ -34,6 +34,46 @@ html, body{
      }
  }
 
+/* The finale was a dead end: no chapter nav, and `<base target="_blank">` on
+   every outbound link. These two are the only ways back into the book. */
+#back_to_book{
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 1000;
+    padding: 0.7em 1.1em;
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    background: linear-gradient(135deg, rgba(0,0,0,0.55), rgba(0,0,0,0));
+    transition: color 0.2s ease-out;
+}
+#back_to_book:hover{
+    color: #fff;
+}
+
+#finale_nav{
+    display: flex;
+    justify-content: center;
+    gap: 1.6em;
+    font-size: 18px;
+    padding-top: 1.4em;
+    border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+@media (prefers-reduced-motion: reduce){
+    html, body{ scroll-behavior: auto; }
+    *, *::before, *::after{
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+:focus-visible{
+    outline: 3px solid #ff8fd8;
+    outline-offset: 3px;
+}
+
 
 
 a{
@@ -67,6 +107,9 @@ b,strong{
     position:fixed;
     width:100%; height:100%;
     z-index:0;
+    /* Static base: with reduced motion the cycle is frozen, and without a colour
+       here the whole finale renders flat black. */
+    background-color: #41898D;
     animation: header-background 8s linear infinite;
 }
 @keyframes header-background {

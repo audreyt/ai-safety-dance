@@ -272,6 +272,9 @@ s{
     color:#000;
     text-align: center;
     overflow: hidden;
+    /* The cycle is an enhancement; the static colour is what a reader who asked
+       for reduced motion actually sees, so it must not be `transparent`. */
+    background-color: #41898D;
     animation: header-background 8s linear infinite;
 }
 @keyframes header-background {
@@ -392,6 +395,7 @@ s{
     text-align: center;
     height: 150px;
     line-height: 150px;
+    background-color: #41898D;
     animation: header-background 8s linear infinite;
 
     position: relative;
@@ -1085,6 +1089,12 @@ input#submit:hover{
         right: auto;
         left: 14px;
         bottom: 14px;
+    }
+    /* At ~310px a justified Chinese line that has to push an unbreakable Latin
+       token ("security mindset") to the next line stretches into a gappy mess.
+       Ragged-right reads far better in a narrow column. */
+    #content > p, #footer, .littlefoot__popover{
+        text-align: start;
     }
     #reading_time > #clock_label{
         background: #fff;
