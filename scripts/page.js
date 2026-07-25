@@ -310,9 +310,14 @@ window.addEventListener("DOMContentLoaded", ()=>{
     Nutshell.start(); // either way, lol start!
 
     // READING TIME
-    const NUMBER_OF_WORDS = ($("#content").innerText.match(/\s/g) || []).length,
-          AVERAGE_READING_SPEED = 180, // well, lowballing it. remember i usually have pictures AND Orbits! AND Nutshells/feetnotes
-          READING_TIME_IN_MINUTES = Math.ceil(NUMBER_OF_WORDS/AVERAGE_READING_SPEED);
+    // Counting whitespace works for English prose and collapses for Chinese, where
+    // the only spaces are the ones we put between 漢字 and Latin. Count the two
+    // scripts separately: ~350 漢字/min matches the same reader doing ~180 wpm.
+    const TEXT = $("#content").innerText,
+          HANZI = (TEXT.match(/[\u3400-\u9fff\uf900-\ufaff]/g) || []).length,
+          LATIN_WORDS = (TEXT.match(/[A-Za-z0-9][A-Za-z0-9'’.-]*/g) || []).length,
+          // Lowballed on purpose: there are pictures, Orbits, Nutshells and feetnotes.
+          READING_TIME_IN_MINUTES = Math.ceil(HANZI/350 + LATIN_WORDS/180);
 
     // THE CLOCK SCROLLY
     const HEADER_CONTENT_GAP = 48,
