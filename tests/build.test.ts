@@ -72,8 +72,10 @@ describe.each(PAGES.map((page) => page.exportTo))('%s', (exportTo) => {
     // counts as a word character, so `創造物_一起成長_。` can never open — there is
     // no space anywhere to flank against. Use `<i>` next to CJK, never `_`.
     const page = await html(exportTo);
-    const article = /<article id="content">([\s\S]*?)<\/article>/.exec(page)?.[1] ?? '';
-    const prose = article
+    const article = /<article id="content">([\s\S]*?)<\/article>/.exec(page)?.[1];
+    // Without this the check silently passes forever if the wrapper is renamed.
+    expect(article, 'no <article id="content"> — this check would be vacuous').toBeTruthy();
+    const prose = (article ?? '')
       .replace(/<orbit-reviewarea[\s\S]*?<\/orbit-reviewarea>/g, '')
       .replace(/<[^>]*>/g, '');
     // Identifiers (`Robot_1`) and the `¯\_(ツ)_/¯` shrug keep their underscores;
