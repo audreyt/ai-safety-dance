@@ -67,16 +67,25 @@ const LONGEST_EMPHASIS = 40;
  * Chinese actually marks emphasis.
  *
  * Slanting 漢字 is not a Chinese convention — and none of the CJK families in our
- * stack ship an italic face, so `<i>` around Chinese produced a synthetic oblique
+ * stack ships an italic face, so `<i>` around Chinese produced a synthetic oblique
  * that is both ugly and nearly invisible. Taiwan uses 著重號, dots set under the
  * emphasised characters. Latin-only runs (`<i>AlphaGo</i>`) keep a true italic,
  * which is why this has to be decided per run and cannot live in CSS: every
  * element on the page inherits `lang="zh-TW"`, so `:lang()` cannot tell them apart.
  *
+ * THE SIGNAL IS THE TAG, NOT A CLASS, AND THAT IS LOAD-BEARING. Nutshell re-renders
+ * every expandable section through DOMPurify with
+ * `FORBID_ATTR: ['style','id','class']` (scripts/nutshell-v1.0.5.js:968), so a
+ * class-based marker is stripped inside every bubble — Chinese silently reverted to
+ * fake oblique in exactly the place a reader had expanded to look more closely.
+ * `<em>` is on DOMPurify's default allow-list and survives untouched.
+ *
  * The source also uses `<i>` for a second, different job: whole-paragraph asides
- * ("hey, if you were linked straight here…"). Those get `.aside` instead — upright
- * and quietened, because 著重號 under sixty consecutive characters is not emphasis,
- * it is noise. Median run on these pages is two characters; the tail runs past 130.
+ * ("hey, if you were linked straight here…"). Those stay `<i>` and take `.aside` —
+ * upright and quietened, because 著重號 under sixty consecutive characters is not
+ * emphasis, it is noise. Median run on these pages is two characters; the tail runs
+ * past 130. If a bubble strips that class the run still renders upright, because
+ * `font-synthesis-style: none` denies the browser a fake oblique to fall back on.
  */
 export function markEmphasisScript(html: string): string {
   // Emphasis never nests here, and markdown-it escapes any `<i>` written inside an
@@ -91,7 +100,7 @@ export function markEmphasisScript(html: string): string {
       const fillsItsParagraph =
         html.startsWith('<p>', offset - 3) && html.startsWith('</p>', offset + match.length);
       const aside = fillsItsParagraph || text.length > LONGEST_EMPHASIS;
-      return `<i class="${aside ? 'hanzi aside' : 'hanzi'}">${inner}</i>`;
+      return aside ? `<i class="aside">${inner}</i>` : `<em>${inner}</em>`;
     },
   );
 }

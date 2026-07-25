@@ -76,9 +76,7 @@ describe('renderMarkdown', () => {
 
 describe('markEmphasisScript', () => {
   it('marks a 漢字 emphasis run for 著重號', () => {
-    expect(markEmphasisScript('<p>他說<i>不行</i>。</p>')).toBe(
-      '<p>他說<i class="hanzi">不行</i>。</p>',
-    );
+    expect(markEmphasisScript('<p>他說<i>不行</i>。</p>')).toBe('<p>他說<em>不行</em>。</p>');
   });
 
   it('leaves a Latin-only run as a real italic', () => {
@@ -88,27 +86,35 @@ describe('markEmphasisScript', () => {
     );
   });
 
+  it('carries the 漢字 signal on the tag, so Nutshell cannot strip it', () => {
+    // Nutshell sanitises expandable content with FORBID_ATTR ['style','id','class'],
+    // so anything class-based reverts to fake-oblique Chinese inside a bubble.
+    const html = markEmphasisScript('<p>他說<i>不行</i>。</p>');
+    expect(html).not.toContain('class=');
+    expect(html).toContain('<em>');
+  });
+
   it('marks a run that fills its whole paragraph as an aside', () => {
     // The source uses <i> for asides as well as emphasis; dotting a whole
     // sentence is not emphasis, it is noise.
     expect(markEmphasisScript('<p><i>（嘿，你可能想先看導讀）</i></p>')).toBe(
-      '<p><i class="hanzi aside">（嘿，你可能想先看導讀）</i></p>',
+      '<p><i class="aside">（嘿，你可能想先看導讀）</i></p>',
     );
   });
 
   it('marks an over-long inline run as an aside', () => {
     const long = '很'.repeat(41);
-    expect(markEmphasisScript(`<p>前<i>${long}</i>後</p>`)).toContain('class="hanzi aside"');
+    expect(markEmphasisScript(`<p>前<i>${long}</i>後</p>`)).toContain('class="aside"');
   });
 
   it('keeps a run just under the limit as emphasis', () => {
     const ok = '很'.repeat(40);
-    expect(markEmphasisScript(`<p>前<i>${ok}</i>後</p>`)).toContain('<i class="hanzi">');
+    expect(markEmphasisScript(`<p>前<i>${ok}</i>後</p>`)).toContain(`<em>${ok}</em>`);
   });
 
   it('looks through inline markup when deciding', () => {
     const html = markEmphasisScript('<p>看<i><a href="/x">導讀</a></i>吧</p>');
-    expect(html).toContain('<i class="hanzi"><a href="/x">導讀</a></i>');
+    expect(html).toContain('<em><a href="/x">導讀</a></em>');
   });
 
   it('never touches script or style bodies', () => {

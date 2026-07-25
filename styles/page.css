@@ -25,6 +25,15 @@ html{
     hanging-punctuation: allow-end;
     text-spacing-trim: trim-start;
     line-break: strict;
+
+    /* NEVER let the browser fake an italic. No CJK face in the stack has one, so
+       any `<i>` reaching Chinese text was being sheared into a synthetic oblique
+       — non-standard in Taiwan and mushy at body size. Merriweather has a real
+       italic, so Latin still slants; Chinese simply stays upright. This is the
+       backstop for every context the build cannot tag: Nutshell bubbles (whose
+       sanitiser strips classes), Littlefoot popovers, and mixed runs like
+       《AI Safety for Fleshy Humans》 where only the fullwidth brackets are CJK. */
+    font-synthesis-style: none;
 }
 
 /* Chinese headings have no spaces to break at, so the browser's greedy line
@@ -36,7 +45,10 @@ html{
 body{
     font-size: inherit;
     background:#fff;
-    color:#000;
+    /* Not pure black. 漢字 pack far more strokes into the same em than Latin, so
+       identical contrast reads as heavier and glares on a white page; easing off
+       to near-black keeps 17.4:1 while taking the hard edge off a dense column. */
+    color:#1a1a1a;
     transition: background 0.5s ease-in-out,
                 color 0.5s ease-in-out;
 }
@@ -57,6 +69,11 @@ html[dark_mode=yes] body{
     /* Slightly warmer dark — cooler than #303035 (cold blue-grey) but not brown */
     background: #1e1e24;
     color: #e8e6e1;
+    /* Light text on a dark ground optically thins, and a 漢字 built from fifteen
+       hairlines loses them first — the 300 that reads as elegant on white reads as
+       faint and frayed here. 400 is the same weight the CJK fallbacks would round
+       to anyway; this just stops Merriweather Light dragging the column with it. */
+    font-weight: 400;
 }
 html[dark_mode=yes] hr{
     border-color: rgba(255,255,255,0.2);
@@ -144,8 +161,13 @@ Littlefoot Bug: wrap around to next line, it breaks off.
 /* MISC TAG CRAP */
 /*******************************/
 
+/* 700, not 900. Merriweather ships a real Black, but the Taiwanese faces behind
+   it mostly stop at Bold, so 900 made the browser synthesise weight on 漢字 —
+   and a faked bold thickens every stroke of a glyph that already has fifteen of
+   them, until the counters close up and the character turns into a blob. 700 is
+   a genuine weight in every family in the stack. */
 b,strong{
-    font-weight:900 !important;
+    font-weight:700;
 }
 hr{
     /*border: none;
@@ -164,12 +186,19 @@ hr{
 iframe{
     border: 1px solid #ddd;
 }
+/* hsl(0,80%,60%) measured 3.80:1 on white — below the 4.5:1 floor for body text,
+   and links here sit inline inside dense 漢字 where a weak edge is hardest to
+   pick out. Darkened to 5.60:1; hover goes darker still (7.39:1) rather than the
+   old lighter hover, which had dropped to 2.80:1. */
 a{
-    color: hsla(0, 80%, 60%);
+    color: hsl(0, 72%, 46%);
     transition: color 0.1s;
+    /* Underlines otherwise cut through the lower strokes of 漢字. */
+    text-underline-offset: 0.16em;
+    text-decoration-skip-ink: auto;
 }
 a:hover{
-    color: hsla(0, 80%, 70%);
+    color: hsl(0, 74%, 38%);
 }
 a.black-link{
     color: inherit;
@@ -181,11 +210,17 @@ a.black-link:hover{
 p{
     margin: 1.8em 0;
 }
+/* Justification suits 漢字 far better than Latin: uniform-width glyphs close the
+   line without the word-gap rivers that ragged Latin justification opens up.
+   `inter-ideograph` tells the browser to distribute the slack between characters,
+   which is the behaviour CJK typesetting expects. */
 #content > p{
     text-align: justify;
+    text-justify: inter-ideograph;
 }
+/* Was opacity .45 — 3.36:1, under the floor. */
 span.light{
-    opacity:0.45;
+    color:#5f5f5f;
 }
 
 ol,ul{
@@ -217,36 +252,38 @@ blockquote > p, .nutshell-bubble blockquote > p{
 img{
     text-align: center;
 }
-/* Captions. The build rewrites `<em>` to `<i>`, so the original `img + em`
-   here had matched nothing since that rewrite was introduced. */
-img + i{
-    display: block;
-    text-align: center;
-}
+/* Emphasis on 漢字 is 著重號 — dots under the characters — not a slant. No CJK
+   family in our stack ships an italic face, so `font-style: italic` on Chinese
+   produced a synthetic oblique: ugly, non-standard in Taiwan, and almost
+   invisible at body size.
 
-/* Emphasis on 漢字 is 著重號 — dots under the characters — not a slant. None of
-   the CJK families in our stack has an italic face, so `font-style: italic`
-   was giving Chinese a synthetic oblique: ugly, non-standard in Taiwan, and
-   almost invisible at body size. `src/site/markdown.ts` tags the runs that
-   contain 漢字 at build time; Latin-only runs keep a real italic. */
-i.hanzi{
+   `src/site/markdown.ts` emits <em> for runs containing 漢字 and plain <i> for
+   Latin-only runs. The signal is the TAG because Nutshell re-renders every
+   expandable through DOMPurify with FORBID_ATTR ['style','id','class'], which
+   strips any class-based marker — Chinese reverted to fake oblique inside every
+   bubble, precisely where a reader had expanded to read more closely. */
+em{
     font-style: normal;
     -webkit-text-emphasis: filled dot;
     text-emphasis: filled dot;
     text-emphasis-position: under right;
 }
 /* A whole-paragraph aside is not emphasis. Upright and quietened; the author's
-   parentheses are already doing the work of setting it apart. */
-i.hanzi.aside{
-    -webkit-text-emphasis: none;
-    text-emphasis: none;
+   parentheses already do the work of setting it apart. Upright survives even if
+   a sanitiser drops the class, because `font-synthesis-style` denies the browser
+   a fake oblique to fall back on. */
+i.aside{
     opacity: 0.72;
 }
 /* A caption is already set apart by being centred; dots under every character
    of it would be shouting. */
-img + i.hanzi{
+img + i, img + em{
+    display: block;
+    text-align: center;
+}
+img + em{
+    -webkit-text-emphasis: none;
     text-emphasis: none;
-    font-style: normal;
 }
 
 img.mini{
@@ -522,11 +559,32 @@ s{
 
     position: relative;
 
-    width: 640px;
+    /* The measure has to follow the type size, not stay pinned to 640px. A reader
+       who pushes the size slider to 40px was getting ~16 漢字 per line — the column
+       kept its pixel width while each glyph doubled, so the line broke roughly
+       every clause and the text turned into a ragged strip. 36em holds ~36 漢字 at
+       any size, which is the middle of the comfortable 30–40 band for Chinese, and
+       at the 18px default it lands within 8px of the original width. */
+    width: min(92vw, 36rem);
     margin: 68px auto 68px auto;
 
     line-height: 1.8em;
 
+}
+
+/* Chinese offers a break opportunity at almost every character, so a line can
+   always be filled — until an unbreakable Latin token (a URL, "goal
+   misgeneralization") lands in the middle of one. Without this the token either
+   overflows the column or, under justification, blows the preceding line open. */
+#content, #footer, #post_credits{
+    overflow-wrap: break-word;
+}
+
+/* p3 marks its key terms with <u>. A default underline sits right on the baseline
+   and clips the bottom strokes of 漢字 like 言, 直 and 心. */
+#content u{
+    text-underline-offset: 0.16em;
+    text-decoration-skip-ink: auto;
 }
 
 #content :is(h1,h2,h3,h4,h5,h6){
@@ -589,7 +647,8 @@ s{
     text-decoration: underline;
 }
 .article-summary #article-metadata{
-    opacity: 0.45;
+    /* Was opacity .45 — 3.36:1, below the floor. */
+    color: #5f5f5f;
 }
 
 
@@ -970,7 +1029,7 @@ input#submit:hover{
     font-size: 18px;
 }
 #footer #footer_content{
-    width: 640px;
+    width: min(92vw, 36rem);
     margin: 0 auto;
 }
 #footer p{
@@ -978,7 +1037,7 @@ input#submit:hover{
 }
 #footer blockquote{
     margin-top: 1em;
-    color: #888;
+    color: #9a9a9a;
     font-size: 0.8em;
     text-align: left;
 }
@@ -990,7 +1049,7 @@ input#submit:hover{
     color: hsl(0, 100%, 80%);
 }
 #post_credits{
-    width: 640px;
+    width: min(92vw, 36rem);
     margin: 0 auto;
     font-size: 1em;
     line-height: 1.7em;

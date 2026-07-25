@@ -10,6 +10,10 @@ html, body{
 
     scroll-behavior: smooth;
 
+    /* No faked obliques: no CJK face here has an italic, so any <i> reaching
+       Chinese would be sheared into a synthetic slant. See styles/page.css. */
+    font-synthesis-style: none;
+
     background:#000;
     color:#fff;
 }
@@ -75,8 +79,10 @@ html, body{
 }
 
 /* Emphasis on 漢字 is 著重號, not a slant — see styles/page.css. This page is
-   hand-written rather than generated, so the class is authored in the markup. */
-i.hanzi{
+   hand-written rather than generated, so the marker is authored in the markup;
+   <em> matches what the generated pages now emit, and the legacy i.hanzi is kept
+   so existing markup here keeps working. */
+i.hanzi, em{
     font-style: normal;
     -webkit-text-emphasis: filled dot;
     text-emphasis: filled dot;
