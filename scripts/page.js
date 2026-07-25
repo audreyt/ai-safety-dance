@@ -515,10 +515,14 @@ window.addEventListener("DOMContentLoaded", ()=>{
     // SMALL JOYS //////////////////////////////////////////////
     ////////////////////////////////////////////////////////////
 
-    // Pictures rise into place the first time you reach them. The hidden state is
-    // added from here, never from CSS, so a reader without JS still sees them.
+    // Pictures and key headings rise into place the first time you reach them.
+    // The hidden state is added from here, never from CSS, so a reader without
+    // JS still sees them all.
     if(wantsMotion && "IntersectionObserver" in window){
         const pictures = $all("#content img:not(.inline-icon), #content video");
+        // h2/h3 section headings and standalone blockquotes get the same treatment;
+        // they act as visual chapter markers so the entry should feel earned.
+        const headings = $all("#content h2, #content h3, #content blockquote");
         const watcher = new IntersectionObserver((entries)=>{
             entries.forEach((entry)=>{
                 if(!entry.isIntersecting) return;
@@ -533,6 +537,14 @@ window.addEventListener("DOMContentLoaded", ()=>{
             if(picture.closest(".nutshell-bubble")) return;
             picture.classList.add("reveal");
             watcher.observe(picture);
+        });
+        headings.forEach((el)=>{
+            if(el.offsetParent === null) return;
+            if(el.closest(".nutshell-bubble")) return;
+            // Don't re-apply to headings already past the viewport on load.
+            if(el.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+            el.classList.add("reveal");
+            watcher.observe(el);
         });
     }
 
