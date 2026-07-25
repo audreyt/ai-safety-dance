@@ -49,12 +49,10 @@ export function renderMarkdown(source: string, options: RenderMarkdownOptions): 
       )
       // Orbit prompt attributes are plain text/markdown; raw HTML inside an attribute
       // value breaks Orbit's parser, so downgrade the two emphasis tags we use.
-      .replace(/<orbit-prompt[\s\S]*?>/g, (tag) =>
-        tag
-          .replace(/<i>/g, '_')
-          .replace(/<\/i>/g, '_')
-          .replace(/<b>/g, '**')
-          .replace(/<\/b>/g, '**'),
+      // The tag pattern steps over complete quoted values, because the `>` of an
+      // inner `<i>` would otherwise end the match and strip only the opening tag.
+      .replace(/<orbit-prompt(?:[^>"]|"[^"]*")*>/g, (tag) =>
+        tag.replace(/<\/?i>/g, '_').replace(/<\/?b>/g, '**'),
       )
   );
 }

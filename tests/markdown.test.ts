@@ -50,6 +50,15 @@ describe('renderMarkdown', () => {
     expect(html).not.toContain('https://example.test/');
   });
 
+  it('downgrades emphasis inside orbit-prompt attributes, opening and closing', () => {
+    const html = render(
+      '<orbit-prompt\n    question="讓電腦<i>非常快速地</i>執行"\n    answer="<b>是</b>"></orbit-prompt>',
+    );
+    expect(html).toContain('question="讓電腦_非常快速地_執行"');
+    expect(html).toContain('answer="**是**"');
+    expect(html).not.toContain('</i>');
+  });
+
   it('expands nunjucks variables embedded in the markdown', () => {
     expect(render('Root is {{ root }}.', { root: '../' })).toContain('Root is ../.');
   });
