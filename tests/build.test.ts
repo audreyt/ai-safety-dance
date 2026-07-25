@@ -1,0 +1,78 @@
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
+import { describe, expect, it } from 'vitest';
+import { PAGES, SITE_ORIGIN } from '../src/site/config.ts';
+import { REPO_ROOT, createEnv, renderPage } from '../src/site/build.ts';
+
+const env = createEnv();
+const rendered = new Map<string, string>();
+async function html(exportTo: string): Promise<string> {
+  const cached = rendered.get(exportTo);
+  if (cached) return cached;
+  const page = PAGES.find((candidate) => candidate.exportTo === exportTo);
+  if (!page) throw new Error(`no page ${exportTo}`);
+  const output = await renderPage(page, env);
+  rendered.set(exportTo, output);
+  return output;
+}
+
+describe('page manifest', () => {
+  it('declares one page per chapter with unique outputs', () => {
+    expect(PAGES.map((page) => page.kind)).toEqual(['frontpage', 'p1', 'p2', 'p3']);
+    expect(new Set(PAGES.map((page) => page.exportTo)).size).toBe(PAGES.length);
+  });
+
+  it('gives nested pages a root prefix that escapes their directory', () => {
+    for (const page of PAGES) {
+      const depth = page.exportTo.split('/').length - 1;
+      expect(page.root).toBe('../'.repeat(depth));
+    }
+  });
+});
+
+describe.each(PAGES.map((page) => page.exportTo))('%s', (exportTo) => {
+  it('is a complete zh-TW document', async () => {
+    const output = await html(exportTo);
+    expect(output.startsWith('<!DOCTYPE html>')).toBe(true);
+    expect(output).toContain('<html lang="zh-TW"');
+    expect(output.trimEnd().endsWith('</script>')).toBe(true);
+  });
+
+  it('carries absolute social-share metadata', async () => {
+    const output = await html(exportTo);
+    expect(output).toContain(`<meta property="og:image" content="${SITE_ORIGIN}/thumbs/`);
+  });
+
+  it('resolves every local asset relative to its own directory', async () => {
+    const page = PAGES.find((candidate) => candidate.exportTo === exportTo);
+    const output = await html(exportTo);
+    // A missing `{{root}}` would emit `href="styles/…"` on a nested page and 404.
+    expect(output).toContain(`href="${page?.root}styles/page.css"`);
+  });
+
+  it('marks exactly one chapter tab as selected', async () => {
+    const output = await html(exportTo);
+    expect([...output.matchAll(/<div selected/g)]).toHaveLength(1);
+  });
+});
+
+describe('frontpage', () => {
+  it('embeds the signup form pulled in from the markdown', async () => {
+    expect(await html('index.html')).toContain('data-fillout-id');
+  });
+
+  it('pins the Orbit UID to the production URL', async () => {
+    expect(await html('index.html')).toContain(`uid="${SITE_ORIGIN}/"`);
+  });
+});
+
+describe('checked-in output', () => {
+  it('matches what the generator produces right now', async () => {
+    for (const page of PAGES) {
+      const onDisk = await readFile(path.join(REPO_ROOT, page.exportTo), 'utf-8');
+      expect(onDisk, `${page.exportTo} is stale — run \`npm run build\``).toBe(
+        await html(page.exportTo),
+      );
+    }
+  });
+});

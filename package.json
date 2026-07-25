@@ -1,9 +1,28 @@
 {
+  "name": "ai-safety-dance",
+  "private": true,
   "type": "module",
+  "scripts": {
+    "prepare": "vp config",
+    "dev": "vp dev",
+    "build": "node scripts/build-site.ts",
+    "test": "vp test",
+    "check": "vp check",
+    "ci": "vp run build && vp check && vp test"
+  },
   "dependencies": {
-    "html-dom-parser": "^5.0.8",
     "markdown-it": "^14.1.0",
     "markdown-it-footnote": "^4.0.0",
     "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
+    "@types/markdown-it-footnote": "^3.0.4",
+    "@types/node": "^26.1.1",
+    "@types/nunjucks": "^3.2.6",
+    "@vitest/coverage-v8": "^4.1.10",
+    "typescript": "^6.0.3",
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.2.6",
+    "vite-plus": "0.2.4"
   }
 }
