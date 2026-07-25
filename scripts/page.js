@@ -478,4 +478,29 @@ window.addEventListener("DOMContentLoaded", ()=>{
 
     });
 
+    ////////////////////////////////////////////////////////////
+    // SMALL JOYS //////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+
+    // Pictures rise into place the first time you reach them. The hidden state is
+    // added from here, never from CSS, so a reader without JS still sees them.
+    if(wantsMotion && "IntersectionObserver" in window){
+        const pictures = $all("#content img:not(.inline-icon), #content video");
+        const watcher = new IntersectionObserver((entries)=>{
+            entries.forEach((entry)=>{
+                if(!entry.isIntersecting) return;
+                entry.target.classList.add("revealed");
+                watcher.unobserve(entry.target);
+            });
+        }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
+        pictures.forEach((picture)=>{
+            // Anything Nutshell has already collapsed never intersects, so it would
+            // sit at opacity 0 until the reader happened to scroll past it again.
+            if(picture.offsetParent === null) return;
+            if(picture.closest(".nutshell-bubble")) return;
+            picture.classList.add("reveal");
+            watcher.observe(picture);
+        });
+    }
+
 });

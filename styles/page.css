@@ -689,6 +689,34 @@ html[dark_mode=yes] ::selection{
     background: rgba(255,143,216,0.3);
 }
 
+/* Pictures rise into place the first time you scroll to them. `page.js` adds
+   `.reveal`, so a reader with JS disabled never meets the hidden state. */
+#content .reveal{
+    opacity: 0;
+    translate: 0 14px;
+    transition: opacity 0.55s ease-out, translate 0.55s ease-out;
+}
+#content .reveal.revealed{
+    opacity: 1;
+    translate: 0 0;
+}
+
+/* Expandables should look openable, not like an ordinary link that leaves. */
+#content a.nutshell-expandable{
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+    transition: background 0.15s ease-out;
+    border-radius: 3px;
+    padding: 0 0.1em;
+}
+#content a.nutshell-expandable:hover{
+    background: rgba(145,35,122,0.1);
+}
+html[dark_mode=yes] #content a.nutshell-expandable:hover{
+    background: rgba(255,143,216,0.15);
+}
+
 /* Chapter-to-chapter navigation cross-fades instead of flashing white. */
 @view-transition{
     navigation: auto;
