@@ -216,9 +216,36 @@ blockquote > p, .nutshell-bubble blockquote > p{
 img{
     text-align: center;
 }
-img + em{
+/* Captions. The build rewrites `<em>` to `<i>`, so the original `img + em`
+   here had matched nothing since that rewrite was introduced. */
+img + i{
     display: block;
     text-align: center;
+}
+
+/* Emphasis on 漢字 is 著重號 — dots under the characters — not a slant. None of
+   the CJK families in our stack has an italic face, so `font-style: italic`
+   was giving Chinese a synthetic oblique: ugly, non-standard in Taiwan, and
+   almost invisible at body size. `src/site/markdown.ts` tags the runs that
+   contain 漢字 at build time; Latin-only runs keep a real italic. */
+i.hanzi{
+    font-style: normal;
+    -webkit-text-emphasis: filled dot;
+    text-emphasis: filled dot;
+    text-emphasis-position: under right;
+}
+/* A whole-paragraph aside is not emphasis. Upright and quietened; the author's
+   parentheses are already doing the work of setting it apart. */
+i.hanzi.aside{
+    -webkit-text-emphasis: none;
+    text-emphasis: none;
+    opacity: 0.72;
+}
+/* A caption is already set apart by being centred; dots under every character
+   of it would be shouting. */
+img + i.hanzi{
+    text-emphasis: none;
+    font-style: normal;
 }
 
 img.mini{

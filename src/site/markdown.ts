@@ -52,7 +52,46 @@ export function renderMarkdown(source: string, options: RenderMarkdownOptions): 
       // The tag pattern steps over complete quoted values, because the `>` of an
       // inner `<i>` would otherwise end the match and strip only the opening tag.
       .replace(/<orbit-prompt(?:[^>"]|"[^"]*")*>/g, (tag) =>
-        tag.replace(/<\/?i>/g, '_').replace(/<\/?b>/g, '**'),
+        // `\b[^>]*` rather than a bare `<i>`, so the tag still matches once
+        // `markEmphasisScript` has put a class on it.
+        tag.replace(/<\/?i\b[^>]*>/g, '_').replace(/<\/?b\b[^>]*>/g, '**'),
       )
+  );
+}
+
+/** A run this long is a whole clause; dotting every character of it is shouting. */
+const LONGEST_EMPHASIS = 40;
+
+/**
+ * Marks emphasis runs that contain 漢字, so the stylesheet can set them the way
+ * Chinese actually marks emphasis.
+ *
+ * Slanting 漢字 is not a Chinese convention — and none of the CJK families in our
+ * stack ship an italic face, so `<i>` around Chinese produced a synthetic oblique
+ * that is both ugly and nearly invisible. Taiwan uses 著重號, dots set under the
+ * emphasised characters. Latin-only runs (`<i>AlphaGo</i>`) keep a true italic,
+ * which is why this has to be decided per run and cannot live in CSS: every
+ * element on the page inherits `lang="zh-TW"`, so `:lang()` cannot tell them apart.
+ *
+ * The source also uses `<i>` for a second, different job: whole-paragraph asides
+ * ("hey, if you were linked straight here…"). Those get `.aside` instead — upright
+ * and quietened, because 著重號 under sixty consecutive characters is not emphasis,
+ * it is noise. Median run on these pages is two characters; the tail runs past 130.
+ */
+export function markEmphasisScript(html: string): string {
+  // Emphasis never nests here, and markdown-it escapes any `<i>` written inside an
+  // attribute value, so a flat scan is safe. Script and style blocks are skipped.
+  const RUN = /<(script|style)\b[\s\S]*?<\/\1>|<i>((?:(?!<\/?i>)[\s\S])*)<\/i>/g;
+  return html.replace(
+    RUN,
+    (match, blockTag: string | undefined, inner: string | undefined, offset: number) => {
+      if (blockTag !== undefined || inner === undefined) return match;
+      const text = inner.replace(/<[^>]*>/g, '');
+      if (!/[\u3400-\u9fff\uf900-\ufaff]/.test(text)) return match;
+      const fillsItsParagraph =
+        html.startsWith('<p>', offset - 3) && html.startsWith('</p>', offset + match.length);
+      const aside = fillsItsParagraph || text.length > LONGEST_EMPHASIS;
+      return `<i class="${aside ? 'hanzi aside' : 'hanzi'}">${inner}</i>`;
+    },
   );
 }

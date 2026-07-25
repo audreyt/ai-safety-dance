@@ -10,7 +10,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import nunjucks from 'nunjucks';
 import { PAGES, SITE_HOST, SITE_ORIGIN, type PageConfig } from './config.ts';
-import { orbitUidFor, renderMarkdown } from './markdown.ts';
+import { markEmphasisScript, orbitUidFor, renderMarkdown } from './markdown.ts';
 
 export const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -47,7 +47,9 @@ export async function renderPage(
     env,
     orbitUid: orbitUidFor(SITE_ORIGIN, page.exportTo),
   });
-  return env.render(page.template, data);
+  // Runs over the whole page, not just the article, so the sidebar, footer and
+  // post-credits teasers get the same 著重號 treatment as the chapter prose.
+  return markEmphasisScript(env.render(page.template, data));
 }
 
 export async function buildSite(rootDir: string = REPO_ROOT): Promise<string[]> {

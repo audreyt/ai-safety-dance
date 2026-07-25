@@ -74,6 +74,15 @@ html, body{
     outline-offset: 3px;
 }
 
+/* Emphasis on 漢字 is 著重號, not a slant — see styles/page.css. This page is
+   hand-written rather than generated, so the class is authored in the markup. */
+i.hanzi{
+    font-style: normal;
+    -webkit-text-emphasis: filled dot;
+    text-emphasis: filled dot;
+    text-emphasis-position: under right;
+}
+
 
 
 a{

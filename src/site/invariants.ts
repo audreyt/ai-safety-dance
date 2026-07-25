@@ -28,6 +28,8 @@ export interface ChapterInvariants {
   /** Counts of the custom elements Orbit needs. */
   orbitReviewAreas: number;
   orbitPrompts: number;
+  /** Per inline tag name, how many opens are left unclosed (0 means balanced). */
+  unbalancedInlineTags: Record<string, number>;
 }
 
 const FOOTNOTE_DEFINITION = /^\[\^([^\]]+)\]:/gm;
@@ -37,10 +39,23 @@ const HEADING = /^#{1,6}\s+(.*)$/gm;
 const HTML_ID = /\bid="([^"]+)"/g;
 const IMAGE = /!\[[^\]]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g;
 const NUNJUCKS_TAG = /\{[{%][\s\S]*?[%}]\}/g;
+/**
+ * Inline tags authors hand-write in the markdown. An unclosed one does not fail the
+ * build — the browser silently reparents the rest of the article inside it, which is
+ * how `<i>(來自 …)*` in the intro ended up italicising everything after it.
+ */
+const INLINE_TAGS = ['i', 'b', 's', 'u', 'span', 'sup', 'sub'];
 
 export function extractInvariants(markdown: string): ChapterInvariants {
   const all = (pattern: RegExp): string[] => [...markdown.matchAll(pattern)].map((m) => m[1] ?? '');
   const allHeadings = all(HEADING).map((heading) => heading.trim());
+
+  const unbalancedInlineTags: Record<string, number> = {};
+  for (const tag of INLINE_TAGS) {
+    const opens = markdown.match(new RegExp(`<${tag}\\b[^>]*>`, 'g'))?.length ?? 0;
+    const closes = markdown.match(new RegExp(`</${tag}>`, 'g'))?.length ?? 0;
+    if (opens !== closes) unbalancedInlineTags[tag] = opens - closes;
+  }
 
   return {
     footnoteDefinitions: all(FOOTNOTE_DEFINITION),
@@ -53,6 +68,7 @@ export function extractInvariants(markdown: string): ChapterInvariants {
     nunjucksTags: [...markdown.matchAll(NUNJUCKS_TAG)].map((match) => match[0]),
     orbitReviewAreas: [...markdown.matchAll(/<orbit-reviewarea\b/g)].length,
     orbitPrompts: [...markdown.matchAll(/<orbit-prompt\b/g)].length,
+    unbalancedInlineTags,
   };
 }
 

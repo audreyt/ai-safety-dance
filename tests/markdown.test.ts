@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { orbitUidFor, renderMarkdown } from '../src/site/markdown.ts';
+import { markEmphasisScript, orbitUidFor, renderMarkdown } from '../src/site/markdown.ts';
 import { createEnv } from '../src/site/build.ts';
 
 const env = createEnv();
@@ -71,5 +71,48 @@ describe('renderMarkdown', () => {
     const html = render('Claim.[^a]\n\n[^a]: Because.\n');
     expect(html).toContain('footnote-ref');
     expect(html).toContain('Because.');
+  });
+});
+
+describe('markEmphasisScript', () => {
+  it('marks a 漢字 emphasis run for 著重號', () => {
+    expect(markEmphasisScript('<p>他說<i>不行</i>。</p>')).toBe(
+      '<p>他說<i class="hanzi">不行</i>。</p>',
+    );
+  });
+
+  it('leaves a Latin-only run as a real italic', () => {
+    // Merriweather has a genuine italic face; Latin should use it.
+    expect(markEmphasisScript('<p>用 <i>AlphaGo</i> 舉例</p>')).toBe(
+      '<p>用 <i>AlphaGo</i> 舉例</p>',
+    );
+  });
+
+  it('marks a run that fills its whole paragraph as an aside', () => {
+    // The source uses <i> for asides as well as emphasis; dotting a whole
+    // sentence is not emphasis, it is noise.
+    expect(markEmphasisScript('<p><i>（嘿，你可能想先看導讀）</i></p>')).toBe(
+      '<p><i class="hanzi aside">（嘿，你可能想先看導讀）</i></p>',
+    );
+  });
+
+  it('marks an over-long inline run as an aside', () => {
+    const long = '很'.repeat(41);
+    expect(markEmphasisScript(`<p>前<i>${long}</i>後</p>`)).toContain('class="hanzi aside"');
+  });
+
+  it('keeps a run just under the limit as emphasis', () => {
+    const ok = '很'.repeat(40);
+    expect(markEmphasisScript(`<p>前<i>${ok}</i>後</p>`)).toContain('<i class="hanzi">');
+  });
+
+  it('looks through inline markup when deciding', () => {
+    const html = markEmphasisScript('<p>看<i><a href="/x">導讀</a></i>吧</p>');
+    expect(html).toContain('<i class="hanzi"><a href="/x">導讀</a></i>');
+  });
+
+  it('never touches script or style bodies', () => {
+    const script = '<script>if (a<i && i<b) go("字");</script>';
+    expect(markEmphasisScript(script)).toBe(script);
   });
 });

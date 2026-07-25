@@ -50,4 +50,10 @@ describe.each(chapters)('$name', ({ dir, source }) => {
   it('pairs every orbit-reviewarea with at least one prompt', () => {
     expect(invariants.orbitPrompts).toBeGreaterThanOrEqual(invariants.orbitReviewAreas);
   });
+
+  it('closes every inline tag it opens', () => {
+    // An unclosed `<i>` does not fail the build; the browser just reparents the
+    // rest of the article inside it. `<i>(來自 …)*` in the intro did exactly that.
+    expect(invariants.unbalancedInlineTags).toEqual({});
+  });
 });
