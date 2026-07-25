@@ -3,10 +3,10 @@
  *
  * `build.js` used to hard-code the production origin in two places (Orbit UIDs and
  * social-share images) and a third in the page template (analytics). All three now
- * derive from `SITE_ORIGIN`.
+ * derive from `SITE_ORIGIN`, which must stay in sync with `CNAME`.
  */
 
-export const SITE_ORIGIN = 'https://aisafety.dance';
+export const SITE_ORIGIN = 'https://ai.audreyt.org';
 
 /** Bare host, for analytics and canonical URLs. */
 export const SITE_HOST = SITE_ORIGIN.replace(/^https?:\/\//, '');
@@ -48,8 +48,8 @@ export const PAGES: readonly PageConfig[] = [
     template: 'templates/page_template.html',
     exportTo: 'p1/index.html',
     kind: 'p1',
-    title: '第一部分：過去、現在與可能的未來',
-    shareDesc: `第一部分 — ${SITE_TITLE}`,
+    title: '第一章：過去、現在，與可能的未來',
+    shareDesc: `第一章 — ${SITE_TITLE}`,
     shareImage: 'thumbs/thumb-p1.png',
     root: '../',
   },
@@ -58,8 +58,8 @@ export const PAGES: readonly PageConfig[] = [
     template: 'templates/page_template.html',
     exportTo: 'p2/index.html',
     kind: 'p2',
-    title: '第二部分：問題',
-    shareDesc: `第二部分 — ${SITE_TITLE}`,
+    title: '第二章：問題',
+    shareDesc: `第二章 — ${SITE_TITLE}`,
     shareImage: 'thumbs/thumb-p2.png',
     root: '../',
   },
@@ -68,8 +68,8 @@ export const PAGES: readonly PageConfig[] = [
     template: 'templates/page_template.html',
     exportTo: 'p3/index.html',
     kind: 'p3',
-    title: '第三部分：解決方案',
-    shareDesc: `第三部分 — ${SITE_TITLE}`,
+    title: '第三章：可能的解方',
+    shareDesc: `第三章 — ${SITE_TITLE}`,
     shareImage: 'thumbs/thumb-p3.png',
     root: '../',
   },
