@@ -1,30 +1,52 @@
-## How to contribute
+# 一起來改
 
-Found inaccuracies? Make an Issue! Then (time & spoons permitting) I'll figure out what if anything to do about it, and how to re-write.
+## 發現問題
 
-Found a typo / weird phrasing / dead or incorrect links? Also make an Issue! But if you want to be more direct, you can also make a Pull Request.
+翻譯讀起來卡卡的、用詞怪怪的、連結壞掉、或是內容有錯？開一個 Issue 就好。
+想直接動手，也歡迎送 Pull Request。
 
-Also, the Moore/more mix-ups in Part One aren't typos, they're... [checks notes]... "jokes".
+譯稿的判準寫在 **[TRANSLATING.md](TRANSLATING.md)**：語感、翻譯腔清單、
+臺灣用語詞彙表，以及五類「看起來像內文、其實是機制」的標記。動手之前請先讀。
 
-## How to translate
+（第一章那些「摩爾／更多」的雙關不是錯字，是原作的⋯⋯呃⋯⋯「笑點」。）
 
-Oh god there is *no* easy way to translate this 20,000-word thing. I am so sorry.
+## 內容錯誤
 
-First, FORK AND MAKE YOUR OWN REPO for any translations. There is no way in heck any of that will fit easily in here. Here's what to translate:
+如果是**原作**的內容有誤，請到
+[hackclub/ai-safety-dance](https://github.com/hackclub/ai-safety-dance) 開 Issue。
+這個 repo 只負責中文版。
 
-* The words: Translate the Markdowns
-* The webpages: Translate the relevant words in `templates/page_template.html` and in `build.js`
-* The images: Use your image editor of choice to edit the words in the images in `media`. Peruse Google Fonts for a good replacement font.
+## 建置
 
-## The janky-as-heck "build process"
+```bash
+npm install
+npm run dev     # 開發伺服器，改 .md / templates/ 就自動重建並重新整理
+npm run build   # 就地產生 index.html 與各章的 index.html
+npm test        # 產生器與內容不變式
+npm run check   # 格式、lint、型別
+```
 
-Make edits to the Markdowns:
+`npm run build` 直接寫進 repo 根目錄，因為 GitHub Pages 就是從那裡出貨。
+產生的 HTML 請跟原始檔一起 commit——`npm test` 裡有一項會比對兩者，忘記重建就會紅。
 
-* Introduction is at `index.md`
-* Part One is at `p1/p1.md`
+改完一章請跑：
 
-To build them into a static site, run the `build.js` Node script
+```bash
+node scripts/check-chapter.ts p2/p2.md
+```
 
-(There's also another build script in `anki/all-orbits-to-anki.js` that converts all the Orbit flashcards in the above markdowns into .txt files that you can then import into Anki. You, dear contributor, probably won't personally need this.)
+它會確認註腳標籤與順序、頁內錨點、Nutshell 標題、圖片路徑、Nunjucks 標記、
+Orbit 卡片數、標題層級、段落數都沒變，也會抓出任何字數掉到原本 0.6 倍以下
+或漲到 1.6 倍以上的段落——也就是「不小心把一段摘要掉了」。
 
-## Anyway good luck have fun
+## 圖片
+
+圖裡的英文字要另外處理：用你順手的影像編輯器改 `media/` 底下的圖，
+中文字型可以去 Google Fonts 找。
+
+## 閃卡
+
+`anki/all-orbits-to-anki.sh` 會把各章的 Orbit 閃卡轉成可以匯入 Anki 的 .txt。
+一般改稿用不到。
+
+## 總之，玩得開心

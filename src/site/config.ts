@@ -39,7 +39,7 @@ export const PAGES: readonly PageConfig[] = [
     exportTo: 'index.html',
     kind: 'frontpage',
     title: SITE_TITLE,
-    shareDesc: '一站式了解 AI 和 AI 安全的所有核心思想！',
+    shareDesc: '一次搞懂 AI 與 AI 安全的所有核心概念。',
     shareImage: 'thumbs/thumb.png',
     root: '',
   },
